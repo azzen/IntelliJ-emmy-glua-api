@@ -41,7 +41,7 @@ function PhysObj:ApplyForceOffset(force, position) end
 
 --- (client/server) Applies specified angular impulse to the physics object. See [PhysObj:CalculateForceOffset](https://wiki.facepunch.com/gmod/PhysObj:CalculateForceOffset) 
 --- [https://wiki.facepunch.com/gmod/PhysObj:ApplyTorqueCenter]
---- @param torque Vector @ The angular impulse to be applied in `kg * degrees / s` (verification needed).
+--- @param torque Vector @ The angular impulse to be applied in `kg  degrees / s` (verification needed).
 --- @return void
 function PhysObj:ApplyTorqueCenter(torque) end
 
@@ -89,7 +89,8 @@ function PhysObj:EnableDrag(enable) end
 --- @return void
 function PhysObj:EnableGravity(enable) end
 
---- (client/server) Sets whether the physobject should be able to move or not.This is the exact method the Physics Gun uses to freeze props. If a motion-disabled physics object is grabbed with the physics gun, the object will be able to move again. To disallow this, use [GM:PhysgunPickup](https://wiki.facepunch.com/gmod/GM:PhysgunPickup). 
+--- (client/server) Sets whether the physobject should be able to move or not.
+--- This is the exact method the Physics Gun uses to freeze props. If a motion-disabled physics object is grabbed with the physics gun, the object will be able to move again. To disallow this, use [GM:PhysgunPickup](https://wiki.facepunch.com/gmod/GM:PhysgunPickup). 
 --- [https://wiki.facepunch.com/gmod/PhysObj:EnableMotion]
 --- @param enable boolean @ True to enable, false to disable.
 --- @return void
@@ -242,7 +243,8 @@ function PhysObj:GetVolume() end
 --- @return boolean
 function PhysObj:HasGameFlag(flags) end
 
---- (client/server) Returns whether the physics object is "sleeping".See [PhysObj:Sleep](https://wiki.facepunch.com/gmod/PhysObj:Sleep) for more information. 
+--- (client/server) Returns whether the physics object is "sleeping".
+--- See [PhysObj:Sleep](https://wiki.facepunch.com/gmod/PhysObj:Sleep) for more information. 
 --- [https://wiki.facepunch.com/gmod/PhysObj:IsAsleep]
 --- @return boolean
 function PhysObj:IsAsleep() end
@@ -272,7 +274,8 @@ function PhysObj:IsMotionEnabled() end
 --- @return boolean
 function PhysObj:IsMoveable() end
 
---- (client/server) Returns whenever the physics object is penetrating another physics object.This is internally implemented as `PhysObj:HasGameFlag( FVPHYSICS_PENETRATING )` and thus is only updated for non-static physics objects. 
+--- (client/server) Returns whenever the physics object is penetrating another physics object.
+--- This is internally implemented as `PhysObj:HasGameFlag( FVPHYSICS_PENETRATING )` and thus is only updated for non-static physics objects. 
 --- [https://wiki.facepunch.com/gmod/PhysObj:IsPenetrating]
 --- @return boolean
 function PhysObj:IsPenetrating() end
@@ -356,13 +359,13 @@ function PhysObj:SetDamping(linearDamping, angularDamping) end
 
 --- (client/server) Modifies how much drag (air resistance) affects the object. 
 --- [https://wiki.facepunch.com/gmod/PhysObj:SetDragCoefficient]
---- @param drag number @ The drag coefficientIt can be positive or negative.
+--- @param drag number @ The drag coefficient It can be positive or negative.
 --- @return void
 function PhysObj:SetDragCoefficient(drag) end
 
 --- (client/server) Sets the directional inertia. 
 --- [https://wiki.facepunch.com/gmod/PhysObj:SetInertia]
---- @param directionalInertia Vector @ The directional inertia of the object.A value of Vector(0,0,0) makes the physobject go invalid.
+--- @param directionalInertia Vector @ The directional inertia of the object. A value of Vector(0,0,0) makes the physobject go invalid.
 --- @return void
 function PhysObj:SetInertia(directionalInertia) end
 
@@ -397,20 +400,23 @@ function PhysObj:SetVelocity(velocity) end
 --- @return void
 function PhysObj:SetVelocityInstantaneous(velocity) end
 
---- (client/server) Makes the physics object "sleep".The physics object will no longer be moving unless it is "woken up" by either a collision with another moving object, or by [PhysObj:Wake](https://wiki.facepunch.com/gmod/PhysObj:Wake). This is an optimization feature of the physics engine. 
+--- (client/server) Makes the physics object "sleep".
+--- The physics object will no longer be moving unless it is "woken up" by either a collision with another moving object, or by [PhysObj:Wake](https://wiki.facepunch.com/gmod/PhysObj:Wake). This is an optimization feature of the physics engine. 
 --- [https://wiki.facepunch.com/gmod/PhysObj:Sleep]
 --- @return void
 function PhysObj:Sleep() end
 
---- (client/server) Unlike [PhysObj:SetPos](https://wiki.facepunch.com/gmod/PhysObj:SetPos) and [PhysObj:SetAngles](https://wiki.facepunch.com/gmod/PhysObj:SetAngles), this allows the movement of a physobj while leaving physics interactions intact.This is used internally by the motion controller of the Gravity Gun , the +use pickup and the Physics Gun, and entities such as the crane. 
+--- (client/server) Unlike [PhysObj:SetPos](https://wiki.facepunch.com/gmod/PhysObj:SetPos) and [PhysObj:SetAngles](https://wiki.facepunch.com/gmod/PhysObj:SetAngles), this allows the movement of a physobj while leaving physics interactions intact.
+--- This is used internally by the motion controller of the Gravity Gun , the +use pickup and the Physics Gun, and entities such as the crane. 
 --- [https://wiki.facepunch.com/gmod/PhysObj:UpdateShadow]
 --- @param targetPosition Vector @ The position we should move to.
 --- @param targetAngles Angle @ The angle we should rotate towards.
---- @param frameTime number @ The frame time to use for this movement, can be generally filled with [FrameTime](https://wiki.facepunch.com/gmod/Global.FrameTime) or [ENTITY:PhysicsSimulate](https://wiki.facepunch.com/gmod/ENTITY:PhysicsSimulate) with the deltaTime. Can be set to 0 when you need to update the physics object just once.
+--- @param frameTime number @ The frame time to use for this movement, can be generally filled with [FrameTime](https://wiki.facepunch.com/gmod/Global.FrameTime) or [ENTITY:PhysicsSimulate](https://wiki.facepunch.com/gmod/ENTITY:PhysicsSimulate) with the deltaTime.  Can be set to 0 when you need to update the physics object just once.
 --- @return void
 function PhysObj:UpdateShadow(targetPosition, targetAngles, frameTime) end
 
---- (client/server) Wakes the physics object.See [PhysObj:Sleep](https://wiki.facepunch.com/gmod/PhysObj:Sleep) for more information. 
+--- (client/server) Wakes the physics object.
+--- See [PhysObj:Sleep](https://wiki.facepunch.com/gmod/PhysObj:Sleep) for more information. 
 --- [https://wiki.facepunch.com/gmod/PhysObj:Wake]
 --- @return void
 function PhysObj:Wake() end

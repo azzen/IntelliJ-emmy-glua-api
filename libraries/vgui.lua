@@ -52,7 +52,8 @@ function vgui.GetHoveredPanel() end
 --- @return Panel
 function vgui.GetKeyboardFocus() end
 
---- (client/menu) Returns the global world panel which is the parent to all others, except for the HUD panel.See also [GetHUDPanel](https://wiki.facepunch.com/gmod/Global.GetHUDPanel). 
+--- (client/menu) Returns the global world panel which is the parent to all others, except for the HUD panel.
+--- See also [GetHUDPanel](https://wiki.facepunch.com/gmod/Global.GetHUDPanel). 
 --- [https://wiki.facepunch.com/gmod/vgui.GetWorldPanel]
 --- @return Panel
 function vgui.GetWorldPanel() end

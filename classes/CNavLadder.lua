@@ -1,7 +1,8 @@
 --- @class CNavLadder
 CNavLadder = {}
 
---- (server) Connects this ladder to a [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) with a one way connection. ( From this ladder to the target area ).See [CNavArea:ConnectTo](https://wiki.facepunch.com/gmod/CNavArea:ConnectTo) for making the connection from area to ladder. 
+--- (server) Connects this ladder to a [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) with a one way connection. ( From this ladder to the target area ).
+--- See [CNavArea:ConnectTo](https://wiki.facepunch.com/gmod/CNavArea:ConnectTo) for making the connection from area to ladder. 
 --- [https://wiki.facepunch.com/gmod/CNavLadder:ConnectTo]
 --- @param area CNavArea @ The area this ladder leads to.
 --- @return void

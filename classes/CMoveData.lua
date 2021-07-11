@@ -130,7 +130,10 @@ function CMoveData:KeyPressed(key) end
 --- @return boolean
 function CMoveData:KeyReleased(key) end
 
---- (client/server) Returns whether the key was down or not.Unlike [CMoveData:KeyDown](https://wiki.facepunch.com/gmod/CMoveData:KeyDown), it will return false if [CMoveData:KeyPressed](https://wiki.facepunch.com/gmod/CMoveData:KeyPressed) is true and it will return true if [CMoveData:KeyReleased](https://wiki.facepunch.com/gmod/CMoveData:KeyReleased) is true. 
+--- (client/server) Returns whether the key was down or not.
+--- 
+--- 
+--- Unlike [CMoveData:KeyDown](https://wiki.facepunch.com/gmod/CMoveData:KeyDown), it will return false if [CMoveData:KeyPressed](https://wiki.facepunch.com/gmod/CMoveData:KeyPressed) is true and it will return true if [CMoveData:KeyReleased](https://wiki.facepunch.com/gmod/CMoveData:KeyReleased) is true. 
 --- [https://wiki.facepunch.com/gmod/CMoveData:KeyWasDown]
 --- @param key number @ The key to test, see [IN](https://wiki.facepunch.com/gmod/Enums/IN)
 --- @return boolean
@@ -160,7 +163,11 @@ function CMoveData:SetButtons(buttons) end
 --- @return void
 function CMoveData:SetConstraintCenter(pos) end
 
---- (client/server) Sets the radius that constrains the players movement.Works with conjunction of:* [CMoveData:SetConstraintWidth](https://wiki.facepunch.com/gmod/CMoveData:SetConstraintWidth)* [CMoveData:SetConstraintSpeedScale](https://wiki.facepunch.com/gmod/CMoveData:SetConstraintSpeedScale)* [CMoveData:SetConstraintCenter](https://wiki.facepunch.com/gmod/CMoveData:SetConstraintCenter) 
+--- (client/server) Sets the radius that constrains the players movement.
+--- Works with conjunction of:
+--- * [CMoveData:SetConstraintWidth](https://wiki.facepunch.com/gmod/CMoveData:SetConstraintWidth)
+--- * [CMoveData:SetConstraintSpeedScale](https://wiki.facepunch.com/gmod/CMoveData:SetConstraintSpeedScale)
+--- * [CMoveData:SetConstraintCenter](https://wiki.facepunch.com/gmod/CMoveData:SetConstraintCenter) 
 --- [https://wiki.facepunch.com/gmod/CMoveData:SetConstraintRadius]
 --- @param radius number @ The new constraint radius
 --- @return void
@@ -208,13 +215,17 @@ function CMoveData:SetForwardSpeed(speed) end
 --- @return void
 function CMoveData:SetImpulseCommand(impulse) end
 
---- (client/server) Sets the maximum player speed. Player won't be able to run or sprint faster then this value.This also automatically sets [CMoveData:SetMaxSpeed](https://wiki.facepunch.com/gmod/CMoveData:SetMaxSpeed) when used in the [GM:SetupMove](https://wiki.facepunch.com/gmod/GM:SetupMove) hook. You must set it manually in the [GM:Move](https://wiki.facepunch.com/gmod/GM:Move) hook.This must be called on both client and server to avoid prediction errors.This will **not** reduce speed in air. 
+--- (client/server) Sets the maximum player speed. Player won't be able to run or sprint faster then this value.
+--- This also automatically sets [CMoveData:SetMaxSpeed](https://wiki.facepunch.com/gmod/CMoveData:SetMaxSpeed) when used in the [GM:SetupMove](https://wiki.facepunch.com/gmod/GM:SetupMove) hook. You must set it manually in the [GM:Move](https://wiki.facepunch.com/gmod/GM:Move) hook.
+--- This must be called on both client and server to avoid prediction errors.
+--- This will **not** reduce speed in air. 
 --- [https://wiki.facepunch.com/gmod/CMoveData:SetMaxClientSpeed]
 --- @param maxSpeed number @ The new maximum speed
 --- @return void
 function CMoveData:SetMaxClientSpeed(maxSpeed) end
 
---- (client/server) Sets the maximum speed of the player. This must match with [CMoveData:SetMaxClientSpeed](https://wiki.facepunch.com/gmod/CMoveData:SetMaxClientSpeed) both, on server and client.Doesn't seem to be doing anything on it's own, use [CMoveData:SetMaxClientSpeed](https://wiki.facepunch.com/gmod/CMoveData:SetMaxClientSpeed) instead. 
+--- (client/server) Sets the maximum speed of the player. This must match with [CMoveData:SetMaxClientSpeed](https://wiki.facepunch.com/gmod/CMoveData:SetMaxClientSpeed) both, on server and client.
+--- Doesn't seem to be doing anything on it's own, use [CMoveData:SetMaxClientSpeed](https://wiki.facepunch.com/gmod/CMoveData:SetMaxClientSpeed) instead. 
 --- [https://wiki.facepunch.com/gmod/CMoveData:SetMaxSpeed]
 --- @param maxSpeed number @ The new maximum speed
 --- @return void

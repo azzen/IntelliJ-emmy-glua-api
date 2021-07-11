@@ -21,7 +21,8 @@ function constraint.AddConstraintTable(ent1, constrt, ent2, ent3, ent4) end
 --- @return void
 function constraint.AddConstraintTableNoDelete(ent1, constrt, ent2, ent3, ent4) end
 
---- (server) Creates an advanced ballsocket (ragdoll) constraint.Uses a https://developer.valvesoftware.com/wiki/Phys_ragdollconstraint 
+--- (server) Creates an advanced ballsocket (ragdoll) constraint.
+--- Uses a https://developer.valvesoftware.com/wiki/Phys_ragdollconstraint 
 --- [https://wiki.facepunch.com/gmod/constraint.AdvBallsocket]
 --- @param Ent1 Entity @ First entity.
 --- @param Ent2 Entity @ Second entity.
@@ -68,7 +69,7 @@ function constraint.Axis(Ent1, Ent2, Bone1, Bone2, LPos1, LPos2, forcelimit, tor
 --- @param Ent2 Entity @ Second entity
 --- @param Bone1 number @ Bone of first entity (0 for non-ragdolls)
 --- @param Bone2 number @ Bone of second entity (0 for non-ragdolls)
---- @param LocalPos Vector @ Centerposition of the joint, relative to the **second** entity.
+--- @param LocalPos Vector @ Centerposition of the joint, relative to the second entity.
 --- @param forcelimit number @ Amount of force until it breaks (0 = unbreakable)
 --- @param torquelimit number @ Amount of torque (rotation speed) until it breaks (0 = unbreakable)
 --- @param nocollide number @ Whether the entities should be nocollided
@@ -126,7 +127,7 @@ function constraint.Elastic(Ent1, Ent2, Bone1, Bone2, LPos1, LPos2, constant, da
 --- [https://wiki.facepunch.com/gmod/constraint.Find]
 --- @param ent1 Entity @ The first entity to check
 --- @param ent2 Entity @ The second entity to check
---- @param type string @ The type of constraint, case sensitive. List of default constrains is as follows:* `Weld`* `Axis`* `AdvBallsocket`* `Rope`* `Elastic`* `NoCollide`* `Motor`* `Pulley`* `Ballsocket`* `Winch`* `Hydraulic`* `Muscle`* `Keepupright`* `Slider`
+--- @param type string @ The type of constraint, case sensitive. List of default constrains is as follows:  `Weld`  `Axis`  `AdvBallsocket`  `Rope`  `Elastic`  `NoCollide`  `Motor`  `Pulley`  `Ballsocket`  `Winch`  `Hydraulic`  `Muscle`  `Keepupright`  `Slider`
 --- @param bone1 number @ The bone number for the first entity (0 for monoboned entities)
 --- @param bone2 number @ The bone number for the second entity
 --- @return Entity
@@ -135,21 +136,21 @@ function constraint.Find(ent1, ent2, type, bone1, bone2) end
 --- (server) Returns the first constraint of a specific type directly connected to the entity found 
 --- [https://wiki.facepunch.com/gmod/constraint.FindConstraint]
 --- @param ent Entity @ The entity to check
---- @param type string @ The type of constraint, case sensitive. List of default constrains is as follows:* `Weld`* `Axis`* `AdvBallsocket`* `Rope`* `Elastic`* `NoCollide`* `Motor`* `Pulley`* `Ballsocket`* `Winch`* `Hydraulic`* `Muscle`* `Keepupright`* `Slider`
+--- @param type string @ The type of constraint, case sensitive. List of default constrains is as follows:  `Weld`  `Axis`  `AdvBallsocket`  `Rope`  `Elastic`  `NoCollide`  `Motor`  `Pulley`  `Ballsocket`  `Winch`  `Hydraulic`  `Muscle`  `Keepupright`  `Slider`
 --- @return table
 function constraint.FindConstraint(ent, type) end
 
 --- (server) Returns the other entity involved in the first constraint of a specific type directly connected to the entity 
 --- [https://wiki.facepunch.com/gmod/constraint.FindConstraintEntity]
 --- @param ent Entity @ The entity to check
---- @param type string @ The type of constraint, case sensitive. List of default constrains is as follows:* `Weld`* `Axis`* `AdvBallsocket`* `Rope`* `Elastic`* `NoCollide`* `Motor`* `Pulley`* `Ballsocket`* `Winch`* `Hydraulic`* `Muscle`* `Keepupright`* `Slider`
+--- @param type string @ The type of constraint, case sensitive. List of default constrains is as follows:  `Weld`  `Axis`  `AdvBallsocket`  `Rope`  `Elastic`  `NoCollide`  `Motor`  `Pulley`  `Ballsocket`  `Winch`  `Hydraulic`  `Muscle`  `Keepupright`  `Slider`
 --- @return Entity
 function constraint.FindConstraintEntity(ent, type) end
 
 --- (server) Returns a table of all constraints of a specific type directly connected to the entity 
 --- [https://wiki.facepunch.com/gmod/constraint.FindConstraints]
 --- @param ent Entity @ The entity to check
---- @param type string @ The type of constraint, case sensitive. List of default constrains is as follows:* `Weld`* `Axis`* `AdvBallsocket`* `Rope`* `Elastic`* `NoCollide`* `Motor`* `Pulley`* `Ballsocket`* `Winch`* `Hydraulic`* `Muscle`* `Keepupright`* `Slider`
+--- @param type string @ The type of constraint, case sensitive. List of default constrains is as follows:  `Weld`  `Axis`  `AdvBallsocket`  `Rope`  `Elastic`  `NoCollide`  `Motor`  `Pulley`  `Ballsocket`  `Winch`  `Hydraulic`  `Muscle`  `Keepupright`  `Slider`
 --- @return table
 function constraint.FindConstraints(ent, type) end
 
@@ -327,7 +328,7 @@ function constraint.Slider(Ent1, Ent2, Bone1, Bone2, LPos1, LPos2, width, materi
 --- [https://wiki.facepunch.com/gmod/constraint.Weld]
 --- @param ent1 Entity @ The first entity
 --- @param ent2 Entity @ The second entity
---- @param bone1 number @ The bonenumber of the first entity (0 for monoboned entities) PhysObj number for ragdolls, see: [Entity:TranslateBoneToPhysBone](https://wiki.facepunch.com/gmod/Entity:TranslateBoneToPhysBone).
+--- @param bone1 number @ The bonenumber of the first entity (0 for monoboned entities)  PhysObj number for ragdolls, see: [Entity:TranslateBoneToPhysBone](https://wiki.facepunch.com/gmod/Entity:TranslateBoneToPhysBone).
 --- @param bone2 number @ The bonenumber of the second entity
 --- @param forcelimit number @ The amount of force appliable to the constraint before it will break (0 is never)
 --- @param nocollide boolean @ Should ent1 be nocollided to ent2 via this constraint

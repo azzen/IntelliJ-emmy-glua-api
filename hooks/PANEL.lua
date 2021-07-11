@@ -1,30 +1,36 @@
 --- @class PANEL
 PANEL = {}
 
---- (client) Called whenever a panel receives a command signal from one of its children.This hook is called when using [Panel:Command](https://wiki.facepunch.com/gmod/Panel:Command), when clicking a [Button](https://wiki.facepunch.com/gmod/Button) with [Panel:SetCommand](https://wiki.facepunch.com/gmod/Panel:SetCommand) set, and when clicking text within a [RichText](https://wiki.facepunch.com/gmod/RichText) panel that is marked as click-able. 
+--- (client) Called whenever a panel receives a command signal from one of its children.
+--- This hook is called when using [Panel:Command](https://wiki.facepunch.com/gmod/Panel:Command), when clicking a [Button](https://wiki.facepunch.com/gmod/Button) with [Panel:SetCommand](https://wiki.facepunch.com/gmod/Panel:SetCommand) set, and when clicking text within a [RichText](https://wiki.facepunch.com/gmod/RichText) panel that is marked as click-able. 
 --- [https://wiki.facepunch.com/gmod/PANEL:ActionSignal]
 --- @param signalName string @ The name of the signal, usually the sender of the signal or the command name.
 --- @param signalValue string @ The value of the signal, usually a command argument.
 --- @return void
 function PANEL:ActionSignal(signalName, signalValue) end
 
---- (client) Called every frame unless [Panel:IsVisible](https://wiki.facepunch.com/gmod/Panel:IsVisible) is set to false. Similar to [PANEL:Think](https://wiki.facepunch.com/gmod/PANEL:Think), but can be disabled by [Panel:SetAnimationEnabled](https://wiki.facepunch.com/gmod/Panel:SetAnimationEnabled) as explained below.If you are overriding this, you must call [Panel:AnimationThinkInternal](https://wiki.facepunch.com/gmod/Panel:AnimationThinkInternal) every frame, else animations will cease to work.If you want to "disable" this hook with [Panel:SetAnimationEnabled](https://wiki.facepunch.com/gmod/Panel:SetAnimationEnabled), you must call it after defining this hook. Once disabled, a custom hook **will not** be re-enabled by [Panel:SetAnimationEnabled](https://wiki.facepunch.com/gmod/Panel:SetAnimationEnabled) again - the hook will have to be re-defined. 
+--- (client) Called every frame unless [Panel:IsVisible](https://wiki.facepunch.com/gmod/Panel:IsVisible) is set to false. Similar to [PANEL:Think](https://wiki.facepunch.com/gmod/PANEL:Think), but can be disabled by [Panel:SetAnimationEnabled](https://wiki.facepunch.com/gmod/Panel:SetAnimationEnabled) as explained below.
+--- If you are overriding this, you must call [Panel:AnimationThinkInternal](https://wiki.facepunch.com/gmod/Panel:AnimationThinkInternal) every frame, else animations will cease to work.
+--- If you want to "disable" this hook with [Panel:SetAnimationEnabled](https://wiki.facepunch.com/gmod/Panel:SetAnimationEnabled), you must call it after defining this hook. Once disabled, a custom hook **will not** be re-enabled by [Panel:SetAnimationEnabled](https://wiki.facepunch.com/gmod/Panel:SetAnimationEnabled) again - the hook will have to be re-defined. 
 --- [https://wiki.facepunch.com/gmod/PANEL:AnimationThink]
 --- @return void
 function PANEL:AnimationThink() end
 
---- (client) Called whenever the panel should apply its scheme (colors, fonts, style).It is called a few frames after Panel's creation once. 
+--- (client) Called whenever the panel should apply its scheme (colors, fonts, style).
+--- It is called a few frames after Panel's creation once. 
 --- [https://wiki.facepunch.com/gmod/PANEL:ApplySchemeSettings]
 --- @return void
 function PANEL:ApplySchemeSettings() end
 
---- (client) Called when an object is dragged and hovered over this panel for 0.1 seconds.This is used by [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet) and [DTree](https://wiki.facepunch.com/gmod/DTree), for example to open a tab or expand a node when an object is hovered over it. 
+--- (client) Called when an object is dragged and hovered over this panel for 0.1 seconds.
+--- This is used by [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet) and [DTree](https://wiki.facepunch.com/gmod/DTree), for example to open a tab or expand a node when an object is hovered over it. 
 --- [https://wiki.facepunch.com/gmod/PANEL:DragHoverClick]
 --- @param hoverTime number @ The time the object was hovered over this panel.
 --- @return void
 function PANEL:DragHoverClick(hoverTime) end
 
---- (client) Called when this panel is dropped onto another panel.Only works for panels derived from [DDragBase](https://wiki.facepunch.com/gmod/DDragBase). 
+--- (client) Called when this panel is dropped onto another panel.
+--- Only works for panels derived from [DDragBase](https://wiki.facepunch.com/gmod/DDragBase). 
 --- [https://wiki.facepunch.com/gmod/PANEL:DroppedOn]
 --- @param pnl Panel @ The panel we are dropped onto
 --- @return void
@@ -114,7 +120,9 @@ function PANEL:OnDeactivate() end
 --- @return void
 function PANEL:OnDocumentReady(url) end
 
---- (client) We're being dropped on somethingWe can create a new panel here and return it, so that instead of dropping us - it drops the new panel instead! We remain where we are!Only works for panels derived from [DDragBase](https://wiki.facepunch.com/gmod/DDragBase). 
+--- (client) We're being dropped on something
+--- We can create a new panel here and return it, so that instead of dropping us - it drops the new panel instead! We remain where we are!
+--- Only works for panels derived from [DDragBase](https://wiki.facepunch.com/gmod/DDragBase). 
 --- [https://wiki.facepunch.com/gmod/PANEL:OnDrop]
 --- @return Panel
 function PANEL:OnDrop() end
@@ -160,14 +168,16 @@ function PANEL:OnMouseWheeled(scrollDelta) end
 --- @return void
 function PANEL:OnRemove() end
 
---- (client) Called when the player's screen resolution of the game changes.[ScrW](https://wiki.facepunch.com/gmod/Global.ScrW) and [ScrH](https://wiki.facepunch.com/gmod/Global.ScrH) will return the new values when this hook is called. 
+--- (client) Called when the player's screen resolution of the game changes.
+--- [ScrW](https://wiki.facepunch.com/gmod/Global.ScrW) and [ScrH](https://wiki.facepunch.com/gmod/Global.ScrH) will return the new values when this hook is called. 
 --- [https://wiki.facepunch.com/gmod/PANEL:OnScreenSizeChanged]
 --- @param oldWidth number @ The previous width  of the game's window
 --- @param oldHeight number @ The previous height of the game's window
 --- @return void
 function PANEL:OnScreenSizeChanged(oldWidth, oldHeight) end
 
---- (client) Called just after the panel size changes.All size functions will return the new values when this hook is called. 
+--- (client) Called just after the panel size changes.
+--- All size functions will return the new values when this hook is called. 
 --- [https://wiki.facepunch.com/gmod/PANEL:OnSizeChanged]
 --- @param newWidth number @ The new width of the panel
 --- @param newHeight number @ The new height of the panel
@@ -184,7 +194,8 @@ function PANEL:OnStartDragging() end
 --- @return void
 function PANEL:OnStopDragging() end
 
---- (client) Called whenever the panel should be drawn. You can create panels with a customized appearance by overriding their Paint() function, which will prevent the default appearance from being drawn. 
+--- (client) Called whenever the panel should be drawn. 
+--- You can create panels with a customized appearance by overriding their Paint() function, which will prevent the default appearance from being drawn. 
 --- [https://wiki.facepunch.com/gmod/PANEL:Paint]
 --- @param width number @ The panel's width.
 --- @param height number @ The panel's height.
@@ -205,12 +216,16 @@ function PANEL:PaintOver(width, height) end
 --- @return void
 function PANEL:PerformLayout(width, height) end
 
---- (client) Only works on elements defined with [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) and only if the panel has **AllowAutoRefresh** set to true.Called after [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) is called with panel's class name.See also [PANEL:PreAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PreAutoRefresh) 
+--- (client) Only works on elements defined with [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) and only if the panel has **AllowAutoRefresh** set to true.
+--- Called after [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) is called with panel's class name.
+--- See also [PANEL:PreAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PreAutoRefresh) 
 --- [https://wiki.facepunch.com/gmod/PANEL:PostAutoRefresh]
 --- @return void
 function PANEL:PostAutoRefresh() end
 
---- (client) Only works on elements defined with [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) and only if the panel has **AllowAutoRefresh** set to true.Called when [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) is called with this panel's class name before applying changes to this panel.See also [PANEL:PostAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PostAutoRefresh) 
+--- (client) Only works on elements defined with [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) and only if the panel has **AllowAutoRefresh** set to true.
+--- Called when [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) is called with this panel's class name before applying changes to this panel.
+--- See also [PANEL:PostAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PostAutoRefresh) 
 --- [https://wiki.facepunch.com/gmod/PANEL:PreAutoRefresh]
 --- @return void
 function PANEL:PreAutoRefresh() end

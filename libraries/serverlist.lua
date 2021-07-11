@@ -16,7 +16,7 @@ function serverlist.PingServer(ip, callback) end
 --- (menu) Queries a server for its player list. 
 --- [https://wiki.facepunch.com/gmod/serverlist.PlayerList]
 --- @param ip string @ The IP address of the server, including the port.
---- @param callback function @ The function to be called if and when the request finishes. Function has one argument, a table containing tables with player info. Each table with player info has next fields:[number](https://wiki.facepunch.com/gmod/number) time - The amount of time the player is playing on the server, in seconds[string](https://wiki.facepunch.com/gmod/string) name - The player name[number](https://wiki.facepunch.com/gmod/number) score - The players score
+--- @param callback function @ The function to be called if and when the request finishes. Function has one argument, a table containing tables with player info.  Each table with player info has next fields: [number](https://wiki.facepunch.com/gmod/number) time - The amount of time the player is playing on the server, in seconds [string](https://wiki.facepunch.com/gmod/string) name - The player name [number](https://wiki.facepunch.com/gmod/number) score - The players score
 --- @return void
 function serverlist.PlayerList(ip, callback) end
 

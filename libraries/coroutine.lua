@@ -25,13 +25,16 @@ function coroutine.running() end
 --- @return string
 function coroutine.status(coroutine) end
 
---- (client/server) Yields the coroutine for the given duration before continuing.This only works inside a coroutine.This function uses [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime) instead of [RealTime](https://wiki.facepunch.com/gmod/Global.RealTime). 
+--- (client/server) Yields the coroutine for the given duration before continuing.
+--- This only works inside a coroutine.
+--- This function uses [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime) instead of [RealTime](https://wiki.facepunch.com/gmod/Global.RealTime). 
 --- [https://wiki.facepunch.com/gmod/coroutine.wait]
 --- @param duration number @ The number of seconds to wait
 --- @return void
 function coroutine.wait(duration) end
 
---- (client/menu/server) Returns a function which calling is equivalent with calling [coroutine.resume](https://wiki.facepunch.com/gmod/coroutine.resume) with the coroutine and all extra parameters.The values returned by the returned function only contain the values passed to the inner [coroutine.yield](https://wiki.facepunch.com/gmod/coroutine.yield) call and do not include the *no error* status that [coroutine.resume](https://wiki.facepunch.com/gmod/coroutine.resume) provides. In case of failure, an error is thrown instead. 
+--- (client/menu/server) Returns a function which calling is equivalent with calling [coroutine.resume](https://wiki.facepunch.com/gmod/coroutine.resume) with the coroutine and all extra parameters.
+--- The values returned by the returned function only contain the values passed to the inner [coroutine.yield](https://wiki.facepunch.com/gmod/coroutine.yield) call and do not include the *no error* status that [coroutine.resume](https://wiki.facepunch.com/gmod/coroutine.resume) provides. In case of failure, an error is thrown instead. 
 --- [https://wiki.facepunch.com/gmod/coroutine.wrap]
 --- @param coroutine function @ Coroutine to resume.
 --- @return function

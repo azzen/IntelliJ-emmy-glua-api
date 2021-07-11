@@ -6,7 +6,8 @@ CUserCmd = {}
 --- @return void
 function CUserCmd:ClearButtons() end
 
---- (client/server) Clears the movement from the command.See also [CUserCmd:SetForwardMove](https://wiki.facepunch.com/gmod/CUserCmd:SetForwardMove), [CUserCmd:SetSideMove](https://wiki.facepunch.com/gmod/CUserCmd:SetSideMove) and  [CUserCmd:SetUpMove](https://wiki.facepunch.com/gmod/CUserCmd:SetUpMove). 
+--- (client/server) Clears the movement from the command.
+--- See also [CUserCmd:SetForwardMove](https://wiki.facepunch.com/gmod/CUserCmd:SetForwardMove), [CUserCmd:SetSideMove](https://wiki.facepunch.com/gmod/CUserCmd:SetSideMove) and  [CUserCmd:SetUpMove](https://wiki.facepunch.com/gmod/CUserCmd:SetUpMove). 
 --- [https://wiki.facepunch.com/gmod/CUserCmd:ClearMovement]
 --- @return void
 function CUserCmd:ClearMovement() end
@@ -61,7 +62,8 @@ function CUserCmd:GetUpMove() end
 --- @return Angle
 function CUserCmd:GetViewAngles() end
 
---- (client/server) When players are not sending usercommands to the server (often due to lag), their last usercommand will be executed multiple times as a backup. This function returns true if that is happening.This will never return true clientside. 
+--- (client/server) When players are not sending usercommands to the server (often due to lag), their last usercommand will be executed multiple times as a backup. This function returns true if that is happening.
+--- This will never return true clientside. 
 --- [https://wiki.facepunch.com/gmod/CUserCmd:IsForced]
 --- @return boolean
 function CUserCmd:IsForced() end
@@ -78,7 +80,8 @@ function CUserCmd:KeyDown(key) end
 --- @return void
 function CUserCmd:RemoveKey(button) end
 
---- (client/server) Forces the associated player to select a weapon. This is used internally in the default HL2 weapon selection HUD.This may not work immediately if the current command is in prediction. Use [input.SelectWeapon](https://wiki.facepunch.com/gmod/input.SelectWeapon) to switch the weapon from the client when the next available command can do so. 
+--- (client/server) Forces the associated player to select a weapon. This is used internally in the default HL2 weapon selection HUD.
+--- This may not work immediately if the current command is in prediction. Use [input.SelectWeapon](https://wiki.facepunch.com/gmod/input.SelectWeapon) to switch the weapon from the client when the next available command can do so. 
 --- [https://wiki.facepunch.com/gmod/CUserCmd:SelectWeapon]
 --- @param weapon Weapon @ The weapon entity to select.
 --- @return void
@@ -90,13 +93,21 @@ function CUserCmd:SelectWeapon(weapon) end
 --- @return void
 function CUserCmd:SetButtons(buttons) end
 
---- (client/server) Sets speed the client wishes to move forward with, negative if the clients wants to move backwards.See also [CUserCmd:ClearMovement](https://wiki.facepunch.com/gmod/CUserCmd:ClearMovement), [CUserCmd:SetSideMove](https://wiki.facepunch.com/gmod/CUserCmd:SetSideMove) and [CUserCmd:SetUpMove](https://wiki.facepunch.com/gmod/CUserCmd:SetUpMove). 
+--- (client/server) Sets speed the client wishes to move forward with, negative if the clients wants to move backwards.
+--- See also [CUserCmd:ClearMovement](https://wiki.facepunch.com/gmod/CUserCmd:ClearMovement), [CUserCmd:SetSideMove](https://wiki.facepunch.com/gmod/CUserCmd:SetSideMove) and [CUserCmd:SetUpMove](https://wiki.facepunch.com/gmod/CUserCmd:SetUpMove). 
 --- [https://wiki.facepunch.com/gmod/CUserCmd:SetForwardMove]
 --- @param speed number @ The new speed to request. The client will not be able to move faster than their set walk/sprint speed.
 --- @return void
 function CUserCmd:SetForwardMove(speed) end
 
---- (client/server) Sets the impulse command to be sent to the server.Here are a few examples of impulse numbers:- `100` toggles their flashlight- `101` gives the player all Half-Life 2 weapons with `sv_cheats` set to `1`- `200` toggles holstering / restoring the current weapon    When holstered, the `EF_NODRAW` flag is set on the active weapon.- `154` toggles noclip[See full list](https://developer.valvesoftware.com/wiki/Impulse) 
+--- (client/server) Sets the impulse command to be sent to the server.
+--- Here are a few examples of impulse numbers:
+--- - `100` toggles their flashlight
+--- - `101` gives the player all Half-Life 2 weapons with `sv_cheats` set to `1`
+--- - `200` toggles holstering / restoring the current weapon  
+---   When holstered, the `EF_NODRAW` flag is set on the active weapon.
+--- - `154` toggles noclip
+--- [See full list](https://developer.valvesoftware.com/wiki/Impulse) 
 --- [https://wiki.facepunch.com/gmod/CUserCmd:SetImpulse]
 --- @param impulse number @ The impulse to send.
 --- @return void
@@ -108,25 +119,29 @@ function CUserCmd:SetImpulse(impulse) end
 --- @return void
 function CUserCmd:SetMouseWheel(speed) end
 
---- (client/server) Sets the delta of the angular horizontal mouse movement of the player.See also [CUserCmd:SetMouseY](https://wiki.facepunch.com/gmod/CUserCmd:SetMouseY). 
+--- (client/server) Sets the delta of the angular horizontal mouse movement of the player.
+--- See also [CUserCmd:SetMouseY](https://wiki.facepunch.com/gmod/CUserCmd:SetMouseY). 
 --- [https://wiki.facepunch.com/gmod/CUserCmd:SetMouseX]
 --- @param speed number @ Angular horizontal move delta.
 --- @return void
 function CUserCmd:SetMouseX(speed) end
 
---- (client/server) Sets the delta of the angular vertical mouse movement of the player.See also [CUserCmd:SetMouseX](https://wiki.facepunch.com/gmod/CUserCmd:SetMouseX). 
+--- (client/server) Sets the delta of the angular vertical mouse movement of the player.
+--- See also [CUserCmd:SetMouseX](https://wiki.facepunch.com/gmod/CUserCmd:SetMouseX). 
 --- [https://wiki.facepunch.com/gmod/CUserCmd:SetMouseY]
 --- @param speed number @ Angular vertical move delta.
 --- @return void
 function CUserCmd:SetMouseY(speed) end
 
---- (client/server) Sets speed the client wishes to move sidewards with, positive to move right, negative to move left.See also [CUserCmd:SetForwardMove](https://wiki.facepunch.com/gmod/CUserCmd:SetForwardMove) and  [CUserCmd:SetUpMove](https://wiki.facepunch.com/gmod/CUserCmd:SetUpMove). 
+--- (client/server) Sets speed the client wishes to move sidewards with, positive to move right, negative to move left.
+--- See also [CUserCmd:SetForwardMove](https://wiki.facepunch.com/gmod/CUserCmd:SetForwardMove) and  [CUserCmd:SetUpMove](https://wiki.facepunch.com/gmod/CUserCmd:SetUpMove). 
 --- [https://wiki.facepunch.com/gmod/CUserCmd:SetSideMove]
 --- @param speed number @ The new speed to request.
 --- @return void
 function CUserCmd:SetSideMove(speed) end
 
---- (client/server) Sets speed the client wishes to move upwards with, negative to move down.See also [CUserCmd:SetSideMove](https://wiki.facepunch.com/gmod/CUserCmd:SetSideMove) and  [CUserCmd:SetForwardMove](https://wiki.facepunch.com/gmod/CUserCmd:SetForwardMove). 
+--- (client/server) Sets speed the client wishes to move upwards with, negative to move down.
+--- See also [CUserCmd:SetSideMove](https://wiki.facepunch.com/gmod/CUserCmd:SetSideMove) and  [CUserCmd:SetForwardMove](https://wiki.facepunch.com/gmod/CUserCmd:SetForwardMove). 
 --- [https://wiki.facepunch.com/gmod/CUserCmd:SetUpMove]
 --- @param speed number @ The new speed to request.
 --- @return void

@@ -1,7 +1,11 @@
 --- @class Player
 Player = {}
 
---- (client/server) Returns the player's AccountID aka SteamID3. (`[U:1:AccountID]`)For bots this will return values starting with 0 for the first bot, 1 for the second bot and so on.  See [Player:SteamID](https://wiki.facepunch.com/gmod/Player:SteamID) for the text representation of the full SteamID.See [Player:SteamID64](https://wiki.facepunch.com/gmod/Player:SteamID64) for a 64bit representation of the full SteamID.Unlike other variations of SteamID, SteamID3 does not include the "Account Type" and "Account Instance" part of the SteamID. 
+--- (client/server) Returns the player's AccountID aka SteamID3. (`[U:1:AccountID]`)
+--- For bots this will return values starting with 0 for the first bot, 1 for the second bot and so on.  
+--- See [Player:SteamID](https://wiki.facepunch.com/gmod/Player:SteamID) for the text representation of the full SteamID.
+--- See [Player:SteamID64](https://wiki.facepunch.com/gmod/Player:SteamID64) for a 64bit representation of the full SteamID.
+--- Unlike other variations of SteamID, SteamID3 does not include the "Account Type" and "Account Instance" part of the SteamID. 
 --- [https://wiki.facepunch.com/gmod/Player:AccountID]
 --- @return number
 function Player:AccountID() end
@@ -39,7 +43,8 @@ function Player:AddFrags(count) end
 --- @return void
 function Player:AddFrozenPhysicsObject(ent, physobj) end
 
---- (client) Sets up the voting system for the player.This is a really barebone system. By calling this a vote gets started, when the player presses 0-9 the callback function gets called along with the key the player pressed. Use the draw callback to draw the vote panel. 
+--- (client) Sets up the voting system for the player.
+--- This is a really barebone system. By calling this a vote gets started, when the player presses 0-9 the callback function gets called along with the key the player pressed. Use the draw callback to draw the vote panel. 
 --- [https://wiki.facepunch.com/gmod/Player:AddPlayerOption]
 --- @param name string @ Name of the vote
 --- @param timeout number @ Time until the vote expires
@@ -132,17 +137,21 @@ function Player:ChatPrint(message) end
 
 --- (client/server) Checks if the limit is hit or not. If it is, it will throw a notification saying so. 
 --- [https://wiki.facepunch.com/gmod/Player:CheckLimit]
---- @param limitType string @ Limit type. In unmodified Sandbox possible values are:* "props"* "ragdolls"* "vehicles"* "effects"* "balloons"* "cameras"* "npcs"* "sents"* "dynamite"* "lamps"* "lights"* "wheels"* "thrusters"* "hoverballs"* "buttons"* "emitters"
+--- @param limitType string @ Limit type. In unmodified Sandbox possible values are:  "props"  "ragdolls"  "vehicles"  "effects"  "balloons"  "cameras"  "npcs"  "sents"  "dynamite"  "lamps"  "lights"  "wheels"  "thrusters"  "hoverballs"  "buttons"  "emitters"
 --- @return boolean
 function Player:CheckLimit(limitType) end
 
---- (client/server) Runs the concommand on the player. This does not work on bots.If you wish to directly modify the movement input of bots, use [GM:StartCommand](https://wiki.facepunch.com/gmod/GM:StartCommand) instead. 
+--- (client/server) Runs the concommand on the player. This does not work on bots.
+--- If you wish to directly modify the movement input of bots, use [GM:StartCommand](https://wiki.facepunch.com/gmod/GM:StartCommand) instead. 
 --- [https://wiki.facepunch.com/gmod/Player:ConCommand]
 --- @param command string @ command to run
 --- @return void
 function Player:ConCommand(command) end
 
---- (server) Creates the player's death ragdoll entity and deletes the old one.This is normally used when a player dies, to create their death ragdoll.The ragdoll will be created with the player's properties such as [Position](https://wiki.facepunch.com/gmod/Entity:GetPos), [Angles](https://wiki.facepunch.com/gmod/Entity:GetAngles), [PlayerColor](https://wiki.facepunch.com/gmod/Player:GetPlayerColor), [Velocity](https://wiki.facepunch.com/gmod/Entity:GetVelocity) and [Model](https://wiki.facepunch.com/gmod/Entity:GetModel).You can retrieve the entity this creates with [Player:GetRagdollEntity](https://wiki.facepunch.com/gmod/Player:GetRagdollEntity). 
+--- (server) Creates the player's death ragdoll entity and deletes the old one.
+--- This is normally used when a player dies, to create their death ragdoll.
+--- The ragdoll will be created with the player's properties such as [Position](https://wiki.facepunch.com/gmod/Entity:GetPos), [Angles](https://wiki.facepunch.com/gmod/Entity:GetAngles), [PlayerColor](https://wiki.facepunch.com/gmod/Player:GetPlayerColor), [Velocity](https://wiki.facepunch.com/gmod/Entity:GetVelocity) and [Model](https://wiki.facepunch.com/gmod/Entity:GetModel).
+--- You can retrieve the entity this creates with [Player:GetRagdollEntity](https://wiki.facepunch.com/gmod/Player:GetRagdollEntity). 
 --- [https://wiki.facepunch.com/gmod/Player:CreateRagdoll]
 --- @return void
 function Player:CreateRagdoll() end
@@ -177,30 +186,35 @@ function Player:DebugInfo() end
 --- @return void
 function Player:DetonateTripmines() end
 
---- (client/server) Sends a third person animation event to the player.Calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with [PLAYERANIMEVENT_CUSTOM_GESTURE](https://wiki.facepunch.com/gmod/Enums/PLAYERANIMEVENT) as the event, data as the given data. 
+--- (client/server) Sends a third person animation event to the player.
+--- Calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with [PLAYERANIMEVENT_CUSTOM_GESTURE](https://wiki.facepunch.com/gmod/Enums/PLAYERANIMEVENT) as the event, data as the given data. 
 --- [https://wiki.facepunch.com/gmod/Player:DoAnimationEvent]
 --- @param data number @ The data to send.
 --- @return void
 function Player:DoAnimationEvent(data) end
 
---- (client/server) Starts the player's attack animation. The attack animation is determined by the weapon's HoldType.Similar to other animation event functions, calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with [PLAYERANIMEVENT_ATTACK_PRIMARY](https://wiki.facepunch.com/gmod/Enums/PLAYERANIMEVENT) as the event and no extra data. 
+--- (client/server) Starts the player's attack animation. The attack animation is determined by the weapon's HoldType.
+--- Similar to other animation event functions, calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with [PLAYERANIMEVENT_ATTACK_PRIMARY](https://wiki.facepunch.com/gmod/Enums/PLAYERANIMEVENT) as the event and no extra data. 
 --- [https://wiki.facepunch.com/gmod/Player:DoAttackEvent]
 --- @return void
 function Player:DoAttackEvent() end
 
---- (client/server) Sends a specified third person animation event to the player.Calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with specified arguments. 
+--- (client/server) Sends a specified third person animation event to the player.
+--- Calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with specified arguments. 
 --- [https://wiki.facepunch.com/gmod/Player:DoCustomAnimEvent]
 --- @param event number @ The event to send. See [PLAYERANIMEVENT](https://wiki.facepunch.com/gmod/Enums/PLAYERANIMEVENT).
 --- @param data number @ The data to send alongside the event.
 --- @return void
 function Player:DoCustomAnimEvent(event, data) end
 
---- (client/server) Sends a third person reload animation event to the player.Similar to other animation event functions, calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with [PLAYERANIMEVENT_RELOAD](https://wiki.facepunch.com/gmod/Enums/PLAYERANIMEVENT) as the event and no extra data. 
+--- (client/server) Sends a third person reload animation event to the player.
+--- Similar to other animation event functions, calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with [PLAYERANIMEVENT_RELOAD](https://wiki.facepunch.com/gmod/Enums/PLAYERANIMEVENT) as the event and no extra data. 
 --- [https://wiki.facepunch.com/gmod/Player:DoReloadEvent]
 --- @return void
 function Player:DoReloadEvent() end
 
---- (client/server) Sends a third person secondary fire animation event to the player.Similar to other animation event functions, calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with [PLAYERANIMEVENT_ATTACK_SECONDARY](https://wiki.facepunch.com/gmod/Enums/PLAYERANIMEVENT) as the event and no extra data. 
+--- (client/server) Sends a third person secondary fire animation event to the player.
+--- Similar to other animation event functions, calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with [PLAYERANIMEVENT_ATTACK_SECONDARY](https://wiki.facepunch.com/gmod/Enums/PLAYERANIMEVENT) as the event and no extra data. 
 --- [https://wiki.facepunch.com/gmod/Player:DoSecondaryAttack]
 --- @return void
 function Player:DoSecondaryAttack() end
@@ -245,7 +259,10 @@ function Player:DropWeapon(weapon, target, velocity) end
 --- @return void
 function Player:EnterVehicle(vehicle) end
 
---- (server) Equips the player with the HEV suit.Allows the player to zoom, walk slowly, sprint, pickup armor batteries, use the health and armor stations and also shows the HUD.The player also emits a flatline sound on death, which can be overridden with [GM:PlayerDeathSound](https://wiki.facepunch.com/gmod/GM:PlayerDeathSound).The player is automatically equipped with the suit on spawn, if you wish to stop that, use [Player:RemoveSuit](https://wiki.facepunch.com/gmod/Player:RemoveSuit). 
+--- (server) Equips the player with the HEV suit.
+--- Allows the player to zoom, walk slowly, sprint, pickup armor batteries, use the health and armor stations and also shows the HUD.
+--- The player also emits a flatline sound on death, which can be overridden with [GM:PlayerDeathSound](https://wiki.facepunch.com/gmod/GM:PlayerDeathSound).
+--- The player is automatically equipped with the suit on spawn, if you wish to stop that, use [Player:RemoveSuit](https://wiki.facepunch.com/gmod/Player:RemoveSuit). 
 --- [https://wiki.facepunch.com/gmod/Player:EquipSuit]
 --- @return void
 function Player:EquipSuit() end
@@ -271,13 +288,15 @@ function Player:FlashlightIsOn() end
 --- @return number
 function Player:Frags() end
 
---- (server) Freeze the player. Frozen players cannot move, look around, or attack. Key bindings are still called. Similar to [Player:Lock](https://wiki.facepunch.com/gmod/Player:Lock) but the player can still take damage.Adds or removes the [FL_FROZEN](https://wiki.facepunch.com/gmod/Enums/FL) flag from the player. 
+--- (server) Freeze the player. Frozen players cannot move, look around, or attack. Key bindings are still called. Similar to [Player:Lock](https://wiki.facepunch.com/gmod/Player:Lock) but the player can still take damage.
+--- Adds or removes the [FL_FROZEN](https://wiki.facepunch.com/gmod/Enums/FL) flag from the player. 
 --- [https://wiki.facepunch.com/gmod/Player:Freeze]
 --- @param frozen boolean @ Whether the player should be frozen.
 --- @return void
 function Player:Freeze(frozen) end
 
---- (client/server) Returns the player's active weapon.If used on a [LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer)() and the player is spectating another player with `OBS_MODE_IN_EYE`, the weapon returned will be of the spectated player. 
+--- (client/server) Returns the player's active weapon.
+--- If used on a [LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer)() and the player is spectating another player with `OBS_MODE_IN_EYE`, the weapon returned will be of the spectated player. 
 --- [https://wiki.facepunch.com/gmod/Player:GetActiveWeapon]
 --- @return Weapon
 function Player:GetActiveWeapon() end
@@ -340,7 +359,8 @@ function Player:GetClassID() end
 --- @return number
 function Player:GetCount(type, minus) end
 
---- (client/server) Returns the crouched walk speed multiplier.See also [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) and [Player:SetCrouchedWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetCrouchedWalkSpeed). 
+--- (client/server) Returns the crouched walk speed multiplier.
+--- See also [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) and [Player:SetCrouchedWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetCrouchedWalkSpeed). 
 --- [https://wiki.facepunch.com/gmod/Player:GetCrouchedWalkSpeed]
 --- @return number
 function Player:GetCrouchedWalkSpeed() end
@@ -350,7 +370,8 @@ function Player:GetCrouchedWalkSpeed() end
 --- @return CUserCmd
 function Player:GetCurrentCommand() end
 
---- (client/server) Gets the **actual** view offset which equals the difference between the players actual position and their view when standing.Do not confuse with [Player:GetViewOffset](https://wiki.facepunch.com/gmod/Player:GetViewOffset) and [Player:GetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:GetViewOffsetDucked) 
+--- (client/server) Gets the **actual** view offset which equals the difference between the players actual position and their view when standing.
+--- Do not confuse with [Player:GetViewOffset](https://wiki.facepunch.com/gmod/Player:GetViewOffset) and [Player:GetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:GetViewOffsetDucked) 
 --- [https://wiki.facepunch.com/gmod/Player:GetCurrentViewOffset]
 --- @return Vector
 function Player:GetCurrentViewOffset() end
@@ -375,12 +396,18 @@ function Player:GetDuckSpeed() end
 --- @return Entity
 function Player:GetEntityInUse() end
 
---- (client/server) Returns a table with information of what the player is looking at.The results of this function are **cached** clientside every frame.Uses [util.GetPlayerTrace](https://wiki.facepunch.com/gmod/util.GetPlayerTrace) internally and is therefore bound by its limits.See also [Player:GetEyeTraceNoCursor](https://wiki.facepunch.com/gmod/Player:GetEyeTraceNoCursor). 
+--- (client/server) Returns a table with information of what the player is looking at.
+--- The results of this function are **cached** clientside every frame.
+--- Uses [util.GetPlayerTrace](https://wiki.facepunch.com/gmod/util.GetPlayerTrace) internally and is therefore bound by its limits.
+--- See also [Player:GetEyeTraceNoCursor](https://wiki.facepunch.com/gmod/Player:GetEyeTraceNoCursor). 
 --- [https://wiki.facepunch.com/gmod/Player:GetEyeTrace]
 --- @return table
 function Player:GetEyeTrace() end
 
---- (client/server) Returns the trace according to the players view direction, ignoring their mouse (holding  and moving the mouse in Sandbox).The results of this function are **cached** clientside every frame.Uses [util.GetPlayerTrace](https://wiki.facepunch.com/gmod/util.GetPlayerTrace) internally and is therefore bound by its limits.See also [Player:GetEyeTrace](https://wiki.facepunch.com/gmod/Player:GetEyeTrace). 
+--- (client/server) Returns the trace according to the players view direction, ignoring their mouse (holding  and moving the mouse in Sandbox).
+--- The results of this function are **cached** clientside every frame.
+--- Uses [util.GetPlayerTrace](https://wiki.facepunch.com/gmod/util.GetPlayerTrace) internally and is therefore bound by its limits.
+--- See also [Player:GetEyeTrace](https://wiki.facepunch.com/gmod/Player:GetEyeTrace). 
 --- [https://wiki.facepunch.com/gmod/Player:GetEyeTraceNoCursor]
 --- @return table
 function Player:GetEyeTraceNoCursor() end
@@ -433,7 +460,8 @@ function Player:GetInfoNum(cVarName, default) end
 --- @return number
 function Player:GetJumpPower() end
 
---- (client/server) Returns the player's ladder climbing speed.See [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) for normal walking speed, [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed) for sprinting speed and [Player:GetSlowWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetSlowWalkSpeed) for slow walking speed. 
+--- (client/server) Returns the player's ladder climbing speed.
+--- See [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) for normal walking speed, [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed) for sprinting speed and [Player:GetSlowWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetSlowWalkSpeed) for slow walking speed. 
 --- [https://wiki.facepunch.com/gmod/Player:GetLadderClimbSpeed]
 --- @return number
 function Player:GetLadderClimbSpeed() end
@@ -448,7 +476,8 @@ function Player:GetLaggedMovementValue() end
 --- @return number
 function Player:GetMaxArmor() end
 
---- (client/server) Returns the player's maximum movement speed.See also [Player:SetMaxSpeed](https://wiki.facepunch.com/gmod/Player:SetMaxSpeed), [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) and [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed). 
+--- (client/server) Returns the player's maximum movement speed.
+--- See also [Player:SetMaxSpeed](https://wiki.facepunch.com/gmod/Player:SetMaxSpeed), [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) and [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed). 
 --- [https://wiki.facepunch.com/gmod/Player:GetMaxSpeed]
 --- @return number
 function Player:GetMaxSpeed() end
@@ -468,12 +497,14 @@ function Player:GetNoCollideWithTeammates() end
 --- @return number
 function Player:GetObserverMode() end
 
---- (client/server) Returns the entity the player is currently observing.Set using [Player:SpectateEntity](https://wiki.facepunch.com/gmod/Player:SpectateEntity). 
+--- (client/server) Returns the entity the player is currently observing.
+--- Set using [Player:SpectateEntity](https://wiki.facepunch.com/gmod/Player:SpectateEntity). 
 --- [https://wiki.facepunch.com/gmod/Player:GetObserverTarget]
 --- @return Entity
 function Player:GetObserverTarget() end
 
---- (client/server) Returns a **P**layer **Data** key-value pair from the SQL database. (sv.db when called on server,  cl.db when called on client)Internally uses the [sql](https://wiki.facepunch.com/gmod/sql). 
+--- (client/server) Returns a **P**layer **Data** key-value pair from the SQL database. (sv.db when called on server,  cl.db when called on client)
+--- Internally uses the [sql](https://wiki.facepunch.com/gmod/sql). 
 --- [https://wiki.facepunch.com/gmod/Player:GetPData]
 --- @param key string @ Name of the PData key
 --- @param default any @ Default value if PData key doesn't exist.
@@ -490,13 +521,15 @@ function Player:GetPlayerColor() end
 --- @return table
 function Player:GetPlayerInfo() end
 
---- (server) Returns the preferred carry angles of an object, if any are set.Calls [GM:GetPreferredCarryAngles](https://wiki.facepunch.com/gmod/GM:GetPreferredCarryAngles) with the target entity and returns the carry angles. 
+--- (server) Returns the preferred carry angles of an object, if any are set.
+--- Calls [GM:GetPreferredCarryAngles](https://wiki.facepunch.com/gmod/GM:GetPreferredCarryAngles) with the target entity and returns the carry angles. 
 --- [https://wiki.facepunch.com/gmod/Player:GetPreferredCarryAngles]
 --- @param carryEnt Entity @ Entity to retrieve the carry angles of.
 --- @return Angle
 function Player:GetPreferredCarryAngles(carryEnt) end
 
---- (client/server) Returns the widget entity the player is using.Having a pressed widget stops the player from firing his weapon to allow input to be passed onto the widget. 
+--- (client/server) Returns the widget entity the player is using.
+--- Having a pressed widget stops the player from firing his weapon to allow input to be passed onto the widget. 
 --- [https://wiki.facepunch.com/gmod/Player:GetPressedWidget]
 --- @return Entity
 function Player:GetPressedWidget() end
@@ -521,7 +554,8 @@ function Player:GetRagdollEntity() end
 --- @return Angle
 function Player:GetRenderAngles() end
 
---- (client/server) Returns the player's sprint speed.See also [Player:SetRunSpeed](https://wiki.facepunch.com/gmod/Player:SetRunSpeed), [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) and [Player:GetMaxSpeed](https://wiki.facepunch.com/gmod/Player:GetMaxSpeed). 
+--- (client/server) Returns the player's sprint speed.
+--- See also [Player:SetRunSpeed](https://wiki.facepunch.com/gmod/Player:SetRunSpeed), [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) and [Player:GetMaxSpeed](https://wiki.facepunch.com/gmod/Player:GetMaxSpeed). 
 --- [https://wiki.facepunch.com/gmod/Player:GetRunSpeed]
 --- @return number
 function Player:GetRunSpeed() end
@@ -531,7 +565,8 @@ function Player:GetRunSpeed() end
 --- @return Vector
 function Player:GetShootPos() end
 
---- (client/server) Returns the player's slow walking speed, which is activated via  keybind.See [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) for normal walking speed, [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed) for sprinting speed and [Player:GetLadderClimbSpeed](https://wiki.facepunch.com/gmod/Player:GetLadderClimbSpeed) for ladder climb speed. 
+--- (client/server) Returns the player's slow walking speed, which is activated via  keybind.
+--- See [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) for normal walking speed, [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed) for sprinting speed and [Player:GetLadderClimbSpeed](https://wiki.facepunch.com/gmod/Player:GetLadderClimbSpeed) for ladder climb speed. 
 --- [https://wiki.facepunch.com/gmod/Player:GetSlowWalkSpeed]
 --- @return number
 function Player:GetSlowWalkSpeed() end
@@ -582,18 +617,22 @@ function Player:GetVehicle() end
 --- @return Entity
 function Player:GetViewEntity() end
 
---- (client/server) Returns the player's view model entity by the index.Each player has 3 view models by default, but only the first one is used.To use the other viewmodels in your SWEP, see [Entity:SetWeaponModel](https://wiki.facepunch.com/gmod/Entity:SetWeaponModel). 
+--- (client/server) Returns the player's view model entity by the index.
+--- Each player has 3 view models by default, but only the first one is used.
+--- To use the other viewmodels in your SWEP, see [Entity:SetWeaponModel](https://wiki.facepunch.com/gmod/Entity:SetWeaponModel). 
 --- [https://wiki.facepunch.com/gmod/Player:GetViewModel]
 --- @param index number @ optional index of the view model to return, can range from 0 to 2
 --- @return Entity
 function Player:GetViewModel(index) end
 
---- (client/server) Returns the view offset of the player which equals the difference between the players actual position and their view.See also [Player:GetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:GetViewOffsetDucked). 
+--- (client/server) Returns the view offset of the player which equals the difference between the players actual position and their view.
+--- See also [Player:GetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:GetViewOffsetDucked). 
 --- [https://wiki.facepunch.com/gmod/Player:GetViewOffset]
 --- @return Vector
 function Player:GetViewOffset() end
 
---- (client/server) Returns the view offset of the player which equals the difference between the players actual position and their view when ducked.See also [Player:GetViewOffset](https://wiki.facepunch.com/gmod/Player:GetViewOffset). 
+--- (client/server) Returns the view offset of the player which equals the difference between the players actual position and their view when ducked.
+--- See also [Player:GetViewOffset](https://wiki.facepunch.com/gmod/Player:GetViewOffset). 
 --- [https://wiki.facepunch.com/gmod/Player:GetViewOffsetDucked]
 --- @return Vector
 function Player:GetViewOffsetDucked() end
@@ -613,7 +652,8 @@ function Player:GetViewPunchVelocity() end
 --- @return number
 function Player:GetVoiceVolumeScale() end
 
---- (client/server) Returns the player's normal walking speed. Not sprinting, not slow walking. (+walk)See also [Player:SetWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetWalkSpeed), [Player:GetMaxSpeed](https://wiki.facepunch.com/gmod/Player:GetMaxSpeed) and [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed). 
+--- (client/server) Returns the player's normal walking speed. Not sprinting, not slow walking. (+walk)
+--- See also [Player:SetWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetWalkSpeed), [Player:GetMaxSpeed](https://wiki.facepunch.com/gmod/Player:GetMaxSpeed) and [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed). 
 --- [https://wiki.facepunch.com/gmod/Player:GetWalkSpeed]
 --- @return number
 function Player:GetWalkSpeed() end
@@ -644,7 +684,7 @@ function Player:Give(weaponClassName, bNoAmmo) end
 --- (server) Gives ammo to a player 
 --- [https://wiki.facepunch.com/gmod/Player:GiveAmmo]
 --- @param amount number @ Amount of ammo
---- @param type string @ Type of ammo.This can also be a number for ammo ID, useful for custom ammo types.You can find a list of default ammo types [here](https://wiki.facepunch.com/gmod/Default_Ammo_Types).
+--- @param type string @ Type of ammo. This can also be a number for ammo ID, useful for custom ammo types. You can find a list of default ammo types [here](https://wiki.facepunch.com/gmod/Default_Ammo_Types).
 --- @param hidePopup boolean @ Hide display popup when giving the ammo
 --- @return number
 function Player:GiveAmmo(amount, type, hidePopup) end
@@ -680,7 +720,8 @@ function Player:InVehicle() end
 --- @return string
 function Player:IPAddress() end
 
---- (client/server) Returns whether the player is an admin or not. It will also return `true` if the player is [Player:IsSuperAdmin](https://wiki.facepunch.com/gmod/Player:IsSuperAdmin) by default.Internally this is determined by [Player:IsUserGroup](https://wiki.facepunch.com/gmod/Player:IsUserGroup). 
+--- (client/server) Returns whether the player is an admin or not. It will also return `true` if the player is [Player:IsSuperAdmin](https://wiki.facepunch.com/gmod/Player:IsSuperAdmin) by default.
+--- Internally this is determined by [Player:IsUserGroup](https://wiki.facepunch.com/gmod/Player:IsUserGroup). 
 --- [https://wiki.facepunch.com/gmod/Player:IsAdmin]
 --- @return boolean
 function Player:IsAdmin() end
@@ -705,7 +746,8 @@ function Player:IsDrivingEntity() end
 --- @return boolean
 function Player:IsFrozen() end
 
---- (server) Returns whether the player identity was confirmed by the steam network.See also [GM:PlayerAuthed](https://wiki.facepunch.com/gmod/GM:PlayerAuthed). 
+--- (server) Returns whether the player identity was confirmed by the steam network.
+--- See also [GM:PlayerAuthed](https://wiki.facepunch.com/gmod/GM:PlayerAuthed). 
 --- [https://wiki.facepunch.com/gmod/Player:IsFullyAuthenticated]
 --- @return boolean
 function Player:IsFullyAuthenticated() end
@@ -730,7 +772,8 @@ function Player:IsPlayingTaunt() end
 --- @return boolean
 function Player:IsSpeaking() end
 
---- (client/server) Returns whether the player is currently sprinting or not, specifically if they are holding their sprint key and are allowed to sprint.This will not check if the player is currently sprinting into a wall. (i.e. holding their sprint key but not moving) 
+--- (client/server) Returns whether the player is currently sprinting or not, specifically if they are holding their sprint key and are allowed to sprint.
+--- This will not check if the player is currently sprinting into a wall. (i.e. holding their sprint key but not moving) 
 --- [https://wiki.facepunch.com/gmod/Player:IsSprinting]
 --- @return boolean
 function Player:IsSprinting() end
@@ -740,17 +783,20 @@ function Player:IsSprinting() end
 --- @return boolean
 function Player:IsSuitEquipped() end
 
---- (client/server) Returns whether the player is a super admin.Internally this is determined by [Player:IsUserGroup](https://wiki.facepunch.com/gmod/Player:IsUserGroup). See also [Player:IsAdmin](https://wiki.facepunch.com/gmod/Player:IsAdmin). 
+--- (client/server) Returns whether the player is a super admin.
+--- Internally this is determined by [Player:IsUserGroup](https://wiki.facepunch.com/gmod/Player:IsUserGroup). See also [Player:IsAdmin](https://wiki.facepunch.com/gmod/Player:IsAdmin). 
 --- [https://wiki.facepunch.com/gmod/Player:IsSuperAdmin]
 --- @return boolean
 function Player:IsSuperAdmin() end
 
---- (server) Returns true if the player is timing out (i.e. is losing connection), false otherwise.A player is considered timing out when more than 4 seconds has elapsed since a network packet was received from given player. 
+--- (server) Returns true if the player is timing out (i.e. is losing connection), false otherwise.
+--- A player is considered timing out when more than 4 seconds has elapsed since a network packet was received from given player. 
 --- [https://wiki.facepunch.com/gmod/Player:IsTimingOut]
 --- @return boolean
 function Player:IsTimingOut() end
 
---- (client/server) Returns whether the player is typing in their chat.This may not work properly if the server uses a custom chatbox. 
+--- (client/server) Returns whether the player is typing in their chat.
+--- This may not work properly if the server uses a custom chatbox. 
 --- [https://wiki.facepunch.com/gmod/Player:IsTyping]
 --- @return boolean
 function Player:IsTyping() end
@@ -806,12 +852,17 @@ function Player:Kick(reason) end
 --- @return void
 function Player:Kill() end
 
---- (server) Kills a player without notifying the rest of the server.This will call [GM:PlayerSilentDeath](https://wiki.facepunch.com/gmod/GM:PlayerSilentDeath) instead of [GM:PlayerDeath](https://wiki.facepunch.com/gmod/GM:PlayerDeath). 
+--- (server) Kills a player without notifying the rest of the server.
+--- This will call [GM:PlayerSilentDeath](https://wiki.facepunch.com/gmod/GM:PlayerSilentDeath) instead of [GM:PlayerDeath](https://wiki.facepunch.com/gmod/GM:PlayerDeath). 
 --- [https://wiki.facepunch.com/gmod/Player:KillSilent]
 --- @return void
 function Player:KillSilent() end
 
---- (client/server) This allows the server to mitigate the lag of the player by moving back all the entities that can be lag compensated to the time the player attacked with his weapon.This technique is most commonly used on things that hit other entities instantaneously, such as traces.Lag compensation only works for players and entities that have been enabled with [Entity:SetLagCompensated](https://wiki.facepunch.com/gmod/Entity:SetLagCompensated)Despite being defined shared, it can only be used server-side in a [Predicted Hook](https://wiki.facepunch.com/gmod/~search:%3Cpredicted%3EYes). 
+--- (client/server) This allows the server to mitigate the lag of the player by moving back all the entities that can be lag compensated to the time the player attacked with his weapon.
+--- This technique is most commonly used on things that hit other entities instantaneously, such as traces.
+--- 
+--- Lag compensation only works for players and entities that have been enabled with [Entity:SetLagCompensated](https://wiki.facepunch.com/gmod/Entity:SetLagCompensated)
+--- Despite being defined shared, it can only be used server-side in a [Predicted Hook](https://wiki.facepunch.com/gmod/~search:%3Cpredicted%3EYes). 
 --- [https://wiki.facepunch.com/gmod/Player:LagCompensation]
 --- @param lagCompensation boolean @ The state of the lag compensation, true to enable and false to disable.
 --- @return void
@@ -828,12 +879,14 @@ function Player:LastHitGroup() end
 --- @return void
 function Player:LimitHit(type) end
 
---- (client/server) Returns the direction a player is looking as a entity/local-oriented angle.Unlike [Entity:EyeAngles](https://wiki.facepunch.com/gmod/Entity:EyeAngles), this function does not include angles of the Player's [Entity:GetParent](https://wiki.facepunch.com/gmod/Entity:GetParent). 
+--- (client/server) Returns the direction a player is looking as a entity/local-oriented angle.
+--- Unlike [Entity:EyeAngles](https://wiki.facepunch.com/gmod/Entity:EyeAngles), this function does not include angles of the Player's [Entity:GetParent](https://wiki.facepunch.com/gmod/Entity:GetParent). 
 --- [https://wiki.facepunch.com/gmod/Player:LocalEyeAngles]
 --- @return Angle
 function Player:LocalEyeAngles() end
 
---- (server) Stops a player from using any inputs, such as moving, turning, or attacking. Key binds are still called. Similar to [Player:Freeze](https://wiki.facepunch.com/gmod/Player:Freeze) but the player takes no damage.Adds the [FL_FROZEN](https://wiki.facepunch.com/gmod/Enums/FL) and [FL_GODMODE](https://wiki.facepunch.com/gmod/Enums/FL) flags to the player. 
+--- (server) Stops a player from using any inputs, such as moving, turning, or attacking. Key binds are still called. Similar to [Player:Freeze](https://wiki.facepunch.com/gmod/Player:Freeze) but the player takes no damage.
+--- Adds the [FL_FROZEN](https://wiki.facepunch.com/gmod/Enums/FL) and [FL_GODMODE](https://wiki.facepunch.com/gmod/Enums/FL) flags to the player. 
 --- [https://wiki.facepunch.com/gmod/Player:Lock]
 --- @return void
 function Player:Lock() end
@@ -854,7 +907,8 @@ function Player:Name() end
 --- @return string
 function Player:Nick() end
 
---- (server) Returns the 64-bit SteamID aka CommunityID of the Steam Account that owns the Garry's Mod license this player is using. This is useful for detecting players using Steam Family Sharing.If player is not using Steam Family Sharing, this will return the player's actual SteamID64(). 
+--- (server) Returns the 64-bit SteamID aka CommunityID of the Steam Account that owns the Garry's Mod license this player is using. This is useful for detecting players using Steam Family Sharing.
+--- If player is not using Steam Family Sharing, this will return the player's actual SteamID64(). 
 --- [https://wiki.facepunch.com/gmod/Player:OwnerSteamID64]
 --- @return string
 function Player:OwnerSteamID64() end
@@ -875,7 +929,8 @@ function Player:PhysgunUnfreeze() end
 --- @return void
 function Player:PickupObject(entity) end
 
---- (server) Forces the player to pickup an existing weapon entity. The player will not pick up the weapon if they already own a weapon of given type, or if the player could not normally have this weapon in their inventory.This function **will** bypass [GM:PlayerCanPickupWeapon](https://wiki.facepunch.com/gmod/GM:PlayerCanPickupWeapon). 
+--- (server) Forces the player to pickup an existing weapon entity. The player will not pick up the weapon if they already own a weapon of given type, or if the player could not normally have this weapon in their inventory.
+--- This function **will** bypass [GM:PlayerCanPickupWeapon](https://wiki.facepunch.com/gmod/GM:PlayerCanPickupWeapon). 
 --- [https://wiki.facepunch.com/gmod/Player:PickupWeapon]
 --- @param wep Weapon @ The weapon to try to pick up.
 --- @param ammoOnly boolean @ If set to true, the player will only attempt to pick up the ammo from the weapon. The weapon will not be picked up even if the player doesn't have a weapon of this type, and the weapon will be removed if the player picks up any ammo from it.
@@ -917,7 +972,8 @@ function Player:RemoveAllItems() end
 --- @return void
 function Player:RemoveAmmo(ammoCount, ammoName) end
 
---- (client/server) Removes a **P**layer **Data** key-value pair from the SQL database. (sv.db when called on server,  cl.db when called on client)Internally uses the [sql](https://wiki.facepunch.com/gmod/sql). 
+--- (client/server) Removes a **P**layer **Data** key-value pair from the SQL database. (sv.db when called on server,  cl.db when called on client)
+--- Internally uses the [sql](https://wiki.facepunch.com/gmod/sql). 
 --- [https://wiki.facepunch.com/gmod/Player:RemovePData]
 --- @param key string @ Key to remove
 --- @return boolean
@@ -944,14 +1000,14 @@ function Player:Say(text, teamOnly) end
 --- [https://wiki.facepunch.com/gmod/Player:ScreenFade]
 --- @param flags number @ Fade flags defined with [SCREENFADE](https://wiki.facepunch.com/gmod/Enums/SCREENFADE).
 --- @param clr number @ The color of the screenfade
---- @param fadeTime number @ Fade(in/out) effect transition time ( From no fade to full fade and vice versa ).This is limited to 7 bits integer part and 9 bits fractional part.
---- @param fadeHold number @ Fade effect hold time.This is limited to 7 bits integer part and 9 bits fractional part.
+--- @param fadeTime number @ Fade(in/out) effect transition time ( From no fade to full fade and vice versa ). This is limited to 7 bits integer part and 9 bits fractional part.
+--- @param fadeHold number @ Fade effect hold time. This is limited to 7 bits integer part and 9 bits fractional part.
 --- @return void
 function Player:ScreenFade(flags, clr, fadeTime, fadeHold) end
 
 --- (server) Sets the active weapon of the player by its class name. 
 --- [https://wiki.facepunch.com/gmod/Player:SelectWeapon]
---- @param className string @ The class name of the weapon to switch to.If the player doesn't have the specified weapon, nothing will happen. You can use [Player:Give](https://wiki.facepunch.com/gmod/Player:Give) to give the weapon first.
+--- @param className string @ The class name of the weapon to switch to. If the player doesn't have the specified weapon, nothing will happen. You can use [Player:Give](https://wiki.facepunch.com/gmod/Player:Give) to give the weapon first.
 --- @return void
 function Player:SelectWeapon(className) end
 
@@ -968,7 +1024,9 @@ function Player:SendHint(name, delay) end
 --- @return void
 function Player:SendLua(script) end
 
---- (server) Sets the player's active weapon. You should use [CUserCmd:SelectWeapon](https://wiki.facepunch.com/gmod/CUserCmd:SelectWeapon) or [Player:SelectWeapon](https://wiki.facepunch.com/gmod/Player:SelectWeapon), instead in most cases.This function will not trigger the weapon switch events or associated equip animations. It will bypass  [GM:PlayerSwitchWeapon](https://wiki.facepunch.com/gmod/GM:PlayerSwitchWeapon) and the currently active weapon's [WEAPON:Holster](https://wiki.facepunch.com/gmod/WEAPON:Holster) return value. 
+--- (server) Sets the player's active weapon. You should use [CUserCmd:SelectWeapon](https://wiki.facepunch.com/gmod/CUserCmd:SelectWeapon) or [Player:SelectWeapon](https://wiki.facepunch.com/gmod/Player:SelectWeapon), instead in most cases.
+--- This function will not trigger the weapon switch events or associated equip animations. It will bypass 
+---  [GM:PlayerSwitchWeapon](https://wiki.facepunch.com/gmod/GM:PlayerSwitchWeapon) and the currently active weapon's [WEAPON:Holster](https://wiki.facepunch.com/gmod/WEAPON:Holster) return value. 
 --- [https://wiki.facepunch.com/gmod/Player:SetActiveWeapon]
 --- @param weapon Weapon @ The weapon to equip.
 --- @return void
@@ -1029,13 +1087,16 @@ function Player:SetCanZoom(canZoom) end
 --- @return void
 function Player:SetClassID(classID) end
 
---- (client/server) Sets the crouched walk speed multiplier.Doesn't work for values above 1.See also [Player:SetWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetWalkSpeed) and [Player:GetCrouchedWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetCrouchedWalkSpeed). 
+--- (client/server) Sets the crouched walk speed multiplier.
+--- Doesn't work for values above 1.
+--- See also [Player:SetWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetWalkSpeed) and [Player:GetCrouchedWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetCrouchedWalkSpeed). 
 --- [https://wiki.facepunch.com/gmod/Player:SetCrouchedWalkSpeed]
 --- @param speed number @ The walk speed multiplier that crouch speed should be.
 --- @return void
 function Player:SetCrouchedWalkSpeed(speed) end
 
---- (client/server) Sets the **actual** view offset which equals the difference between the players actual position and their view when standing.Do not confuse with [Player:SetViewOffset](https://wiki.facepunch.com/gmod/Player:SetViewOffset) and [Player:SetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:SetViewOffsetDucked) 
+--- (client/server) Sets the **actual** view offset which equals the difference between the players actual position and their view when standing.
+--- Do not confuse with [Player:SetViewOffset](https://wiki.facepunch.com/gmod/Player:SetViewOffset) and [Player:SetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:SetViewOffsetDucked) 
 --- [https://wiki.facepunch.com/gmod/Player:SetCurrentViewOffset]
 --- @param viewOffset Vector @ The new view offset.
 --- @return void
@@ -1047,7 +1108,8 @@ function Player:SetCurrentViewOffset(viewOffset) end
 --- @return void
 function Player:SetDeaths(deathcount) end
 
---- (client/server) Sets the driving entity and driving mode.Use [drive.PlayerStartDriving](https://wiki.facepunch.com/gmod/drive.PlayerStartDriving) instead, see [Entity Driving](https://wiki.facepunch.com/gmod/Entity%20Driving). 
+--- (client/server) Sets the driving entity and driving mode.
+--- Use [drive.PlayerStartDriving](https://wiki.facepunch.com/gmod/drive.PlayerStartDriving) instead, see [Entity Driving](https://wiki.facepunch.com/gmod/Entity%20Driving). 
 --- [https://wiki.facepunch.com/gmod/Player:SetDrivingEntity]
 --- @param drivingEntity Entity @ The entity the player should drive.
 --- @param drivingMode number @ The driving mode index.
@@ -1056,7 +1118,7 @@ function Player:SetDrivingEntity(drivingEntity, drivingMode) end
 
 --- (client/server) Applies the specified sound filter to the player. 
 --- [https://wiki.facepunch.com/gmod/Player:SetDSP]
---- @param soundFilter number @ The index of the sound filter to apply.Pick from the [list of DSP's](https://developer.valvesoftware.com/wiki/Dsp_presets).
+--- @param soundFilter number @ The index of the sound filter to apply. Pick from the [list of DSP's](https://developer.valvesoftware.com/wiki/Dsp_presets).
 --- @param fastReset boolean @ If set to true the sound filter will be removed faster.
 --- @return void
 function Player:SetDSP(soundFilter, fastReset) end
@@ -1087,7 +1149,9 @@ function Player:SetFOV(fov, time, requester) end
 --- @return void
 function Player:SetFrags(fragcount) end
 
---- (client/server) Sets the hands entity of a player.The hands entity is an entity introduced in Garry's Mod 13 and it's used to show the player's hands attached to the viewmodel.This is similar to the approach used in L4D and CS:GO, for more information on how to implement this system in your gamemode visit [Using Viewmodel Hands](https://wiki.facepunch.com/gmod/Using%20Viewmodel%20Hands). 
+--- (client/server) Sets the hands entity of a player.
+--- The hands entity is an entity introduced in Garry's Mod 13 and it's used to show the player's hands attached to the viewmodel.
+--- This is similar to the approach used in L4D and CS:GO, for more information on how to implement this system in your gamemode visit [Using Viewmodel Hands](https://wiki.facepunch.com/gmod/Using%20Viewmodel%20Hands). 
 --- [https://wiki.facepunch.com/gmod/Player:SetHands]
 --- @param hands Entity @ The hands entity to set
 --- @return void
@@ -1099,14 +1163,16 @@ function Player:SetHands(hands) end
 --- @return void
 function Player:SetHoveredWidget(widget) end
 
---- (client/server) Sets the mins and maxs of the AABB of the players collision.See [Player:SetHullDuck](https://wiki.facepunch.com/gmod/Player:SetHullDuck) for the hull while crouching/ducking. 
+--- (client/server) Sets the mins and maxs of the AABB of the players collision.
+--- See [Player:SetHullDuck](https://wiki.facepunch.com/gmod/Player:SetHullDuck) for the hull while crouching/ducking. 
 --- [https://wiki.facepunch.com/gmod/Player:SetHull]
 --- @param hullMins Vector @ The min coordinates of the hull.
 --- @param hullMaxs Vector @ The max coordinates of the hull.
 --- @return void
 function Player:SetHull(hullMins, hullMaxs) end
 
---- (client/server) Sets the mins and maxs of the AABB of the players collision when ducked.See [Player:SetHull](https://wiki.facepunch.com/gmod/Player:SetHull) for setting the hull while standing. 
+--- (client/server) Sets the mins and maxs of the AABB of the players collision when ducked.
+--- See [Player:SetHull](https://wiki.facepunch.com/gmod/Player:SetHull) for setting the hull while standing. 
 --- [https://wiki.facepunch.com/gmod/Player:SetHullDuck]
 --- @param hullMins Vector @ The min coordinates of the hull.
 --- @param hullMaxs Vector @ The max coordinates of the hull.
@@ -1119,13 +1185,15 @@ function Player:SetHullDuck(hullMins, hullMaxs) end
 --- @return void
 function Player:SetJumpPower(jumpPower) end
 
---- (client/server) Sets the player's ladder climbing speed.See [Player:SetWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetWalkSpeed) for normal walking speed, [Player:SetRunSpeed](https://wiki.facepunch.com/gmod/Player:SetRunSpeed) for sprinting speed and [Player:SetSlowWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetSlowWalkSpeed) for slow walking speed. 
+--- (client/server) Sets the player's ladder climbing speed.
+--- See [Player:SetWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetWalkSpeed) for normal walking speed, [Player:SetRunSpeed](https://wiki.facepunch.com/gmod/Player:SetRunSpeed) for sprinting speed and [Player:SetSlowWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetSlowWalkSpeed) for slow walking speed. 
 --- [https://wiki.facepunch.com/gmod/Player:SetLadderClimbSpeed]
 --- @param speed number @ The ladder climbing speed.
 --- @return void
 function Player:SetLadderClimbSpeed(speed) end
 
---- (server) Slows down the player movement simulation by the timescale, this is used internally in the HL2 weapon stripping sequence.It achieves such behavior by multiplying the [FrameTime](https://wiki.facepunch.com/gmod/Global.FrameTime) by the specified timescale at the start of the movement simulation and then restoring it afterwards. 
+--- (server) Slows down the player movement simulation by the timescale, this is used internally in the HL2 weapon stripping sequence.
+--- It achieves such behavior by multiplying the [FrameTime](https://wiki.facepunch.com/gmod/Global.FrameTime) by the specified timescale at the start of the movement simulation and then restoring it afterwards. 
 --- [https://wiki.facepunch.com/gmod/Player:SetLaggedMovementValue]
 --- @param timescale number @ The timescale multiplier.
 --- @return void
@@ -1161,7 +1229,8 @@ function Player:SetMuted(mute) end
 --- @return void
 function Player:SetNoCollideWithTeammates(shouldNotCollide) end
 
---- (server) Sets the players visibility towards NPCs.Internally this toggles the [FL_NOTARGET](https://wiki.facepunch.com/gmod/Enums/FL) flag, which you can manually test for using [Entity:IsFlagSet](https://wiki.facepunch.com/gmod/Entity:IsFlagSet) 
+--- (server) Sets the players visibility towards NPCs.
+--- Internally this toggles the [FL_NOTARGET](https://wiki.facepunch.com/gmod/Enums/FL) flag, which you can manually test for using [Entity:IsFlagSet](https://wiki.facepunch.com/gmod/Entity:IsFlagSet) 
 --- [https://wiki.facepunch.com/gmod/Player:SetNoTarget]
 --- @param visibility boolean @ The visibility.
 --- @return void
@@ -1173,10 +1242,11 @@ function Player:SetNoTarget(visibility) end
 --- @return void
 function Player:SetObserverMode(mode) end
 
---- (client/server) Writes a **P**layer **Data** key-value pair to the SQL database. (sv.db when called on server,  cl.db when called on client)Internally uses the [sql](https://wiki.facepunch.com/gmod/sql). 
+--- (client/server) Writes a **P**layer **Data** key-value pair to the SQL database. (sv.db when called on server,  cl.db when called on client)
+--- Internally uses the [sql](https://wiki.facepunch.com/gmod/sql). 
 --- [https://wiki.facepunch.com/gmod/Player:SetPData]
 --- @param key string @ Name of the PData key
---- @param value any @ Value to write to the key (**must** be an SQL valid data type, such as a string or integer)
+--- @param value any @ Value to write to the key (must be an SQL valid data type, such as a string or integer)
 --- @return boolean
 function Player:SetPData(key, value) end
 
@@ -1186,7 +1256,8 @@ function Player:SetPData(key, value) end
 --- @return void
 function Player:SetPlayerColor(Color) end
 
---- (client/server) Sets the widget that is currently in use by the player's mouse.Having a pressed widget stops the player from firing his weapon to allow input to be passed onto the widget. 
+--- (client/server) Sets the widget that is currently in use by the player's mouse.
+--- Having a pressed widget stops the player from firing his weapon to allow input to be passed onto the widget. 
 --- [https://wiki.facepunch.com/gmod/Player:SetPressedWidget]
 --- @param pressedWidget Entity @ The widget the player is currently using.
 --- @return void
@@ -1198,13 +1269,15 @@ function Player:SetPressedWidget(pressedWidget) end
 --- @return void
 function Player:SetRenderAngles(ang) end
 
---- (client/server) Sets the player's sprint speed.See also [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed), [Player:SetWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetWalkSpeed) and [Player:SetMaxSpeed](https://wiki.facepunch.com/gmod/Player:SetMaxSpeed). 
+--- (client/server) Sets the player's sprint speed.
+--- See also [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed), [Player:SetWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetWalkSpeed) and [Player:SetMaxSpeed](https://wiki.facepunch.com/gmod/Player:SetMaxSpeed). 
 --- [https://wiki.facepunch.com/gmod/Player:SetRunSpeed]
---- @param runSpeed number @ The new sprint speed when sv_friction is below 10. Higher sv_friction values will result in slower speed.Has to be 7 or above or the player won't be able to move.
+--- @param runSpeed number @ The new sprint speed when sv_friction is below 10. Higher sv_friction values will result in slower speed. Has to be 7 or above or the player won't be able to move.
 --- @return void
 function Player:SetRunSpeed(runSpeed) end
 
---- (client/server) Sets the player's slow walking speed, which is activated via  keybind.See [Player:SetWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetWalkSpeed) for normal walking speed, [Player:SetRunSpeed](https://wiki.facepunch.com/gmod/Player:SetRunSpeed) for sprinting speed and [Player:SetLadderClimbSpeed](https://wiki.facepunch.com/gmod/Player:SetLadderClimbSpeed) for ladder climb speed. 
+--- (client/server) Sets the player's slow walking speed, which is activated via  keybind.
+--- See [Player:SetWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetWalkSpeed) for normal walking speed, [Player:SetRunSpeed](https://wiki.facepunch.com/gmod/Player:SetRunSpeed) for sprinting speed and [Player:SetLadderClimbSpeed](https://wiki.facepunch.com/gmod/Player:SetLadderClimbSpeed) for ladder climb speed. 
 --- [https://wiki.facepunch.com/gmod/Player:SetSlowWalkSpeed]
 --- @param speed number @ The new slow walking speed.
 --- @return void
@@ -1258,13 +1331,17 @@ function Player:SetUserGroup(groupName) end
 --- @return void
 function Player:SetViewEntity(viewEntity) end
 
---- (client/server) Sets the **desired** view offset which equals the difference between the players actual position and their view when standing.If you want to set **actual** view offset, use [Player:SetCurrentViewOffset](https://wiki.facepunch.com/gmod/Player:SetCurrentViewOffset)See also [Player:SetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:SetViewOffsetDucked) for **desired** view offset when crouching. 
+--- (client/server) Sets the **desired** view offset which equals the difference between the players actual position and their view when standing.
+--- If you want to set **actual** view offset, use [Player:SetCurrentViewOffset](https://wiki.facepunch.com/gmod/Player:SetCurrentViewOffset)
+--- See also [Player:SetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:SetViewOffsetDucked) for **desired** view offset when crouching. 
 --- [https://wiki.facepunch.com/gmod/Player:SetViewOffset]
 --- @param viewOffset Vector @ The new desired view offset when standing.
 --- @return void
 function Player:SetViewOffset(viewOffset) end
 
---- (client/server) Sets the **desired** view offset which equals the difference between the players actual position and their view when crouching.If you want to set **actual** view offset, use [Player:SetCurrentViewOffset](https://wiki.facepunch.com/gmod/Player:SetCurrentViewOffset)See also [Player:SetViewOffset](https://wiki.facepunch.com/gmod/Player:SetViewOffset) for **desired** view offset when standing. 
+--- (client/server) Sets the **desired** view offset which equals the difference between the players actual position and their view when crouching.
+--- If you want to set **actual** view offset, use [Player:SetCurrentViewOffset](https://wiki.facepunch.com/gmod/Player:SetCurrentViewOffset)
+--- See also [Player:SetViewOffset](https://wiki.facepunch.com/gmod/Player:SetViewOffset) for **desired** view offset when standing. 
 --- [https://wiki.facepunch.com/gmod/Player:SetViewOffsetDucked]
 --- @param viewOffset Vector @ The new desired view offset when crouching.
 --- @return void
@@ -1288,9 +1365,11 @@ function Player:SetViewPunchVelocity(punchVel) end
 --- @return void
 function Player:SetVoiceVolumeScale(number) end
 
---- (client/server) Sets the player's normal walking speed. Not sprinting, not slow walking .See also [Player:SetSlowWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetSlowWalkSpeed), [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed), [Player:SetCrouchedWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetCrouchedWalkSpeed), [Player:SetMaxSpeed](https://wiki.facepunch.com/gmod/Player:SetMaxSpeed) and [Player:SetRunSpeed](https://wiki.facepunch.com/gmod/Player:SetRunSpeed). 
+--- (client/server) Sets the player's normal walking speed. Not sprinting, not slow walking .
+--- 
+--- See also [Player:SetSlowWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetSlowWalkSpeed), [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed), [Player:SetCrouchedWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetCrouchedWalkSpeed), [Player:SetMaxSpeed](https://wiki.facepunch.com/gmod/Player:SetMaxSpeed) and [Player:SetRunSpeed](https://wiki.facepunch.com/gmod/Player:SetRunSpeed). 
 --- [https://wiki.facepunch.com/gmod/Player:SetWalkSpeed]
---- @param walkSpeed number @ The new walk speed when sv_friction is below 10. Higher sv_friction values will result in slower speed.Has to be 7 or above or the player won't be able to move.
+--- @param walkSpeed number @ The new walk speed when sv_friction is below 10. Higher sv_friction values will result in slower speed. Has to be 7 or above or the player won't be able to move.
 --- @return void
 function Player:SetWalkSpeed(walkSpeed) end
 
@@ -1334,7 +1413,8 @@ function Player:SimulateGravGunPickup(ent) end
 --- @return void
 function Player:Spectate(mode) end
 
---- (server) Makes the player spectate the entity.To get the applied spectated entity, use [Player:GetObserverTarget](https://wiki.facepunch.com/gmod/Player:GetObserverTarget). 
+--- (server) Makes the player spectate the entity.
+--- To get the applied spectated entity, use [Player:GetObserverTarget](https://wiki.facepunch.com/gmod/Player:GetObserverTarget). 
 --- [https://wiki.facepunch.com/gmod/Player:SpectateEntity]
 --- @param entity Entity @ Entity to spectate.
 --- @return void
@@ -1367,17 +1447,21 @@ function Player:StartSprinting() end
 --- @return void
 function Player:StartWalking() end
 
---- (client/server) Returns the player's SteamID.For Bots this will return `BOT` on the server and on the client it returns `NULL`.See [Player:AccountID](https://wiki.facepunch.com/gmod/Player:AccountID) for a shorter version of the SteamID and [Player:SteamID64](https://wiki.facepunch.com/gmod/Player:SteamID64) for the Community/Profile formatted SteamID. 
+--- (client/server) Returns the player's SteamID.
+--- For Bots this will return `BOT` on the server and on the client it returns `NULL`.
+--- See [Player:AccountID](https://wiki.facepunch.com/gmod/Player:AccountID) for a shorter version of the SteamID and [Player:SteamID64](https://wiki.facepunch.com/gmod/Player:SteamID64) for the Community/Profile formatted SteamID. 
 --- [https://wiki.facepunch.com/gmod/Player:SteamID]
 --- @return string
 function Player:SteamID() end
 
---- (client/server) Returns the player's 64-bit SteamID aka CommunityID.See [Player:AccountID](https://wiki.facepunch.com/gmod/Player:AccountID) for a shorter version of the SteamID and [Player:SteamID](https://wiki.facepunch.com/gmod/Player:SteamID) for the normal version of the SteamID. 
+--- (client/server) Returns the player's 64-bit SteamID aka CommunityID.
+--- See [Player:AccountID](https://wiki.facepunch.com/gmod/Player:AccountID) for a shorter version of the SteamID and [Player:SteamID](https://wiki.facepunch.com/gmod/Player:SteamID) for the normal version of the SteamID. 
 --- [https://wiki.facepunch.com/gmod/Player:SteamID64]
 --- @return string
 function Player:SteamID64() end
 
---- (client/server) When used in a [GM:SetupMove](https://wiki.facepunch.com/gmod/GM:SetupMove) hook, this function will prevent the player from sprinting.When +walk is engaged, the player will still be able to sprint to half speed (normal run speed) as opposed to full sprint speed without this function. 
+--- (client/server) When used in a [GM:SetupMove](https://wiki.facepunch.com/gmod/GM:SetupMove) hook, this function will prevent the player from sprinting.
+--- When +walk is engaged, the player will still be able to sprint to half speed (normal run speed) as opposed to full sprint speed without this function. 
 --- [https://wiki.facepunch.com/gmod/Player:StopSprinting]
 --- @return void
 function Player:StopSprinting() end
@@ -1387,7 +1471,8 @@ function Player:StopSprinting() end
 --- @return void
 function Player:StopWalking() end
 
---- (server) Turns off the zoom mode of the player. (+zoom console command)Basically equivalent of entering "-zoom" into player's console. 
+--- (server) Turns off the zoom mode of the player. (+zoom console command)
+--- Basically equivalent of entering "-zoom" into player's console. 
 --- [https://wiki.facepunch.com/gmod/Player:StopZooming]
 --- @return void
 function Player:StopZooming() end
@@ -1414,12 +1499,14 @@ function Player:StripWeapons() end
 --- @return void
 function Player:SuppressHint(name) end
 
---- (server) Attempts to switch the player weapon to the one specified in the "cl_defaultweapon" convar, if the player does not own the specified weapon nothing will happen.If you want to switch to a specific weapon, use: [Player:SetActiveWeapon](https://wiki.facepunch.com/gmod/Player:SetActiveWeapon) 
+--- (server) Attempts to switch the player weapon to the one specified in the "cl_defaultweapon" convar, if the player does not own the specified weapon nothing will happen.
+--- If you want to switch to a specific weapon, use: [Player:SetActiveWeapon](https://wiki.facepunch.com/gmod/Player:SetActiveWeapon) 
 --- [https://wiki.facepunch.com/gmod/Player:SwitchToDefaultWeapon]
 --- @return void
 function Player:SwitchToDefaultWeapon() end
 
---- (client/server) Returns the player's team ID.Returns 0 clientside when the game is not fully loaded. 
+--- (client/server) Returns the player's team ID.
+--- Returns 0 clientside when the game is not fully loaded. 
 --- [https://wiki.facepunch.com/gmod/Player:Team]
 --- @return number
 function Player:Team() end
@@ -1464,7 +1551,8 @@ function Player:UniqueID() end
 --- @return table
 function Player:UniqueIDTable(key) end
 
---- (server) Unlocks the player movement if locked previously.Will disable godmode for the player if locked previously. 
+--- (server) Unlocks the player movement if locked previously.
+--- Will disable godmode for the player if locked previously. 
 --- [https://wiki.facepunch.com/gmod/Player:UnLock]
 --- @return void
 function Player:UnLock() end
@@ -1474,7 +1562,8 @@ function Player:UnLock() end
 --- @return void
 function Player:UnSpectate() end
 
---- (client/server) Returns the player's ID.You can use [Player](https://wiki.facepunch.com/gmod/Global.Player)() to get the player by their ID. 
+--- (client/server) Returns the player's ID.
+--- You can use [Player](https://wiki.facepunch.com/gmod/Global.Player)() to get the player by their ID. 
 --- [https://wiki.facepunch.com/gmod/Player:UserID]
 --- @return number
 function Player:UserID() end

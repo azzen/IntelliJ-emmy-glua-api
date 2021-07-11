@@ -42,7 +42,9 @@ function gui.InternalKeyCodeReleased(key) end
 --- @return void
 function gui.InternalKeyCodeTyped(key) end
 
---- (client/menu) Simulates an ASCII symbol writing.Use to write text in the chat or in VGUI.Doesn't work while the main menu is open! 
+--- (client/menu) Simulates an ASCII symbol writing.
+--- Use to write text in the chat or in VGUI.
+--- Doesn't work while the main menu is open! 
 --- [https://wiki.facepunch.com/gmod/gui.InternalKeyTyped]
 --- @param code number @ ASCII code of symbol, see http://www.mikroe.com/img/publication/spa/pic-books/programming-in-basic/chapter/04/fig4-24.gif
 --- @return void
@@ -103,7 +105,8 @@ function gui.MouseY() end
 --- @return void
 function gui.OpenURL(url) end
 
---- (client) Converts the specified screen position to a **direction** vector local to the player's view. A related function is [Vector:ToScreen](https://wiki.facepunch.com/gmod/Vector:ToScreen), which translates a 3D position to a screen coordinate.[util.AimVector](https://wiki.facepunch.com/gmod/util.AimVector) is a more generic version of this, using a custom view instead of the player's current view. 
+--- (client) Converts the specified screen position to a **direction** vector local to the player's view. A related function is [Vector:ToScreen](https://wiki.facepunch.com/gmod/Vector:ToScreen), which translates a 3D position to a screen coordinate.
+--- [util.AimVector](https://wiki.facepunch.com/gmod/util.AimVector) is a more generic version of this, using a custom view instead of the player's current view. 
 --- [https://wiki.facepunch.com/gmod/gui.ScreenToVector]
 --- @param x number @ X coordinate on the screen.
 --- @param y number @ Y coordinate on the screen.

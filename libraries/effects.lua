@@ -10,7 +10,7 @@ effects = {}
 --- @param width number @ How thick the beam should be.
 --- @param amplitude number @ How noisy the beam should be.
 --- @param color table @ Beam's [Color](https://wiki.facepunch.com/gmod/Global.Color).
---- @param extra table @ Extra info, all optional. A table with the following keys: (any combination)* [number](https://wiki.facepunch.com/gmod/number) speed - ?* [number](https://wiki.facepunch.com/gmod/number) spread - ?* [number](https://wiki.facepunch.com/gmod/number) delay - Delay in seconds after which the effect should appear.* [number](https://wiki.facepunch.com/gmod/number) flags- Beam flags.* [number](https://wiki.facepunch.com/gmod/number) framerate - texture framerate.* [string](https://wiki.facepunch.com/gmod/string) material - The material to use instead of the default one.
+--- @param extra table @ Extra info, all optional. A table with the following keys: (any combination)  [number](https://wiki.facepunch.com/gmod/number) speed - ?  [number](https://wiki.facepunch.com/gmod/number) spread - ?  [number](https://wiki.facepunch.com/gmod/number) delay - Delay in seconds after which the effect should appear.  [number](https://wiki.facepunch.com/gmod/number) flags- Beam flags.  [number](https://wiki.facepunch.com/gmod/number) framerate - texture framerate.  [string](https://wiki.facepunch.com/gmod/string) material - The material to use instead of the default one.
 --- @return void
 function effects.BeamRingPoint(pos, lifetime, startRad, endRad, width, amplitude, color, extra) end
 

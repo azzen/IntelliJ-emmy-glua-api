@@ -11,7 +11,7 @@ function NPC:AddEntityRelationship(target, disposition, priority) end
 
 --- (server) Changes how an NPC feels towards another NPC.  If you want to setup relationship towards a certain `entity`, use [NPC:AddEntityRelationship](https://wiki.facepunch.com/gmod/NPC:AddEntityRelationship). 
 --- [https://wiki.facepunch.com/gmod/NPC:AddRelationship]
---- @param relationstring string @ A string representing how the relationship should be set up.Should be formatted as `"npc_class `[D](https://wiki.facepunch.com/gmod/Enums/D)` numberPriority"`.
+--- @param relationstring string @ A string representing how the relationship should be set up. Should be formatted as `"npc_class `[D](https://wiki.facepunch.com/gmod/Enums/D)` numberPriority"`.
 --- @return void
 function NPC:AddRelationship(relationstring) end
 
@@ -383,7 +383,12 @@ function NPC:IsRunningBehavior() end
 --- @return boolean
 function NPC:IsSquadLeader() end
 
---- (server) Returns true if the entity was remembered as unreachable. The memory is updated automatically from following engine tasks if they failed:* TASK_GET_CHASE_PATH_TO_ENEMY* TASK_GET_PATH_TO_ENEMY_LKP* TASK_GET_PATH_TO_INTERACTION_PARTNER* TASK_ANTLIONGUARD_GET_CHASE_PATH_ENEMY_TOLERANCE* SCHED_FAIL_ESTABLISH_LINE_OF_FIRE - Combine NPCs, also when failing to change their enemy 
+--- (server) Returns true if the entity was remembered as unreachable. The memory is updated automatically from following engine tasks if they failed:
+--- * TASK_GET_CHASE_PATH_TO_ENEMY
+--- * TASK_GET_PATH_TO_ENEMY_LKP
+--- * TASK_GET_PATH_TO_INTERACTION_PARTNER
+--- * TASK_ANTLIONGUARD_GET_CHASE_PATH_ENEMY_TOLERANCE
+--- * SCHED_FAIL_ESTABLISH_LINE_OF_FIRE - Combine NPCs, also when failing to change their enemy 
 --- [https://wiki.facepunch.com/gmod/NPC:IsUnreachable]
 --- @param testEntity Entity @ The entity to test.
 --- @return boolean
@@ -405,7 +410,8 @@ function NPC:MaintainActivity() end
 --- @return void
 function NPC:MarkEnemyAsEluded(enemy) end
 
---- (server) Executes a climb move.Related functions are [NPC:MoveClimbStart](https://wiki.facepunch.com/gmod/NPC:MoveClimbStart) and [NPC:MoveClimbStop](https://wiki.facepunch.com/gmod/NPC:MoveClimbStop). 
+--- (server) Executes a climb move.
+--- Related functions are [NPC:MoveClimbStart](https://wiki.facepunch.com/gmod/NPC:MoveClimbStart) and [NPC:MoveClimbStop](https://wiki.facepunch.com/gmod/NPC:MoveClimbStop). 
 --- [https://wiki.facepunch.com/gmod/NPC:MoveClimbExec]
 --- @param destination Vector @ The destination of the climb.
 --- @param dir Vector @ The direction of the climb.
@@ -415,7 +421,8 @@ function NPC:MarkEnemyAsEluded(enemy) end
 --- @return number
 function NPC:MoveClimbExec(destination, dir, distance, yaw, left) end
 
---- (server) Starts a climb move.Related functions are [NPC:MoveClimbExec](https://wiki.facepunch.com/gmod/NPC:MoveClimbExec) and [NPC:MoveClimbStop](https://wiki.facepunch.com/gmod/NPC:MoveClimbStop). 
+--- (server) Starts a climb move.
+--- Related functions are [NPC:MoveClimbExec](https://wiki.facepunch.com/gmod/NPC:MoveClimbExec) and [NPC:MoveClimbStop](https://wiki.facepunch.com/gmod/NPC:MoveClimbStop). 
 --- [https://wiki.facepunch.com/gmod/NPC:MoveClimbStart]
 --- @param destination Vector @ The destination of the climb.
 --- @param dir Vector @ The direction of the climb.
@@ -424,44 +431,53 @@ function NPC:MoveClimbExec(destination, dir, distance, yaw, left) end
 --- @return void
 function NPC:MoveClimbStart(destination, dir, distance, yaw) end
 
---- (server) Stops a climb move.Related functions are [NPC:MoveClimbExec](https://wiki.facepunch.com/gmod/NPC:MoveClimbExec) and [NPC:MoveClimbStart](https://wiki.facepunch.com/gmod/NPC:MoveClimbStart). 
+--- (server) Stops a climb move.
+--- Related functions are [NPC:MoveClimbExec](https://wiki.facepunch.com/gmod/NPC:MoveClimbExec) and [NPC:MoveClimbStart](https://wiki.facepunch.com/gmod/NPC:MoveClimbStart). 
 --- [https://wiki.facepunch.com/gmod/NPC:MoveClimbStop]
 --- @return void
 function NPC:MoveClimbStop() end
 
---- (server) Executes a jump move.Related functions are [NPC:MoveJumpStart](https://wiki.facepunch.com/gmod/NPC:MoveJumpStart) and [NPC:MoveJumpStop](https://wiki.facepunch.com/gmod/NPC:MoveJumpStop). 
+--- (server) Executes a jump move.
+--- Related functions are [NPC:MoveJumpStart](https://wiki.facepunch.com/gmod/NPC:MoveJumpStart) and [NPC:MoveJumpStop](https://wiki.facepunch.com/gmod/NPC:MoveJumpStop). 
 --- [https://wiki.facepunch.com/gmod/NPC:MoveJumpExec]
 --- @return number
 function NPC:MoveJumpExec() end
 
---- (server) Starts a jump move.Related functions are [NPC:MoveJumpExec](https://wiki.facepunch.com/gmod/NPC:MoveJumpExec) and [NPC:MoveJumpStop](https://wiki.facepunch.com/gmod/NPC:MoveJumpStop). 
+--- (server) Starts a jump move.
+--- Related functions are [NPC:MoveJumpExec](https://wiki.facepunch.com/gmod/NPC:MoveJumpExec) and [NPC:MoveJumpStop](https://wiki.facepunch.com/gmod/NPC:MoveJumpStop). 
 --- [https://wiki.facepunch.com/gmod/NPC:MoveJumpStart]
 --- @param vel Vector @ The jump velocity.
 --- @return void
 function NPC:MoveJumpStart(vel) end
 
---- (server) Stops a jump move.Related functions are [NPC:MoveJumpExec](https://wiki.facepunch.com/gmod/NPC:MoveJumpExec) and [NPC:MoveJumpStart](https://wiki.facepunch.com/gmod/NPC:MoveJumpStart). 
+--- (server) Stops a jump move.
+--- Related functions are [NPC:MoveJumpExec](https://wiki.facepunch.com/gmod/NPC:MoveJumpExec) and [NPC:MoveJumpStart](https://wiki.facepunch.com/gmod/NPC:MoveJumpStart). 
 --- [https://wiki.facepunch.com/gmod/NPC:MoveJumpStop]
 --- @return number
 function NPC:MoveJumpStop() end
 
---- (server) Makes the NPC walk toward the given position. The NPC will return to the player after amount of time set by **player_squad_autosummon_time** [ConVar](https://wiki.facepunch.com/gmod/ConVar).Only works on Citizens (npc_citizen) and is a part of the Half-Life 2 squad system.The NPC **must** be in the player's squad for this to work. 
+--- (server) Makes the NPC walk toward the given position. The NPC will return to the player after amount of time set by **player_squad_autosummon_time** [ConVar](https://wiki.facepunch.com/gmod/ConVar).
+--- Only works on Citizens (npc_citizen) and is a part of the Half-Life 2 squad system.
+--- The NPC **must** be in the player's squad for this to work. 
 --- [https://wiki.facepunch.com/gmod/NPC:MoveOrder]
 --- @param position Vector @ The target position for the NPC to walk to.
 --- @return void
 function NPC:MoveOrder(position) end
 
---- (server) Pauses the NPC movement?Related functions are [NPC:MoveStart](https://wiki.facepunch.com/gmod/NPC:MoveStart), [NPC:MoveStop](https://wiki.facepunch.com/gmod/NPC:MoveStop) and [NPC:ResetMoveCalc](https://wiki.facepunch.com/gmod/NPC:ResetMoveCalc). 
+--- (server) Pauses the NPC movement?
+--- Related functions are [NPC:MoveStart](https://wiki.facepunch.com/gmod/NPC:MoveStart), [NPC:MoveStop](https://wiki.facepunch.com/gmod/NPC:MoveStop) and [NPC:ResetMoveCalc](https://wiki.facepunch.com/gmod/NPC:ResetMoveCalc). 
 --- [https://wiki.facepunch.com/gmod/NPC:MovePause]
 --- @return void
 function NPC:MovePause() end
 
---- (server) Starts NPC movement?Related functions are [NPC:MoveStop](https://wiki.facepunch.com/gmod/NPC:MoveStop), [NPC:MovePause](https://wiki.facepunch.com/gmod/NPC:MovePause) and [NPC:ResetMoveCalc](https://wiki.facepunch.com/gmod/NPC:ResetMoveCalc). 
+--- (server) Starts NPC movement?
+--- Related functions are [NPC:MoveStop](https://wiki.facepunch.com/gmod/NPC:MoveStop), [NPC:MovePause](https://wiki.facepunch.com/gmod/NPC:MovePause) and [NPC:ResetMoveCalc](https://wiki.facepunch.com/gmod/NPC:ResetMoveCalc). 
 --- [https://wiki.facepunch.com/gmod/NPC:MoveStart]
 --- @return void
 function NPC:MoveStart() end
 
---- (server) Stops the NPC movement?Related functions are [NPC:MoveStart](https://wiki.facepunch.com/gmod/NPC:MoveStart), [NPC:MovePause](https://wiki.facepunch.com/gmod/NPC:MovePause) and [NPC:ResetMoveCalc](https://wiki.facepunch.com/gmod/NPC:ResetMoveCalc). 
+--- (server) Stops the NPC movement?
+--- Related functions are [NPC:MoveStart](https://wiki.facepunch.com/gmod/NPC:MoveStart), [NPC:MovePause](https://wiki.facepunch.com/gmod/NPC:MovePause) and [NPC:ResetMoveCalc](https://wiki.facepunch.com/gmod/NPC:ResetMoveCalc). 
 --- [https://wiki.facepunch.com/gmod/NPC:MoveStop]
 --- @return void
 function NPC:MoveStop() end
@@ -516,7 +532,8 @@ function NPC:PlaySentence(sentence, delay, volume) end
 --- @return void
 function NPC:RememberUnreachable(ent, time) end
 
---- (server) This function crashes the game no matter how it is used and will be removed in a future update.Use [NPC:ClearEnemyMemory](https://wiki.facepunch.com/gmod/NPC:ClearEnemyMemory) instead. 
+--- (server) This function crashes the game no matter how it is used and will be removed in a future update.
+--- Use [NPC:ClearEnemyMemory](https://wiki.facepunch.com/gmod/NPC:ClearEnemyMemory) instead. 
 --- [https://wiki.facepunch.com/gmod/NPC:RemoveMemory]
 --- @return void
 function NPC:RemoveMemory() end
@@ -527,12 +544,14 @@ function NPC:RemoveMemory() end
 --- @return void
 function NPC:ResetIdealActivity(act) end
 
---- (server) Resets all the movement calculations.Related functions are [NPC:MoveStart](https://wiki.facepunch.com/gmod/NPC:MoveStart), [NPC:MovePause](https://wiki.facepunch.com/gmod/NPC:MovePause) and [NPC:MoveStop](https://wiki.facepunch.com/gmod/NPC:MoveStop). 
+--- (server) Resets all the movement calculations.
+--- Related functions are [NPC:MoveStart](https://wiki.facepunch.com/gmod/NPC:MoveStart), [NPC:MovePause](https://wiki.facepunch.com/gmod/NPC:MovePause) and [NPC:MoveStop](https://wiki.facepunch.com/gmod/NPC:MoveStop). 
 --- [https://wiki.facepunch.com/gmod/NPC:ResetMoveCalc]
 --- @return void
 function NPC:ResetMoveCalc() end
 
---- (server) Starts an engine task.Used internally by the [ai_task](https://wiki.facepunch.com/gmod/ai_task). 
+--- (server) Starts an engine task.
+--- Used internally by the [ai_task](https://wiki.facepunch.com/gmod/ai_task). 
 --- [https://wiki.facepunch.com/gmod/NPC:RunEngineTask]
 --- @param taskID number @ The task ID, see [ai_task.h](https://github.com/ValveSoftware/source-sdk-2013/blob/55ed12f8d1eb6887d348be03aee5573d44177ffb/mp/src/game/server/ai_task.h#L89-L502)
 --- @param taskData number @ The task data.
@@ -545,7 +564,8 @@ function NPC:RunEngineTask(taskID, taskData) end
 --- @return void
 function NPC:SelectWeapon(class) end
 
---- (server) Stops any sounds (speech) the NPC is currently palying.Equivalent to `Entity:EmitSound( "AI_BaseNPC.SentenceStop" )` 
+--- (server) Stops any sounds (speech) the NPC is currently palying.
+--- Equivalent to `Entity:EmitSound( "AI_BaseNPC.SentenceStop" )` 
 --- [https://wiki.facepunch.com/gmod/NPC:SentenceStop]
 --- @return void
 function NPC:SentenceStop() end
@@ -629,7 +649,7 @@ function NPC:SetIdealActivity(number) end
 --- (server) Sets the ideal yaw angle (left-right rotation) for the NPC and forces them to turn to that angle. 
 --- [https://wiki.facepunch.com/gmod/NPC:SetIdealYawAndUpdate]
 --- @param angle number @ The aim direction to set, the `yaw` component.
---- @param speed number @ The turn speed. Special values are:* `-1` - Calculate automatically* `-2` - Keep the previous yaw speed
+--- @param speed number @ The turn speed. Special values are:  `-1` - Calculate automatically  `-2` - Keep the previous yaw speed
 --- @return void
 function NPC:SetIdealYawAndUpdate(angle, speed) end
 
@@ -723,18 +743,22 @@ function NPC:StartEngineTask(task, taskData) end
 --- @return void
 function NPC:StopMoving() end
 
---- (server) Cancels [NPC:MoveOrder](https://wiki.facepunch.com/gmod/NPC:MoveOrder) basically.Only works on Citizens (npc_citizen) and is a part of the Half-Life 2 squad system.The NPC **must** be in the player's squad for this to work. 
+--- (server) Cancels [NPC:MoveOrder](https://wiki.facepunch.com/gmod/NPC:MoveOrder) basically.
+--- Only works on Citizens (npc_citizen) and is a part of the Half-Life 2 squad system.
+--- The NPC **must** be in the player's squad for this to work. 
 --- [https://wiki.facepunch.com/gmod/NPC:TargetOrder]
 --- @param target Entity @ Must be a player, does nothing otherwise.
 --- @return void
 function NPC:TargetOrder(target) end
 
---- (server) Marks the current NPC task as completed.This is meant to be used alongside [NPC:TaskFail](https://wiki.facepunch.com/gmod/NPC:TaskFail) to complete or fail custom Lua defined tasks. ([Schedule:AddTask](https://wiki.facepunch.com/gmod/Schedule:AddTask)) 
+--- (server) Marks the current NPC task as completed.
+--- This is meant to be used alongside [NPC:TaskFail](https://wiki.facepunch.com/gmod/NPC:TaskFail) to complete or fail custom Lua defined tasks. ([Schedule:AddTask](https://wiki.facepunch.com/gmod/Schedule:AddTask)) 
 --- [https://wiki.facepunch.com/gmod/NPC:TaskComplete]
 --- @return void
 function NPC:TaskComplete() end
 
---- (server) Marks the current NPC task as failed.This is meant to be used alongside [NPC:TaskComplete](https://wiki.facepunch.com/gmod/NPC:TaskComplete) to complete or fail custom Lua defined tasks. ([Schedule:AddTask](https://wiki.facepunch.com/gmod/Schedule:AddTask)) 
+--- (server) Marks the current NPC task as failed.
+--- This is meant to be used alongside [NPC:TaskComplete](https://wiki.facepunch.com/gmod/NPC:TaskComplete) to complete or fail custom Lua defined tasks. ([Schedule:AddTask](https://wiki.facepunch.com/gmod/Schedule:AddTask)) 
 --- [https://wiki.facepunch.com/gmod/NPC:TaskFail]
 --- @param task string @ A string most likely defined as a Source Task, for more information on Tasks go to https://developer.valvesoftware.com/wiki/Task
 --- @return void
@@ -777,7 +801,8 @@ function NPC:UseFuncTankBehavior() end
 --- @return boolean
 function NPC:UseLeadBehavior() end
 
---- (server) Undoes the other Use*Behavior functions.Only usable on "ai" base entities. 
+--- (server) Undoes the other Use*Behavior functions.
+--- Only usable on "ai" base entities. 
 --- [https://wiki.facepunch.com/gmod/NPC:UseNoBehavior]
 --- @return void
 function NPC:UseNoBehavior() end

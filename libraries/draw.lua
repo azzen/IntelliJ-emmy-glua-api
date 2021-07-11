@@ -1,7 +1,9 @@
 --- @class draw
 draw = {}
 
---- (client/menu) Simple draw text at position, but this will expand newlines and tabs.See also [MarkupObject](https://wiki.facepunch.com/gmod/MarkupObject) for limited width and markup support. 
+--- (client/menu) Simple draw text at position, but this will expand newlines and tabs.
+--- 
+--- See also [MarkupObject](https://wiki.facepunch.com/gmod/MarkupObject) for limited width and markup support. 
 --- [https://wiki.facepunch.com/gmod/draw.DrawText]
 --- @param text string @ Text to be drawn.
 --- @param font string @ Name of font to draw the text in. See [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) to create your own, or [Default Fonts](https://wiki.facepunch.com/gmod/Default%20Fonts) for a list of default fonts.

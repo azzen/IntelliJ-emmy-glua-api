@@ -1,7 +1,8 @@
 --- @class TOOL
 TOOL = {}
 
---- (client/server) Called when [WEAPON:Deploy](https://wiki.facepunch.com/gmod/WEAPON:Deploy) of the toolgun is called.This is also called when switching from another tool on the server. 
+--- (client/server) Called when [WEAPON:Deploy](https://wiki.facepunch.com/gmod/WEAPON:Deploy) of the toolgun is called.
+--- This is also called when switching from another tool on the server. 
 --- [https://wiki.facepunch.com/gmod/TOOL:Deploy]
 --- @return void
 function TOOL:Deploy() end

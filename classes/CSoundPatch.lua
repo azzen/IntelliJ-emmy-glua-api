@@ -1,14 +1,16 @@
 --- @class CSoundPatch
 CSoundPatch = {}
 
---- (client/server) Adjust the pitch, alias the speed at which the sound is being played.This invokes the [GM:EntityEmitSound](https://wiki.facepunch.com/gmod/GM:EntityEmitSound). 
+--- (client/server) Adjust the pitch, alias the speed at which the sound is being played.
+--- This invokes the [GM:EntityEmitSound](https://wiki.facepunch.com/gmod/GM:EntityEmitSound). 
 --- [https://wiki.facepunch.com/gmod/CSoundPatch:ChangePitch]
 --- @param pitch number @ The pitch can range from 0-255. Where 100 is the original pitch.
 --- @param deltaTime number @ The time to fade from previous to the new pitch.
 --- @return void
 function CSoundPatch:ChangePitch(pitch, deltaTime) end
 
---- (client/server) Adjusts the volume of the sound played.Appears to only work while the sound is being played. 
+--- (client/server) Adjusts the volume of the sound played.
+--- Appears to only work while the sound is being played. 
 --- [https://wiki.facepunch.com/gmod/CSoundPatch:ChangeVolume]
 --- @param volume number @ The volume ranges from 0 to 1.
 --- @param deltaTime number @ Time to fade the volume from previous to new value from.
@@ -60,7 +62,7 @@ function CSoundPatch:PlayEx(volume, pitch) end
 
 --- (client/server) Sets the DSP (Digital Signal Processor) effect for the sound. Similar to [Player:SetDSP](https://wiki.facepunch.com/gmod/Player:SetDSP) but for individual sounds. 
 --- [https://wiki.facepunch.com/gmod/CSoundPatch:SetDSP]
---- @param dsp number @ The DSP effect to set.Pick from the [list of DSP's](https://developer.valvesoftware.com/wiki/Dsp_presets)
+--- @param dsp number @ The DSP effect to set. Pick from the [list of DSP's](https://developer.valvesoftware.com/wiki/Dsp_presets)
 --- @return void
 function CSoundPatch:SetDSP(dsp) end
 

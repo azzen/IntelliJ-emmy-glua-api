@@ -6,13 +6,16 @@ util = {}
 --- @return void
 function util.worldpicker() end
 
---- (server) Adds the specified string to a string table, which will cache it and network it to all clients automatically.Whenever you want to create a net message with [net.Start](https://wiki.facepunch.com/gmod/net.Start), you must add the name of that message as a networked string via this function.If the passed string already exists, nothing will happen and the ID of the existing item will be returned. 
+--- (server) Adds the specified string to a string table, which will cache it and network it to all clients automatically.
+--- Whenever you want to create a net message with [net.Start](https://wiki.facepunch.com/gmod/net.Start), you must add the name of that message as a networked string via this function.
+--- If the passed string already exists, nothing will happen and the ID of the existing item will be returned. 
 --- [https://wiki.facepunch.com/gmod/util.AddNetworkString]
 --- @param str string @ Adds the specified string to the string table.
 --- @return number
 function util.AddNetworkString(str) end
 
---- (client/menu/server) Function used to calculate aim vector from 2D screen position. It is used in SuperDOF calculate Distance.Essentially a generic version of [gui.ScreenToVector](https://wiki.facepunch.com/gmod/gui.ScreenToVector). 
+--- (client/menu/server) Function used to calculate aim vector from 2D screen position. It is used in SuperDOF calculate Distance.
+--- Essentially a generic version of [gui.ScreenToVector](https://wiki.facepunch.com/gmod/gui.ScreenToVector). 
 --- [https://wiki.facepunch.com/gmod/util.AimVector]
 --- @param ViewAngles Angle @ View angles
 --- @param ViewFOV number @ View Field of View
@@ -53,7 +56,8 @@ function util.BlastDamage(inflictor, attacker, damageOrigin, damageRadius, damag
 --- @return void
 function util.BlastDamageInfo(dmg, damageOrigin, damageRadius) end
 
---- (client/menu/server) Compresses the given string using the [LZMA](https://en.wikipedia.org/wiki/LZMA) algorithm.Use with [net.WriteData](https://wiki.facepunch.com/gmod/net.WriteData) and [net.ReadData](https://wiki.facepunch.com/gmod/net.ReadData) for networking and  [util.Decompress](https://wiki.facepunch.com/gmod/util.Decompress) to decompress the data. 
+--- (client/menu/server) Compresses the given string using the [LZMA](https://en.wikipedia.org/wiki/LZMA) algorithm.
+--- Use with [net.WriteData](https://wiki.facepunch.com/gmod/net.WriteData) and [net.ReadData](https://wiki.facepunch.com/gmod/net.ReadData) for networking and  [util.Decompress](https://wiki.facepunch.com/gmod/util.Decompress) to decompress the data. 
 --- [https://wiki.facepunch.com/gmod/util.Compress]
 --- @param str string @ String to compress.
 --- @return string
@@ -85,7 +89,7 @@ function util.Decal(name, start, end, filter) end
 --- @param ent Entity @ The entity to apply the decal to
 --- @param position Vector @ The position of the decal.
 --- @param normal Vector @ The direction of the decal.
---- @param color table @ The color of the decal. Uses the [Color](https://wiki.facepunch.com/gmod/Color).This only works when used on a brush model and only if the decal material has set **$vertexcolor** to 1.
+--- @param color table @ The color of the decal. Uses the [Color](https://wiki.facepunch.com/gmod/Color). This only works when used on a brush model and only if the decal material has set $vertexcolor to 1.
 --- @param w number @ The width scale of the decal.
 --- @param h number @ The height scale of the decal.
 --- @return void
@@ -112,12 +116,13 @@ function util.Decompress(compressedString, maxSize) end
 --- @return number|Vector|number
 function util.DistanceToLine(lineStart, lineEnd, pointPos) end
 
---- (client/server) Creates an effect with the specified data.For Orange Box `.pcf` particles, see [ParticleEffect](https://wiki.facepunch.com/gmod/Global.ParticleEffect), [ParticleEffectAttach](https://wiki.facepunch.com/gmod/Global.ParticleEffectAttach) and  [CreateParticleSystem](https://wiki.facepunch.com/gmod/Global.CreateParticleSystem). 
+--- (client/server) Creates an effect with the specified data.
+--- For Orange Box `.pcf` particles, see [ParticleEffect](https://wiki.facepunch.com/gmod/Global.ParticleEffect), [ParticleEffectAttach](https://wiki.facepunch.com/gmod/Global.ParticleEffectAttach) and  [CreateParticleSystem](https://wiki.facepunch.com/gmod/Global.CreateParticleSystem). 
 --- [https://wiki.facepunch.com/gmod/util.Effect]
---- @param effectName string @ The name of the effect to create.You can find a list of [built-in engine effects here](https://wiki.facepunch.com/gmod/Effects). You can create your own, [example effects can be found here](https://github.com/garrynewman/garrysmod/tree/master/garrysmod/gamemodes/sandbox/entities/effects) and [here](https://github.com/garrynewman/garrysmod/tree/master/garrysmod/gamemodes/base/entities/effects).
+--- @param effectName string @ The name of the effect to create. You can find a list of [built-in engine effects here](https://wiki.facepunch.com/gmod/Effects). You can create your own, [example effects can be found here](https://github.com/garrynewman/garrysmod/tree/master/garrysmod/gamemodes/sandbox/entities/effects) and [here](https://github.com/garrynewman/garrysmod/tree/master/garrysmod/gamemodes/base/entities/effects).
 --- @param effectData CEffectData @ The effect data describing the effect.
 --- @param allowOverride boolean @ Whether Lua-defined effects should override engine-defined effects with the same name for this/single function call.
---- @param ignorePredictionOrRecipientFilter any @ Can either be a boolean to ignore the prediction filter or a [CRecipientFilter](https://wiki.facepunch.com/gmod/CRecipientFilter).Set this to true if you wish to call this function in multiplayer from server.
+--- @param ignorePredictionOrRecipientFilter any @ Can either be a boolean to ignore the prediction filter or a [CRecipientFilter](https://wiki.facepunch.com/gmod/CRecipientFilter). Set this to true if you wish to call this function in multiplayer from server.
 --- @return void
 function util.Effect(effectName, effectData, allowOverride, ignorePredictionOrRecipientFilter) end
 
@@ -127,7 +132,9 @@ function util.Effect(effectName, effectData, allowOverride, ignorePredictionOrRe
 --- @return table
 function util.GetModelInfo(mdl) end
 
---- (client) Returns a table of visual meshes of given model.See also [ENTITY:GetRenderMesh](https://wiki.facepunch.com/gmod/ENTITY:GetRenderMesh). 
+--- (client) Returns a table of visual meshes of given model.
+--- 
+--- See also [ENTITY:GetRenderMesh](https://wiki.facepunch.com/gmod/ENTITY:GetRenderMesh). 
 --- [https://wiki.facepunch.com/gmod/util.GetModelMeshes]
 --- @param model string @ The full path to a model to get the visual meshes of.
 --- @param lod number @ No description provided
@@ -166,13 +173,15 @@ function util.GetSunInfo() end
 --- @return table
 function util.GetSurfaceData(id) end
 
---- (client/server) Returns the matching surface property index for the given surface property name.See also [util.GetSurfaceData](https://wiki.facepunch.com/gmod/util.GetSurfaceData) and [util.GetSurfacePropName](https://wiki.facepunch.com/gmod/util.GetSurfacePropName) for opposite function. 
+--- (client/server) Returns the matching surface property index for the given surface property name.
+--- See also [util.GetSurfaceData](https://wiki.facepunch.com/gmod/util.GetSurfaceData) and [util.GetSurfacePropName](https://wiki.facepunch.com/gmod/util.GetSurfacePropName) for opposite function. 
 --- [https://wiki.facepunch.com/gmod/util.GetSurfaceIndex]
 --- @param surfaceName string @ The name of the surface.
 --- @return number
 function util.GetSurfaceIndex(surfaceName) end
 
---- (client/server) Returns the name of a surface property at given ID.See also [util.GetSurfaceData](https://wiki.facepunch.com/gmod/util.GetSurfaceData) and [util.GetSurfaceIndex](https://wiki.facepunch.com/gmod/util.GetSurfaceIndex) for opposite function. 
+--- (client/server) Returns the name of a surface property at given ID.
+--- See also [util.GetSurfaceData](https://wiki.facepunch.com/gmod/util.GetSurfaceData) and [util.GetSurfaceIndex](https://wiki.facepunch.com/gmod/util.GetSurfaceIndex) for opposite function. 
 --- [https://wiki.facepunch.com/gmod/util.GetSurfacePropName]
 --- @param id number @ Surface property ID. You can get it from [TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult).
 --- @return string
@@ -186,7 +195,7 @@ function util.GetUserGroups() end
 --- (client/server) Performs a "ray" box intersection and returns position, normal and the fraction. 
 --- [https://wiki.facepunch.com/gmod/util.IntersectRayWithOBB]
 --- @param rayStart Vector @ Origin/start position of the ray.
---- @param rayDelta Vector @ The ray vector itself. This can be thought of as: the ray end point relative to the start point.Note that in this implementation, the ray is not infinite - it's only a segment.
+--- @param rayDelta Vector @ The ray vector itself. This can be thought of as: the ray end point relative to the start point. Note that in this implementation, the ray is not infinite - it's only a segment.
 --- @param boxOrigin Vector @ The center of the box.
 --- @param boxAngles Angle @ The angles of the box.
 --- @param boxMins Vector @ The min position of the box.
@@ -221,7 +230,26 @@ function util.IsModelLoaded(modelName) end
 --- @return boolean
 function util.IsSkyboxVisibleFromPoint(position) end
 
---- (client/server) Checks if the specified model is valid. A model is considered invalid in following cases:* Starts with a space or **maps*** Doesn't start with **models*** Contains any of the following:* * _gestures* * _animations* * _postures* * _gst* * _pst* * _shd* * _ss* * _anm* * .bsp* * cs_fix* On server: If the model isn't precached, if the model file doesn't exist on the disk* If precache failed* Model is the error modelRunning this function will also precache the model. 
+--- (client/server) Checks if the specified model is valid.
+---  
+--- A model is considered invalid in following cases:
+--- * Starts with a space or **maps**
+--- * Doesn't start with **models**
+--- * Contains any of the following:
+--- * * _gestures
+--- * * _animations
+--- * * _postures
+--- * * _gst
+--- * * _pst
+--- * * _shd
+--- * * _ss
+--- * * _anm
+--- * * .bsp
+--- * * cs_fix
+--- * On server: If the model isn't precached, if the model file doesn't exist on the disk
+--- * If precache failed
+--- * Model is the error model
+--- Running this function will also precache the model. 
 --- [https://wiki.facepunch.com/gmod/util.IsValidModel]
 --- @param modelName string @ Name/Path of the model to check.
 --- @return boolean
@@ -349,7 +377,7 @@ function util.PrecacheSound(soundName) end
 --- (client/menu/server) Performs a trace with the given origin, direction and filter. 
 --- [https://wiki.facepunch.com/gmod/util.QuickTrace]
 --- @param origin Vector @ The origin of the trace.
---- @param endpos Vector @ The end point of the trace, relative to the start.This is the direction of the trace times the distance of the trace.
+--- @param endpos Vector @ The end point of the trace, relative to the start. This is the direction of the trace times the distance of the trace.
 --- @param filter Entity @ Entity which should be ignored by the trace. Can also be a table of entities or a function - see [Trace](https://wiki.facepunch.com/gmod/Structures/Trace).
 --- @return table
 function util.QuickTrace(origin, endpos, filter) end
@@ -409,7 +437,7 @@ function util.SharedRandom(uniqueName, min, max, additionalSeed) end
 --- @param startWidth number @ Start width of the trail
 --- @param endWidth number @ End width of the trail
 --- @param lifetime number @ How long it takes to transition from startWidth to endWidth
---- @param textureRes number @ The resolution of trails texture. A good value can be calculated using this formula: 1 / ( startWidth + endWidth ) * 0.5
+--- @param textureRes number @ The resolution of trails texture. A good value can be calculated using this formula: 1 / ( startWidth + endWidth )  0.5
 --- @param texture string @ Path to the texture to use as a trail.
 --- @return Entity
 function util.SpriteTrail(ent, attachmentID, color, additive, startWidth, endWidth, lifetime, textureRes, texture) end
@@ -431,7 +459,8 @@ function util.SteamIDFrom64(id) end
 --- @return string
 function util.SteamIDTo64(id) end
 
---- (client/menu/server) Converts a string to the specified type.This can be useful when dealing with ConVars. 
+--- (client/menu/server) Converts a string to the specified type.
+--- This can be useful when dealing with ConVars. 
 --- [https://wiki.facepunch.com/gmod/util.StringToType]
 --- @param str string @ The string to convert
 --- @param typename string @ The type to attempt to convert the string to. This can be vector, angle, float, int, bool, or string (case insensitive).

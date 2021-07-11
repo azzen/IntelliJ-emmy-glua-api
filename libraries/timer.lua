@@ -4,7 +4,7 @@ timer = {}
 --- (client/menu/server) Adjusts the timer if the timer with the given identifier exists. 
 --- [https://wiki.facepunch.com/gmod/timer.Adjust]
 --- @param identifier any @ Identifier of the timer to adjust.
---- @param delay number @ The delay interval in seconds. **Must be specified.**
+--- @param delay number @ The delay interval in seconds. Must be specified.
 --- @param repetitions number @ Repetitions. Use `0` for infinite or `nil` to keep previous value.
 --- @param func function @ The new function. Use `nil` to keep previous value.
 --- @return boolean
@@ -15,7 +15,9 @@ function timer.Adjust(identifier, delay, repetitions, func) end
 --- @return void
 function timer.Check() end
 
---- (client/menu/server) Creates a new timer that will repeat its function given amount of times.This function also requires the timer to be named, which allows you to control it after it was created via the [timer](https://wiki.facepunch.com/gmod/timer).For a simple one-time timer with no identifiers, see [timer.Simple](https://wiki.facepunch.com/gmod/timer.Simple). 
+--- (client/menu/server) Creates a new timer that will repeat its function given amount of times.
+--- This function also requires the timer to be named, which allows you to control it after it was created via the [timer](https://wiki.facepunch.com/gmod/timer).
+--- For a simple one-time timer with no identifiers, see [timer.Simple](https://wiki.facepunch.com/gmod/timer.Simple). 
 --- [https://wiki.facepunch.com/gmod/timer.Create]
 --- @param identifier string @ Identifier of the timer to create. Must be unique. If a timer already exists with the same identifier, that timer will be updated to the new settings and reset.
 --- @param delay number @ The delay interval in seconds. If the delay is too small, the timer will fire on the next frame/tick.
@@ -54,7 +56,8 @@ function timer.Remove(identifier) end
 --- @return number
 function timer.RepsLeft(identifier) end
 
---- (client/menu/server) Creates a simple timer that runs the given function after a specified delay.For a more advanced version that you can control after creation, see [timer.Create](https://wiki.facepunch.com/gmod/timer.Create). 
+--- (client/menu/server) Creates a simple timer that runs the given function after a specified delay.
+--- For a more advanced version that you can control after creation, see [timer.Create](https://wiki.facepunch.com/gmod/timer.Create). 
 --- [https://wiki.facepunch.com/gmod/timer.Simple]
 --- @param delay number @ How long until the function should be ran (in seconds). Use 0 to have the function run in the next [GM:Think](https://wiki.facepunch.com/gmod/GM:Think).
 --- @param func function @ The function to run after the specified delay.

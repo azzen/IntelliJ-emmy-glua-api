@@ -135,7 +135,8 @@ function Weapon:LastShootTime() end
 --- @return void
 function Weapon:SendWeaponAnim(act) end
 
---- (client/server) Sets the activity the weapon is playing.See also [Weapon:GetActivity](https://wiki.facepunch.com/gmod/Weapon:GetActivity). 
+--- (client/server) Sets the activity the weapon is playing.
+--- See also [Weapon:GetActivity](https://wiki.facepunch.com/gmod/Weapon:GetActivity). 
 --- [https://wiki.facepunch.com/gmod/Weapon:SetActivity]
 --- @param act number @ The new activity to set, see [ACT](https://wiki.facepunch.com/gmod/Enums/ACT).
 --- @return void

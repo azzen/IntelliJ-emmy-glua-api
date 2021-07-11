@@ -3,7 +3,7 @@ search = {}
 
 --- (client) Adds a search result provider. For examples, see gamemodes/sandbox/gamemode/cl_search_models.lua 
 --- [https://wiki.facepunch.com/gmod/search.AddProvider]
---- @param provider function @ Provider function. It has one argument: [string](https://wiki.facepunch.com/gmod/string) searchQueryYou must return a list of tables structured like this:* [string](https://wiki.facepunch.com/gmod/string) text - Text to "Copy to clipboard"* [function](https://wiki.facepunch.com/gmod/function) func - Function to use/spawn the item* [Panel](https://wiki.facepunch.com/gmod/Panel) icon - A panel to add to spawnmenu* [table](https://wiki.facepunch.com/gmod/table) words - A table of words?
+--- @param provider function @ Provider function. It has one argument: [string](https://wiki.facepunch.com/gmod/string) searchQuery You must return a list of tables structured like this:  [string](https://wiki.facepunch.com/gmod/string) text - Text to "Copy to clipboard"  [function](https://wiki.facepunch.com/gmod/function) func - Function to use/spawn the item  [Panel](https://wiki.facepunch.com/gmod/Panel) icon - A panel to add to spawnmenu  [table](https://wiki.facepunch.com/gmod/table) words - A table of words?
 --- @param id string @ If provided, ensures that only one provider exists with the given ID at a time.
 --- @return void
 function search.AddProvider(provider, id) end

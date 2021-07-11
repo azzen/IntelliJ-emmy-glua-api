@@ -6,12 +6,14 @@ engine = {}
 --- @return string
 function engine.ActiveGamemode() end
 
---- (server) Closes the server and completely exits.This is only functional when running in server test mode (launch option -systemtest). Server test mode is used internally at Facepunch as part of the build process to make sure that the dedicated servers aren't crashing on startup. 
+--- (server) Closes the server and completely exits.
+--- This is only functional when running in server test mode (launch option -systemtest). Server test mode is used internally at Facepunch as part of the build process to make sure that the dedicated servers aren't crashing on startup. 
 --- [https://wiki.facepunch.com/gmod/engine.CloseServer]
 --- @return void
 function engine.CloseServer() end
 
---- (client/menu/server) Returns a list of addons the player have subscribed to on the workshop.This list will also include "Floating" .gma addons that are mounted by the game, but not the folder addons. 
+--- (client/menu/server) Returns a list of addons the player have subscribed to on the workshop.
+--- This list will also include "Floating" .gma addons that are mounted by the game, but not the folder addons. 
 --- [https://wiki.facepunch.com/gmod/engine.GetAddons]
 --- @return table
 function engine.GetAddons() end
@@ -21,17 +23,20 @@ function engine.GetAddons() end
 --- @return number
 function engine.GetDemoPlaybackStartTick() end
 
---- (client/menu) Current tick of currently loaded demo.If not playing a demo, it will return amount of ticks since last demo playback. 
+--- (client/menu) Current tick of currently loaded demo.
+--- If not playing a demo, it will return amount of ticks since last demo playback. 
 --- [https://wiki.facepunch.com/gmod/engine.GetDemoPlaybackTick]
 --- @return number
 function engine.GetDemoPlaybackTick() end
 
---- (client/menu) Returns time scale of demo playback.If not during demo playback, returns 1. 
+--- (client/menu) Returns time scale of demo playback.
+--- If not during demo playback, returns 1. 
 --- [https://wiki.facepunch.com/gmod/engine.GetDemoPlaybackTimeScale]
 --- @return number
 function engine.GetDemoPlaybackTimeScale() end
 
---- (client/menu) Returns total amount of ticks of currently loaded demo.If not playing a demo, returns 0 or the value of last played demo. 
+--- (client/menu) Returns total amount of ticks of currently loaded demo.
+--- If not playing a demo, returns 0 or the value of last played demo. 
 --- [https://wiki.facepunch.com/gmod/engine.GetDemoPlaybackTotalTicks]
 --- @return number
 function engine.GetDemoPlaybackTotalTicks() end
@@ -51,7 +56,8 @@ function engine.GetGames() end
 --- @return table
 function engine.GetUserContent() end
 
---- (client/menu) Returns true if we're currently playing a demo.You will notice that there's no server-side version of this. That's because there is no server when playing a demo. Demos are both recorded and played back purely clientside. 
+--- (client/menu) Returns true if we're currently playing a demo.
+--- You will notice that there's no server-side version of this. That's because there is no server when playing a demo. Demos are both recorded and played back purely clientside. 
 --- [https://wiki.facepunch.com/gmod/engine.IsPlayingDemo]
 --- @return boolean
 function engine.IsPlayingDemo() end

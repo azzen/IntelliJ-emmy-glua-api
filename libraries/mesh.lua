@@ -58,7 +58,8 @@ function mesh.Quad(vertex1, vertex2, vertex3, vertex4) end
 --- @return void
 function mesh.QuadEasy(position, normal, sizeX, sizeY) end
 
---- (client) Sets the specular map values.This function actually does nothing. 
+--- (client) Sets the specular map values.
+--- This function actually does nothing. 
 --- [https://wiki.facepunch.com/gmod/mesh.Specular]
 --- @param r number @ The red channel multiplier of the specular map.
 --- @param g number @ The green channel multiplier of the specular map.
@@ -67,19 +68,22 @@ function mesh.QuadEasy(position, normal, sizeX, sizeY) end
 --- @return void
 function mesh.Specular(r, g, b, a) end
 
---- (client) Sets the s tangent to be used.This function actually does nothing. 
+--- (client) Sets the s tangent to be used.
+--- This function actually does nothing. 
 --- [https://wiki.facepunch.com/gmod/mesh.TangentS]
 --- @param sTanger Vector @ The s tangent.
 --- @return void
 function mesh.TangentS(sTanger) end
 
---- (client) Sets the T tangent to be used.This function actually does nothing. 
+--- (client) Sets the T tangent to be used.
+--- This function actually does nothing. 
 --- [https://wiki.facepunch.com/gmod/mesh.TangentT]
 --- @param tTanger Vector @ The t tangent.
 --- @return void
 function mesh.TangentT(tTanger) end
 
---- (client) Sets the texture coordinates for the next vertex.Non-zero values of stage require the currently bound material to support it. For example, any LightmappedGeneric material supports stages 1 and 2 (lightmap texture coordinates). 
+--- (client) Sets the texture coordinates for the next vertex.
+--- Non-zero values of stage require the currently bound material to support it. For example, any LightmappedGeneric material supports stages 1 and 2 (lightmap texture coordinates). 
 --- [https://wiki.facepunch.com/gmod/mesh.TexCoord]
 --- @param stage number @ The stage of the texture coordinate.
 --- @param u number @ U coordinate.

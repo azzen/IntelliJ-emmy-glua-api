@@ -6,7 +6,8 @@ PhysCollide = {}
 --- @return void
 function PhysCollide:Destroy() end
 
---- (client/server) Checks whether this [PhysCollide](https://wiki.facepunch.com/gmod/PhysCollide) object is valid or not.You should just use [IsValid](https://wiki.facepunch.com/gmod/Global.IsValid) instead. 
+--- (client/server) Checks whether this [PhysCollide](https://wiki.facepunch.com/gmod/PhysCollide) object is valid or not.
+--- You should just use [IsValid](https://wiki.facepunch.com/gmod/Global.IsValid) instead. 
 --- [https://wiki.facepunch.com/gmod/PhysCollide:IsValid]
 --- @return boolean
 function PhysCollide:IsValid() end

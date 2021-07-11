@@ -3,7 +3,7 @@ Panel = {}
 
 --- (client) Adds the specified object to the panel. 
 --- [https://wiki.facepunch.com/gmod/Panel:Add]
---- @param object Panel @ The panel to be added (parented). Can also be:* [string](https://wiki.facepunch.com/gmod/string) Class Name - creates panel with the specified name and adds it to the panel.* [table](https://wiki.facepunch.com/gmod/table) PANEL table - creates a panel from table and adds it to the panel.
+--- @param object Panel @ The panel to be added (parented). Can also be:  [string](https://wiki.facepunch.com/gmod/string) Class Name - creates panel with the specified name and adds it to the panel.  [table](https://wiki.facepunch.com/gmod/table) PANEL table - creates a panel from table and adds it to the panel.
 --- @return Panel
 function Panel:Add(object) end
 
@@ -41,11 +41,12 @@ function Panel:AlignTop(offset) end
 --- @param alpha number @ The alpha value (0-255) to approach.
 --- @param duration number @ The time in seconds it should take to reach the alpha.
 --- @param delay number @ The delay before the animation starts.
---- @param callback function @ The function to be called once the animation finishes. Arguments are:* [table](https://wiki.facepunch.com/gmod/table) animData - The AnimationData that was used. See [AnimationData](https://wiki.facepunch.com/gmod/Structures/AnimationData)* [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - The panel object whose alpha was changed.
+--- @param callback function @ The function to be called once the animation finishes. Arguments are:  [table](https://wiki.facepunch.com/gmod/table) animData - The AnimationData that was used. See [AnimationData](https://wiki.facepunch.com/gmod/Structures/AnimationData)  [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - The panel object whose alpha was changed.
 --- @return void
 function Panel:AlphaTo(alpha, duration, delay, callback) end
 
---- (client) Performs the per-frame operations required for panel animations.This is called every frame by [PANEL:AnimationThink](https://wiki.facepunch.com/gmod/PANEL:AnimationThink). 
+--- (client) Performs the per-frame operations required for panel animations.
+--- This is called every frame by [PANEL:AnimationThink](https://wiki.facepunch.com/gmod/PANEL:AnimationThink). 
 --- [https://wiki.facepunch.com/gmod/Panel:AnimationThinkInternal]
 --- @return void
 function Panel:AnimationThinkInternal() end
@@ -61,7 +62,8 @@ function Panel:AnimTail() end
 --- @return void
 function Panel:AppendText(txt) end
 
---- (client) Used by [Panel:LoadGWENFile](https://wiki.facepunch.com/gmod/Panel:LoadGWENFile) and [Panel:LoadGWENString](https://wiki.facepunch.com/gmod/Panel:LoadGWENString) to apply a GWEN controls table to a panel object.You can do this manually using [file.Read](https://wiki.facepunch.com/gmod/file.Read) and [util.JSONToTable](https://wiki.facepunch.com/gmod/util.JSONToTable) to import and create a GWEN table structure from a `.gwen` file. This method can then be called, passing the GWEN table's `Controls` member. 
+--- (client) Used by [Panel:LoadGWENFile](https://wiki.facepunch.com/gmod/Panel:LoadGWENFile) and [Panel:LoadGWENString](https://wiki.facepunch.com/gmod/Panel:LoadGWENString) to apply a GWEN controls table to a panel object.
+--- You can do this manually using [file.Read](https://wiki.facepunch.com/gmod/file.Read) and [util.JSONToTable](https://wiki.facepunch.com/gmod/util.JSONToTable) to import and create a GWEN table structure from a `.gwen` file. This method can then be called, passing the GWEN table's `Controls` member. 
 --- [https://wiki.facepunch.com/gmod/Panel:ApplyGWEN]
 --- @param GWENTable table @ The GWEN controls table to apply to the panel.
 --- @return void
@@ -120,12 +122,18 @@ function Panel:Command(command) end
 --- @return void
 function Panel:ConVarChanged(newValue) end
 
---- (client) A think hook for [Panel](https://wiki.facepunch.com/gmod/Panel)s using ConVars as a value. Call it in the Think hook. Sets the panel's value should the convar change.This function is best for: checkboxes, sliders, number wangsFor a string alternative, see [Panel:ConVarStringThink](https://wiki.facepunch.com/gmod/Panel:ConVarStringThink).`Important`: Make sure your Panel has a SetValue function, else you may get errors. 
+--- (client) A think hook for [Panel](https://wiki.facepunch.com/gmod/Panel)s using ConVars as a value. Call it in the Think hook. Sets the panel's value should the convar change.
+--- This function is best for: checkboxes, sliders, number wangs
+--- For a string alternative, see [Panel:ConVarStringThink](https://wiki.facepunch.com/gmod/Panel:ConVarStringThink).
+--- `Important`: Make sure your Panel has a SetValue function, else you may get errors. 
 --- [https://wiki.facepunch.com/gmod/Panel:ConVarNumberThink]
 --- @return void
 function Panel:ConVarNumberThink() end
 
---- (client) A think hook for [panels](https://wiki.facepunch.com/gmod/Panel) using ConVars as a value. Call it in the Think hook. Sets the panel's value should the convar change.This function is best for: text inputs, read-only inputs, dropdown selectsFor a number alternative, see [Panel:ConVarNumberThink](https://wiki.facepunch.com/gmod/Panel:ConVarNumberThink).`Important`: Make sure your Panel has a SetValue function, else you may get errors. 
+--- (client) A think hook for [panels](https://wiki.facepunch.com/gmod/Panel) using ConVars as a value. Call it in the Think hook. Sets the panel's value should the convar change.
+--- This function is best for: text inputs, read-only inputs, dropdown selects
+--- For a number alternative, see [Panel:ConVarNumberThink](https://wiki.facepunch.com/gmod/Panel:ConVarNumberThink).
+--- `Important`: Make sure your Panel has a SetValue function, else you may get errors. 
 --- [https://wiki.facepunch.com/gmod/Panel:ConVarStringThink]
 --- @return void
 function Panel:ConVarStringThink() end
@@ -165,7 +173,8 @@ function Panel:CopySelected() end
 --- @return void
 function Panel:CopyWidth(base) end
 
---- (client) Returns the cursor position relative to the top left of the panel.This is equivalent to calling [gui.MousePos](https://wiki.facepunch.com/gmod/gui.MousePos) and then [Panel:ScreenToLocal](https://wiki.facepunch.com/gmod/Panel:ScreenToLocal). 
+--- (client) Returns the cursor position relative to the top left of the panel.
+--- This is equivalent to calling [gui.MousePos](https://wiki.facepunch.com/gmod/gui.MousePos) and then [Panel:ScreenToLocal](https://wiki.facepunch.com/gmod/Panel:ScreenToLocal). 
 --- [https://wiki.facepunch.com/gmod/Panel:CursorPos]
 --- @return number|number
 function Panel:CursorPos() end
@@ -181,7 +190,8 @@ function Panel:CutSelected() end
 --- @return void
 function Panel:DeleteCookie(cookieName) end
 
---- (client) Resets the panel object's [Panel:SetPos](https://wiki.facepunch.com/gmod/Panel:SetPos) method and removes its animation table (`Panel.LerpAnim`). This effectively undoes the changes made by [Panel:LerpPositions](https://wiki.facepunch.com/gmod/Panel:LerpPositions).In order to use Lerp animation again, you must call [Panel:Stop](https://wiki.facepunch.com/gmod/Panel:Stop) before setting its `SetPosReal` property to `nil`. See the example below. 
+--- (client) Resets the panel object's [Panel:SetPos](https://wiki.facepunch.com/gmod/Panel:SetPos) method and removes its animation table (`Panel.LerpAnim`). This effectively undoes the changes made by [Panel:LerpPositions](https://wiki.facepunch.com/gmod/Panel:LerpPositions).
+--- In order to use Lerp animation again, you must call [Panel:Stop](https://wiki.facepunch.com/gmod/Panel:Stop) before setting its `SetPosReal` property to `nil`. See the example below. 
 --- [https://wiki.facepunch.com/gmod/Panel:DisableLerp]
 --- @return void
 function Panel:DisableLerp() end
@@ -199,13 +209,16 @@ function Panel:Distance(tgtPanel) end
 --- @return number
 function Panel:DistanceFrom(posX, posY) end
 
---- (client) Sets the dock type for the panel, making the panel "dock" in a certain direction, modifying it's position and size.You can set the inner spacing of a panel's docking using [Panel:DockPadding](https://wiki.facepunch.com/gmod/Panel:DockPadding), which will affect docked child panels, and you can set the outer spacing of a panel's docking using [Panel:DockMargin](https://wiki.facepunch.com/gmod/Panel:DockMargin), which affects how docked siblings are positioned/sized.You may need to use [Panel:SetZPos](https://wiki.facepunch.com/gmod/Panel:SetZPos) to ensure child panels ([DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry)) stay in a specific order. 
+--- (client) Sets the dock type for the panel, making the panel "dock" in a certain direction, modifying it's position and size.
+--- You can set the inner spacing of a panel's docking using [Panel:DockPadding](https://wiki.facepunch.com/gmod/Panel:DockPadding), which will affect docked child panels, and you can set the outer spacing of a panel's docking using [Panel:DockMargin](https://wiki.facepunch.com/gmod/Panel:DockMargin), which affects how docked siblings are positioned/sized.
+--- You may need to use [Panel:SetZPos](https://wiki.facepunch.com/gmod/Panel:SetZPos) to ensure child panels ([DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry)) stay in a specific order. 
 --- [https://wiki.facepunch.com/gmod/Panel:Dock]
 --- @param dockType number @ Dock type using [DOCK](https://wiki.facepunch.com/gmod/Enums/DOCK).
 --- @return void
 function Panel:Dock(dockType) end
 
---- (client) Sets the dock margin of the panel.The dock margin is the extra space that will be left around the edge when this element is docked inside its parent element. 
+--- (client) Sets the dock margin of the panel.
+--- The dock margin is the extra space that will be left around the edge when this element is docked inside its parent element. 
 --- [https://wiki.facepunch.com/gmod/Panel:DockMargin]
 --- @param marginLeft number @ The left margin to the parent.
 --- @param marginTop number @ The top margin to the parent.
@@ -214,7 +227,8 @@ function Panel:Dock(dockType) end
 --- @return void
 function Panel:DockMargin(marginLeft, marginTop, marginRight, marginBottom) end
 
---- (client) Sets the dock padding of the panel.The dock padding is the extra space that will be left around the edge when child elements are docked inside this element. 
+--- (client) Sets the dock padding of the panel.
+--- The dock padding is the extra space that will be left around the edge when child elements are docked inside this element. 
 --- [https://wiki.facepunch.com/gmod/Panel:DockPadding]
 --- @param paddingLeft number @ The left padding to the parent.
 --- @param paddingTop number @ The top padding to the parent.
@@ -223,7 +237,10 @@ function Panel:DockMargin(marginLeft, marginTop, marginRight, marginBottom) end
 --- @return void
 function Panel:DockPadding(paddingLeft, paddingTop, paddingRight, paddingBottom) end
 
---- (client) Makes the panel "lock" the screen until it is removed. All input will be directed to the given panel.It will silently fail if used while cursor is not visible.Call [Panel:MakePopup](https://wiki.facepunch.com/gmod/Panel:MakePopup) before calling this function.This must be called on a panel derived from [EditablePanel](https://wiki.facepunch.com/gmod/EditablePanel). 
+--- (client) Makes the panel "lock" the screen until it is removed. All input will be directed to the given panel.
+--- It will silently fail if used while cursor is not visible.
+--- Call [Panel:MakePopup](https://wiki.facepunch.com/gmod/Panel:MakePopup) before calling this function.
+--- This must be called on a panel derived from [EditablePanel](https://wiki.facepunch.com/gmod/EditablePanel). 
 --- [https://wiki.facepunch.com/gmod/Panel:DoModal]
 --- @return void
 function Panel:DoModal() end
@@ -293,7 +310,8 @@ function Panel:DrawTextEntryText(textCol, highlightCol, cursorCol) end
 --- @return void
 function Panel:DrawTexturedRect() end
 
---- (client) Makes this panel droppable. This is used with [Panel:Receiver](https://wiki.facepunch.com/gmod/Panel:Receiver) to create drag and drop events.Can be called multiple times with different names allowing to be dropped onto different receivers. 
+--- (client) Makes this panel droppable. This is used with [Panel:Receiver](https://wiki.facepunch.com/gmod/Panel:Receiver) to create drag and drop events.
+--- Can be called multiple times with different names allowing to be dropped onto different receivers. 
 --- [https://wiki.facepunch.com/gmod/Panel:Droppable]
 --- @param name string @ Name of your droppable panel
 --- @return table
@@ -336,7 +354,8 @@ function Panel:GetAlpha() end
 --- @return number
 function Panel:GetBGColor() end
 
---- (client) Returns the position and size of the panel.This is equivalent to calling [Panel:GetPos](https://wiki.facepunch.com/gmod/Panel:GetPos) and [Panel:GetSize](https://wiki.facepunch.com/gmod/Panel:GetSize) together. 
+--- (client) Returns the position and size of the panel.
+--- This is equivalent to calling [Panel:GetPos](https://wiki.facepunch.com/gmod/Panel:GetPos) and [Panel:GetSize](https://wiki.facepunch.com/gmod/Panel:GetSize) together. 
 --- [https://wiki.facepunch.com/gmod/Panel:GetBounds]
 --- @return number|number|number|number
 function Panel:GetBounds() end
@@ -384,12 +403,15 @@ function Panel:GetClassName() end
 --- @return Panel|number
 function Panel:GetClosestChild(x, y) end
 
---- (client) Gets the size of the content/children within a panel object.Only works with [Label](https://wiki.facepunch.com/gmod/Label) derived panels by default such as [DLabel](https://wiki.facepunch.com/gmod/DLabel).Will also work on any panel that manually implements this method. 
+--- (client) Gets the size of the content/children within a panel object.
+--- Only works with [Label](https://wiki.facepunch.com/gmod/Label) derived panels by default such as [DLabel](https://wiki.facepunch.com/gmod/DLabel).
+--- Will also work on any panel that manually implements this method. 
 --- [https://wiki.facepunch.com/gmod/Panel:GetContentSize]
 --- @return number|number
 function Panel:GetContentSize() end
 
---- (client) Gets the value of a cookie stored by the panel object. This can also be done with [cookie.GetString](https://wiki.facepunch.com/gmod/cookie.GetString), using the panel's cookie name, a fullstop, and then the actual name of the cookie.Make sure the panel's cookie name has not changed since writing, or the cookie will not be accessible. This can be done with [Panel:GetCookieName](https://wiki.facepunch.com/gmod/Panel:GetCookieName) and [Panel:SetCookieName](https://wiki.facepunch.com/gmod/Panel:SetCookieName). 
+--- (client) Gets the value of a cookie stored by the panel object. This can also be done with [cookie.GetString](https://wiki.facepunch.com/gmod/cookie.GetString), using the panel's cookie name, a fullstop, and then the actual name of the cookie.
+--- Make sure the panel's cookie name has not changed since writing, or the cookie will not be accessible. This can be done with [Panel:GetCookieName](https://wiki.facepunch.com/gmod/Panel:GetCookieName) and [Panel:SetCookieName](https://wiki.facepunch.com/gmod/Panel:SetCookieName). 
 --- [https://wiki.facepunch.com/gmod/Panel:GetCookie]
 --- @param cookieName string @ The name of the cookie from which to retrieve the value.
 --- @param default string @ The default value to return if the cookie does not exist.
@@ -401,7 +423,8 @@ function Panel:GetCookie(cookieName, default) end
 --- @return string
 function Panel:GetCookieName() end
 
---- (client) Gets the value of a cookie stored by the panel object, as a number. This can also be done with [cookie.GetNumber](https://wiki.facepunch.com/gmod/cookie.GetNumber), using the panel's cookie name, a fullstop, and then the actual name of the cookie.Make sure the panel's cookie name has not changed since writing, or the cookie will not be accessible. This can be done with [Panel:GetCookieName](https://wiki.facepunch.com/gmod/Panel:GetCookieName) and [Panel:SetCookieName](https://wiki.facepunch.com/gmod/Panel:SetCookieName). 
+--- (client) Gets the value of a cookie stored by the panel object, as a number. This can also be done with [cookie.GetNumber](https://wiki.facepunch.com/gmod/cookie.GetNumber), using the panel's cookie name, a fullstop, and then the actual name of the cookie.
+--- Make sure the panel's cookie name has not changed since writing, or the cookie will not be accessible. This can be done with [Panel:GetCookieName](https://wiki.facepunch.com/gmod/Panel:GetCookieName) and [Panel:SetCookieName](https://wiki.facepunch.com/gmod/Panel:SetCookieName). 
 --- [https://wiki.facepunch.com/gmod/Panel:GetCookieNumber]
 --- @param cookieName string @ The name of the cookie from which to retrieve the value.
 --- @param default number @ The default value to return if the cookie does not exist.
@@ -423,12 +446,14 @@ function Panel:GetDockMargin() end
 --- @return number|number|number|number
 function Panel:GetDockPadding() end
 
---- (client) Returns the foreground color of the panel.For a [Label](https://wiki.facepunch.com/gmod/Label) or [RichText](https://wiki.facepunch.com/gmod/RichText), this is the color of its text. 
+--- (client) Returns the foreground color of the panel.
+--- For a [Label](https://wiki.facepunch.com/gmod/Label) or [RichText](https://wiki.facepunch.com/gmod/RichText), this is the color of its text. 
 --- [https://wiki.facepunch.com/gmod/Panel:GetFGColor]
 --- @return table
 function Panel:GetFGColor() end
 
---- (client) Returns the name of the font that the panel renders its text with.This is the same font name set with [Panel:SetFontInternal](https://wiki.facepunch.com/gmod/Panel:SetFontInternal). 
+--- (client) Returns the name of the font that the panel renders its text with.
+--- This is the same font name set with [Panel:SetFontInternal](https://wiki.facepunch.com/gmod/Panel:SetFontInternal). 
 --- [https://wiki.facepunch.com/gmod/Panel:GetFont]
 --- @return string
 function Panel:GetFont() end
@@ -438,7 +463,8 @@ function Panel:GetFont() end
 --- @return IMaterial
 function Panel:GetHTMLMaterial() end
 
---- (client) Returns the current maximum character count.This function will only work on [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) panels and their derivatives. 
+--- (client) Returns the current maximum character count.
+--- This function will only work on [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) panels and their derivatives. 
 --- [https://wiki.facepunch.com/gmod/Panel:GetMaximumCharCount]
 --- @return number
 function Panel:GetMaximumCharCount() end
@@ -458,7 +484,10 @@ function Panel:GetNumLines() end
 --- @return Panel
 function Panel:GetParent() end
 
---- (client) Returns the position of the panel relative to its [Panel:GetParent](https://wiki.facepunch.com/gmod/Panel:GetParent).If you require the panel's position **and** size, consider using [Panel:GetBounds](https://wiki.facepunch.com/gmod/Panel:GetBounds) instead.If you need the position in screen space, see [Panel:LocalToScreen](https://wiki.facepunch.com/gmod/Panel:LocalToScreen).See also [Panel:GetX](https://wiki.facepunch.com/gmod/Panel:GetX) and [Panel:GetY](https://wiki.facepunch.com/gmod/Panel:GetY). 
+--- (client) Returns the position of the panel relative to its [Panel:GetParent](https://wiki.facepunch.com/gmod/Panel:GetParent).
+--- If you require the panel's position **and** size, consider using [Panel:GetBounds](https://wiki.facepunch.com/gmod/Panel:GetBounds) instead.
+--- If you need the position in screen space, see [Panel:LocalToScreen](https://wiki.facepunch.com/gmod/Panel:LocalToScreen).
+--- See also [Panel:GetX](https://wiki.facepunch.com/gmod/Panel:GetX) and [Panel:GetY](https://wiki.facepunch.com/gmod/Panel:GetY). 
 --- [https://wiki.facepunch.com/gmod/Panel:GetPos]
 --- @return number|number
 function Panel:GetPos() end
@@ -468,7 +497,8 @@ function Panel:GetPos() end
 --- @return table
 function Panel:GetSelectedChildren() end
 
---- (client) Returns the currently selected range of text.This function will only work on [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) panels and their derivatives. 
+--- (client) Returns the currently selected range of text.
+--- This function will only work on [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) panels and their derivatives. 
 --- [https://wiki.facepunch.com/gmod/Panel:GetSelectedTextRange]
 --- @return number|number
 function Panel:GetSelectedTextRange() end
@@ -478,7 +508,8 @@ function Panel:GetSelectedTextRange() end
 --- @return Panel
 function Panel:GetSelectionCanvas() end
 
---- (client) Returns the size of the panel.If you require both the panel's position and size, consider using [Panel:GetBounds](https://wiki.facepunch.com/gmod/Panel:GetBounds) instead. 
+--- (client) Returns the size of the panel.
+--- If you require both the panel's position and size, consider using [Panel:GetBounds](https://wiki.facepunch.com/gmod/Panel:GetBounds) instead. 
 --- [https://wiki.facepunch.com/gmod/Panel:GetSize]
 --- @return number|number
 function Panel:GetSize() end
@@ -498,7 +529,8 @@ function Panel:GetTable() end
 --- @return number
 function Panel:GetTall() end
 
---- (client) Returns the panel's text (where applicable).This method returns a maximum of 1023 bytes, except for [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry). 
+--- (client) Returns the panel's text (where applicable).
+--- This method returns a maximum of 1023 bytes, except for [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry). 
 --- [https://wiki.facepunch.com/gmod/Panel:GetText]
 --- @return string
 function Panel:GetText() end
@@ -518,7 +550,8 @@ function Panel:GetTextSize() end
 --- @return Panel|table
 function Panel:GetValidReceiverSlot() end
 
---- (client) Returns the value the panel holds.In engine is only implemented for [CheckButton](https://wiki.facepunch.com/gmod/CheckButton), [Label](https://wiki.facepunch.com/gmod/Label) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) as a string. 
+--- (client) Returns the value the panel holds.
+--- In engine is only implemented for [CheckButton](https://wiki.facepunch.com/gmod/CheckButton), [Label](https://wiki.facepunch.com/gmod/Label) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) as a string. 
 --- [https://wiki.facepunch.com/gmod/Panel:GetValue]
 --- @return any
 function Panel:GetValue() end
@@ -528,12 +561,14 @@ function Panel:GetValue() end
 --- @return number
 function Panel:GetWide() end
 
---- (client) Returns the X position of the panel relative to its [Panel:GetParent](https://wiki.facepunch.com/gmod/Panel:GetParent).Uses [Panel:GetPos](https://wiki.facepunch.com/gmod/Panel:GetPos) internally. 
+--- (client) Returns the X position of the panel relative to its [Panel:GetParent](https://wiki.facepunch.com/gmod/Panel:GetParent).
+--- Uses [Panel:GetPos](https://wiki.facepunch.com/gmod/Panel:GetPos) internally. 
 --- [https://wiki.facepunch.com/gmod/Panel:GetX]
 --- @return number
 function Panel:GetX() end
 
---- (client) Returns the Y position of the panel relative to its [Panel:GetParent](https://wiki.facepunch.com/gmod/Panel:GetParent).Uses [Panel:GetPos](https://wiki.facepunch.com/gmod/Panel:GetPos) internally. 
+--- (client) Returns the Y position of the panel relative to its [Panel:GetParent](https://wiki.facepunch.com/gmod/Panel:GetParent).
+--- Uses [Panel:GetPos](https://wiki.facepunch.com/gmod/Panel:GetPos) internally. 
 --- [https://wiki.facepunch.com/gmod/Panel:GetY]
 --- @return number
 function Panel:GetY() end
@@ -583,19 +618,19 @@ function Panel:GWEN_SetControlName(name) end
 
 --- (client) Used by [Panel:ApplyGWEN](https://wiki.facepunch.com/gmod/Panel:ApplyGWEN) to apply the `Dock` property to a  panel object. This calls [Panel:Dock](https://wiki.facepunch.com/gmod/Panel:Dock). 
 --- [https://wiki.facepunch.com/gmod/Panel:GWEN_SetDock]
---- @param dockState string @ The dock mode to pass to the panel's `Dock` method. This reads a string and applies the approriate [DOCK](https://wiki.facepunch.com/gmod/Enums/DOCK).* `Right`: Dock right.* `Left`: Dock left.* `Bottom`: Dock at the bottom.* `Top`: Dock at the top.* `Fill`: Fill the parent panel.
+--- @param dockState string @ The dock mode to pass to the panel's `Dock` method. This reads a string and applies the approriate [DOCK](https://wiki.facepunch.com/gmod/Enums/DOCK).  `Right`: Dock right.  `Left`: Dock left.  `Bottom`: Dock at the bottom.  `Top`: Dock at the top.  `Fill`: Fill the parent panel.
 --- @return void
 function Panel:GWEN_SetDock(dockState) end
 
 --- (client) Used by [Panel:ApplyGWEN](https://wiki.facepunch.com/gmod/Panel:ApplyGWEN) to apply the `HorizontalAlign` property to a  panel object. This calls [Panel:SetContentAlignment](https://wiki.facepunch.com/gmod/Panel:SetContentAlignment). 
 --- [https://wiki.facepunch.com/gmod/Panel:GWEN_SetHorizontalAlign]
---- @param hAlign string @ The alignment, as a string, to pass to [Panel:SetContentAlignment](https://wiki.facepunch.com/gmod/Panel:SetContentAlignment). Accepts:* `Right`: Align mid-right.* `Left`: Align mid-left.* `Center`: Align mid-center.
+--- @param hAlign string @ The alignment, as a string, to pass to [Panel:SetContentAlignment](https://wiki.facepunch.com/gmod/Panel:SetContentAlignment). Accepts:  `Right`: Align mid-right.  `Left`: Align mid-left.  `Center`: Align mid-center.
 --- @return void
 function Panel:GWEN_SetHorizontalAlign(hAlign) end
 
 --- (client) Used by [Panel:ApplyGWEN](https://wiki.facepunch.com/gmod/Panel:ApplyGWEN) to apply the `Margin` property to a  panel object. This calls [Panel:DockMargin](https://wiki.facepunch.com/gmod/Panel:DockMargin). 
 --- [https://wiki.facepunch.com/gmod/Panel:GWEN_SetMargin]
---- @param margins table @ A four-membered table containing the margins as numbers:* [number](https://wiki.facepunch.com/gmod/number) left - The left margin.* [number](https://wiki.facepunch.com/gmod/number) top - The top margin.* [number](https://wiki.facepunch.com/gmod/number) right - The right margin.* [number](https://wiki.facepunch.com/gmod/number) bottom - The bottom margin.
+--- @param margins table @ A four-membered table containing the margins as numbers:  [number](https://wiki.facepunch.com/gmod/number) left - The left margin.  [number](https://wiki.facepunch.com/gmod/number) top - The top margin.  [number](https://wiki.facepunch.com/gmod/number) right - The right margin.  [number](https://wiki.facepunch.com/gmod/number) bottom - The bottom margin.
 --- @return void
 function Panel:GWEN_SetMargin(margins) end
 
@@ -613,13 +648,13 @@ function Panel:GWEN_SetMin(minValue) end
 
 --- (client) Used by [Panel:ApplyGWEN](https://wiki.facepunch.com/gmod/Panel:ApplyGWEN) to apply the `Position` property to a  panel object. This calls [Panel:SetPos](https://wiki.facepunch.com/gmod/Panel:SetPos). 
 --- [https://wiki.facepunch.com/gmod/Panel:GWEN_SetPosition]
---- @param pos table @ A two-membered table containing the x and y coordinates as numbers:* [number](https://wiki.facepunch.com/gmod/number) x - The x coordinate.* [number](https://wiki.facepunch.com/gmod/number) y - The y coordinate.
+--- @param pos table @ A two-membered table containing the x and y coordinates as numbers:  [number](https://wiki.facepunch.com/gmod/number) x - The x coordinate.  [number](https://wiki.facepunch.com/gmod/number) y - The y coordinate.
 --- @return void
 function Panel:GWEN_SetPosition(pos) end
 
 --- (client) Used by [Panel:ApplyGWEN](https://wiki.facepunch.com/gmod/Panel:ApplyGWEN) to apply the `Size` property to a  panel object. This calls [Panel:SetSize](https://wiki.facepunch.com/gmod/Panel:SetSize). 
 --- [https://wiki.facepunch.com/gmod/Panel:GWEN_SetSize]
---- @param size table @ A two-membered table containing the width and heights as numbers:* [number](https://wiki.facepunch.com/gmod/number) w - The width.* [number](https://wiki.facepunch.com/gmod/number) h - The height.
+--- @param size table @ A two-membered table containing the width and heights as numbers:  [number](https://wiki.facepunch.com/gmod/number) w - The width.  [number](https://wiki.facepunch.com/gmod/number) h - The height.
 --- @return void
 function Panel:GWEN_SetSize(size) end
 
@@ -660,7 +695,8 @@ function Panel:Hide() end
 --- @return void
 function Panel:InsertClickableTextEnd() end
 
---- (client) Starts the insertion of clickable text for a [RichText](https://wiki.facepunch.com/gmod/RichText) element. Any text appended with [Panel:AppendText](https://wiki.facepunch.com/gmod/Panel:AppendText) between this call and [Panel:InsertClickableTextEnd](https://wiki.facepunch.com/gmod/Panel:InsertClickableTextEnd) will become clickable text.The hook [PANEL:ActionSignal](https://wiki.facepunch.com/gmod/PANEL:ActionSignal) is called when the text is clicked, with "TextClicked" as the signal name and `signalValue` as the signal value. 
+--- (client) Starts the insertion of clickable text for a [RichText](https://wiki.facepunch.com/gmod/RichText) element. Any text appended with [Panel:AppendText](https://wiki.facepunch.com/gmod/Panel:AppendText) between this call and [Panel:InsertClickableTextEnd](https://wiki.facepunch.com/gmod/Panel:InsertClickableTextEnd) will become clickable text.
+--- The hook [PANEL:ActionSignal](https://wiki.facepunch.com/gmod/PANEL:ActionSignal) is called when the text is clicked, with "TextClicked" as the signal name and `signalValue` as the signal value. 
 --- [https://wiki.facepunch.com/gmod/Panel:InsertClickableTextStart]
 --- @param signalValue string @ The text passed as the action signal's value.
 --- @return void
@@ -675,10 +711,11 @@ function Panel:InsertClickableTextStart(signalValue) end
 --- @return void
 function Panel:InsertColorChange(r, g, b, a) end
 
---- (client) Begins a text fade for a [RichText](https://wiki.facepunch.com/gmod/RichText) element where the last appended text segment is fully faded out after a specific amount of time, at a specific speed.The alpha of the text at any given time is determined by the text's base alpha * ((`sustain` - [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime)) / `length`) where [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime) is added to `sustain` when this method is called. 
+--- (client) Begins a text fade for a [RichText](https://wiki.facepunch.com/gmod/RichText) element where the last appended text segment is fully faded out after a specific amount of time, at a specific speed.
+--- The alpha of the text at any given time is determined by the text's base alpha * ((`sustain` - [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime)) / `length`) where [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime) is added to `sustain` when this method is called. 
 --- [https://wiki.facepunch.com/gmod/Panel:InsertFade]
 --- @param sustain number @ The number of seconds the text remains visible.
---- @param length number @ The number of seconds it takes the text to fade out.If set **lower** than `sustain`, the text will not begin fading out until (`sustain` - `length`) seconds have passed.If set **higher** than `sustain`, the text will begin fading out immediately at a fraction of the base alpha.If set to **-1**, the text doesn't fade out.
+--- @param length number @ The number of seconds it takes the text to fade out. If set lower than `sustain`, the text will not begin fading out until (`sustain` - `length`) seconds have passed. If set higher than `sustain`, the text will begin fading out immediately at a fraction of the base alpha. If set to -1, the text doesn't fade out.
 --- @return void
 function Panel:InsertFade(sustain, length) end
 
@@ -688,13 +725,16 @@ function Panel:InsertFade(sustain, length) end
 --- @return void
 function Panel:InvalidateChildren(recursive) end
 
---- (client) Causes the panel to re-layout in the next frame. During the layout process  [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout) will be called on the target panel.You should avoid calling this function every frame. 
+--- (client) Causes the panel to re-layout in the next frame. During the layout process  [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout) will be called on the target panel.
+--- You should avoid calling this function every frame. 
 --- [https://wiki.facepunch.com/gmod/Panel:InvalidateLayout]
 --- @param layoutNow boolean @ If true the panel will re-layout instantly and not wait for the next frame.
 --- @return void
 function Panel:InvalidateLayout(layoutNow) end
 
---- (client) Calls [Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout) on the panel's [parent](https://wiki.facepunch.com/gmod/Panel:GetParent). This function will silently fail if the panel has no parent.This will cause the parent panel to re-layout, calling [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout).Internally sets `LayingOutParent` to `true` on this panel, and will silently fail if it is already set. 
+--- (client) Calls [Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout) on the panel's [parent](https://wiki.facepunch.com/gmod/Panel:GetParent). This function will silently fail if the panel has no parent.
+--- This will cause the parent panel to re-layout, calling [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout).
+--- Internally sets `LayingOutParent` to `true` on this panel, and will silently fail if it is already set. 
 --- [https://wiki.facepunch.com/gmod/Panel:InvalidateParent]
 --- @param layoutNow boolean @ If `true`, the re-layout will occur immediately, otherwise it will be performed in the next frame.
 --- @return void
@@ -716,12 +756,15 @@ function Panel:IsDraggable() end
 --- @return boolean
 function Panel:IsDragging() end
 
---- (client) Returns whether the the panel is enabled or disabled.See [Panel:SetEnabled](https://wiki.facepunch.com/gmod/Panel:SetEnabled) for a function that makes the panel enabled or disabled. 
+--- (client) Returns whether the the panel is enabled or disabled.
+--- See [Panel:SetEnabled](https://wiki.facepunch.com/gmod/Panel:SetEnabled) for a function that makes the panel enabled or disabled. 
 --- [https://wiki.facepunch.com/gmod/Panel:IsEnabled]
 --- @return boolean
 function Panel:IsEnabled() end
 
---- (client) Returns whether the mouse cursor is hovering over this panel or notUses [vgui.GetHoveredPanel](https://wiki.facepunch.com/gmod/vgui.GetHoveredPanel) internally.Requires [Panel:SetMouseInputEnabled](https://wiki.facepunch.com/gmod/Panel:SetMouseInputEnabled) to be set to true. 
+--- (client) Returns whether the mouse cursor is hovering over this panel or not
+--- Uses [vgui.GetHoveredPanel](https://wiki.facepunch.com/gmod/vgui.GetHoveredPanel) internally.
+--- Requires [Panel:SetMouseInputEnabled](https://wiki.facepunch.com/gmod/Panel:SetMouseInputEnabled) to be set to true. 
 --- [https://wiki.facepunch.com/gmod/Panel:IsHovered]
 --- @return boolean
 function Panel:IsHovered() end
@@ -797,9 +840,10 @@ function Panel:IsWorldClicker() end
 --- @return void
 function Panel:KillFocus() end
 
---- (client) Redefines the panel object's [Panel:SetPos](https://wiki.facepunch.com/gmod/Panel:SetPos) method to operate using frame-by-frame linear interpolation ([Lerp](https://wiki.facepunch.com/gmod/Global.Lerp)). When the panel's position is changed, it will move to the target position at the speed defined. You can undo this with [Panel:DisableLerp](https://wiki.facepunch.com/gmod/Panel:DisableLerp).Unlike the other panel animation functions, such as [Panel:MoveTo](https://wiki.facepunch.com/gmod/Panel:MoveTo), this animation method will not operate whilst the game is paused. This is because it relies on [FrameTime](https://wiki.facepunch.com/gmod/Global.FrameTime). 
+--- (client) Redefines the panel object's [Panel:SetPos](https://wiki.facepunch.com/gmod/Panel:SetPos) method to operate using frame-by-frame linear interpolation ([Lerp](https://wiki.facepunch.com/gmod/Global.Lerp)). When the panel's position is changed, it will move to the target position at the speed defined. You can undo this with [Panel:DisableLerp](https://wiki.facepunch.com/gmod/Panel:DisableLerp).
+--- Unlike the other panel animation functions, such as [Panel:MoveTo](https://wiki.facepunch.com/gmod/Panel:MoveTo), this animation method will not operate whilst the game is paused. This is because it relies on [FrameTime](https://wiki.facepunch.com/gmod/Global.FrameTime). 
 --- [https://wiki.facepunch.com/gmod/Panel:LerpPositions]
---- @param speed number @ The speed at which to move the panel. This is affected by the value of `easeOut`. Recommended values are:* **0.1 - 10** when `easeOut` is `false`.* **0.1 - 1** when `easeOut` is `true`.
+--- @param speed number @ The speed at which to move the panel. This is affected by the value of `easeOut`. Recommended values are:  0.1 - 10 when `easeOut` is `false`.  0.1 - 1 when `easeOut` is `true`.
 --- @param easeOut boolean @ This causes the panel object to 'jump' at the target, slowing as it approaches. This affects the `speed` value significantly, see above.
 --- @return void
 function Panel:LerpPositions(speed, easeOut) end
@@ -816,10 +860,11 @@ function Panel:LoadControlsFromFile(path) end
 --- @return void
 function Panel:LoadControlsFromString(data) end
 
---- (client) Loads a .gwen file (created by GWEN Designer) and calls [Panel:LoadGWENString](https://wiki.facepunch.com/gmod/Panel:LoadGWENString) with the contents of the loaded file.Used to load panel controls from a file. 
+--- (client) Loads a .gwen file (created by GWEN Designer) and calls [Panel:LoadGWENString](https://wiki.facepunch.com/gmod/Panel:LoadGWENString) with the contents of the loaded file.
+--- Used to load panel controls from a file. 
 --- [https://wiki.facepunch.com/gmod/Panel:LoadGWENFile]
 --- @param filename string @ The file to open. The path is relative to garrysmod/garrysmod/.
---- @param path string @ The path used to look up the file.* "GAME" Structured like base folder (garrysmod/), searches all the mounted content (main folder, addons, mounted games etc)* "LUA" or "lsv" - All Lua folders (lua/) including gamesmodes and addons* "DATA" Data folder (garrysmod/data)* "MOD" Strictly the game folder (garrysmod/), ignores mounting.
+--- @param path string @ The path used to look up the file.  "GAME" Structured like base folder (garrysmod/), searches all the mounted content (main folder, addons, mounted games etc)  "LUA" or "lsv" - All Lua folders (lua/) including gamesmodes and addons  "DATA" Data folder (garrysmod/data)  "MOD" Strictly the game folder (garrysmod/), ignores mounting.
 --- @return void
 function Panel:LoadGWENFile(filename, path) end
 
@@ -832,7 +877,7 @@ function Panel:LoadGWENString(str) end
 --- (client) Sets a new image to be loaded by a [TGAImage](https://wiki.facepunch.com/gmod/TGAImage). 
 --- [https://wiki.facepunch.com/gmod/Panel:LoadTGAImage]
 --- @param imageName string @ The file path.
---- @param strPath string @ The PATH to search in. See [File Search Paths](https://wiki.facepunch.com/gmod/File%20Search%20Paths).This isn't used internally.
+--- @param strPath string @ The PATH to search in. See [File Search Paths](https://wiki.facepunch.com/gmod/File%20Search%20Paths). This isn't used internally.
 --- @return void
 function Panel:LoadTGAImage(imageName, strPath) end
 
@@ -841,14 +886,16 @@ function Panel:LoadTGAImage(imageName, strPath) end
 --- @return number|number
 function Panel:LocalCursorPos() end
 
---- (client) Gets the absolute screen position of the position specified relative to the panel.See also [Panel:ScreenToLocal](https://wiki.facepunch.com/gmod/Panel:ScreenToLocal). 
+--- (client) Gets the absolute screen position of the position specified relative to the panel.
+--- See also [Panel:ScreenToLocal](https://wiki.facepunch.com/gmod/Panel:ScreenToLocal). 
 --- [https://wiki.facepunch.com/gmod/Panel:LocalToScreen]
 --- @param posX number @ The X coordinate of the position on the panel to translate.
 --- @param posY number @ The Y coordinate of the position on the panel to translate.
 --- @return number|number
 function Panel:LocalToScreen(posX, posY) end
 
---- (client) Focuses the panel and enables it to receive input.This automatically calls [Panel:SetMouseInputEnabled](https://wiki.facepunch.com/gmod/Panel:SetMouseInputEnabled) and [Panel:SetKeyboardInputEnabled](https://wiki.facepunch.com/gmod/Panel:SetKeyboardInputEnabled) and sets them to `true`. 
+--- (client) Focuses the panel and enables it to receive input.
+--- This automatically calls [Panel:SetMouseInputEnabled](https://wiki.facepunch.com/gmod/Panel:SetMouseInputEnabled) and [Panel:SetKeyboardInputEnabled](https://wiki.facepunch.com/gmod/Panel:SetKeyboardInputEnabled) and sets them to `true`. 
 --- [https://wiki.facepunch.com/gmod/Panel:MakePopup]
 --- @return void
 function Panel:MakePopup() end
@@ -880,7 +927,7 @@ function Panel:MoveBelow(panel, offset) end
 --- @param time number @ The time (in seconds) in which to perform the animation.
 --- @param delay number @ The delay (in seconds) before the animation begins.
 --- @param ease number @ The easing of the start and/or end speed of the animation. See [Panel:NewAnimation](https://wiki.facepunch.com/gmod/Panel:NewAnimation) for how this works.
---- @param callback function @ The function to be called once the animation is complete. Arguments are:* [table](https://wiki.facepunch.com/gmod/table) animData - The [AnimationData that was used.](https://wiki.facepunch.com/gmod/AnimationData%20that%20was%20used.)* [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - The panel object that was moved.
+--- @param callback function @ The function to be called once the animation is complete. Arguments are:  [table](https://wiki.facepunch.com/gmod/table) animData - The [AnimationData that was used.](https://wiki.facepunch.com/gmod/AnimationData%20that%20was%20used.)  [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - The panel object that was moved.
 --- @return void
 function Panel:MoveBy(moveX, moveY, time, delay, ease, callback) end
 
@@ -905,7 +952,7 @@ function Panel:MoveRightOf(panel, offset) end
 --- @param time number @ The time to perform the animation within.
 --- @param delay number @ The delay before the animation starts.
 --- @param ease number @ The easing of the start and/or end speed of the animation. See [Panel:NewAnimation](https://wiki.facepunch.com/gmod/Panel:NewAnimation) for how this works.
---- @param callback function @ The function to be called once the animation finishes. Arguments are:* [table](https://wiki.facepunch.com/gmod/table) animData - The [AnimationData](https://wiki.facepunch.com/gmod/Structures/AnimationData) that was used.* [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - The panel object that was moved.
+--- @param callback function @ The function to be called once the animation finishes. Arguments are:  [table](https://wiki.facepunch.com/gmod/table) animData - The [AnimationData](https://wiki.facepunch.com/gmod/Structures/AnimationData) that was used.  [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - The panel object that was moved.
 --- @return void
 function Panel:MoveTo(posX, posY, time, delay, ease, callback) end
 
@@ -931,12 +978,21 @@ function Panel:MoveToBefore(siblingPanel) end
 --- @return void
 function Panel:MoveToFront() end
 
---- (client) Creates a new animation for the panel object.Methods that use this function:* [Panel:MoveTo](https://wiki.facepunch.com/gmod/Panel:MoveTo)* [Panel:SizeTo](https://wiki.facepunch.com/gmod/Panel:SizeTo)* [Panel:SlideUp](https://wiki.facepunch.com/gmod/Panel:SlideUp)* [Panel:SlideDown](https://wiki.facepunch.com/gmod/Panel:SlideDown)* [Panel:ColorTo](https://wiki.facepunch.com/gmod/Panel:ColorTo)* [Panel:AlphaTo](https://wiki.facepunch.com/gmod/Panel:AlphaTo)* [Panel:MoveBy](https://wiki.facepunch.com/gmod/Panel:MoveBy)* [Panel:LerpPositions](https://wiki.facepunch.com/gmod/Panel:LerpPositions) 
+--- (client) Creates a new animation for the panel object.
+--- Methods that use this function:
+--- * [Panel:MoveTo](https://wiki.facepunch.com/gmod/Panel:MoveTo)
+--- * [Panel:SizeTo](https://wiki.facepunch.com/gmod/Panel:SizeTo)
+--- * [Panel:SlideUp](https://wiki.facepunch.com/gmod/Panel:SlideUp)
+--- * [Panel:SlideDown](https://wiki.facepunch.com/gmod/Panel:SlideDown)
+--- * [Panel:ColorTo](https://wiki.facepunch.com/gmod/Panel:ColorTo)
+--- * [Panel:AlphaTo](https://wiki.facepunch.com/gmod/Panel:AlphaTo)
+--- * [Panel:MoveBy](https://wiki.facepunch.com/gmod/Panel:MoveBy)
+--- * [Panel:LerpPositions](https://wiki.facepunch.com/gmod/Panel:LerpPositions) 
 --- [https://wiki.facepunch.com/gmod/Panel:NewAnimation]
 --- @param length number @ The length of the animation in seconds.
 --- @param delay number @ The delay before the animation starts.
---- @param ease number @ The power/index to use for easing.* Positive values greater than 1 will ease in; the higher the number, the sharper the curve's gradient (less linear).* A value of 1 removes all easing.* Positive values between 0 and 1 ease out; values closer to 0 increase the curve's gradient (less linear).* A value of 0 will break the animation and should be avoided.* Any value less than zero will ease in/out; the value has no effect on the gradient.
---- @param callback function @ The function to be called when the animation ends. Arguments passed are:* [table](https://wiki.facepunch.com/gmod/table) animTable - The [AnimationData](https://wiki.facepunch.com/gmod/Structures/AnimationData) that was used.* [Panel](https://wiki.facepunch.com/gmod/Panel) tgtPanel - The panel object that was animated.
+--- @param ease number @ The power/index to use for easing.  Positive values greater than 1 will ease in; the higher the number, the sharper the curve's gradient (less linear).  A value of 1 removes all easing.  Positive values between 0 and 1 ease out; values closer to 0 increase the curve's gradient (less linear).  A value of 0 will break the animation and should be avoided.  Any value less than zero will ease in/out; the value has no effect on the gradient.
+--- @param callback function @ The function to be called when the animation ends. Arguments passed are:  [table](https://wiki.facepunch.com/gmod/table) animTable - The [AnimationData](https://wiki.facepunch.com/gmod/Structures/AnimationData) that was used.  [Panel](https://wiki.facepunch.com/gmod/Panel) tgtPanel - The panel object that was animated.
 --- @return table
 function Panel:NewAnimation(length, delay, ease, callback) end
 
@@ -953,7 +1009,8 @@ function Panel:NewObject(objectName) end
 --- @return void
 function Panel:NewObjectCallback(objectName, callbackName) end
 
---- (client) Sets whether this panel's drawings should be clipped within the parent panel's bounds.See also [DisableClipping](https://wiki.facepunch.com/gmod/Global.DisableClipping). 
+--- (client) Sets whether this panel's drawings should be clipped within the parent panel's bounds.
+--- See also [DisableClipping](https://wiki.facepunch.com/gmod/Global.DisableClipping). 
 --- [https://wiki.facepunch.com/gmod/Panel:NoClipping]
 --- @param clip boolean @ Whether to clip or not.
 --- @return void
@@ -976,12 +1033,14 @@ function Panel:PaintAt(posX, posY) end
 --- @return void
 function Panel:PaintManual() end
 
---- (client) Parents the panel to the HUD.Makes it invisible on the escape-menu and disables controls. 
+--- (client) Parents the panel to the HUD.
+--- Makes it invisible on the escape-menu and disables controls. 
 --- [https://wiki.facepunch.com/gmod/Panel:ParentToHUD]
 --- @return void
 function Panel:ParentToHUD() end
 
---- (client) Only works for TextEntries.Pastes the contents of the clipboard into the TextEntry. 
+--- (client) Only works for TextEntries.
+--- Pastes the contents of the clipboard into the TextEntry. 
 --- [https://wiki.facepunch.com/gmod/Panel:Paste]
 --- @return void
 function Panel:Paste() end
@@ -1019,16 +1078,17 @@ function Panel:Queue() end
 --- @return void
 function Panel:RebuildSpawnIcon() end
 
---- (client) Re-renders a spawn icon with customized cam data.[PositionSpawnIcon](https://wiki.facepunch.com/gmod/Global.PositionSpawnIcon) can be used to easily calculate the necessary camera parameters. 
+--- (client) Re-renders a spawn icon with customized cam data.
+--- [PositionSpawnIcon](https://wiki.facepunch.com/gmod/Global.PositionSpawnIcon) can be used to easily calculate the necessary camera parameters. 
 --- [https://wiki.facepunch.com/gmod/Panel:RebuildSpawnIconEx]
---- @param data table @ A four-membered table containing the information needed to re-render:* [Vector](https://wiki.facepunch.com/gmod/Vector) cam_pos - The relative camera position the model is viewed from.* [Angle](https://wiki.facepunch.com/gmod/Angle) cam_ang - The camera angle the model is viewed from.* [number](https://wiki.facepunch.com/gmod/number) cam_fov - The camera's field of view (FOV).* [Entity](https://wiki.facepunch.com/gmod/Entity) ent - The entity object of the model.See the example below for how to retrieve these values.
+--- @param data table @ A four-membered table containing the information needed to re-render:  [Vector](https://wiki.facepunch.com/gmod/Vector) cam_pos - The relative camera position the model is viewed from.  [Angle](https://wiki.facepunch.com/gmod/Angle) cam_ang - The camera angle the model is viewed from.  [number](https://wiki.facepunch.com/gmod/number) cam_fov - The camera's field of view (FOV).  [Entity](https://wiki.facepunch.com/gmod/Entity) ent - The entity object of the model. See the example below for how to retrieve these values.
 --- @return void
 function Panel:RebuildSpawnIconEx(data) end
 
 --- (client) Allows the panel to receive drag and drop events. Can be called multiple times with different names to receive multiple different draggable panel events. 
 --- [https://wiki.facepunch.com/gmod/Panel:Receiver]
 --- @param name string @ Name of DnD panels to receive. This is set on the drag'n'drop-able panels via  [Panel:Droppable](https://wiki.facepunch.com/gmod/Panel:Droppable)
---- @param func function @ This function is called whenever a panel with valid name is hovering above and dropped on this panel. It has next arguments:* [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - The receiver panel* [table](https://wiki.facepunch.com/gmod/table) tbl - A table of panels dropped onto receiver panel* [boolean](https://wiki.facepunch.com/gmod/boolean) dropped - False if hovering over, true if dropped onto* [number](https://wiki.facepunch.com/gmod/number) menuIndex - Index of clicked menu item from third argument of [Panel:Receiver](https://wiki.facepunch.com/gmod/Panel:Receiver)* [number](https://wiki.facepunch.com/gmod/number) x - Cursor pos, relative to the receiver* [number](https://wiki.facepunch.com/gmod/number) y - Cursor pos, relative to the receiver
+--- @param func function @ This function is called whenever a panel with valid name is hovering above and dropped on this panel. It has next arguments:  [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - The receiver panel  [table](https://wiki.facepunch.com/gmod/table) tbl - A table of panels dropped onto receiver panel  [boolean](https://wiki.facepunch.com/gmod/boolean) dropped - False if hovering over, true if dropped onto  [number](https://wiki.facepunch.com/gmod/number) menuIndex - Index of clicked menu item from third argument of [Panel:Receiver](https://wiki.facepunch.com/gmod/Panel:Receiver)  [number](https://wiki.facepunch.com/gmod/number) x - Cursor pos, relative to the receiver  [number](https://wiki.facepunch.com/gmod/number) y - Cursor pos, relative to the receiver
 --- @param menu table @ A table of strings that will act as a menu if drag'n'drop was performed with a right click
 --- @return void
 function Panel:Receiver(name, func, menu) end
@@ -1039,7 +1099,10 @@ function Panel:Receiver(name, func, menu) end
 --- @return void
 function Panel:Refresh(ignoreCache) end
 
---- (client) Marks a panel for deletion so it will be deleted on the next frame.This will not mark child panels for deletion this frame, but they will be marked and deleted in the next frame.See also [Panel:IsMarkedForDeletion](https://wiki.facepunch.com/gmod/Panel:IsMarkedForDeletion)Will automatically call [Panel:InvalidateParent](https://wiki.facepunch.com/gmod/Panel:InvalidateParent). 
+--- (client) Marks a panel for deletion so it will be deleted on the next frame.
+--- This will not mark child panels for deletion this frame, but they will be marked and deleted in the next frame.
+--- See also [Panel:IsMarkedForDeletion](https://wiki.facepunch.com/gmod/Panel:IsMarkedForDeletion)
+--- Will automatically call [Panel:InvalidateParent](https://wiki.facepunch.com/gmod/Panel:InvalidateParent). 
 --- [https://wiki.facepunch.com/gmod/Panel:Remove]
 --- @return void
 function Panel:Remove() end
@@ -1063,12 +1126,14 @@ function Panel:ResetAllFades(hold, expiredOnly, newSustain) end
 --- @return void
 function Panel:RunJavascript(js) end
 
---- (client) Saves the current state (caret position and the text inside) of a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) as an undo state.See also [Panel:Undo](https://wiki.facepunch.com/gmod/Panel:Undo). 
+--- (client) Saves the current state (caret position and the text inside) of a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) as an undo state.
+--- See also [Panel:Undo](https://wiki.facepunch.com/gmod/Panel:Undo). 
 --- [https://wiki.facepunch.com/gmod/Panel:SaveUndoState]
 --- @return void
 function Panel:SaveUndoState() end
 
---- (client) Translates global screen coordinate to coordinates relative to the panel.See also [Panel:LocalToScreen](https://wiki.facepunch.com/gmod/Panel:LocalToScreen). 
+--- (client) Translates global screen coordinate to coordinates relative to the panel.
+--- See also [Panel:LocalToScreen](https://wiki.facepunch.com/gmod/Panel:LocalToScreen). 
 --- [https://wiki.facepunch.com/gmod/Panel:ScreenToLocal]
 --- @param screenX number @ The x coordinate of the screen position to be translated.
 --- @param screenY number @ The y coordinate of the screed position be to translated.
@@ -1103,11 +1168,12 @@ function Panel:SetAchievement(id) end
 
 --- (client) Used in [Button](https://wiki.facepunch.com/gmod/Button) to call a function when the button is clicked and in [Slider](https://wiki.facepunch.com/gmod/Slider) when the value changes. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetActionFunction]
---- @param func function @ Function to call when the [Button](https://wiki.facepunch.com/gmod/Button) is clicked or the [Slider](https://wiki.facepunch.com/gmod/Slider) value is changed.Arguments given are:* [Panel](https://wiki.facepunch.com/gmod/Panel) self - The panel itself* [string](https://wiki.facepunch.com/gmod/string) action - "Command" on button press, "SliderMoved" on slider move.* [number](https://wiki.facepunch.com/gmod/number) val - The new value of the [Slider](https://wiki.facepunch.com/gmod/Slider). Will always equal 0 for buttons.* [number](https://wiki.facepunch.com/gmod/number) zed - Always equals 0.
+--- @param func function @ Function to call when the [Button](https://wiki.facepunch.com/gmod/Button) is clicked or the [Slider](https://wiki.facepunch.com/gmod/Slider) value is changed. Arguments given are:  [Panel](https://wiki.facepunch.com/gmod/Panel) self - The panel itself  [string](https://wiki.facepunch.com/gmod/string) action - "Command" on button press, "SliderMoved" on slider move.  [number](https://wiki.facepunch.com/gmod/number) val - The new value of the [Slider](https://wiki.facepunch.com/gmod/Slider). Will always equal 0 for buttons.  [number](https://wiki.facepunch.com/gmod/number) zed - Always equals 0.
 --- @return void
 function Panel:SetActionFunction(func) end
 
---- (client) Configures a text input to allow user to type characters that are not included in the US-ASCII (7-bit ASCII) character set.Characters not included in US-ASCII are multi-byte characters in UTF-8. They can be accented characters, non-Latin characters and special characters. 
+--- (client) Configures a text input to allow user to type characters that are not included in the US-ASCII (7-bit ASCII) character set.
+--- Characters not included in US-ASCII are multi-byte characters in UTF-8. They can be accented characters, non-Latin characters and special characters. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetAllowNonAsciiCharacters]
 --- @param allowed boolean @ Set to true in order not to restrict input characters.
 --- @return void
@@ -1131,7 +1197,9 @@ function Panel:SetAnimationEnabled(enable) end
 --- @return void
 function Panel:SetAutoDelete(autoDelete) end
 
---- (client) Sets the background color of a panel such as a [RichText](https://wiki.facepunch.com/gmod/RichText), [Label](https://wiki.facepunch.com/gmod/Label) or [DColorCube](https://wiki.facepunch.com/gmod/DColorCube).For [DLabel](https://wiki.facepunch.com/gmod/DLabel) elements, you must use [Panel:SetPaintBackgroundEnabled](https://wiki.facepunch.com/gmod/Panel:SetPaintBackgroundEnabled)( true ) before applying the color.This will not work on setup of the panel - you should use this function in a hook like [PANEL:ApplySchemeSettings](https://wiki.facepunch.com/gmod/PANEL:ApplySchemeSettings) or [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout). 
+--- (client) Sets the background color of a panel such as a [RichText](https://wiki.facepunch.com/gmod/RichText), [Label](https://wiki.facepunch.com/gmod/Label) or [DColorCube](https://wiki.facepunch.com/gmod/DColorCube).
+--- For [DLabel](https://wiki.facepunch.com/gmod/DLabel) elements, you must use [Panel:SetPaintBackgroundEnabled](https://wiki.facepunch.com/gmod/Panel:SetPaintBackgroundEnabled)( true ) before applying the color.
+--- This will not work on setup of the panel - you should use this function in a hook like [PANEL:ApplySchemeSettings](https://wiki.facepunch.com/gmod/PANEL:ApplySchemeSettings) or [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout). 
 --- [https://wiki.facepunch.com/gmod/Panel:SetBGColor]
 --- @param r or color number @ The red channel of the color, or a [Color](https://wiki.facepunch.com/gmod/Color). If you pass the latter, the following three arguments are ignored.
 --- @param g number @ The green channel of the color.
@@ -1155,24 +1223,31 @@ function Panel:SetBGColorEx(r, g, b, a) end
 --- @return void
 function Panel:SetCaretPos(offset) end
 
---- (client) Sets the action signal command that's fired when a [Button](https://wiki.facepunch.com/gmod/Button) is clicked. The hook [PANEL:ActionSignal](https://wiki.facepunch.com/gmod/PANEL:ActionSignal) is called as the click response.This has no effect on buttons unless it has had its `AddActionSignalTarget` method called (an internal function not available by default in Garry's Mod LUA).A better alternative is calling [Panel:Command](https://wiki.facepunch.com/gmod/Panel:Command) when a [DButton](https://wiki.facepunch.com/gmod/DButton) is clicked. 
+--- (client) Sets the action signal command that's fired when a [Button](https://wiki.facepunch.com/gmod/Button) is clicked. The hook [PANEL:ActionSignal](https://wiki.facepunch.com/gmod/PANEL:ActionSignal) is called as the click response.
+--- This has no effect on buttons unless it has had its `AddActionSignalTarget` method called (an internal function not available by default in Garry's Mod LUA).
+--- A better alternative is calling [Panel:Command](https://wiki.facepunch.com/gmod/Panel:Command) when a [DButton](https://wiki.facepunch.com/gmod/DButton) is clicked. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetCommand]
 --- @return void
 function Panel:SetCommand() end
 
 --- (client) Sets the alignment of the contents. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetContentAlignment]
---- @param alignment number @ The direction of the content, based on the number pad.: **bottom-left** : **bottom-center** : **bottom-right** : **middle-left** : **center** : **middle-right** : **top-left** : **top-center** : **top-right**
+--- @param alignment number @ The direction of the content, based on the number pad. : bottom-left  : bottom-center  : bottom-right  : middle-left  : center  : middle-right  : top-left  : top-center  : top-right
 --- @return void
 function Panel:SetContentAlignment(alignment) end
 
---- (client) Sets this panel's convar. When the convar changes this panel will update automatically.For developer implementation, see [Derma_Install_Convar_Functions](https://wiki.facepunch.com/gmod/Global.Derma_Install_Convar_Functions). 
+--- (client) Sets this panel's convar. When the convar changes this panel will update automatically.
+--- For developer implementation, see [Derma_Install_Convar_Functions](https://wiki.facepunch.com/gmod/Global.Derma_Install_Convar_Functions). 
 --- [https://wiki.facepunch.com/gmod/Panel:SetConVar]
 --- @param convar string @ The console variable to check.
 --- @return void
 function Panel:SetConVar(convar) end
 
---- (client) Stores a string in the named cookie using [Panel:GetCookieName](https://wiki.facepunch.com/gmod/Panel:GetCookieName) as prefix.You can also retrieve and modify this cookie by using the [cookie](https://wiki.facepunch.com/gmod/cookie). Cookies are stored in this format:```panelCookieName.cookieName``` 
+--- (client) Stores a string in the named cookie using [Panel:GetCookieName](https://wiki.facepunch.com/gmod/Panel:GetCookieName) as prefix.
+--- You can also retrieve and modify this cookie by using the [cookie](https://wiki.facepunch.com/gmod/cookie). Cookies are stored in this format:
+--- ```
+--- panelCookieName.cookieName
+--- ``` 
 --- [https://wiki.facepunch.com/gmod/Panel:SetCookie]
 --- @param cookieName string @ The unique name used to retrieve the cookie later.
 --- @param value string @ The value to store in the cookie. This can be retrieved later as a [string](https://wiki.facepunch.com/gmod/string) or [number](https://wiki.facepunch.com/gmod/number).
@@ -1187,35 +1262,40 @@ function Panel:SetCookieName(name) end
 
 --- (client) Sets the appearance of the cursor. You can find a list of all available cursors with image previews [here](https://wiki.facepunch.com/gmod/Cursors). 
 --- [https://wiki.facepunch.com/gmod/Panel:SetCursor]
---- @param cursor string @ The cursor to be set. Can be one of the following:* [arrow](https://wiki.facepunch.com/gmod/Cursors#:~:text=arrow)* [beam](https://wiki.facepunch.com/gmod/Cursors#:~:text=beam)* [hourglass](https://wiki.facepunch.com/gmod/Cursors#:~:text=hourglass)* [waitarrow](https://wiki.facepunch.com/gmod/Cursors#:~:text=waitarrow)* [crosshair](https://wiki.facepunch.com/gmod/Cursors#:~:text=crosshair)* [up](https://wiki.facepunch.com/gmod/Cursors#:~:text=up)* [sizenwse](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizenwse)* [sizenesw](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizenesw)* [sizewe](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizewe)* [sizens](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizens)* [sizeall](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizeall)* [no](https://wiki.facepunch.com/gmod/Cursors#:~:text=no)* [hand](https://wiki.facepunch.com/gmod/Cursors#:~:text=hand)* [blank](https://wiki.facepunch.com/gmod/Cursors#:~:text=blank)Set to anything else to set it to "none", the default fallback. Do note that a value of "none" does not, as one might assume, result in no cursor being drawn - hiding the cursor requires a value of "blank" instead.
+--- @param cursor string @ The cursor to be set. Can be one of the following:  [arrow](https://wiki.facepunch.com/gmod/Cursors#:~:text=arrow)  [beam](https://wiki.facepunch.com/gmod/Cursors#:~:text=beam)  [hourglass](https://wiki.facepunch.com/gmod/Cursors#:~:text=hourglass)  [waitarrow](https://wiki.facepunch.com/gmod/Cursors#:~:text=waitarrow)  [crosshair](https://wiki.facepunch.com/gmod/Cursors#:~:text=crosshair)  [up](https://wiki.facepunch.com/gmod/Cursors#:~:text=up)  [sizenwse](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizenwse)  [sizenesw](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizenesw)  [sizewe](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizewe)  [sizens](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizens)  [sizeall](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizeall)  [no](https://wiki.facepunch.com/gmod/Cursors#:~:text=no)  [hand](https://wiki.facepunch.com/gmod/Cursors#:~:text=hand)  [blank](https://wiki.facepunch.com/gmod/Cursors#:~:text=blank) Set to anything else to set it to "none", the default fallback. Do note that a value of "none" does not, as one might assume, result in no cursor being drawn - hiding the cursor requires a value of "blank" instead.
 --- @return void
 function Panel:SetCursor(cursor) end
 
---- (client) Sets the drag parent.Drag parent means that when we start to drag this panel, we'll really start dragging the defined parent. 
+--- (client) Sets the drag parent.
+--- Drag parent means that when we start to drag this panel, we'll really start dragging the defined parent. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetDragParent]
 --- @param parent Panel @ The panel to set as drag parent.
 --- @return void
 function Panel:SetDragParent(parent) end
 
---- (client) Sets the visibility of the language selection box in a TextEntry when typing in non-English mode.See [Panel:SetDrawLanguageIDAtLeft](https://wiki.facepunch.com/gmod/Panel:SetDrawLanguageIDAtLeft) for a function that changes the position of the language selection box. 
+--- (client) Sets the visibility of the language selection box in a TextEntry when typing in non-English mode.
+--- See [Panel:SetDrawLanguageIDAtLeft](https://wiki.facepunch.com/gmod/Panel:SetDrawLanguageIDAtLeft) for a function that changes the position of the language selection box. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetDrawLanguageID]
 --- @param visible boolean @ true to make it visible, false to hide it.
 --- @return void
 function Panel:SetDrawLanguageID(visible) end
 
---- (client) Sets where to draw the language selection box.See [Panel:SetDrawLanguageID](https://wiki.facepunch.com/gmod/Panel:SetDrawLanguageID) for a function that hides or shows the language selection box. 
+--- (client) Sets where to draw the language selection box.
+--- See [Panel:SetDrawLanguageID](https://wiki.facepunch.com/gmod/Panel:SetDrawLanguageID) for a function that hides or shows the language selection box. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetDrawLanguageIDAtLeft]
 --- @param left boolean @ true = left, false = right
 --- @return void
 function Panel:SetDrawLanguageIDAtLeft(left) end
 
---- (client) Makes the panel render in front of all others, including the spawn menu and main menu.Priority is given based on the last call, so of two panels that call this method, the second will draw in front of the first. 
+--- (client) Makes the panel render in front of all others, including the spawn menu and main menu.
+--- Priority is given based on the last call, so of two panels that call this method, the second will draw in front of the first. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetDrawOnTop]
 --- @param drawOnTop boolean @ Whether or not to draw the panel in front of all others.
 --- @return void
 function Panel:SetDrawOnTop(drawOnTop) end
 
---- (client) Sets the target area for dropping when an object is being dragged around this panel using the [dragndrop](https://wiki.facepunch.com/gmod/dragndrop). This draws a target box of the specified size and position, until [Panel:DragHoverEnd](https://wiki.facepunch.com/gmod/Panel:DragHoverEnd) is called. It uses [Panel:DrawDragHover](https://wiki.facepunch.com/gmod/Panel:DrawDragHover) to draw this area. 
+--- (client) Sets the target area for dropping when an object is being dragged around this panel using the [dragndrop](https://wiki.facepunch.com/gmod/dragndrop). 
+--- This draws a target box of the specified size and position, until [Panel:DragHoverEnd](https://wiki.facepunch.com/gmod/Panel:DragHoverEnd) is called. It uses [Panel:DrawDragHover](https://wiki.facepunch.com/gmod/Panel:DrawDragHover) to draw this area. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetDropTarget]
 --- @param x number @ The x coordinate of the top-left corner of the drop area.
 --- @param y number @ The y coordinate of the top-left corner of the drop area.
@@ -1224,7 +1304,8 @@ function Panel:SetDrawOnTop(drawOnTop) end
 --- @return void
 function Panel:SetDropTarget(x, y, width, height) end
 
---- (client) Sets the enabled state of a disable-able panel object, such as a [DButton](https://wiki.facepunch.com/gmod/DButton) or [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry).See [Panel:IsEnabled](https://wiki.facepunch.com/gmod/Panel:IsEnabled) for a function that retrieves the "enabled" state of a panel. 
+--- (client) Sets the enabled state of a disable-able panel object, such as a [DButton](https://wiki.facepunch.com/gmod/DButton) or [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry).
+--- See [Panel:IsEnabled](https://wiki.facepunch.com/gmod/Panel:IsEnabled) for a function that retrieves the "enabled" state of a panel. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetEnabled]
 --- @param enable boolean @ Whether to enable or disable the panel object.
 --- @return void
@@ -1237,7 +1318,9 @@ function Panel:SetEnabled(enable) end
 --- @return void
 function Panel:SetExpensiveShadow(distance, Color) end
 
---- (client) Sets the foreground color of a panel.For a [Label](https://wiki.facepunch.com/gmod/Label) or [RichText](https://wiki.facepunch.com/gmod/RichText), this is the color of its text.This function calls [Panel:SetFGColorEx](https://wiki.facepunch.com/gmod/Panel:SetFGColorEx) internally. 
+--- (client) Sets the foreground color of a panel.
+--- For a [Label](https://wiki.facepunch.com/gmod/Label) or [RichText](https://wiki.facepunch.com/gmod/RichText), this is the color of its text.
+--- This function calls [Panel:SetFGColorEx](https://wiki.facepunch.com/gmod/Panel:SetFGColorEx) internally. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetFGColor]
 --- @param r or color number @ The red channel of the color, or a [Color](https://wiki.facepunch.com/gmod/Color). If you pass the latter, the following three arguments are ignored.
 --- @param g number @ The green channel of the color.
@@ -1246,7 +1329,8 @@ function Panel:SetExpensiveShadow(distance, Color) end
 --- @return void
 function Panel:SetFGColor(r or color, g, b, a) end
 
---- (client) Sets the foreground color of the panel.For labels, this is the color of their text. 
+--- (client) Sets the foreground color of the panel.
+--- For labels, this is the color of their text. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetFGColorEx]
 --- @param r number @ The red channel of the color.
 --- @param g number @ The green channel of the color.
@@ -1261,13 +1345,16 @@ function Panel:SetFGColorEx(r, g, b, a) end
 --- @return void
 function Panel:SetFocusTopLevel(state) end
 
---- (client) Sets the font used to render this panel's text.To retrieve the font used by a panel, call [Panel:GetFont](https://wiki.facepunch.com/gmod/Panel:GetFont). 
+--- (client) Sets the font used to render this panel's text.
+--- To retrieve the font used by a panel, call [Panel:GetFont](https://wiki.facepunch.com/gmod/Panel:GetFont). 
 --- [https://wiki.facepunch.com/gmod/Panel:SetFontInternal]
---- @param fontName string @ The name of the font.See [here](https://wiki.facepunch.com/gmod/Default_Fonts) for a list of existing fonts.Alternatively, use [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) to create your own custom font.
+--- @param fontName string @ The name of the font. See [here](https://wiki.facepunch.com/gmod/Default_Fonts) for a list of existing fonts. Alternatively, use [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) to create your own custom font.
 --- @return void
 function Panel:SetFontInternal(fontName) end
 
---- (client) Sets the height of the panel.Calls [PANEL:OnSizeChanged](https://wiki.facepunch.com/gmod/PANEL:OnSizeChanged) and marks this panel for layout ([Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout)).See also [Panel:SetSize](https://wiki.facepunch.com/gmod/Panel:SetSize). 
+--- (client) Sets the height of the panel.
+--- Calls [PANEL:OnSizeChanged](https://wiki.facepunch.com/gmod/PANEL:OnSizeChanged) and marks this panel for layout ([Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout)).
+--- See also [Panel:SetSize](https://wiki.facepunch.com/gmod/Panel:SetSize). 
 --- [https://wiki.facepunch.com/gmod/Panel:SetHeight]
 --- @param height number @ The height to be set.
 --- @return void
@@ -1285,13 +1372,16 @@ function Panel:SetHTML(HTML code) end
 --- @return void
 function Panel:SetKeyBoardInputEnabled(keyboardInput) end
 
---- (client) Sets the maximum character count this panel should have.This function will only work on [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) panels and their derivatives. 
+--- (client) Sets the maximum character count this panel should have.
+--- This function will only work on [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) panels and their derivatives. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetMaximumCharCount]
 --- @param maxChar number @ The new maximum amount of characters this panel is allowed to contain.
 --- @return void
 function Panel:SetMaximumCharCount(maxChar) end
 
---- (client) Sets the minimum dimensions of the panel or object.You can restrict either or both values.Calling the function without arguments will remove the minimum size. 
+--- (client) Sets the minimum dimensions of the panel or object.
+--- You can restrict either or both values.
+--- Calling the function without arguments will remove the minimum size. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetMinimumSize]
 --- @param minW number @ The minimum width of the object.
 --- @param minH number @ The minimum height of the object.
@@ -1302,7 +1392,7 @@ function Panel:SetMinimumSize(minW, minH) end
 --- [https://wiki.facepunch.com/gmod/Panel:SetModel]
 --- @param ModelPath string @ The path of the model to set
 --- @param skin number @ The skin to set
---- @param bodygroups string @ The body groups to set. Each single-digit number in the string represents a separate bodygroup, **This argument must be 9 characters in total**.
+--- @param bodygroups string @ The body groups to set. Each single-digit number in the string represents a separate bodygroup, This argument must be 9 characters in total.
 --- @return void
 function Panel:SetModel(ModelPath, skin, bodygroups) end
 
@@ -1360,7 +1450,9 @@ function Panel:SetPlayer(player, size) end
 --- @return void
 function Panel:SetPopupStayAtBack(stayAtBack) end
 
---- (client) Sets the position of the panel's top left corner.This will trigger [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout). You should avoid calling this function in [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout) to avoid infinite loops.See also [Panel:SetX](https://wiki.facepunch.com/gmod/Panel:SetX) and [Panel:SetY](https://wiki.facepunch.com/gmod/Panel:SetY). 
+--- (client) Sets the position of the panel's top left corner.
+--- This will trigger [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout). You should avoid calling this function in [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout) to avoid infinite loops.
+--- See also [Panel:SetX](https://wiki.facepunch.com/gmod/Panel:SetX) and [Panel:SetY](https://wiki.facepunch.com/gmod/Panel:SetY). 
 --- [https://wiki.facepunch.com/gmod/Panel:SetPos]
 --- @param posX number @ The x coordinate of the position.
 --- @param posY number @ The y coordinate of the position.
@@ -1391,7 +1483,9 @@ function Panel:SetSelected(selected) end
 --- @return void
 function Panel:SetSelectionCanvas(selCanvas) end
 
---- (client) Sets the size of the panel.Calls [PANEL:OnSizeChanged](https://wiki.facepunch.com/gmod/PANEL:OnSizeChanged) and marks this panel for layout ([Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout)).See also [Panel:SetWidth](https://wiki.facepunch.com/gmod/Panel:SetWidth) and [Panel:SetHeight](https://wiki.facepunch.com/gmod/Panel:SetHeight). 
+--- (client) Sets the size of the panel.
+--- Calls [PANEL:OnSizeChanged](https://wiki.facepunch.com/gmod/PANEL:OnSizeChanged) and marks this panel for layout ([Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout)).
+--- See also [Panel:SetWidth](https://wiki.facepunch.com/gmod/Panel:SetWidth) and [Panel:SetHeight](https://wiki.facepunch.com/gmod/Panel:SetHeight). 
 --- [https://wiki.facepunch.com/gmod/Panel:SetSize]
 --- @param width number @ The width of the panel.
 --- @param height number @ The height of the panel.
@@ -1404,7 +1498,8 @@ function Panel:SetSize(width, height) end
 --- @return void
 function Panel:SetSkin(skinName) end
 
---- (client) Sets the `.png` image to be displayed on a  [SpawnIcon](https://wiki.facepunch.com/gmod/SpawnIcon) or the panel it is based on - [ModelImage](https://wiki.facepunch.com/gmod/ModelImage).Only `.png` images can be used with this function. 
+--- (client) Sets the `.png` image to be displayed on a  [SpawnIcon](https://wiki.facepunch.com/gmod/SpawnIcon) or the panel it is based on - [ModelImage](https://wiki.facepunch.com/gmod/ModelImage).
+--- Only `.png` images can be used with this function. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetSpawnIcon]
 --- @param icon string @ A path to the .png material, for example one of the [Silkicons](https://wiki.facepunch.com/gmod/Silkicons) shipped with the game.
 --- @return void
@@ -1467,23 +1562,25 @@ function Panel:SetTooltipPanel(tooltipPanel) end
 
 --- (client) Sets the panel class to be created instead of [DTooltip](https://wiki.facepunch.com/gmod/DTooltip) when the player hovers over this panel and a tooltip needs creating. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetTooltipPanelOverride]
---- @param override string @ The panel class to override the default [DTooltip](https://wiki.facepunch.com/gmod/DTooltip). The new panel class must have the following methods:* [SetText](https://wiki.facepunch.com/gmod/Panel:SetText) - If you are using [Panel:SetTooltip](https://wiki.facepunch.com/gmod/Panel:SetTooltip).* [SetContents](https://wiki.facepunch.com/gmod/DTooltip:SetContents) - If you are using [Panel:SetTooltipPanel](https://wiki.facepunch.com/gmod/Panel:SetTooltipPanel).* [OpenForPanel](https://wiki.facepunch.com/gmod/DTooltip:OpenForPanel) - A "hook" type function that gets called shortly after creation (and after the above 2) to open and position the tooltip. You can see this logic in `lua/includes/util/tooltips.lua`.
+--- @param override string @ The panel class to override the default [DTooltip](https://wiki.facepunch.com/gmod/DTooltip). The new panel class must have the following methods:  [SetText](https://wiki.facepunch.com/gmod/Panel:SetText) - If you are using [Panel:SetTooltip](https://wiki.facepunch.com/gmod/Panel:SetTooltip).  [SetContents](https://wiki.facepunch.com/gmod/DTooltip:SetContents) - If you are using [Panel:SetTooltipPanel](https://wiki.facepunch.com/gmod/Panel:SetTooltipPanel).  [OpenForPanel](https://wiki.facepunch.com/gmod/DTooltip:OpenForPanel) - A "hook" type function that gets called shortly after creation (and after the above 2) to open and position the tooltip. You can see this logic in `lua/includes/util/tooltips.lua`.
 --- @return void
 function Panel:SetTooltipPanelOverride(override) end
 
---- (client) Sets the underlined font for use by clickable text in a [RichText](https://wiki.facepunch.com/gmod/RichText). See also [Panel:InsertClickableTextStart](https://wiki.facepunch.com/gmod/Panel:InsertClickableTextStart)This function will only work on [RichText](https://wiki.facepunch.com/gmod/RichText) panels. 
+--- (client) Sets the underlined font for use by clickable text in a [RichText](https://wiki.facepunch.com/gmod/RichText). See also [Panel:InsertClickableTextStart](https://wiki.facepunch.com/gmod/Panel:InsertClickableTextStart)
+--- This function will only work on [RichText](https://wiki.facepunch.com/gmod/RichText) panels. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetUnderlineFont]
---- @param fontName string @ The name of the font.See [here](https://wiki.facepunch.com/gmod/Default_Fonts) for a list of existing fonts.Alternatively, use [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) to create your own custom font.
+--- @param fontName string @ The name of the font. See [here](https://wiki.facepunch.com/gmod/Default_Fonts) for a list of existing fonts. Alternatively, use [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) to create your own custom font.
 --- @return void
 function Panel:SetUnderlineFont(fontName) end
 
 --- (client) Sets the URL of a link-based panel such as [DLabelURL](https://wiki.facepunch.com/gmod/DLabelURL). 
 --- [https://wiki.facepunch.com/gmod/Panel:SetURL]
---- @param url string @ The URL to set. It **must** begin with either `http://` or `https://`.
+--- @param url string @ The URL to set. It must begin with either `http://` or `https://`.
 --- @return void
 function Panel:SetURL(url) end
 
---- (client) Sets the visibility of the vertical scrollbar.Works for [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry). 
+--- (client) Sets the visibility of the vertical scrollbar.
+--- Works for [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry). 
 --- [https://wiki.facepunch.com/gmod/Panel:SetVerticalScrollbarEnabled]
 --- @param display boolean @ True to display the vertical text scroll bar, false to hide it.
 --- @return void
@@ -1501,7 +1598,9 @@ function Panel:SetVisible(visible) end
 --- @return void
 function Panel:SetWide(width) end
 
---- (client) Sets the width of the panel.Calls [PANEL:OnSizeChanged](https://wiki.facepunch.com/gmod/PANEL:OnSizeChanged) and marks this panel for layout ([Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout)).See also [Panel:SetSize](https://wiki.facepunch.com/gmod/Panel:SetSize). 
+--- (client) Sets the width of the panel.
+--- Calls [PANEL:OnSizeChanged](https://wiki.facepunch.com/gmod/PANEL:OnSizeChanged) and marks this panel for layout ([Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout)).
+--- See also [Panel:SetSize](https://wiki.facepunch.com/gmod/Panel:SetSize). 
 --- [https://wiki.facepunch.com/gmod/Panel:SetWidth]
 --- @param width number @ The new width of the panel.
 --- @return void
@@ -1513,27 +1612,32 @@ function Panel:SetWidth(width) end
 --- @return void
 function Panel:SetWorldClicker(enabled) end
 
---- (client) Sets whether text wrapping should be enabled or disabled on [Label](https://wiki.facepunch.com/gmod/Label) and [DLabel](https://wiki.facepunch.com/gmod/DLabel) panels.Use [DLabel:SetAutoStretchVertical](https://wiki.facepunch.com/gmod/DLabel:SetAutoStretchVertical) to automatically correct vertical size; [Panel:SizeToContents](https://wiki.facepunch.com/gmod/Panel:SizeToContents) will not set the correct height. 
+--- (client) Sets whether text wrapping should be enabled or disabled on [Label](https://wiki.facepunch.com/gmod/Label) and [DLabel](https://wiki.facepunch.com/gmod/DLabel) panels.
+--- Use [DLabel:SetAutoStretchVertical](https://wiki.facepunch.com/gmod/DLabel:SetAutoStretchVertical) to automatically correct vertical size; [Panel:SizeToContents](https://wiki.facepunch.com/gmod/Panel:SizeToContents) will not set the correct height. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetWrap]
 --- @param wrap boolean @ `True` to enable text wrapping, `false` otherwise.
 --- @return void
 function Panel:SetWrap(wrap) end
 
---- (client) Sets the X position of the panel.Uses [Panel:SetPos](https://wiki.facepunch.com/gmod/Panel:SetPos) internally. 
+--- (client) Sets the X position of the panel.
+--- Uses [Panel:SetPos](https://wiki.facepunch.com/gmod/Panel:SetPos) internally. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetX]
 --- @param x number @ The X coordinate of the position.
 --- @return void
 function Panel:SetX(x) end
 
---- (client) Sets the Y position of the panel.Uses [Panel:SetPos](https://wiki.facepunch.com/gmod/Panel:SetPos) internally. 
+--- (client) Sets the Y position of the panel.
+--- Uses [Panel:SetPos](https://wiki.facepunch.com/gmod/Panel:SetPos) internally. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetY]
 --- @param y number @ The Y coordinate of the position.
 --- @return void
 function Panel:SetY(y) end
 
---- (client) Sets the panels z position which determines the rendering order.Panels with lower z positions appear behind panels with higher z positions.This also controls in which order panels docked with [Panel:Dock](https://wiki.facepunch.com/gmod/Panel:Dock) appears. 
+--- (client) Sets the panels z position which determines the rendering order.
+--- Panels with lower z positions appear behind panels with higher z positions.
+--- This also controls in which order panels docked with [Panel:Dock](https://wiki.facepunch.com/gmod/Panel:Dock) appears. 
 --- [https://wiki.facepunch.com/gmod/Panel:SetZPos]
---- @param zIndex number @ The z position of the panel. Can't be lower than -32768 or higher than 32767.
+--- @param zIndex number @ The z position of the panel.  Can't be lower than -32768 or higher than 32767.
 --- @return void
 function Panel:SetZPos(zIndex) end
 
@@ -1549,7 +1653,7 @@ function Panel:Show() end
 --- @param time number @ The time to perform the animation within.
 --- @param delay number @ The delay before the animation starts.
 --- @param ease number @ Easing of the start and/or end speed of the animation. See [Panel:NewAnimation](https://wiki.facepunch.com/gmod/Panel:NewAnimation) for how this works.
---- @param callback function @ The function to be called once the animation finishes. Arguments are:* [table](https://wiki.facepunch.com/gmod/table) animData - The [AnimationData](https://wiki.facepunch.com/gmod/Structures/AnimationData) that was used.* [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - The panel object that was resized.
+--- @param callback function @ The function to be called once the animation finishes. Arguments are:  [table](https://wiki.facepunch.com/gmod/table) animData - The [AnimationData](https://wiki.facepunch.com/gmod/Structures/AnimationData) that was used.  [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - The panel object that was resized.
 --- @return void
 function Panel:SizeTo(sizeW, sizeH, time, delay, ease, callback) end
 
@@ -1565,13 +1669,15 @@ function Panel:SizeToChildren(sizeW, sizeH) end
 --- @return void
 function Panel:SizeToContents() end
 
---- (client) Resizes the panel object's width to accommodate all child objects/contents.Only works on [Label](https://wiki.facepunch.com/gmod/Label) derived panels such as [DLabel](https://wiki.facepunch.com/gmod/DLabel) by default, and on any panel that manually implemented [Panel:GetContentSize](https://wiki.facepunch.com/gmod/Panel:GetContentSize) method. 
+--- (client) Resizes the panel object's width to accommodate all child objects/contents.
+--- Only works on [Label](https://wiki.facepunch.com/gmod/Label) derived panels such as [DLabel](https://wiki.facepunch.com/gmod/DLabel) by default, and on any panel that manually implemented [Panel:GetContentSize](https://wiki.facepunch.com/gmod/Panel:GetContentSize) method. 
 --- [https://wiki.facepunch.com/gmod/Panel:SizeToContentsX]
 --- @param addVal number @ The number of extra pixels to add to the width. Can be a negative number, to reduce the width.
 --- @return void
 function Panel:SizeToContentsX(addVal) end
 
---- (client) Resizes the panel object's height to accommodate all child objects/contents.Only works on [Label](https://wiki.facepunch.com/gmod/Label) derived panels such as [DLabel](https://wiki.facepunch.com/gmod/DLabel) by default, and on any panel that manually implemented [Panel:GetContentSize](https://wiki.facepunch.com/gmod/Panel:GetContentSize) method. 
+--- (client) Resizes the panel object's height to accommodate all child objects/contents.
+--- Only works on [Label](https://wiki.facepunch.com/gmod/Label) derived panels such as [DLabel](https://wiki.facepunch.com/gmod/DLabel) by default, and on any panel that manually implemented [Panel:GetContentSize](https://wiki.facepunch.com/gmod/Panel:GetContentSize) method. 
 --- [https://wiki.facepunch.com/gmod/Panel:SizeToContentsY]
 --- @param addVal number @ The number of extra pixels to add to the height.
 --- @return void
@@ -1632,7 +1738,8 @@ function Panel:ToggleSelection() end
 --- @return void
 function Panel:ToggleVisible() end
 
---- (client) Restores the last saved state (caret position and the text inside) of a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry). Should act identically to pressing CTRL+Z in a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry).See also [Panel:SaveUndoState](https://wiki.facepunch.com/gmod/Panel:SaveUndoState). 
+--- (client) Restores the last saved state (caret position and the text inside) of a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry). Should act identically to pressing CTRL+Z in a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry).
+--- See also [Panel:SaveUndoState](https://wiki.facepunch.com/gmod/Panel:SaveUndoState). 
 --- [https://wiki.facepunch.com/gmod/Panel:Undo]
 --- @return void
 function Panel:Undo() end

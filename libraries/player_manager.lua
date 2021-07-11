@@ -10,7 +10,8 @@ player_manager = {}
 --- @return void
 function player_manager.AddValidHands(name, model, skin, bodygroups) end
 
---- (client/server) Associates a simplified name with a path to a valid player model.Only used internally. 
+--- (client/server) Associates a simplified name with a path to a valid player model.
+--- Only used internally. 
 --- [https://wiki.facepunch.com/gmod/player_manager.AddValidModel]
 --- @param name string @ Simplified name
 --- @param model string @ Valid PlayerModel path
@@ -39,7 +40,8 @@ function player_manager.GetPlayerClass(ply) end
 --- @return table
 function player_manager.GetPlayerClasses() end
 
---- (client/server) Applies basic class variables when the player spawns.Called from [GM:PlayerSpawn](https://wiki.facepunch.com/gmod/GM:PlayerSpawn) in the base gamemode. 
+--- (client/server) Applies basic class variables when the player spawns.
+--- Called from [GM:PlayerSpawn](https://wiki.facepunch.com/gmod/GM:PlayerSpawn) in the base gamemode. 
 --- [https://wiki.facepunch.com/gmod/player_manager.OnPlayerSpawn]
 --- @param ply Player @ Player to setup
 --- @return void
@@ -80,7 +82,8 @@ function player_manager.TranslatePlayerHands(name) end
 --- @return string
 function player_manager.TranslatePlayerModel(shortName) end
 
---- (client/server) Returns the simplified name for a valid model path of a player model.Opposite of [player_manager.TranslatePlayerModel](https://wiki.facepunch.com/gmod/player_manager.TranslatePlayerModel). 
+--- (client/server) Returns the simplified name for a valid model path of a player model.
+--- Opposite of [player_manager.TranslatePlayerModel](https://wiki.facepunch.com/gmod/player_manager.TranslatePlayerModel). 
 --- [https://wiki.facepunch.com/gmod/player_manager.TranslateToPlayerModelName]
 --- @param model string @ The model path to a player model
 --- @return string

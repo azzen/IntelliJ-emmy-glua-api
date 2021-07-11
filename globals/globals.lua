@@ -1,4 +1,5 @@
---- (client/menu/server) Adds simple Get/Set accessor functions on the specified table.Can also force the value to be set to a number, bool or string. 
+--- (client/menu/server) Adds simple Get/Set accessor functions on the specified table.
+--- Can also force the value to be set to a number, bool or string. 
 --- [https://wiki.facepunch.com/gmod/Global.AccessorFunc]
 --- @param tab table @ The table to add the accessor functions too.
 --- @param key any @ The key of the table to be get/set.
@@ -29,7 +30,7 @@ function AddConsoleCommand(name, helpText, flags) end
 
 --- (client/server) Marks a Lua file to be sent to clients when they join the server. Doesn't do anything on the client - this means you can use it in a shared file without problems. 
 --- [https://wiki.facepunch.com/gmod/Global.AddCSLuaFile]
---- @param file string @ The name/path to the Lua file that should be sent, **relative to the garrysmod/lua folder**. If no parameter is specified, it sends the current file.The file path can be relative to the script it's ran from. For example, if your script is in `lua/myfolder/stuff.lua`, calling [AddCSLuaFile](https://wiki.facepunch.com/gmod/Global.AddCSLuaFile)("otherstuff.lua") and [AddCSLuaFile](https://wiki.facepunch.com/gmod/Global.AddCSLuaFile)("myfolder/otherstuff.lua") is the same thing.
+--- @param file string @ The name/path to the Lua file that should be sent, relative to the garrysmod/lua folder. If no parameter is specified, it sends the current file. The file path can be relative to the script it's ran from. For example, if your script is in `lua/myfolder/stuff.lua`, calling [AddCSLuaFile](https://wiki.facepunch.com/gmod/Global.AddCSLuaFile)("otherstuff.lua") and [AddCSLuaFile](https://wiki.facepunch.com/gmod/Global.AddCSLuaFile)("myfolder/otherstuff.lua") is the same thing.
 --- @return void
 function AddCSLuaFile(file) end
 
@@ -45,11 +46,14 @@ function AddonMaterial(name) end
 --- @return void
 function AddOriginToPVS(position) end
 
---- (client) This function creates a World Tip, similar to the one shown when aiming at a Thruster where it shows you its force.This function will make a World Tip that will only last 50 milliseconds (1/20th of a second), so you must call it continuously as long as you want the World Tip to be shown. It is common to call it inside a Think hook.Contrary to what the function's name implies, it is impossible to create more than one World Tip at the same time. A new World Tip will overwrite the old one, so only use this function when you know nothing else will also be using it.See [SANDBOX:PaintWorldTips](https://wiki.facepunch.com/gmod/SANDBOX:PaintWorldTips) for more information. 
+--- (client) This function creates a World Tip, similar to the one shown when aiming at a Thruster where it shows you its force.
+--- This function will make a World Tip that will only last 50 milliseconds (1/20th of a second), so you must call it continuously as long as you want the World Tip to be shown. It is common to call it inside a Think hook.
+--- Contrary to what the function's name implies, it is impossible to create more than one World Tip at the same time. A new World Tip will overwrite the old one, so only use this function when you know nothing else will also be using it.
+--- See [SANDBOX:PaintWorldTips](https://wiki.facepunch.com/gmod/SANDBOX:PaintWorldTips) for more information. 
 --- [https://wiki.facepunch.com/gmod/Global.AddWorldTip]
---- @param entindex number @ **This argument is no longer used**; it has no effect on anything. You can use nil in this argument.
+--- @param entindex number @ This argument is no longer used; it has no effect on anything. You can use nil in this argument.
 --- @param text string @ The text for the world tip to display.
---- @param dieTime number @ **This argument is no longer used**; when you add a World Tip it will always last only 0.05 seconds. You can use nil in this argument.
+--- @param dieTime number @ This argument is no longer used; when you add a World Tip it will always last only 0.05 seconds. You can use nil in this argument.
 --- @param pos Vector @ Where in the world you want the World Tip to be drawn. If you add a valid Entity in the next argument, this argument will have no effect on the actual World Tip.
 --- @param ent Entity @ Which entity you want to associate with the World Tip. This argument is optional. If set to a valid entity, this will override the position set in `pos` with the Entity's position.
 --- @return void
@@ -57,7 +61,7 @@ function AddWorldTip(entindex, text, dieTime, pos, ent) end
 
 --- (client/menu/server) Creates an [Angle](https://wiki.facepunch.com/gmod/Angle) object. 
 --- [https://wiki.facepunch.com/gmod/Global.Angle]
---- @param pitch number @ The pitch value of the angle.If this is an [Angle](https://wiki.facepunch.com/gmod/Angle), this function will return a copy of the given angle.If this is a [string](https://wiki.facepunch.com/gmod/string), this function will try to parse the string as a angle. If it fails, it returns a 0 angle.(See examples)
+--- @param pitch number @ The pitch value of the angle. If this is an [Angle](https://wiki.facepunch.com/gmod/Angle), this function will return a copy of the given angle. If this is a [string](https://wiki.facepunch.com/gmod/string), this function will try to parse the string as a angle. If it fails, it returns a 0 angle. (See examples)
 --- @param yaw number @ The yaw value of the angle.
 --- @param roll number @ The roll value of the angle.
 --- @return Angle
@@ -144,7 +148,7 @@ function CloseDermaMenus() end
 
 --- (client/menu/server) Executes the specified action on the garbage collector. 
 --- [https://wiki.facepunch.com/gmod/Global.collectgarbage]
---- @param action string @ The action to run.Valid actions are `collect`, `stop`, `restart`, `count`, `step`, `setpause` and `setstepmul`.
+--- @param action string @ The action to run. Valid actions are `collect`, `stop`, `restart`, `count`, `step`, `setpause` and `setstepmul`.
 --- @param arg number @ The argument of the specified action, only applicable for `step`, `setpause` and `setstepmul`.
 --- @return any
 function collectgarbage(action, arg) end
@@ -189,7 +193,8 @@ function ColorToHSV(color) end
 --- @return function
 function CompileFile(path) end
 
---- (client/menu/server) This function will compile the code argument as lua code and return a function that will execute that code. Please note that this function will not automatically execute the given code after compiling it. 
+--- (client/menu/server) This function will compile the code argument as lua code and return a function that will execute that code. 
+--- Please note that this function will not automatically execute the given code after compiling it. 
 --- [https://wiki.facepunch.com/gmod/Global.CompileString]
 --- @param code string @ The code to compile.
 --- @param identifier string @ An identifier in case an error is thrown. (The same identifier can be used multiple times)
@@ -209,9 +214,11 @@ function ConsoleAutoComplete(text) end
 --- @return boolean
 function ConVarExists(name) end
 
---- (client/menu/server) Makes a clientside-only console variableAlthough this function is shared, it should only be used clientside. 
+--- (client/menu/server) Makes a clientside-only console variable
+--- 
+--- Although this function is shared, it should only be used clientside. 
 --- [https://wiki.facepunch.com/gmod/Global.CreateClientConVar]
---- @param name string @ Name of the ConVar to be created and able to be accessed.This cannot be a name of existing console command or console variable. It will silently fail if it is.
+--- @param name string @ Name of the ConVar to be created and able to be accessed. This cannot be a name of existing console command or console variable. It will silently fail if it is.
 --- @param default string @ Default value of the ConVar.
 --- @param shouldsave boolean @ Should the ConVar be saved across sessions in the cfg/client.vdf file.
 --- @param userinfo boolean @ Should the ConVar and its containing data be sent to the server when it has changed. This make the convar accessible from server using [Player:GetInfoNum](https://wiki.facepunch.com/gmod/Player:GetInfoNum) and similar functions.
@@ -223,7 +230,7 @@ function CreateClientConVar(name, default, shouldsave, userinfo, helptext, min, 
 
 --- (client/menu/server) Creates a console variable ([ConVar](https://wiki.facepunch.com/gmod/ConVar)), in general these are for things like gamemode/server settings. 
 --- [https://wiki.facepunch.com/gmod/Global.CreateConVar]
---- @param name string @ Name of the [ConVar](https://wiki.facepunch.com/gmod/ConVar).This cannot be a name of an engine console command or console variable. It will silently fail if it is. If it is the same name as another lua ConVar, it will return that ConVar object.
+--- @param name string @ Name of the [ConVar](https://wiki.facepunch.com/gmod/ConVar). This cannot be a name of an engine console command or console variable. It will silently fail if it is. If it is the same name as another lua ConVar, it will return that ConVar object.
 --- @param value string @ Default value of the convar. Can also be a number.
 --- @param flags number @ Flags of the convar, see [FCVAR](https://wiki.facepunch.com/gmod/Enums/FCVAR), either as bitflag or as table.
 --- @param helptext string @ The help text to show in the console.
@@ -236,7 +243,7 @@ function CreateConVar(name, value, flags, helptext, min, max) end
 --- [https://wiki.facepunch.com/gmod/Global.CreateMaterial]
 --- @param name string @ The material name. Must be unique.
 --- @param shaderName string @ The shader name. See [Shaders](https://wiki.facepunch.com/gmod/Shaders).
---- @param materialData table @ Key-value table that contains shader parameters and proxies.* See: [List of Shader Parameters on Valve Developers Wiki](https://developer.valvesoftware.com/wiki/Category:List_of_Shader_Parameters) and each shader's page from .
+--- @param materialData table @ Key-value table that contains shader parameters and proxies.  See: [List of Shader Parameters on Valve Developers Wiki](https://developer.valvesoftware.com/wiki/Category:List_of_Shader_Parameters) and each shader's page from .
 --- @return IMaterial
 function CreateMaterial(name, shaderName, materialData) end
 
@@ -277,7 +284,10 @@ function CreateSound(targetEnt, soundName, filter) end
 --- @return Panel
 function CreateSprite(material) end
 
---- (client/menu/server) Returns the uptime of the server in seconds (to at least 4 decimal places)This is a synchronised value and affected by various factors such as host_timescale (or [game.GetTimeScale](https://wiki.facepunch.com/gmod/game.GetTimeScale)) and the server being paused - either by sv_pausable or all players disconnecting.You should use this function for timing in-game events but not for real-world events.See also: [RealTime](https://wiki.facepunch.com/gmod/Global.RealTime), [SysTime](https://wiki.facepunch.com/gmod/Global.SysTime) 
+--- (client/menu/server) Returns the uptime of the server in seconds (to at least 4 decimal places)
+--- This is a synchronised value and affected by various factors such as host_timescale (or [game.GetTimeScale](https://wiki.facepunch.com/gmod/game.GetTimeScale)) and the server being paused - either by sv_pausable or all players disconnecting.
+--- You should use this function for timing in-game events but not for real-world events.
+--- See also: [RealTime](https://wiki.facepunch.com/gmod/Global.RealTime), [SysTime](https://wiki.facepunch.com/gmod/Global.SysTime) 
 --- [https://wiki.facepunch.com/gmod/Global.CurTime]
 --- @return number
 function CurTime() end
@@ -294,7 +304,12 @@ function DamageInfo() end
 --- @return void
 function DebugInfo(slot, info) end
 
---- (client/menu/server) This is not a function. This is a preprocessor keyword that translates to:```local BaseClass = baseclass.Get( "my_weapon" )```If you type `DEFINE_BASECLASS( "my_weapon" )` in your script.See [baseclass.Get](https://wiki.facepunch.com/gmod/baseclass.Get) for more information. 
+--- (client/menu/server) This is not a function. This is a preprocessor keyword that translates to:
+--- ```
+--- local BaseClass = baseclass.Get( "my_weapon" )
+--- ```
+--- If you type `DEFINE_BASECLASS( "my_weapon" )` in your script.
+--- See [baseclass.Get](https://wiki.facepunch.com/gmod/baseclass.Get) for more information. 
 --- [https://wiki.facepunch.com/gmod/Global.DEFINE_BASECLASS]
 --- @param value string @ Baseclass name
 --- @return void
@@ -310,7 +325,7 @@ function DeriveGamemode(base) end
 --- [https://wiki.facepunch.com/gmod/Global.Derma_Anim]
 --- @param name string @ Name of the animation to create
 --- @param panel Panel @ Panel to run the animation on
---- @param func function @ Function to call to process the animationArguments:* [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - the panel passed to Derma_Anim* [table](https://wiki.facepunch.com/gmod/table) anim - the anim table* [number](https://wiki.facepunch.com/gmod/number) delta - the fraction of the progress through the animation* [any](https://wiki.facepunch.com/gmod/any) data - optional data passed to the run metatable method
+--- @param func function @ Function to call to process the animation Arguments:  [Panel](https://wiki.facepunch.com/gmod/Panel) pnl - the panel passed to Derma_Anim  [table](https://wiki.facepunch.com/gmod/table) anim - the anim table  [number](https://wiki.facepunch.com/gmod/number) delta - the fraction of the progress through the animation  [any](https://wiki.facepunch.com/gmod/any) data - optional data passed to the run metatable method
 --- @return table
 function Derma_Anim(name, panel, func) end
 
@@ -330,7 +345,16 @@ function Derma_DrawBackgroundBlur(panel, startTime) end
 --- @return void
 function Derma_Hook(panel, functionName, hookName, typeName) end
 
---- (client/menu) Makes the panel (usually an input of sorts) respond to changes in console variables by adding next functions to the panel:* [Panel:SetConVar](https://wiki.facepunch.com/gmod/Panel:SetConVar)* [Panel:ConVarChanged](https://wiki.facepunch.com/gmod/Panel:ConVarChanged)* [Panel:ConVarStringThink](https://wiki.facepunch.com/gmod/Panel:ConVarStringThink)* [Panel:ConVarNumberThink](https://wiki.facepunch.com/gmod/Panel:ConVarNumberThink)The console variable value is saved in the `m_strConVar` property of the panel.The panel should call[Panel:ConVarStringThink](https://wiki.facepunch.com/gmod/Panel:ConVarStringThink) or [Panel:ConVarNumberThink](https://wiki.facepunch.com/gmod/Panel:ConVarNumberThink) in its [PANEL:Think](https://wiki.facepunch.com/gmod/PANEL:Think) hook and should call [Panel:ConVarChanged](https://wiki.facepunch.com/gmod/Panel:ConVarChanged) when the panel's value has changed. 
+--- (client/menu) Makes the panel (usually an input of sorts) respond to changes in console variables by adding next functions to the panel:
+--- * [Panel:SetConVar](https://wiki.facepunch.com/gmod/Panel:SetConVar)
+--- * [Panel:ConVarChanged](https://wiki.facepunch.com/gmod/Panel:ConVarChanged)
+--- * [Panel:ConVarStringThink](https://wiki.facepunch.com/gmod/Panel:ConVarStringThink)
+--- * [Panel:ConVarNumberThink](https://wiki.facepunch.com/gmod/Panel:ConVarNumberThink)
+--- The console variable value is saved in the `m_strConVar` property of the panel.
+--- The panel should call
+--- [Panel:ConVarStringThink](https://wiki.facepunch.com/gmod/Panel:ConVarStringThink) or 
+--- [Panel:ConVarNumberThink](https://wiki.facepunch.com/gmod/Panel:ConVarNumberThink) 
+--- in its [PANEL:Think](https://wiki.facepunch.com/gmod/PANEL:Think) hook and should call [Panel:ConVarChanged](https://wiki.facepunch.com/gmod/Panel:ConVarChanged) when the panel's value has changed. 
 --- [https://wiki.facepunch.com/gmod/Global.Derma_Install_Convar_Functions]
 --- @param target Panel @ The panel the functions should be added to.
 --- @return void
@@ -378,7 +402,8 @@ function Derma_StringRequest(title, subtitle, default, confirm, cancel, confirmT
 --- @return Panel
 function DermaMenu(keepOpen, parent) end
 
---- (client/menu) Sets whether rendering should be limited to being inside a panel or not.See also [Panel:NoClipping](https://wiki.facepunch.com/gmod/Panel:NoClipping). 
+--- (client/menu) Sets whether rendering should be limited to being inside a panel or not.
+--- See also [Panel:NoClipping](https://wiki.facepunch.com/gmod/Panel:NoClipping). 
 --- [https://wiki.facepunch.com/gmod/Global.DisableClipping]
 --- @param disable boolean @ Whether or not clipping should be disabled
 --- @return boolean
@@ -389,7 +414,8 @@ function DisableClipping(disable) end
 --- @return void
 function DOF_Kill() end
 
---- (client) Cancels any existing DOF post-process effects.Begins the DOF post-process effect. 
+--- (client) Cancels any existing DOF post-process effects.
+--- Begins the DOF post-process effect. 
 --- [https://wiki.facepunch.com/gmod/Global.DOF_Start]
 --- @return void
 function DOF_Start() end
@@ -400,7 +426,8 @@ function DOF_Start() end
 --- @return void
 function DOFModeHack(enable) end
 
---- (menu) Draws the currently active main menu background image and handles transitioning between background images.This is called by default in the menu panel's Paint hook. 
+--- (menu) Draws the currently active main menu background image and handles transitioning between background images.
+--- This is called by default in the menu panel's Paint hook. 
 --- [https://wiki.facepunch.com/gmod/Global.DrawBackground]
 --- @return void
 function DrawBackground() end
@@ -422,7 +449,7 @@ function DrawBloom(Darken, Multiply, SizeX, SizeY, Passes, ColorMultiply, Red, G
 --- (client) Draws the Bokeh Depth Of Field effect . 
 --- [https://wiki.facepunch.com/gmod/Global.DrawBokehDOF]
 --- @param intensity number @ Intensity of the effect.
---- @param distance number @ **Not worldspace distance**. Value range is from `0` to `1`.
+--- @param distance number @ Not worldspace distance. Value range is from `0` to `1`.
 --- @param focus number @ Focus. Recommended values are from 0 to 12.
 --- @return void
 function DrawBokehDOF(intensity, distance, focus) end
@@ -503,7 +530,25 @@ function DynamicLight(index, elight) end
 --- @return CEffectData
 function EffectData() end
 
---- (client/menu/server) An [eagerly evaluated](https://en.wikipedia.org/wiki/Eager_evaluation) [ternary operator](https://en.wikipedia.org/wiki/%3F:), or, in layman's terms, a compact "if then else" statement.In most cases, you should just use Lua's ["pseudo" ternary operator](https://en.wikipedia.org/wiki/%3F:#Lua), like this:```local myCondition = truelocal consequent = "myCondition is true"local alternative = "myCondition is false"print(myCondition and consequent or alternative)```In the above example, due to [short-circuit evaluation](https://en.wikipedia.org/wiki/Short-circuit_evaluation), `consequent` would be "skipped" and ignored (not evaluated) by Lua due to `myCondition` being `true`, and only `alternative` would be evaluated. However, when using `Either`, both `consequent` and `alternative` would be evaluated. A practical example of this can be found at the bottom of the page.# Falsey valuesIf `consequent` is "falsey" (Lua considers both `false` and `nil` as false), this will not work. For example:```local X = truelocal Y = falselocal Z = "myCondition is false"print(X and Y or Z)```This will actually print the value of `Z`.In the above case, and other very rare cases, you may find `Either` useful. 
+--- (client/menu/server) An [eagerly evaluated](https://en.wikipedia.org/wiki/Eager_evaluation) [ternary operator](https://en.wikipedia.org/wiki/%3F:), or, in layman's terms, a compact "if then else" statement.
+--- In most cases, you should just use Lua's ["pseudo" ternary operator](https://en.wikipedia.org/wiki/%3F:#Lua), like this:
+--- ```
+--- local myCondition = true
+--- local consequent = "myCondition is true"
+--- local alternative = "myCondition is false"
+--- print(myCondition and consequent or alternative)
+--- ```
+--- In the above example, due to [short-circuit evaluation](https://en.wikipedia.org/wiki/Short-circuit_evaluation), `consequent` would be "skipped" and ignored (not evaluated) by Lua due to `myCondition` being `true`, and only `alternative` would be evaluated. However, when using `Either`, both `consequent` and `alternative` would be evaluated. A practical example of this can be found at the bottom of the page.
+--- # Falsey values
+--- If `consequent` is "falsey" (Lua considers both `false` and `nil` as false), this will not work. For example:
+--- ```
+--- local X = true
+--- local Y = false
+--- local Z = "myCondition is false"
+--- print(X and Y or Z)
+--- ```
+--- This will actually print the value of `Z`.
+--- In the above case, and other very rare cases, you may find `Either` useful. 
 --- [https://wiki.facepunch.com/gmod/Global.Either]
 --- @param condition any @ The condition to check if true or false.
 --- @param truevar any @ If the condition isn't nil/false, returns this value.
@@ -528,7 +573,7 @@ function EmitSentence(soundName, position, entity, channel, volume, soundLevel, 
 --- [https://wiki.facepunch.com/gmod/Global.EmitSound]
 --- @param soundName string @ The sound to play
 --- @param position Vector @ The position where the sound is meant to play, used only for a network  filter (`CPASAttenuationFilter`) to decide which players will hear the sound.
---- @param entity number @ The entity to emit the sound from. Can be an [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex) or one of the following:* `0` - Plays sound on the world (position set to `0,0,0`)* `-1` - Plays sound on the local player (on server acts as `0`)* `-2` - Plays UI sound (position set to `0,0,0`, no spatial sound, on server acts as `0`)
+--- @param entity number @ The entity to emit the sound from. Can be an [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex) or one of the following:  `0` - Plays sound on the world (position set to `0,0,0`)  `-1` - Plays sound on the local player (on server acts as `0`)  `-2` - Plays UI sound (position set to `0,0,0`, no spatial sound, on server acts as `0`)
 --- @param channel number @ The sound channel, see [CHAN](https://wiki.facepunch.com/gmod/Enums/CHAN).
 --- @param volume number @ The volume of the sound, from 0 to 1
 --- @param soundLevel number @ The sound level of the sound, see [SNDLVL](https://wiki.facepunch.com/gmod/Enums/SNDLVL)
@@ -544,7 +589,8 @@ function EmitSound(soundName, position, entity, channel, volume, soundLevel, sou
 --- @return void
 function EndTooltip(panel) end
 
---- (client/server) Returns the entity with the matching [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex).Indices `1` through [game.MaxPlayers](https://wiki.facepunch.com/gmod/game.MaxPlayers)() are always reserved for players. 
+--- (client/server) Returns the entity with the matching [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex).
+--- Indices `1` through [game.MaxPlayers](https://wiki.facepunch.com/gmod/game.MaxPlayers)() are always reserved for players. 
 --- [https://wiki.facepunch.com/gmod/Global.Entity]
 --- @param entityIndex number @ The entity index.
 --- @return Entity
@@ -557,13 +603,16 @@ function Entity(entityIndex) end
 --- @return void
 function error(message, errorLevel) end
 
---- (client/menu/server) Throws a Lua error but does not break out of the current call stack.This function will not print a stack trace like a normal error would.Essentially similar if not equivalent to [Msg](https://wiki.facepunch.com/gmod/Global.Msg). 
+--- (client/menu/server) Throws a Lua error but does not break out of the current call stack.
+--- This function will not print a stack trace like a normal error would.
+--- Essentially similar if not equivalent to [Msg](https://wiki.facepunch.com/gmod/Global.Msg). 
 --- [https://wiki.facepunch.com/gmod/Global.ErrorNoHalt]
 --- @param arguments vararg @ Converts all arguments to strings and prints them with no spacing.
 --- @return void
 function ErrorNoHalt(arguments) end
 
---- (client/menu/server) Throws a Lua error but does not break out of the current call stack.This function will print a stack trace like a normal error would. 
+--- (client/menu/server) Throws a Lua error but does not break out of the current call stack.
+--- This function will print a stack trace like a normal error would. 
 --- [https://wiki.facepunch.com/gmod/Global.ErrorNoHaltWithStack]
 --- @param arguments vararg @ Converts all arguments to strings and prints them with no spacing.
 --- @return void
@@ -584,7 +633,10 @@ function EyePos() end
 --- @return Vector
 function EyeVector() end
 
---- (client/menu/server) Returns the meta table for the class with the matching name.Internally returns [debug.getregistry](https://wiki.facepunch.com/gmod/debug.getregistry)()[metaName]You can learn more about meta tables on the [Meta Tables](https://wiki.facepunch.com/gmod/Meta%20Tables) page.You can find a list of meta tables that can be retrieved with this function on [TYPE](https://wiki.facepunch.com/gmod/Enums/TYPE). The name in the description is the string to use with this function. 
+--- (client/menu/server) Returns the meta table for the class with the matching name.
+--- Internally returns [debug.getregistry](https://wiki.facepunch.com/gmod/debug.getregistry)()[metaName]
+--- You can learn more about meta tables on the [Meta Tables](https://wiki.facepunch.com/gmod/Meta%20Tables) page.
+--- You can find a list of meta tables that can be retrieved with this function on [TYPE](https://wiki.facepunch.com/gmod/Enums/TYPE). The name in the description is the string to use with this function. 
 --- [https://wiki.facepunch.com/gmod/Global.FindMetaTable]
 --- @param metaName string @ The object type to retrieve the meta table of.
 --- @return table
@@ -598,7 +650,7 @@ function FindTooltip(panel) end
 
 --- (client/menu/server) Formats the specified values into the string given. Same as [string.format](https://wiki.facepunch.com/gmod/string.format). 
 --- [https://wiki.facepunch.com/gmod/Global.Format]
---- @param format string @ The string to be formatted.Follows this format: http://www.cplusplus.com/reference/cstdio/printf/
+--- @param format string @ The string to be formatted. Follows this format: http://www.cplusplus.com/reference/cstdio/printf/
 --- @param formatParameters vararg @ Values to be formatted into the string.
 --- @return string
 function Format(format, formatParameters) end
@@ -608,7 +660,9 @@ function Format(format, formatParameters) end
 --- @return void
 function FrameNumber() end
 
---- (client/menu/server) Returns the [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime)-based time in seconds it took to render the last frame.This should be used for frame/tick based timing, such as movement prediction or animations.For real-time-based frame time that isn't affected by host_timescale, use [RealFrameTime](https://wiki.facepunch.com/gmod/Global.RealFrameTime). RealFrameTime is more suited for things like GUIs or HUDs. 
+--- (client/menu/server) Returns the [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime)-based time in seconds it took to render the last frame.
+--- This should be used for frame/tick based timing, such as movement prediction or animations.
+--- For real-time-based frame time that isn't affected by host_timescale, use [RealFrameTime](https://wiki.facepunch.com/gmod/Global.RealFrameTime). RealFrameTime is more suited for things like GUIs or HUDs. 
 --- [https://wiki.facepunch.com/gmod/Global.FrameTime]
 --- @return number
 function FrameTime() end
@@ -729,7 +783,8 @@ function GetGlobalVector(Index, Default) end
 --- @return string
 function GetHostName() end
 
---- (client) Returns the panel that is used as a wrapper for the HUD. If you want your panel to be hidden when the main menu is opened, parent it to this. Child panels will also have their controls disabled.See also [vgui.GetWorldPanel](https://wiki.facepunch.com/gmod/vgui.GetWorldPanel) 
+--- (client) Returns the panel that is used as a wrapper for the HUD. If you want your panel to be hidden when the main menu is opened, parent it to this. Child panels will also have their controls disabled.
+--- See also [vgui.GetWorldPanel](https://wiki.facepunch.com/gmod/vgui.GetWorldPanel) 
 --- [https://wiki.facepunch.com/gmod/Global.GetHUDPanel]
 --- @return Panel
 function GetHUDPanel() end
@@ -749,7 +804,8 @@ function GetLoadStatus() end
 --- @return table
 function GetMapList() end
 
---- (client/menu/server) Returns the metatable of an object. This function obeys the metatable's __metatable field, and will return that field if the metatable has it set.Use [debug.getmetatable](https://wiki.facepunch.com/gmod/debug.getmetatable) if you want the true metatable of the object. 
+--- (client/menu/server) Returns the metatable of an object. This function obeys the metatable's __metatable field, and will return that field if the metatable has it set.
+--- Use [debug.getmetatable](https://wiki.facepunch.com/gmod/debug.getmetatable) if you want the true metatable of the object. 
 --- [https://wiki.facepunch.com/gmod/Global.getmetatable]
 --- @param object any @ The value to return the metatable of.
 --- @return any
@@ -765,7 +821,8 @@ function GetOverlayPanel() end
 --- @return Player
 function GetPredictionPlayer() end
 
---- (client) Creates or gets the rendertarget with the given name.See [GetRenderTargetEx](https://wiki.facepunch.com/gmod/Global.GetRenderTargetEx) for an advanced version of this function with more options. 
+--- (client) Creates or gets the rendertarget with the given name.
+--- See [GetRenderTargetEx](https://wiki.facepunch.com/gmod/Global.GetRenderTargetEx) for an advanced version of this function with more options. 
 --- [https://wiki.facepunch.com/gmod/Global.GetRenderTarget]
 --- @param name string @ The internal name of the render target.
 --- @param width number @ The width of the render target, must be power of 2. If not set to PO2, the size will be automatically converted to the nearest PO2 size.
@@ -773,14 +830,15 @@ function GetPredictionPlayer() end
 --- @return ITexture
 function GetRenderTarget(name, width, height) end
 
---- (client) Gets (or creates if it does not exist) the rendertarget with the given name, this function allows to adjust the creation of a rendertarget more than [GetRenderTarget](https://wiki.facepunch.com/gmod/Global.GetRenderTarget).See also [render.PushRenderTarget](https://wiki.facepunch.com/gmod/render.PushRenderTarget) and [render.SetRenderTarget](https://wiki.facepunch.com/gmod/render.SetRenderTarget). 
+--- (client) Gets (or creates if it does not exist) the rendertarget with the given name, this function allows to adjust the creation of a rendertarget more than [GetRenderTarget](https://wiki.facepunch.com/gmod/Global.GetRenderTarget).
+--- See also [render.PushRenderTarget](https://wiki.facepunch.com/gmod/render.PushRenderTarget) and [render.SetRenderTarget](https://wiki.facepunch.com/gmod/render.SetRenderTarget). 
 --- [https://wiki.facepunch.com/gmod/Global.GetRenderTargetEx]
 --- @param name string @ The internal name of the render target.
 --- @param width number @ The width of the render target, must be power of 2.
 --- @param height number @ The height of the render target, must be power of 2.
 --- @param sizeMode number @ Bitflag that influences the sizing of the render target, see [RT_SIZE](https://wiki.facepunch.com/gmod/Enums/RT_SIZE).
 --- @param depthMode number @ Bitflag that determines the depth buffer usage of the render target [MATERIAL_RT_DEPTH](https://wiki.facepunch.com/gmod/Enums/MATERIAL_RT_DEPTH).
---- @param textureFlags number @ Bitflag that configurates the texture, see [TEXTUREFLAGS](https://wiki.facepunch.com/gmod/Enums/TEXTUREFLAGS).List of flags can also be found on the Valve's Developer Wiki:https://developer.valvesoftware.com/wiki/Valve_Texture_Format
+--- @param textureFlags number @ Bitflag that configurates the texture, see [TEXTUREFLAGS](https://wiki.facepunch.com/gmod/Enums/TEXTUREFLAGS). List of flags can also be found on the Valve's Developer Wiki: https://developer.valvesoftware.com/wiki/Valve_Texture_Format
 --- @param rtFlags number @ Flags that controll the HDR behaviour of the render target, see [CREATERENDERTARGETFLAGS](https://wiki.facepunch.com/gmod/Enums/CREATERENDERTARGETFLAGS).
 --- @param imageFormat number @ Image format, see [IMAGE_FORMAT](https://wiki.facepunch.com/gmod/Enums/IMAGE_FORMAT).
 --- @return ITexture
@@ -826,17 +884,21 @@ function HTTP(parameters) end
 
 --- (client/menu/server) Executes a Lua script. 
 --- [https://wiki.facepunch.com/gmod/Global.include]
---- @param fileName string @ The name of the script to be executed. The path must be either relative to the current file, or be an absolute path (relative to and excluding the **lua/** folder).
+--- @param fileName string @ The name of the script to be executed. The path must be either relative to the current file, or be an absolute path (relative to and excluding the lua/ folder).
 --- @return vararg
 function include(fileName) end
 
---- (client/menu/server) This function works exactly the same as [include](https://wiki.facepunch.com/gmod/Global.include) both clientside and serverside.The only difference is that on the serverside it also calls [AddCSLuaFile](https://wiki.facepunch.com/gmod/Global.AddCSLuaFile) on the filename, so that it gets sent to the client. 
+--- (client/menu/server) This function works exactly the same as [include](https://wiki.facepunch.com/gmod/Global.include) both clientside and serverside.
+--- The only difference is that on the serverside it also calls [AddCSLuaFile](https://wiki.facepunch.com/gmod/Global.AddCSLuaFile) on the filename, so that it gets sent to the client. 
 --- [https://wiki.facepunch.com/gmod/Global.IncludeCS]
 --- @param filename string @ The filename of the Lua file you want to include.
 --- @return void
 function IncludeCS(filename) end
 
---- (client/menu/server) Returns an iterator function for a for loop, to return ordered key-value pairs from a table.This will only iterate though **numerical** keys, and these must also be **sequential**; starting at 1 with no gaps.For unordered pairs, see [pairs](https://wiki.facepunch.com/gmod/Global.pairs).For pairs sorted by key in alphabetical order, see [SortedPairs](https://wiki.facepunch.com/gmod/Global.SortedPairs). 
+--- (client/menu/server) Returns an iterator function for a for loop, to return ordered key-value pairs from a table.
+--- This will only iterate though **numerical** keys, and these must also be **sequential**; starting at 1 with no gaps.
+--- For unordered pairs, see [pairs](https://wiki.facepunch.com/gmod/Global.pairs).
+--- For pairs sorted by key in alphabetical order, see [SortedPairs](https://wiki.facepunch.com/gmod/Global.SortedPairs). 
 --- [https://wiki.facepunch.com/gmod/Global.ipairs]
 --- @param tab table @ The table to iterate over.
 --- @return function|table|number
@@ -866,7 +928,30 @@ function IsColor(Object) end
 --- @return boolean
 function IsConCommandBlocked(name) end
 
---- (client/menu/server) Returns if the given NPC class name is an enemy.Returns true if the entity name is one of the following:* "npc_antlion"* "npc_antlionguard"* "npc_antlionguardian"* "npc_barnacle"* "npc_breen"* "npc_clawscanner"* "npc_combine_s"* "npc_cscanner"* "npc_fastzombie"* "npc_fastzombie_torso"* "npc_headcrab"* "npc_headcrab_fast"* "npc_headcrab_poison"* "npc_hunter"* "npc_metropolice"* "npc_manhack"* "npc_poisonzombie"* "npc_strider"* "npc_stalker"* "npc_zombie"* "npc_zombie_torso"* "npc_zombine" 
+--- (client/menu/server) Returns if the given NPC class name is an enemy.
+--- Returns true if the entity name is one of the following:
+--- * "npc_antlion"
+--- * "npc_antlionguard"
+--- * "npc_antlionguardian"
+--- * "npc_barnacle"
+--- * "npc_breen"
+--- * "npc_clawscanner"
+--- * "npc_combine_s"
+--- * "npc_cscanner"
+--- * "npc_fastzombie"
+--- * "npc_fastzombie_torso"
+--- * "npc_headcrab"
+--- * "npc_headcrab_fast"
+--- * "npc_headcrab_poison"
+--- * "npc_hunter"
+--- * "npc_metropolice"
+--- * "npc_manhack"
+--- * "npc_poisonzombie"
+--- * "npc_strider"
+--- * "npc_stalker"
+--- * "npc_zombie"
+--- * "npc_zombie_torso"
+--- * "npc_zombine" 
 --- [https://wiki.facepunch.com/gmod/Global.IsEnemyEntityName]
 --- @param className string @ Class name of the entity to check
 --- @return boolean
@@ -878,12 +963,28 @@ function IsEnemyEntityName(className) end
 --- @return boolean
 function IsEntity(variable) end
 
---- (client/server) Returns if this is the first time this hook was predicted.This is useful for one-time logic in your SWEPs PrimaryAttack, SecondaryAttack and Reload and other  (to prevent those hooks from being called rapidly in succession). It's also useful in a Move hook for when the client predicts movement.Visit [Prediction](https://wiki.facepunch.com/gmod/Prediction) for more information about this behavior. 
+--- (client/server) Returns if this is the first time this hook was predicted.
+--- This is useful for one-time logic in your SWEPs PrimaryAttack, SecondaryAttack and Reload and other  (to prevent those hooks from being called rapidly in succession). It's also useful in a Move hook for when the client predicts movement.
+--- Visit [Prediction](https://wiki.facepunch.com/gmod/Prediction) for more information about this behavior. 
 --- [https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted]
 --- @return boolean
 function IsFirstTimePredicted() end
 
---- (client/menu/server) Returns if the given NPC class name is a friend.Returns true if the entity name is one of the following:* "npc_alyx"* "npc_barney"* "npc_citizen"* "npc_dog"* "npc_eli"* "npc_fisherman"* "npc_gman"* "npc_kleiner"* "npc_magnusson"* "npc_monk"* "npc_mossman"* "npc_odessa"* "npc_vortigaunt" 
+--- (client/menu/server) Returns if the given NPC class name is a friend.
+--- Returns true if the entity name is one of the following:
+--- * "npc_alyx"
+--- * "npc_barney"
+--- * "npc_citizen"
+--- * "npc_dog"
+--- * "npc_eli"
+--- * "npc_fisherman"
+--- * "npc_gman"
+--- * "npc_kleiner"
+--- * "npc_magnusson"
+--- * "npc_monk"
+--- * "npc_mossman"
+--- * "npc_odessa"
+--- * "npc_vortigaunt" 
 --- [https://wiki.facepunch.com/gmod/Global.IsFriendEntityName]
 --- @param className string @ Class name of the entity to check
 --- @return boolean
@@ -942,13 +1043,30 @@ function istable(variable) end
 --- @return boolean
 function IsTableOfEntitiesValid(table) end
 
---- (client/menu/server) Returns whether or not a model is useless by checking that the file path is that of a proper model.If the string ".mdl" is not found in the model name, the function will return true.The function will also return true if any of the following strings are found in the given model name:* "_gesture"* "_anim"* "_gst"* "_pst"* "_shd"* "_ss"* "_posture"* "_anm"* "ghostanim"* "_paths"* "_shared"* "anim_"* "gestures_"* "shared_ragdoll_" 
+--- (client/menu/server) Returns whether or not a model is useless by checking that the file path is that of a proper model.
+--- If the string ".mdl" is not found in the model name, the function will return true.
+--- The function will also return true if any of the following strings are found in the given model name:
+--- * "_gesture"
+--- * "_anim"
+--- * "_gst"
+--- * "_pst"
+--- * "_shd"
+--- * "_ss"
+--- * "_posture"
+--- * "_anm"
+--- * "ghostanim"
+--- * "_paths"
+--- * "_shared"
+--- * "anim_"
+--- * "gestures_"
+--- * "shared_ragdoll_" 
 --- [https://wiki.facepunch.com/gmod/Global.IsUselessModel]
 --- @param modelName string @ The model name to be checked
 --- @return boolean
 function IsUselessModel(modelName) end
 
---- (client/menu/server) Returns whether an object is valid or not. (Such as [Entity](https://wiki.facepunch.com/gmod/Entity)s, [Panel](https://wiki.facepunch.com/gmod/Panel)s, custom [table](https://wiki.facepunch.com/gmod/table) objects and more).Checks that an object is not nil, has an IsValid method and if this method returns true. 
+--- (client/menu/server) Returns whether an object is valid or not. (Such as [Entity](https://wiki.facepunch.com/gmod/Entity)s, [Panel](https://wiki.facepunch.com/gmod/Panel)s, custom [table](https://wiki.facepunch.com/gmod/table) objects and more).
+--- Checks that an object is not nil, has an IsValid method and if this method returns true. 
 --- [https://wiki.facepunch.com/gmod/Global.IsValid]
 --- @param toBeValidated any @ The table or object to be validated.
 --- @return boolean
@@ -997,7 +1115,8 @@ function Label(text, parent) end
 --- @return void
 function LanguageChanged(lang) end
 
---- (client/menu/server) Performs a linear interpolation from the start number to the end number.This function provides a very efficient and easy way to smooth out movements. 
+--- (client/menu/server) Performs a linear interpolation from the start number to the end number.
+--- This function provides a very efficient and easy way to smooth out movements. 
 --- [https://wiki.facepunch.com/gmod/Global.Lerp]
 --- @param t number @ The fraction for finding the result. This number is clamped between 0 and 1. Shouldn't be a constant.
 --- @param from number @ The starting number. The result will be equal to this if delta is 0.
@@ -1021,7 +1140,8 @@ function LerpAngle(ratio, angleStart, angleEnd) end
 --- @return Vector
 function LerpVector(fraction, from, to) end
 
---- (menu) Returns the contents of `addonpresets.txt` located in the `garrysmod/settings` folder. By default, this file stores your addon presets as JSON.You can use [SaveAddonPresets](https://wiki.facepunch.com/gmod/Global.SaveAddonPresets) to modify this file. 
+--- (menu) Returns the contents of `addonpresets.txt` located in the `garrysmod/settings` folder. By default, this file stores your addon presets as JSON.
+--- You can use [SaveAddonPresets](https://wiki.facepunch.com/gmod/Global.SaveAddonPresets) to modify this file. 
 --- [https://wiki.facepunch.com/gmod/Global.LoadAddonPresets]
 --- @return string
 function LoadAddonPresets() end
@@ -1048,7 +1168,9 @@ function Localize(localisationToken, default) end
 --- @return Player
 function LocalPlayer() end
 
---- (client/server) Translates the specified position and angle from the specified local coordinate system into worldspace coordinates.If you're working with an entity's local vectors, use [Entity:LocalToWorld](https://wiki.facepunch.com/gmod/Entity:LocalToWorld) and/or [Entity:LocalToWorldAngles](https://wiki.facepunch.com/gmod/Entity:LocalToWorldAngles) instead.See also: [WorldToLocal](https://wiki.facepunch.com/gmod/Global.WorldToLocal), the reverse of this function. 
+--- (client/server) Translates the specified position and angle from the specified local coordinate system into worldspace coordinates.
+--- If you're working with an entity's local vectors, use [Entity:LocalToWorld](https://wiki.facepunch.com/gmod/Entity:LocalToWorld) and/or [Entity:LocalToWorldAngles](https://wiki.facepunch.com/gmod/Entity:LocalToWorldAngles) instead.
+--- See also: [WorldToLocal](https://wiki.facepunch.com/gmod/Global.WorldToLocal), the reverse of this function. 
 --- [https://wiki.facepunch.com/gmod/Global.LocalToWorld]
 --- @param localPos Vector @ The position vector in the source coordinate system, that should be translated to world coordinates
 --- @param localAng Angle @ The angle in the source coordinate system, that should be converted to a world angle. If you don't need to convert an angle, you can supply an arbitrary valid angle (e.g. [Angle](https://wiki.facepunch.com/gmod/Global.Angle)()).
@@ -1059,14 +1181,14 @@ function LocalToWorld(localPos, localAng, originPos, originAngle) end
 
 --- (client/menu/server) Either returns the material with the given name, or loads the material interpreting the first argument as the path. 
 --- [https://wiki.facepunch.com/gmod/Global.Material]
---- @param materialName string @ The material name or path. The path is relative to the **materials/** folder. You do not need to add **materials/** to your path.To retrieve a Lua material created with [CreateMaterial](https://wiki.facepunch.com/gmod/Global.CreateMaterial), just prepend a "!" to the material name.
---- @param pngParameters string @ A string containing space separated keywords which will be used to add material parameters.See [Material Parameters](https://wiki.facepunch.com/gmod/Material%20Parameters) for more information.
+--- @param materialName string @ The material name or path. The path is relative to the materials/ folder. You do not need to add materials/ to your path. To retrieve a Lua material created with [CreateMaterial](https://wiki.facepunch.com/gmod/Global.CreateMaterial), just prepend a "!" to the material name.
+--- @param pngParameters string @ A string containing space separated keywords which will be used to add material parameters. See [Material Parameters](https://wiki.facepunch.com/gmod/Material%20Parameters) for more information.
 --- @return IMaterial|number
 function Material(materialName, pngParameters) end
 
 --- (client/server) Returns a [VMatrix](https://wiki.facepunch.com/gmod/VMatrix) object. 
 --- [https://wiki.facepunch.com/gmod/Global.Matrix]
---- @param data table @ Initial data to initialize the matrix with. Leave empty to initialize an identity matrix. See examples for usage.Can be a [VMatrix](https://wiki.facepunch.com/gmod/VMatrix) to copy its data.
+--- @param data table @ Initial data to initialize the matrix with. Leave empty to initialize an identity matrix. See examples for usage. Can be a [VMatrix](https://wiki.facepunch.com/gmod/VMatrix) to copy its data.
 --- @return VMatrix
 function Matrix(data) end
 
@@ -1082,14 +1204,19 @@ function Mesh(mat) end
 --- @return string
 function Model(model) end
 
---- (client/menu/server) Creates a table with the specified module name and sets the function environment for said table.Any passed loaders are called with the table as an argument. An example of this is [package.seeall](https://wiki.facepunch.com/gmod/package.seeall). 
+--- (client/menu/server) Creates a table with the specified module name and sets the function environment for said table.
+--- Any passed loaders are called with the table as an argument. An example of this is [package.seeall](https://wiki.facepunch.com/gmod/package.seeall). 
 --- [https://wiki.facepunch.com/gmod/Global.module]
 --- @param name string @ The name of the module. This will be used to access the module table in the runtime environment.
 --- @param loaders vararg @ Calls each function passed with the new table as an argument.
 --- @return void
 function module(name, loaders) end
 
---- (client/menu/server) Writes every given argument to the console.Automatically attempts to convert each argument to a string. (See [tostring](https://wiki.facepunch.com/gmod/Global.tostring))Unlike [print](https://wiki.facepunch.com/gmod/Global.print), arguments are not separated by anything. They are simply concatenated.Additionally, a newline isn't added automatically to the end, so subsequent Msg or print operations will continue the same line of text in the console. See [MsgN](https://wiki.facepunch.com/gmod/Global.MsgN) for a version that does add a newline.The text is blue on the server, orange on the client, and green on the menu: 
+--- (client/menu/server) Writes every given argument to the console.
+--- Automatically attempts to convert each argument to a string. (See [tostring](https://wiki.facepunch.com/gmod/Global.tostring))
+--- Unlike [print](https://wiki.facepunch.com/gmod/Global.print), arguments are not separated by anything. They are simply concatenated.
+--- Additionally, a newline isn't added automatically to the end, so subsequent Msg or print operations will continue the same line of text in the console. See [MsgN](https://wiki.facepunch.com/gmod/Global.MsgN) for a version that does add a newline.
+--- The text is blue on the server, orange on the client, and green on the menu: 
 --- [https://wiki.facepunch.com/gmod/Global.Msg]
 --- @param args vararg @ List of values to print.
 --- @return void
@@ -1107,7 +1234,8 @@ function MsgAll(args) end
 --- @return void
 function MsgC(args) end
 
---- (client/menu/server) Same as [print](https://wiki.facepunch.com/gmod/Global.print), except it concatinates the arguments without inserting any whitespace in between them.See also [Msg](https://wiki.facepunch.com/gmod/Global.Msg), which doesn't add a newline (`"\n"`) at the end. 
+--- (client/menu/server) Same as [print](https://wiki.facepunch.com/gmod/Global.print), except it concatinates the arguments without inserting any whitespace in between them.
+--- See also [Msg](https://wiki.facepunch.com/gmod/Global.Msg), which doesn't add a newline (`"\n"`) at the end. 
 --- [https://wiki.facepunch.com/gmod/Global.MsgN]
 --- @param args vararg @ List of values to print. They can be of any type and will be converted to strings with [tostring](https://wiki.facepunch.com/gmod/Global.tostring).
 --- @return void
@@ -1137,7 +1265,8 @@ function next(tab, prevKey) end
 --- @return number
 function NumDownloadables() end
 
---- (client) Returns the amount of skins the specified model has.See also [Entity:SkinCount](https://wiki.facepunch.com/gmod/Entity:SkinCount) if you have an entity. 
+--- (client) Returns the amount of skins the specified model has.
+--- See also [Entity:SkinCount](https://wiki.facepunch.com/gmod/Entity:SkinCount) if you have an entity. 
 --- [https://wiki.facepunch.com/gmod/Global.NumModelSkins]
 --- @param modelName string @ Model to return amount of skins of
 --- @return number
@@ -1168,7 +1297,9 @@ function OpenFolder(folder) end
 --- @return void
 function OrderVectors(vector1, vector2) end
 
---- (client/menu/server) Returns an iterator function([next](https://wiki.facepunch.com/gmod/Global.next)) for a for loop that will return the values of the specified table in an arbitrary order.* For alphabetical **key** order use [SortedPairs](https://wiki.facepunch.com/gmod/Global.SortedPairs).* For alphabetical **value** order use [SortedPairsByValue](https://wiki.facepunch.com/gmod/Global.SortedPairsByValue). 
+--- (client/menu/server) Returns an iterator function([next](https://wiki.facepunch.com/gmod/Global.next)) for a for loop that will return the values of the specified table in an arbitrary order.
+--- * For alphabetical **key** order use [SortedPairs](https://wiki.facepunch.com/gmod/Global.SortedPairs).
+--- * For alphabetical **value** order use [SortedPairsByValue](https://wiki.facepunch.com/gmod/Global.SortedPairsByValue). 
 --- [https://wiki.facepunch.com/gmod/Global.pairs]
 --- @param tab table @ The table to iterate over.
 --- @return function|table|any
@@ -1200,14 +1331,14 @@ function ParticleEffectAttach(particleName, attachType, entity, attachmentID) en
 
 --- (client) Creates a new [CLuaEmitter](https://wiki.facepunch.com/gmod/CLuaEmitter). 
 --- [https://wiki.facepunch.com/gmod/Global.ParticleEmitter]
---- @param position Vector @ The start position of the emitter.This is only used to determine particle drawing order for translucent particles.
+--- @param position Vector @ The start position of the emitter. This is only used to determine particle drawing order for translucent particles.
 --- @param use3D boolean @ Whenever to render the particles in 2D or 3D mode.
 --- @return CLuaEmitter
 function ParticleEmitter(position, use3D) end
 
 --- (server) Creates a path for the bot to follow 
 --- [https://wiki.facepunch.com/gmod/Global.Path]
---- @param type string @ The name of the path to create.This is going to be "Follow" or "Chase" right now.
+--- @param type string @ The name of the path to create. This is going to be "Follow" or "Chase" right now.
 --- @return PathFollower
 function Path(type) end
 
@@ -1218,13 +1349,16 @@ function Path(type) end
 --- @return boolean|vararg
 function pcall(func, arguments) end
 
---- (client/server) Returns the player with the matching [Player:UserID](https://wiki.facepunch.com/gmod/Player:UserID).For a function that returns a player based on their [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex), see [Entity](https://wiki.facepunch.com/gmod/Global.Entity).For a function that returns a player based on their connection ID, see [player.GetByID](https://wiki.facepunch.com/gmod/player.GetByID). 
+--- (client/server) Returns the player with the matching [Player:UserID](https://wiki.facepunch.com/gmod/Player:UserID).
+--- For a function that returns a player based on their [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex), see [Entity](https://wiki.facepunch.com/gmod/Global.Entity).
+--- For a function that returns a player based on their connection ID, see [player.GetByID](https://wiki.facepunch.com/gmod/player.GetByID). 
 --- [https://wiki.facepunch.com/gmod/Global.Player]
 --- @param playerIndex number @ The player index.
 --- @return Player
 function Player(playerIndex) end
 
---- (client) Moves the given model to the given position and calculates appropriate camera parameters for rendering the model to an icon.The output table interacts nicely with [Panel:RebuildSpawnIconEx](https://wiki.facepunch.com/gmod/Panel:RebuildSpawnIconEx) with a few key renames. 
+--- (client) Moves the given model to the given position and calculates appropriate camera parameters for rendering the model to an icon.
+--- The output table interacts nicely with [Panel:RebuildSpawnIconEx](https://wiki.facepunch.com/gmod/Panel:RebuildSpawnIconEx) with a few key renames. 
 --- [https://wiki.facepunch.com/gmod/Global.PositionSpawnIcon]
 --- @param model Entity @ Model that is being rendered to the spawn icon
 --- @param position Vector @ Position that the model is being rendered at
@@ -1256,13 +1390,17 @@ function PrecacheSentenceFile(filename) end
 --- @return void
 function PrecacheSentenceGroup(group) end
 
---- (client/menu/server) Writes every given argument to the console.Automatically attempts to convert each argument to a string. (See [tostring](https://wiki.facepunch.com/gmod/Global.tostring))Seperates lines with a line break (`"\n"`)Separates arguments with a tab character (`"\t"`). 
+--- (client/menu/server) Writes every given argument to the console.
+--- Automatically attempts to convert each argument to a string. (See [tostring](https://wiki.facepunch.com/gmod/Global.tostring))
+--- Seperates lines with a line break (`"\n"`)
+--- Separates arguments with a tab character (`"\t"`). 
 --- [https://wiki.facepunch.com/gmod/Global.print]
 --- @param args vararg @ List of values to print.
 --- @return void
 function print(args) end
 
---- (server) Displays a message in the chat, console, or center of screen of every player.This uses the archaic user message system ([umsg](https://wiki.facepunch.com/gmod/umsg)) and hence is limited to ≈250 characters. 
+--- (server) Displays a message in the chat, console, or center of screen of every player.
+--- This uses the archaic user message system ([umsg](https://wiki.facepunch.com/gmod/umsg)) and hence is limited to ≈250 characters. 
 --- [https://wiki.facepunch.com/gmod/Global.PrintMessage]
 --- @param type number @ Which type of message should be sent to the players (see [HUD](https://wiki.facepunch.com/gmod/Enums/HUD))
 --- @param message string @ Message to be sent to the players
@@ -1282,7 +1420,8 @@ function PrintTable(tableToPrint, indent, done) end
 --- @return ProjectedTexture
 function ProjectedTexture() end
 
---- (client/server) Runs a function without stopping the whole script on error.This function is similar to [pcall](https://wiki.facepunch.com/gmod/Global.pcall) and [xpcall](https://wiki.facepunch.com/gmod/Global.xpcall) except the errors are still printed and sent to the error handler (i.e. sent to server console if clientside and [GM:OnLuaError](https://wiki.facepunch.com/gmod/GM:OnLuaError) called). 
+--- (client/server) Runs a function without stopping the whole script on error.
+--- This function is similar to [pcall](https://wiki.facepunch.com/gmod/Global.pcall) and [xpcall](https://wiki.facepunch.com/gmod/Global.xpcall) except the errors are still printed and sent to the error handler (i.e. sent to server console if clientside and [GM:OnLuaError](https://wiki.facepunch.com/gmod/GM:OnLuaError) called). 
 --- [https://wiki.facepunch.com/gmod/Global.ProtectedCall]
 --- @param func function @ Function to run
 --- @return boolean
@@ -1322,14 +1461,17 @@ function rawset(table, index, value) end
 --- @return number
 function RealFrameTime() end
 
---- (client/server) Returns the uptime of the game/server in seconds (to at least **4** decimal places). This value updates itself once every time the realm thinks. For servers, this is the server tickrate. For clients, its their current FPS.You should use this function (or [SysTime](https://wiki.facepunch.com/gmod/Global.SysTime)) for timing real-world events such as user interaction, but not for timing game events such as animations.See also: [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime), [SysTime](https://wiki.facepunch.com/gmod/Global.SysTime) 
+--- (client/server) Returns the uptime of the game/server in seconds (to at least **4** decimal places). This value updates itself once every time the realm thinks. For servers, this is the server tickrate. For clients, its their current FPS.
+--- 
+--- You should use this function (or [SysTime](https://wiki.facepunch.com/gmod/Global.SysTime)) for timing real-world events such as user interaction, but not for timing game events such as animations.
+--- See also: [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime), [SysTime](https://wiki.facepunch.com/gmod/Global.SysTime) 
 --- [https://wiki.facepunch.com/gmod/Global.RealTime]
 --- @return number
 function RealTime() end
 
 --- (server) Creates a new [CRecipientFilter](https://wiki.facepunch.com/gmod/CRecipientFilter). 
 --- [https://wiki.facepunch.com/gmod/Global.RecipientFilter]
---- @param unreliable boolean @ If set to true, makes the filter unreliable. This means, when sending over the network in cases like [CreateSound](https://wiki.facepunch.com/gmod/Global.CreateSound) (and its subsequent updates), the message is not guaranteed to reach all clients.
+--- @param unreliable boolean @ If set to true, makes the filter unreliable.  This means, when sending over the network in cases like [CreateSound](https://wiki.facepunch.com/gmod/Global.CreateSound) (and its subsequent updates), the message is not guaranteed to reach all clients.
 --- @return CRecipientFilter
 function RecipientFilter(unreliable) end
 
@@ -1344,7 +1486,8 @@ function RecordDemoFrame() end
 --- @return void
 function RegisterDermaMenuForClose(menu) end
 
---- (client/menu) Saves position of your cursor on screen. You can restore it by using[RestoreCursorPosition](https://wiki.facepunch.com/gmod/Global.RestoreCursorPosition). 
+--- (client/menu) Saves position of your cursor on screen. You can restore it by using
+--- [RestoreCursorPosition](https://wiki.facepunch.com/gmod/Global.RestoreCursorPosition). 
 --- [https://wiki.facepunch.com/gmod/Global.RememberCursorPosition]
 --- @return void
 function RememberCursorPosition() end
@@ -1408,7 +1551,7 @@ function RunConsoleCommand(command, arguments) end
 
 --- (menu) Runs a menu command. Equivalent to [RunConsoleCommand](https://wiki.facepunch.com/gmod/Global.RunConsoleCommand)( "gamemenucommand", command ) unless the command starts with the "engine" keyword in which case it is equivalent to [RunConsoleCommand](https://wiki.facepunch.com/gmod/Global.RunConsoleCommand)( command ). 
 --- [https://wiki.facepunch.com/gmod/Global.RunGameUICommand]
---- @param command string @ The menu command to runShould be one of the following:* Disconnect - Disconnects from the current server.* OpenBenchmarkDialog - Opens the "Video Hardware Stress Test" dialog.* OpenChangeGameDialog - Does not work in GMod.* OpenCreateMultiplayerGameDialog - Opens the Source dialog for creating a listen server.* OpenCustomMapsDialog - Does nothing.* OpenFriendsDialog - Does nothing.* OpenGameMenu - Does not work in GMod.* OpenLoadCommentaryDialog - Opens the "Developer Commentary" selection dialog. Useless in GMod.* OpenLoadDemoDialog - Does nothing.* OpenLoadGameDialog - Opens the Source "Load Game" dialog.* OpenNewGameDialog - Opens the "New Game" dialog. Useless in GMod.* OpenOptionsDialog - Opens the options dialog.* OpenPlayerListDialog - Opens the "Mute Players" dialog that shows all players connected to the server and allows to mute them.* OpenSaveGameDialog - Opens the Source "Save Game" dialog.* OpenServerBrowser - Opens the legacy server browser.* Quit - Quits the game `without` confirmation (unlike other Source games).* QuitNoConfirm - Quits the game without confirmation (like other Source games).* ResumeGame - Closes the menu and returns to the game.* engine
+--- @param command string @ The menu command to run Should be one of the following:  Disconnect - Disconnects from the current server.  OpenBenchmarkDialog - Opens the "Video Hardware Stress Test" dialog.  OpenChangeGameDialog - Does not work in GMod.  OpenCreateMultiplayerGameDialog - Opens the Source dialog for creating a listen server.  OpenCustomMapsDialog - Does nothing.  OpenFriendsDialog - Does nothing.  OpenGameMenu - Does not work in GMod.  OpenLoadCommentaryDialog - Opens the "Developer Commentary" selection dialog. Useless in GMod.  OpenLoadDemoDialog - Does nothing.  OpenLoadGameDialog - Opens the Source "Load Game" dialog.  OpenNewGameDialog - Opens the "New Game" dialog. Useless in GMod.  OpenOptionsDialog - Opens the options dialog.  OpenPlayerListDialog - Opens the "Mute Players" dialog that shows all players connected to the server and allows to mute them.  OpenSaveGameDialog - Opens the Source "Save Game" dialog.  OpenServerBrowser - Opens the legacy server browser.  Quit - Quits the game `without` confirmation (unlike other Source games).  QuitNoConfirm - Quits the game without confirmation (like other Source games).  ResumeGame - Closes the menu and returns to the game.  engine
 --- @return void
 function RunGameUICommand(command) end
 
@@ -1438,7 +1581,8 @@ function SafeRemoveEntity(ent) end
 --- @return void
 function SafeRemoveEntityDelayed(entity, delay) end
 
---- (menu) Sets the content of `addonpresets.txt` located in the `garrysmod/settings` folder. By default, this file stores your addon presets as JSON.You can use [LoadAddonPresets](https://wiki.facepunch.com/gmod/Global.LoadAddonPresets) to retrieve the data in this file. 
+--- (menu) Sets the content of `addonpresets.txt` located in the `garrysmod/settings` folder. By default, this file stores your addon presets as JSON.
+--- You can use [LoadAddonPresets](https://wiki.facepunch.com/gmod/Global.LoadAddonPresets) to retrieve the data in this file. 
 --- [https://wiki.facepunch.com/gmod/Global.SaveAddonPresets]
 --- @param JSON string @ The new contents of the file.
 --- @return void
@@ -1475,7 +1619,7 @@ function ScrW() end
 
 --- (client/menu/server) Used to select single values from a vararg or get the count of values in it. 
 --- [https://wiki.facepunch.com/gmod/Global.select]
---- @param parameter any @ Can be a [number](https://wiki.facepunch.com/gmod/number) or [string](https://wiki.facepunch.com/gmod/string).* If it's a string and starts with "#", the function will return the amount of values in the vararg (ignoring the rest of the string).* If it's a positive number, the function will return all values starting from the given index.* If the number is negative, it will return the amount specified from the end instead of the beginning. This mode will not be compiled by LuaJIT.
+--- @param parameter any @ Can be a [number](https://wiki.facepunch.com/gmod/number) or [string](https://wiki.facepunch.com/gmod/string).  If it's a string and starts with "#", the function will return the amount of values in the vararg (ignoring the rest of the string).  If it's a positive number, the function will return all values starting from the given index.  If the number is negative, it will return the amount specified from the end instead of the beginning. This mode will not be compiled by LuaJIT.
 --- @param vararg vararg @ The vararg. These are the values from which you want to select.
 --- @return any
 function select(parameter, vararg) end
@@ -1575,14 +1719,18 @@ function setmetatable(Tab, Metatable) end
 --- @return void
 function SetPhysConstraintSystem(constraintSystem) end
 
---- (client/menu/server) This function can be used in a for loop instead of [pairs](https://wiki.facepunch.com/gmod/Global.pairs). It sorts all **keys** alphabetically.For sorting by specific **value member**, use [SortedPairsByMemberValue](https://wiki.facepunch.com/gmod/Global.SortedPairsByMemberValue).For sorting by **value**, use [SortedPairsByValue](https://wiki.facepunch.com/gmod/Global.SortedPairsByValue). 
+--- (client/menu/server) This function can be used in a for loop instead of [pairs](https://wiki.facepunch.com/gmod/Global.pairs). It sorts all **keys** alphabetically.
+--- For sorting by specific **value member**, use [SortedPairsByMemberValue](https://wiki.facepunch.com/gmod/Global.SortedPairsByMemberValue).
+--- For sorting by **value**, use [SortedPairsByValue](https://wiki.facepunch.com/gmod/Global.SortedPairsByValue). 
 --- [https://wiki.facepunch.com/gmod/Global.SortedPairs]
 --- @param table table @ The table to sort
 --- @param desc boolean @ Reverse the sorting order
 --- @return function|table
 function SortedPairs(table, desc) end
 
---- (client/menu/server) Returns an iterator function that can be used to loop through a table in order of member values, when the values of the table are also tables and contain that member.To sort by **value**, use [SortedPairsByValue](https://wiki.facepunch.com/gmod/Global.SortedPairsByValue).To sort by **keys**, use [SortedPairs](https://wiki.facepunch.com/gmod/Global.SortedPairs). 
+--- (client/menu/server) Returns an iterator function that can be used to loop through a table in order of member values, when the values of the table are also tables and contain that member.
+--- To sort by **value**, use [SortedPairsByValue](https://wiki.facepunch.com/gmod/Global.SortedPairsByValue).
+--- To sort by **keys**, use [SortedPairs](https://wiki.facepunch.com/gmod/Global.SortedPairs). 
 --- [https://wiki.facepunch.com/gmod/Global.SortedPairsByMemberValue]
 --- @param table table @ Table to create iterator for.
 --- @param memberKey any @ Key of the value member to sort by.
@@ -1590,7 +1738,9 @@ function SortedPairs(table, desc) end
 --- @return function|table
 function SortedPairsByMemberValue(table, memberKey, descending) end
 
---- (client/menu/server) Returns an iterator function that can be used to loop through a table in order of its **values**.To sort by specific **value member**, use [SortedPairsByMemberValue](https://wiki.facepunch.com/gmod/Global.SortedPairsByMemberValue).To sort by **keys**, use [SortedPairs](https://wiki.facepunch.com/gmod/Global.SortedPairs). 
+--- (client/menu/server) Returns an iterator function that can be used to loop through a table in order of its **values**.
+--- To sort by specific **value member**, use [SortedPairsByMemberValue](https://wiki.facepunch.com/gmod/Global.SortedPairsByMemberValue).
+--- To sort by **keys**, use [SortedPairs](https://wiki.facepunch.com/gmod/Global.SortedPairs). 
 --- [https://wiki.facepunch.com/gmod/Global.SortedPairsByValue]
 --- @param table table @ Table to create iterator for
 --- @param descending boolean @ Whether the iterator should iterate in descending order or not
@@ -1679,14 +1829,16 @@ function tobool(val) end
 --- @return void
 function ToggleFavourite(map) end
 
---- (client/menu/server) Attempts to convert the value to a number.Returns nil on failure. 
+--- (client/menu/server) Attempts to convert the value to a number.
+--- Returns nil on failure. 
 --- [https://wiki.facepunch.com/gmod/Global.tonumber]
 --- @param value any @ The value to convert. Can be a number or string.
 --- @param base number @ The  used in the string. Can be any integer between 2 and 36, inclusive.
 --- @return number
 function tonumber(value, base) end
 
---- (client/menu/server) Attempts to convert the value to a string. If the value is an object and its metatable has defined the __tostring metamethod, this will call that function.[print](https://wiki.facepunch.com/gmod/Global.print) also uses this functionality. 
+--- (client/menu/server) Attempts to convert the value to a string. If the value is an object and its metatable has defined the __tostring metamethod, this will call that function.
+--- [print](https://wiki.facepunch.com/gmod/Global.print) also uses this functionality. 
 --- [https://wiki.facepunch.com/gmod/Global.tostring]
 --- @param value any @ The object to be converted to a string.
 --- @return string
@@ -1729,7 +1881,23 @@ function UnPredictedCurTime() end
 --- @return void
 function UpdateLoadPanel(javascript) end
 
---- (client/menu/server) Returns whether or not a model is useless by checking that the file path is that of a proper model.If the string ".mdl" is not found in the model name, the function will return true.The function will also return true if any of the following strings are found in the given model name:* "_gesture"* "_anim"* "_gst"* "_pst"* "_shd"* "_ss"* "_posture"* "_anm"* "ghostanim"* "_paths"* "_shared"* "anim_"* "gestures_"* "shared_ragdoll_" 
+--- (client/menu/server) Returns whether or not a model is useless by checking that the file path is that of a proper model.
+--- If the string ".mdl" is not found in the model name, the function will return true.
+--- The function will also return true if any of the following strings are found in the given model name:
+--- * "_gesture"
+--- * "_anim"
+--- * "_gst"
+--- * "_pst"
+--- * "_shd"
+--- * "_ss"
+--- * "_posture"
+--- * "_anm"
+--- * "ghostanim"
+--- * "_paths"
+--- * "_shared"
+--- * "anim_"
+--- * "gestures_"
+--- * "shared_ragdoll_" 
 --- [https://wiki.facepunch.com/gmod/Global.UTIL_IsUselessModel]
 --- @param modelName string @ The model name to be checked
 --- @return boolean
@@ -1743,7 +1911,7 @@ function ValidPanel(panel) end
 
 --- (client/menu/server) Creates a [Vector](https://wiki.facepunch.com/gmod/Vector) object. 
 --- [https://wiki.facepunch.com/gmod/Global.Vector]
---- @param x number @ The x component of the vector.If this is a [Vector](https://wiki.facepunch.com/gmod/Vector), this function will return a copy of the given vector.If this is a [string](https://wiki.facepunch.com/gmod/string), this function will try to parse the string as a vector. If it fails, it returns a 0 vector.(See examples)
+--- @param x number @ The x component of the vector. If this is a [Vector](https://wiki.facepunch.com/gmod/Vector), this function will return a copy of the given vector. If this is a [string](https://wiki.facepunch.com/gmod/string), this function will try to parse the string as a vector. If it fails, it returns a 0 vector. (See examples)
 --- @param y number @ The y component of the vector.
 --- @param z number @ The z component of the vector.
 --- @return Vector
@@ -1792,10 +1960,11 @@ function WorkshopFileBase(namespace, requiredTags) end
 --- @return Vector|Angle
 function WorldToLocal(position, angle, newSystemOrigin, newSystemAngles) end
 
---- (client/menu/server) Attempts to call the first function. If the execution succeeds, this returns `true` followed by the returns of the function. If execution fails, this returns `false` and the second function is called with the error message. Unlike in [pcall](https://wiki.facepunch.com/gmod/Global.pcall), the stack is not unwound and can therefore be used for stack analyses with the [debug](https://wiki.facepunch.com/gmod/debug). 
+--- (client/menu/server) Attempts to call the first function. If the execution succeeds, this returns `true` followed by the returns of the function. If execution fails, this returns `false` and the second function is called with the error message. 
+--- Unlike in [pcall](https://wiki.facepunch.com/gmod/Global.pcall), the stack is not unwound and can therefore be used for stack analyses with the [debug](https://wiki.facepunch.com/gmod/debug). 
 --- [https://wiki.facepunch.com/gmod/Global.xpcall]
 --- @param func function @ The function to call initially.
---- @param errorCallback function @ The function to be called if execution of the first fails; the error message is passed as a string.You cannot throw an [Global.error](https://wiki.facepunch.com/gmod/Global.error)() from this callback: it will have no effect (not even stopping the callback).
+--- @param errorCallback function @ The function to be called if execution of the first fails; the error message is passed as a string. You cannot throw an [Global.error](https://wiki.facepunch.com/gmod/Global.error)() from this callback: it will have no effect (not even stopping the callback).
 --- @param arguments vararg @ Arguments to pass to the initial function.
 --- @return boolean|vararg
 function xpcall(func, errorCallback, arguments) end

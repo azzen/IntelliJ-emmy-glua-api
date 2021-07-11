@@ -6,7 +6,8 @@ EFFECT = {}
 --- @return void
 function EFFECT:EndTouch() end
 
---- (client) Used to get the "real" start position of a trace, for weapon tracer effects."real" meaning in 3rd person, the 3rd person position will be used, in first person the first person position will be used. 
+--- (client) Used to get the "real" start position of a trace, for weapon tracer effects.
+--- "real" meaning in 3rd person, the 3rd person position will be used, in first person the first person position will be used. 
 --- [https://wiki.facepunch.com/gmod/EFFECT:GetTracerShootPos]
 --- @param pos Vector @ Default position if we fail
 --- @param ent Weapon @ The weapon to use.

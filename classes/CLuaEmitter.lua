@@ -38,7 +38,8 @@ function CLuaEmitter:Is3D() end
 --- @return boolean
 function CLuaEmitter:IsValid() end
 
---- (client) Sets the bounding box for this emitter.Usually the bounding box is automatically determined by the particles, but this function overrides it. 
+--- (client) Sets the bounding box for this emitter.
+--- Usually the bounding box is automatically determined by the particles, but this function overrides it. 
 --- [https://wiki.facepunch.com/gmod/CLuaEmitter:SetBBox]
 --- @param mins Vector @ The minimum position of the box
 --- @param maxs Vector @ The maximum position of the box

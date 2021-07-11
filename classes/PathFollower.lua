@@ -108,13 +108,15 @@ function PathFollower:IsValid() end
 --- @return table
 function PathFollower:LastSegment() end
 
---- (server) Moves the cursor by give distance.For a function that sets the distance, see [PathFollower:MoveCursorTo](https://wiki.facepunch.com/gmod/PathFollower:MoveCursorTo). 
+--- (server) Moves the cursor by give distance.
+--- For a function that sets the distance, see [PathFollower:MoveCursorTo](https://wiki.facepunch.com/gmod/PathFollower:MoveCursorTo). 
 --- [https://wiki.facepunch.com/gmod/PathFollower:MoveCursor]
 --- @param distance number @ The distance to move the cursor (in relative world units)
 --- @return void
 function PathFollower:MoveCursor(distance) end
 
---- (server) Sets the cursor position to given distance.For relative distance, see [PathFollower:MoveCursor](https://wiki.facepunch.com/gmod/PathFollower:MoveCursor). 
+--- (server) Sets the cursor position to given distance.
+--- For relative distance, see [PathFollower:MoveCursor](https://wiki.facepunch.com/gmod/PathFollower:MoveCursor). 
 --- [https://wiki.facepunch.com/gmod/PathFollower:MoveCursorTo]
 --- @param distance number @ The distance to move the cursor (in world units)
 --- @return void
@@ -123,7 +125,7 @@ function PathFollower:MoveCursorTo(distance) end
 --- (server) Moves the cursor of the path to the closest position compared to given vector. 
 --- [https://wiki.facepunch.com/gmod/PathFollower:MoveCursorToClosestPosition]
 --- @param pos Vector @ No description provided
---- @param type number @ Seek type0 = SEEK_ENTIRE_PATH - Search the entire path length1 = SEEK_AHEAD - Search from current cursor position forward toward end of path2 = SEEK_BEHIND - Search from current cursor position backward toward path start
+--- @param type number @ Seek type 0 = SEEK_ENTIRE_PATH - Search the entire path length 1 = SEEK_AHEAD - Search from current cursor position forward toward end of path 2 = SEEK_BEHIND - Search from current cursor position backward toward path start
 --- @param alongLimit number @ No description provided
 --- @return void
 function PathFollower:MoveCursorToClosestPosition(pos, type, alongLimit) end

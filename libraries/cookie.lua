@@ -21,7 +21,8 @@ function cookie.GetNumber(name, default) end
 --- @return string
 function cookie.GetString(name, default) end
 
---- (client/menu/server) Sets the value of a cookie, which is saved automatically by the [sql](https://wiki.facepunch.com/gmod/sql).These are stored in the *.db files - cl.db for clients, mn.db for menu state and sv.db for servers. 
+--- (client/menu/server) Sets the value of a cookie, which is saved automatically by the [sql](https://wiki.facepunch.com/gmod/sql).
+--- These are stored in the *.db files - cl.db for clients, mn.db for menu state and sv.db for servers. 
 --- [https://wiki.facepunch.com/gmod/cookie.Set]
 --- @param key string @ The name of the cookie that you want to set.
 --- @param value string @ Value to store in the cookie.

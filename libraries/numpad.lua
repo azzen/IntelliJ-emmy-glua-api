@@ -17,12 +17,14 @@ function numpad.Activate(ply, key, isButton) end
 --- @return void
 function numpad.Deactivate(ply, key, isButton) end
 
---- (server) Returns true during a function added with [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register) when the third argument to [numpad.Activate](https://wiki.facepunch.com/gmod/numpad.Activate) is true.This is caused when a numpad function is triggered by a button SENT being used. 
+--- (server) Returns true during a function added with [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register) when the third argument to [numpad.Activate](https://wiki.facepunch.com/gmod/numpad.Activate) is true.
+--- This is caused when a numpad function is triggered by a button SENT being used. 
 --- [https://wiki.facepunch.com/gmod/numpad.FromButton]
 --- @return boolean
 function numpad.FromButton() end
 
---- (server) Calls a function registered with [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register) when a player presses specified key.See for key released action: [numpad.OnUp](https://wiki.facepunch.com/gmod/numpad.OnUp) 
+--- (server) Calls a function registered with [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register) when a player presses specified key.
+--- See for key released action: [numpad.OnUp](https://wiki.facepunch.com/gmod/numpad.OnUp) 
 --- [https://wiki.facepunch.com/gmod/numpad.OnDown]
 --- @param ply Player @ The player whose numpad should be watched
 --- @param key number @ The key, corresponding to [KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
@@ -31,7 +33,8 @@ function numpad.FromButton() end
 --- @return number
 function numpad.OnDown(ply, key, name, ...) end
 
---- (server) Calls a function registered with [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register) when a player releases specified key.See for key pressed action: [numpad.OnDown](https://wiki.facepunch.com/gmod/numpad.OnDown) 
+--- (server) Calls a function registered with [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register) when a player releases specified key.
+--- See for key pressed action: [numpad.OnDown](https://wiki.facepunch.com/gmod/numpad.OnDown) 
 --- [https://wiki.facepunch.com/gmod/numpad.OnUp]
 --- @param ply Player @ The player whose numpad should be watched
 --- @param key number @ The key, corresponding to [KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
@@ -43,7 +46,7 @@ function numpad.OnUp(ply, key, name, ...) end
 --- (server) Registers a numpad library action for use with [numpad.OnDown](https://wiki.facepunch.com/gmod/numpad.OnDown) and [numpad.OnUp](https://wiki.facepunch.com/gmod/numpad.OnUp) 
 --- [https://wiki.facepunch.com/gmod/numpad.Register]
 --- @param id string @ The unique id of your action.
---- @param func function @ The function to be executed.Arguments are:[Player](https://wiki.facepunch.com/gmod/Player) ply - The player who pressed the button[vararg](https://wiki.facepunch.com/gmod/vararg) ... - The 4th and all subsequent arguments passed from [numpad.OnDown](https://wiki.facepunch.com/gmod/numpad.OnDown) and/or [numpad.OnUp](https://wiki.facepunch.com/gmod/numpad.OnUp)Returning **false** in this function will remove the listener which triggered this function (example: return false if one of your varargs is an entity which is no longer valid)
+--- @param func function @ The function to be executed. Arguments are: [Player](https://wiki.facepunch.com/gmod/Player) ply - The player who pressed the button [vararg](https://wiki.facepunch.com/gmod/vararg) ... - The 4th and all subsequent arguments passed from [numpad.OnDown](https://wiki.facepunch.com/gmod/numpad.OnDown) and/or [numpad.OnUp](https://wiki.facepunch.com/gmod/numpad.OnUp) Returning false in this function will remove the listener which triggered this function (example: return false if one of your varargs is an entity which is no longer valid)
 --- @return void
 function numpad.Register(id, func) end
 

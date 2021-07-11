@@ -1,7 +1,8 @@
 --- @class net
 net = {}
 
---- (server) Sends the currently built net message to all connected players.More information can be found in [Net Library Usage](https://wiki.facepunch.com/gmod/Net%20Library%20Usage). 
+--- (server) Sends the currently built net message to all connected players.
+--- More information can be found in [Net Library Usage](https://wiki.facepunch.com/gmod/Net%20Library%20Usage). 
 --- [https://wiki.facepunch.com/gmod/net.Broadcast]
 --- @return void
 function net.Broadcast() end
@@ -71,7 +72,7 @@ function net.ReadHeader() end
 
 --- (client/server) Reads an integer from the received net message. 
 --- [https://wiki.facepunch.com/gmod/net.ReadInt]
---- @param bitCount number @ The amount of bits to be read.This must be set to what you set to [net.WriteInt](https://wiki.facepunch.com/gmod/net.WriteInt). Read more information at [net.WriteInt](https://wiki.facepunch.com/gmod/net.WriteInt).
+--- @param bitCount number @ The amount of bits to be read. This must be set to what you set to [net.WriteInt](https://wiki.facepunch.com/gmod/net.WriteInt). Read more information at [net.WriteInt](https://wiki.facepunch.com/gmod/net.WriteInt).
 --- @return number
 function net.ReadInt(bitCount) end
 
@@ -90,7 +91,11 @@ function net.ReadNormal() end
 --- @return string
 function net.ReadString() end
 
---- (client/server) Reads a table from the received net message.See [net.WriteTable](https://wiki.facepunch.com/gmod/net.WriteTable) for extra info.You may get `net.ReadType: Couldn't read type X` during the execution of the function, the problem is that you are sending objects that cannot be serialized/sent over the network. 
+--- (client/server) Reads a table from the received net message.
+--- 
+--- 
+--- See [net.WriteTable](https://wiki.facepunch.com/gmod/net.WriteTable) for extra info.
+--- You may get `net.ReadType: Couldn't read type X` during the execution of the function, the problem is that you are sending objects that cannot be serialized/sent over the network. 
 --- [https://wiki.facepunch.com/gmod/net.ReadTable]
 --- @return table
 function net.ReadTable() end
@@ -115,7 +120,7 @@ function net.ReadVector() end
 --- (client/server) Adds a net message handler. Only one receiver can be used to receive the net message. 
 --- [https://wiki.facepunch.com/gmod/net.Receive]
 --- @param messageName string @ The message name to hook to.
---- @param callback function @ The function to be called if the specified message was received. Arguments are:[number](https://wiki.facepunch.com/gmod/number) len - Length of the message, in bits[Player](https://wiki.facepunch.com/gmod/Player) ply - The player that sent the message, works only serverside
+--- @param callback function @ The function to be called if the specified message was received. Arguments are: [number](https://wiki.facepunch.com/gmod/number) len - Length of the message, in bits [Player](https://wiki.facepunch.com/gmod/Player) ply - The player that sent the message, works only serverside
 --- @return void
 function net.Receive(messageName, callback) end
 
@@ -161,7 +166,8 @@ function net.Start(messageName, unreliable) end
 --- @return void
 function net.WriteAngle(angle) end
 
---- (client/server) Appends a boolean (as 1 or 0) to the current net message.Please note that the bit is written here from a [boolean](https://wiki.facepunch.com/gmod/boolean) (true/false) but [net.ReadBit](https://wiki.facepunch.com/gmod/net.ReadBit) returns a number. 
+--- (client/server) Appends a boolean (as 1 or 0) to the current net message.
+--- Please note that the bit is written here from a [boolean](https://wiki.facepunch.com/gmod/boolean) (true/false) but [net.ReadBit](https://wiki.facepunch.com/gmod/net.ReadBit) returns a number. 
 --- [https://wiki.facepunch.com/gmod/net.WriteBit]
 --- @param boolean boolean @ Bit status (false = 0, true = 1)
 --- @return void
@@ -204,10 +210,11 @@ function net.WriteEntity(entity) end
 --- @return void
 function net.WriteFloat(float) end
 
---- (client/server) Appends an integer - a whole number - to the current net message. Can be read back with [net.ReadInt](https://wiki.facepunch.com/gmod/net.ReadInt) on the receiving end.Use [net.WriteUInt](https://wiki.facepunch.com/gmod/net.WriteUInt) to send an unsigned number (that you know will never be negative). Use [net.WriteFloat](https://wiki.facepunch.com/gmod/net.WriteFloat) for a non-whole number (e.g. 2.25). 
+--- (client/server) Appends an integer - a whole number - to the current net message. Can be read back with [net.ReadInt](https://wiki.facepunch.com/gmod/net.ReadInt) on the receiving end.
+--- Use [net.WriteUInt](https://wiki.facepunch.com/gmod/net.WriteUInt) to send an unsigned number (that you know will never be negative). Use [net.WriteFloat](https://wiki.facepunch.com/gmod/net.WriteFloat) for a non-whole number (e.g. 2.25). 
 --- [https://wiki.facepunch.com/gmod/net.WriteInt]
 --- @param integer number @ The integer to be sent.
---- @param bitCount number @ The amount of bits the number consists of. This must be 32 or less.If you are unsure what to set, just set it to 32.Consult the table below to determine the bit count you need:| Bit Count |  Minimum value |  Maximum value ||-----------|:--------------:|:--------------:|| 3 | -4 | 3 || 4 | -8 | 7 || 5 | -16 | 15 || 6 | -32 | 31 || 7 | -64 | 63 || 8 | -128 | 127 || 9 | -256 | 255 || 10 | -512 | 511 || 11 | -1024 | 1023 || 12 | -2048 | 2047 || 13 | -4096 | 4095 || 14 | -8192 | 8191 || 15 | -16384 | 16383 || 16 | -32768 | 32767 || 17 | -65536 | 65535 || 18 | -131072 | 131071 || 19 | -262144 | 262143 || 20 | -524288 | 524287 || 21 | -1048576 | 1048575 || 22 | -2097152 | 2097151 || 23 | -4194304 | 4194303 || 24 | -8388608 | 8388607 || 25 | -16777216 | 16777215 || 26 | -33554432 | 33554431 || 27 | -67108864 | 67108863 || 28 | -134217728 | 134217727 || 29 | -268435456 | 268435455 || 30 | -536870912 | 536870911 || 31 | -1073741824 | 1073741823 || 32 | -2147483648 | 2147483647 |
+--- @param bitCount number @ The amount of bits the number consists of. This must be 32 or less. If you are unsure what to set, just set it to 32.  Consult the table below to determine the bit count you need: | Bit Count |  Minimum value |  Maximum value | |-----------|:--------------:|:--------------:| | 3 | -4 | 3 | | 4 | -8 | 7 | | 5 | -16 | 15 | | 6 | -32 | 31 | | 7 | -64 | 63 | | 8 | -128 | 127 | | 9 | -256 | 255 | | 10 | -512 | 511 | | 11 | -1024 | 1023 | | 12 | -2048 | 2047 | | 13 | -4096 | 4095 | | 14 | -8192 | 8191 | | 15 | -16384 | 16383 | | 16 | -32768 | 32767 | | 17 | -65536 | 65535 | | 18 | -131072 | 131071 | | 19 | -262144 | 262143 | | 20 | -524288 | 524287 | | 21 | -1048576 | 1048575 | | 22 | -2097152 | 2097151 | | 23 | -4194304 | 4194303 | | 24 | -8388608 | 8388607 | | 25 | -16777216 | 16777215 | | 26 | -33554432 | 33554431 | | 27 | -67108864 | 67108863 | | 28 | -134217728 | 134217727 | | 29 | -268435456 | 268435455 | | 30 | -536870912 | 536870911 | | 31 | -1073741824 | 1073741823 | | 32 | -2147483648 | 2147483647 |
 --- @return void
 function net.WriteInt(integer, bitCount) end
 
@@ -217,7 +224,8 @@ function net.WriteInt(integer, bitCount) end
 --- @return void
 function net.WriteMatrix(matrix) end
 
---- (client/server) Writes a normalized/direction vector ( Vector with length of 1 ) to the net message.This function uses less bandwidth compared to [net.WriteVector](https://wiki.facepunch.com/gmod/net.WriteVector) and will not send vectors with length of > 1 properly. 
+--- (client/server) Writes a normalized/direction vector ( Vector with length of 1 ) to the net message.
+--- This function uses less bandwidth compared to [net.WriteVector](https://wiki.facepunch.com/gmod/net.WriteVector) and will not send vectors with length of > 1 properly. 
 --- [https://wiki.facepunch.com/gmod/net.WriteNormal]
 --- @param normal Vector @ The normalized/direction vector to be send.
 --- @return void
@@ -241,14 +249,16 @@ function net.WriteTable(table) end
 --- @return void
 function net.WriteType(Data) end
 
---- (client/server) Appends an unsigned integer with the specified number of bits to the current net message.Use [net.WriteInt](https://wiki.facepunch.com/gmod/net.WriteInt) if you want to send negative and positive numbers. Use [net.WriteFloat](https://wiki.facepunch.com/gmod/net.WriteFloat) for a non-whole number (e.g. 2.25). 
+--- (client/server) Appends an unsigned integer with the specified number of bits to the current net message.
+--- Use [net.WriteInt](https://wiki.facepunch.com/gmod/net.WriteInt) if you want to send negative and positive numbers. Use [net.WriteFloat](https://wiki.facepunch.com/gmod/net.WriteFloat) for a non-whole number (e.g. 2.25). 
 --- [https://wiki.facepunch.com/gmod/net.WriteUInt]
 --- @param unsignedInteger number @ The unsigned integer to be sent.
---- @param numberOfBits number @ The size of the integer to be sent, in bits. Acceptable values range from any number 1 to 32 inclusive. For reference, 1 = bit, 4 = nibble, 8 = byte, 16 = short, 32 = long.Consult the table below to determine the bit count you need. The minimum value for all bit counts is 0.| Bit Count |  Maximum value ||-----------|:--------------:|| 1 | 1  || 2 | 3  || 3 | 7  || 4 | 15 || 5 | 31 || 6 | 63 || 7 | 127 || 8 | 255 || 9 | 511 || 10 | 1023 || 11 | 2047 || 12 | 4095 || 13 | 8191 || 14 | 16383 || 15 | 32767 || 16 | 65535 || 17 | 131071 || 18 | 262143 || 19 | 524287  || 20 | 1048575  || 21 | 2097151  || 22 | 4194303  || 23 | 8388607  || 24 | 16777215  || 25 | 33554431  || 26 | 67108863  || 27 | 134217727  || 28 | 268435455  || 29 | 536870911  || 30 | 1073741823 || 31 | 2147483647 || 32 | 4294967295 |
+--- @param numberOfBits number @ The size of the integer to be sent, in bits. Acceptable values range from any number 1 to 32 inclusive. For reference, 1 = bit, 4 = nibble, 8 = byte, 16 = short, 32 = long. Consult the table below to determine the bit count you need. The minimum value for all bit counts is 0. | Bit Count |  Maximum value | |-----------|:--------------:| | 1 | 1  | | 2 | 3  | | 3 | 7  | | 4 | 15 | | 5 | 31 | | 6 | 63 | | 7 | 127 | | 8 | 255 | | 9 | 511 | | 10 | 1023 | | 11 | 2047 | | 12 | 4095 | | 13 | 8191 | | 14 | 16383 | | 15 | 32767 | | 16 | 65535 | | 17 | 131071 | | 18 | 262143 | | 19 | 524287  | | 20 | 1048575  | | 21 | 2097151  | | 22 | 4194303  | | 23 | 8388607  | | 24 | 16777215  | | 25 | 33554431  | | 26 | 67108863  | | 27 | 134217727  | | 28 | 268435455  | | 29 | 536870911  | | 30 | 1073741823 | | 31 | 2147483647 | | 32 | 4294967295 |
 --- @return void
 function net.WriteUInt(unsignedInteger, numberOfBits) end
 
---- (client/server) Appends a vector to the current net message.Vectors sent by this function are compressed, which may result in precision loss.  XYZ components greater than 16384 or less than -16384 are irrecoverably altered (most significant bits are trimmed) and precision after the decimal point is low. 
+--- (client/server) Appends a vector to the current net message.
+--- Vectors sent by this function are compressed, which may result in precision loss.  XYZ components greater than 16384 or less than -16384 are irrecoverably altered (most significant bits are trimmed) and precision after the decimal point is low. 
 --- [https://wiki.facepunch.com/gmod/net.WriteVector]
 --- @param vector Vector @ The vector to be sent.
 --- @return void

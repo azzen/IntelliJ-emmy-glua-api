@@ -1,7 +1,8 @@
 --- @class Angle
 Angle = {}
 
---- (client/server) Adds the values of the argument angle to the orignal angle. This functions the same as angle1 + angle2 without creating a new angle object, skipping object construction and garbage collection. 
+--- (client/server) Adds the values of the argument angle to the orignal angle. 
+--- This functions the same as angle1 + angle2 without creating a new angle object, skipping object construction and garbage collection. 
 --- [https://wiki.facepunch.com/gmod/Angle:Add]
 --- @param angle Angle @ The angle to add.
 --- @return void
@@ -88,7 +89,8 @@ function Angle:Unpack() end
 --- @return Vector
 function Angle:Up() end
 
---- (client/server) Sets pitch, yaw and roll to 0.This function is faster than doing it manually. 
+--- (client/server) Sets pitch, yaw and roll to 0.
+--- This function is faster than doing it manually. 
 --- [https://wiki.facepunch.com/gmod/Angle:Zero]
 --- @return void
 function Angle:Zero() end

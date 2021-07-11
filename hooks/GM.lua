@@ -1,7 +1,8 @@
 --- @class GM
 GM = {}
 
---- (server) Called when a map I/O event occurs.See also [Entity:Fire](https://wiki.facepunch.com/gmod/Entity:Fire) and [Entity:Input](https://wiki.facepunch.com/gmod/Entity:Input) for functions to fire Inputs on entities. 
+--- (server) Called when a map I/O event occurs.
+--- See also [Entity:Fire](https://wiki.facepunch.com/gmod/Entity:Fire) and [Entity:Input](https://wiki.facepunch.com/gmod/Entity:Input) for functions to fire Inputs on entities. 
 --- [https://wiki.facepunch.com/gmod/GM:AcceptInput]
 --- @param ent Entity @ Entity that receives the input
 --- @param input string @ The input name. Is not guaranteed to be a valid input on the entity.
@@ -23,11 +24,14 @@ function GM:AddDeathNotice(attacker, attackerTeam, inflictor, victim, victimTeam
 
 --- (client) Allows you to adjust the mouse sensitivity. 
 --- [https://wiki.facepunch.com/gmod/GM:AdjustMouseSensitivity]
---- @param defaultSensitivity number @ The old sensitivityIn general it will be 0, which is equivalent to a sensitivity of 1.
+--- @param defaultSensitivity number @ The old sensitivity In general it will be 0, which is equivalent to a sensitivity of 1.
 --- @return number
 function GM:AdjustMouseSensitivity(defaultSensitivity) end
 
---- (server) Called when a player tries to pick up something using the "use" key, return to override.This hook will not be called if `sv_playerpickupallowed` is set to 0.See [GM:GravGunPickupAllowed](https://wiki.facepunch.com/gmod/GM:GravGunPickupAllowed) for the Gravity Gun pickup variant.See [GM:PhysgunPickup](https://wiki.facepunch.com/gmod/GM:PhysgunPickup) for the Physics Gun pickup variant. 
+--- (server) Called when a player tries to pick up something using the "use" key, return to override.
+--- This hook will not be called if `sv_playerpickupallowed` is set to 0.
+--- See [GM:GravGunPickupAllowed](https://wiki.facepunch.com/gmod/GM:GravGunPickupAllowed) for the Gravity Gun pickup variant.
+--- See [GM:PhysgunPickup](https://wiki.facepunch.com/gmod/GM:PhysgunPickup) for the Physics Gun pickup variant. 
 --- [https://wiki.facepunch.com/gmod/GM:AllowPlayerPickup]
 --- @param ply Player @ The player trying to pick up something.
 --- @param ent Entity @ The Entity the player attempted to pick up.
@@ -41,7 +45,8 @@ function GM:AllowPlayerPickup(ply, ent) end
 --- @return number|number
 function GM:CalcMainActivity(ply, vel) end
 
---- (client) Called from [GM:CalcView](https://wiki.facepunch.com/gmod/GM:CalcView) when player is in driving a vehicle.This hook may not be called in gamemodes that override [GM:CalcView](https://wiki.facepunch.com/gmod/GM:CalcView). 
+--- (client) Called from [GM:CalcView](https://wiki.facepunch.com/gmod/GM:CalcView) when player is in driving a vehicle.
+--- This hook may not be called in gamemodes that override [GM:CalcView](https://wiki.facepunch.com/gmod/GM:CalcView). 
 --- [https://wiki.facepunch.com/gmod/GM:CalcVehicleView]
 --- @param veh Vehicle @ The vehicle the player is driving
 --- @param ply Player @ The vehicle driver
@@ -71,7 +76,8 @@ function GM:CalcView(ply, origin, angles, fov, znear, zfar) end
 --- @return Vector|Angle
 function GM:CalcViewModelView(wep, vm, oldPos, oldAng, pos, ang) end
 
---- (server) Called when a variable is edited on an Entity (called by `Edit Properties...` menu), to determine if the edit should be permitted.See [Editable entities](https://wiki.facepunch.com/gmod/Editable_Entities) for more details about the system. 
+--- (server) Called when a variable is edited on an Entity (called by `Edit Properties...` menu), to determine if the edit should be permitted.
+--- See [Editable entities](https://wiki.facepunch.com/gmod/Editable_Entities) for more details about the system. 
 --- [https://wiki.facepunch.com/gmod/GM:CanEditVariable]
 --- @param ent Entity @ The entity being edited.
 --- @param ply Player @ The player doing the editing.
@@ -88,7 +94,8 @@ function GM:CanEditVariable(ent, ply, key, val, editor) end
 --- @return boolean
 function GM:CanExitVehicle(veh, ply) end
 
---- (server) Determines whether or not the player can enter the vehicle.Called just before [GM:PlayerEnteredVehicle](https://wiki.facepunch.com/gmod/GM:PlayerEnteredVehicle). 
+--- (server) Determines whether or not the player can enter the vehicle.
+--- Called just before [GM:PlayerEnteredVehicle](https://wiki.facepunch.com/gmod/GM:PlayerEnteredVehicle). 
 --- [https://wiki.facepunch.com/gmod/GM:CanPlayerEnterVehicle]
 --- @param player Player @ The player.
 --- @param vehicle Vehicle @ The vehicle.
@@ -122,12 +129,13 @@ function GM:CanUndo(ply, undo) end
 --- @return void
 function GM:CaptureVideo() end
 
---- (client) Called when a message is printed to the chat box. Note, that this isn't working with player messages even though there are arguments for it.For player messages see [GM:PlayerSay](https://wiki.facepunch.com/gmod/GM:PlayerSay) and [GM:OnPlayerChat](https://wiki.facepunch.com/gmod/GM:OnPlayerChat) 
+--- (client) Called when a message is printed to the chat box. Note, that this isn't working with player messages even though there are arguments for it.
+--- For player messages see [GM:PlayerSay](https://wiki.facepunch.com/gmod/GM:PlayerSay) and [GM:OnPlayerChat](https://wiki.facepunch.com/gmod/GM:OnPlayerChat) 
 --- [https://wiki.facepunch.com/gmod/GM:ChatText]
 --- @param index number @ The index of the player.
 --- @param name string @ The name of the player.
 --- @param text string @ The text that is being sent.
---- @param type string @ Chat filter type. Possible values are:* `joinleave` - Player join and leave messages* `namechange` - Player name change messages* `servermsg` - Server messages such as convar changes* `teamchange` - Team changes?* `chat` - (Obsolete?) Player chat?* `none` - A fallback value
+--- @param type string @ Chat filter type. Possible values are:  `joinleave` - Player join and leave messages  `namechange` - Player name change messages  `servermsg` - Server messages such as convar changes  `teamchange` - Team changes?  `chat` - (Obsolete?) Player chat?  `none` - A fallback value
 --- @return boolean
 function GM:ChatText(index, name, text, type) end
 
@@ -137,7 +145,8 @@ function GM:ChatText(index, name, text, type) end
 --- @return void
 function GM:ChatTextChanged(text) end
 
---- (server) Called when a non local player connects to allow the Lua system to check the password.The default behaviour in the base gamemodes emulates what would normally happen. If sv_password is set and its value matches the password passed in by the client - then they are allowed to join. If it isn't set it lets them in too. 
+--- (server) Called when a non local player connects to allow the Lua system to check the password.
+--- The default behaviour in the base gamemodes emulates what would normally happen. If sv_password is set and its value matches the password passed in by the client - then they are allowed to join. If it isn't set it lets them in too. 
 --- [https://wiki.facepunch.com/gmod/GM:CheckPassword]
 --- @param steamID64 string @ The 64bit Steam ID of the joining player, use [util.SteamIDFrom64](https://wiki.facepunch.com/gmod/util.SteamIDFrom64) to convert it to a `STEAM_0:` one.
 --- @param ipAddress string @ The IP of the connecting client
@@ -160,27 +169,31 @@ function GM:ClientSignOnStateChanged(userID, oldState, newState) end
 --- @return void
 function GM:CloseDermaMenus() end
 
---- (client) Called whenever an entity becomes a clientside ragdoll.See [GM:CreateEntityRagdoll](https://wiki.facepunch.com/gmod/GM:CreateEntityRagdoll) for serverside ragdolls. 
+--- (client) Called whenever an entity becomes a clientside ragdoll.
+--- See [GM:CreateEntityRagdoll](https://wiki.facepunch.com/gmod/GM:CreateEntityRagdoll) for serverside ragdolls. 
 --- [https://wiki.facepunch.com/gmod/GM:CreateClientsideRagdoll]
 --- @param entity Entity @ The Entity that created the ragdoll
 --- @param ragdoll Entity @ The ragdoll being created.
 --- @return void
 function GM:CreateClientsideRagdoll(entity, ragdoll) end
 
---- (server) Called when a serverside ragdoll of an entity has been created.See [GM:CreateClientsideRagdoll](https://wiki.facepunch.com/gmod/GM:CreateClientsideRagdoll) for clientside ragdolls. 
+--- (server) Called when a serverside ragdoll of an entity has been created.
+--- See [GM:CreateClientsideRagdoll](https://wiki.facepunch.com/gmod/GM:CreateClientsideRagdoll) for clientside ragdolls. 
 --- [https://wiki.facepunch.com/gmod/GM:CreateEntityRagdoll]
 --- @param owner Entity @ Entity that owns the ragdoll
 --- @param ragdoll Entity @ The ragdoll entity
 --- @return void
 function GM:CreateEntityRagdoll(owner, ragdoll) end
 
---- (client) Allows you to change the players movements before they're sent to the server.See [Game Movement](https://wiki.facepunch.com/gmod/Game%20Movement) for an explanation on the move system. 
+--- (client) Allows you to change the players movements before they're sent to the server.
+--- See [Game Movement](https://wiki.facepunch.com/gmod/Game%20Movement) for an explanation on the move system. 
 --- [https://wiki.facepunch.com/gmod/GM:CreateMove]
 --- @param cmd CUserCmd @ The User Command data
 --- @return boolean
 function GM:CreateMove(cmd) end
 
---- (client/server) Teams are created within this hook using [team.SetUp](https://wiki.facepunch.com/gmod/team.SetUp).This hook is called before [GM:PreGamemodeLoaded](https://wiki.facepunch.com/gmod/GM:PreGamemodeLoaded). 
+--- (client/server) Teams are created within this hook using [team.SetUp](https://wiki.facepunch.com/gmod/team.SetUp).
+--- This hook is called before [GM:PreGamemodeLoaded](https://wiki.facepunch.com/gmod/GM:PreGamemodeLoaded). 
 --- [https://wiki.facepunch.com/gmod/GM:CreateTeams]
 --- @return void
 function GM:CreateTeams() end
@@ -193,7 +206,10 @@ function GM:CreateTeams() end
 --- @return number
 function GM:DoAnimationEvent(ply, event, data) end
 
---- (server) Handles the player's death.This hook is **not** called if the player is killed by [Player:KillSilent](https://wiki.facepunch.com/gmod/Player:KillSilent). See [GM:PlayerSilentDeath](https://wiki.facepunch.com/gmod/GM:PlayerSilentDeath) for that.* [GM:PlayerDeath](https://wiki.facepunch.com/gmod/GM:PlayerDeath) is called after this hook* [GM:PostPlayerDeath](https://wiki.facepunch.com/gmod/GM:PostPlayerDeath) is called after that 
+--- (server) Handles the player's death.
+--- This hook is **not** called if the player is killed by [Player:KillSilent](https://wiki.facepunch.com/gmod/Player:KillSilent). See [GM:PlayerSilentDeath](https://wiki.facepunch.com/gmod/GM:PlayerSilentDeath) for that.
+--- * [GM:PlayerDeath](https://wiki.facepunch.com/gmod/GM:PlayerDeath) is called after this hook
+--- * [GM:PostPlayerDeath](https://wiki.facepunch.com/gmod/GM:PostPlayerDeath) is called after that 
 --- [https://wiki.facepunch.com/gmod/GM:DoPlayerDeath]
 --- @param ply Player @ The player
 --- @param attacker Entity @ The entity that killed the player
@@ -213,7 +229,8 @@ function GM:DrawDeathNotice(x, y) end
 --- @return void
 function GM:DrawMonitors() end
 
---- (client/menu) Called after all other 2D draw hooks are called. Draws over all VGUI Panels and HUDs.Unlike [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint), this hook is called with the game paused and while the Camera SWEP is equipped. 
+--- (client/menu) Called after all other 2D draw hooks are called. Draws over all VGUI Panels and HUDs.
+--- Unlike [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint), this hook is called with the game paused and while the Camera SWEP is equipped. 
 --- [https://wiki.facepunch.com/gmod/GM:DrawOverlay]
 --- @return void
 function GM:DrawOverlay() end
@@ -238,7 +255,7 @@ function GM:EndEntityDriving(ent, ply) end
 
 --- (client/server) Called whenever a sound has been played. This will not be called clientside if the server played the sound without the client also calling [Entity:EmitSound](https://wiki.facepunch.com/gmod/Entity:EmitSound). 
 --- [https://wiki.facepunch.com/gmod/GM:EntityEmitSound]
---- @param data table @ Information about the played sound. Changes done to this table can be applied by returning `true` from this hook.See [EmitSoundInfo](https://wiki.facepunch.com/gmod/Structures/EmitSoundInfo).
+--- @param data table @ Information about the played sound. Changes done to this table can be applied by returning `true` from this hook. See [EmitSoundInfo](https://wiki.facepunch.com/gmod/Structures/EmitSoundInfo).
 --- @return boolean
 function GM:EntityEmitSound(data) end
 
@@ -249,7 +266,10 @@ function GM:EntityEmitSound(data) end
 --- @return boolean
 function GM:EntityFireBullets(entity, data) end
 
---- (client/server) Called when a key-value pair is set on an entity, either by the engine (for example when map spawns) or [Entity:SetKeyValue](https://wiki.facepunch.com/gmod/Entity:SetKeyValue).See [ENTITY:KeyValue](https://wiki.facepunch.com/gmod/ENTITY:KeyValue) for a hook that works for scripted entities.See [WEAPON:KeyValue](https://wiki.facepunch.com/gmod/WEAPON:KeyValue) for a hook that works for scripted weapons. 
+--- (client/server) Called when a key-value pair is set on an entity, either by the engine (for example when map spawns) or [Entity:SetKeyValue](https://wiki.facepunch.com/gmod/Entity:SetKeyValue).
+--- See [ENTITY:KeyValue](https://wiki.facepunch.com/gmod/ENTITY:KeyValue) for a hook that works for scripted entities.
+--- 
+--- See [WEAPON:KeyValue](https://wiki.facepunch.com/gmod/WEAPON:KeyValue) for a hook that works for scripted weapons. 
 --- [https://wiki.facepunch.com/gmod/GM:EntityKeyValue]
 --- @param ent Entity @ Entity that the keyvalue is being set on
 --- @param key string @ Key of the key/value pair
@@ -291,7 +311,8 @@ function GM:FindUseEntity(ply, defaultEnt) end
 --- @return void
 function GM:FinishChat() end
 
---- (client/server) Called after [GM:Move](https://wiki.facepunch.com/gmod/GM:Move), applies all the changes from the [CMoveData](https://wiki.facepunch.com/gmod/CMoveData) to the player.See [Game Movement](https://wiki.facepunch.com/gmod/Game%20Movement) for an explanation on the move system. 
+--- (client/server) Called after [GM:Move](https://wiki.facepunch.com/gmod/GM:Move), applies all the changes from the [CMoveData](https://wiki.facepunch.com/gmod/CMoveData) to the player.
+--- See [Game Movement](https://wiki.facepunch.com/gmod/Game%20Movement) for an explanation on the move system. 
 --- [https://wiki.facepunch.com/gmod/GM:FinishMove]
 --- @param ply Player @ Player
 --- @param mv CMoveData @ Movement data
@@ -354,42 +375,51 @@ function GM:GetTeamNumColor(team) end
 --- @return void
 function GM:GrabEarAnimation(ply) end
 
---- (server) Called when an entity is released by a gravity gun.See [GM:PhysgunDrop](https://wiki.facepunch.com/gmod/GM:PhysgunDrop) for the Physics Gun drop variant. 
+--- (server) Called when an entity is released by a gravity gun.
+--- See [GM:PhysgunDrop](https://wiki.facepunch.com/gmod/GM:PhysgunDrop) for the Physics Gun drop variant. 
 --- [https://wiki.facepunch.com/gmod/GM:GravGunOnDropped]
 --- @param ply Player @ Player who is wielding the gravity gun
 --- @param ent Entity @ The entity that has been dropped
 --- @return void
 function GM:GravGunOnDropped(ply, ent) end
 
---- (server) Called when an entity is picked up by a gravity gun.See [GM:OnPlayerPhysicsPickup](https://wiki.facepunch.com/gmod/GM:OnPlayerPhysicsPickup) for the player `+use` pickup variant.See [GM:OnPhysgunPickup](https://wiki.facepunch.com/gmod/GM:OnPhysgunPickup) for the Physics Gun pickup variant. 
+--- (server) Called when an entity is picked up by a gravity gun.
+--- See [GM:OnPlayerPhysicsPickup](https://wiki.facepunch.com/gmod/GM:OnPlayerPhysicsPickup) for the player `+use` pickup variant.
+--- See [GM:OnPhysgunPickup](https://wiki.facepunch.com/gmod/GM:OnPhysgunPickup) for the Physics Gun pickup variant. 
 --- [https://wiki.facepunch.com/gmod/GM:GravGunOnPickedUp]
 --- @param ply Player @ The player wielding the gravity gun
 --- @param ent Entity @ The entity that has been picked up by the gravity gun
 --- @return void
 function GM:GravGunOnPickedUp(ply, ent) end
 
---- (server) Called every tick to poll whether a player is allowed to pick up an entity with the gravity gun or not.See [GM:AllowPlayerPickup](https://wiki.facepunch.com/gmod/GM:AllowPlayerPickup) for the +USE pickup variant.See [GM:PhysgunPickup](https://wiki.facepunch.com/gmod/GM:PhysgunPickup) for the Physics Gun pickup variant.Calls [ENTITY:GravGunPickupAllowed](https://wiki.facepunch.com/gmod/ENTITY:GravGunPickupAllowed) on the entity being hovered every frame in Sandbox-derived gamemodes. 
+--- (server) Called every tick to poll whether a player is allowed to pick up an entity with the gravity gun or not.
+--- See [GM:AllowPlayerPickup](https://wiki.facepunch.com/gmod/GM:AllowPlayerPickup) for the +USE pickup variant.
+--- See [GM:PhysgunPickup](https://wiki.facepunch.com/gmod/GM:PhysgunPickup) for the Physics Gun pickup variant.
+--- Calls [ENTITY:GravGunPickupAllowed](https://wiki.facepunch.com/gmod/ENTITY:GravGunPickupAllowed) on the entity being hovered every frame in Sandbox-derived gamemodes. 
 --- [https://wiki.facepunch.com/gmod/GM:GravGunPickupAllowed]
 --- @param ply Player @ The player wielding the gravity gun
 --- @param ent Entity @ The entity the player is attempting to pick up
 --- @return boolean
 function GM:GravGunPickupAllowed(ply, ent) end
 
---- (client/server) Called when an entity is about to be punted with the gravity gun (primary fire).By default this function makes [ENTITY:GravGunPunt](https://wiki.facepunch.com/gmod/ENTITY:GravGunPunt) work in Sandbox derived gamemodes. 
+--- (client/server) Called when an entity is about to be punted with the gravity gun (primary fire).
+--- By default this function makes [ENTITY:GravGunPunt](https://wiki.facepunch.com/gmod/ENTITY:GravGunPunt) work in Sandbox derived gamemodes. 
 --- [https://wiki.facepunch.com/gmod/GM:GravGunPunt]
 --- @param ply Player @ The player wielding the gravity gun
 --- @param ent Entity @ The entity the player is attempting to punt
 --- @return boolean
 function GM:GravGunPunt(ply, ent) end
 
---- (client) Called when the mouse has been double clicked on any panel derived from CGModBase, such as the panel used by [gui.EnableScreenClicker](https://wiki.facepunch.com/gmod/gui.EnableScreenClicker) and the panel used by [Panel:ParentToHUD](https://wiki.facepunch.com/gmod/Panel:ParentToHUD).By default this hook calls [GM:GUIMousePressed](https://wiki.facepunch.com/gmod/GM:GUIMousePressed). 
+--- (client) Called when the mouse has been double clicked on any panel derived from CGModBase, such as the panel used by [gui.EnableScreenClicker](https://wiki.facepunch.com/gmod/gui.EnableScreenClicker) and the panel used by [Panel:ParentToHUD](https://wiki.facepunch.com/gmod/Panel:ParentToHUD).
+--- By default this hook calls [GM:GUIMousePressed](https://wiki.facepunch.com/gmod/GM:GUIMousePressed). 
 --- [https://wiki.facepunch.com/gmod/GM:GUIMouseDoublePressed]
 --- @param mouseCode number @ The code of the mouse button pressed, see [MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE)
 --- @param aimVector Vector @ A normalized vector pointing in the direction the client has clicked
 --- @return void
 function GM:GUIMouseDoublePressed(mouseCode, aimVector) end
 
---- (client) Called whenever a players presses a mouse key on the context menu in Sandbox or on any panel derived from CGModBase, such as the panel used by [gui.EnableScreenClicker](https://wiki.facepunch.com/gmod/gui.EnableScreenClicker) and the panel used by [Panel:ParentToHUD](https://wiki.facepunch.com/gmod/Panel:ParentToHUD).See [GM:VGUIMousePressed](https://wiki.facepunch.com/gmod/GM:VGUIMousePressed) for a hook that is called on all VGUI elements. 
+--- (client) Called whenever a players presses a mouse key on the context menu in Sandbox or on any panel derived from CGModBase, such as the panel used by [gui.EnableScreenClicker](https://wiki.facepunch.com/gmod/gui.EnableScreenClicker) and the panel used by [Panel:ParentToHUD](https://wiki.facepunch.com/gmod/Panel:ParentToHUD).
+--- See [GM:VGUIMousePressed](https://wiki.facepunch.com/gmod/GM:VGUIMousePressed) for a hook that is called on all VGUI elements. 
 --- [https://wiki.facepunch.com/gmod/GM:GUIMousePressed]
 --- @param mouseCode number @ The key that the player pressed using [MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE).
 --- @param aimVector Vector @ A normalized direction vector local to the camera. Internally, this is  [gui.ScreenToVector](https://wiki.facepunch.com/gmod/gui.ScreenToVector)( [gui.MousePos](https://wiki.facepunch.com/gmod/gui.MousePos)() ).
@@ -469,7 +499,9 @@ function GM:HUDAmmoPickedUp(itemName, amount) end
 --- @return void
 function GM:HUDDrawPickupHistory() end
 
---- (client) Called every frame to render the scoreboard.It is recommended to use Derma and VGUI for this job instead of this hook. Called right after [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint). 
+--- (client) Called every frame to render the scoreboard.
+--- 
+--- It is recommended to use Derma and VGUI for this job instead of this hook. Called right after [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint). 
 --- [https://wiki.facepunch.com/gmod/GM:HUDDrawScoreBoard]
 --- @return void
 function GM:HUDDrawScoreBoard() end
@@ -485,12 +517,17 @@ function GM:HUDDrawTargetID() end
 --- @return void
 function GM:HUDItemPickedUp(itemName) end
 
---- (client) Called whenever the HUD should be drawn.Called right before [GM:HUDDrawScoreBoard](https://wiki.facepunch.com/gmod/GM:HUDDrawScoreBoard) and after [GM:HUDPaintBackground](https://wiki.facepunch.com/gmod/GM:HUDPaintBackground).Not called when the Camera SWEP is equipped, or when the main menu is visible. [GM:PostDrawHUD](https://wiki.facepunch.com/gmod/GM:PostDrawHUD) does not have this behavior.See also [GM:DrawOverlay](https://wiki.facepunch.com/gmod/GM:DrawOverlay). 
+--- (client) Called whenever the HUD should be drawn.
+--- Called right before [GM:HUDDrawScoreBoard](https://wiki.facepunch.com/gmod/GM:HUDDrawScoreBoard) and after [GM:HUDPaintBackground](https://wiki.facepunch.com/gmod/GM:HUDPaintBackground).
+--- Not called when the Camera SWEP is equipped, or when the main menu is visible. [GM:PostDrawHUD](https://wiki.facepunch.com/gmod/GM:PostDrawHUD) does not have this behavior.
+--- See also [GM:DrawOverlay](https://wiki.facepunch.com/gmod/GM:DrawOverlay). 
 --- [https://wiki.facepunch.com/gmod/GM:HUDPaint]
 --- @return void
 function GM:HUDPaint() end
 
---- (client) Called before [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint) when the HUD background is being drawn.Just like [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint), this hook will not be called when the main menu is visible. [GM:PostDrawHUD](https://wiki.facepunch.com/gmod/GM:PostDrawHUD) does not have this behavior.Things rendered in this hook will **always** appear behind things rendered in [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint). 
+--- (client) Called before [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint) when the HUD background is being drawn.
+--- Just like [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint), this hook will not be called when the main menu is visible. [GM:PostDrawHUD](https://wiki.facepunch.com/gmod/GM:PostDrawHUD) does not have this behavior.
+--- Things rendered in this hook will **always** appear behind things rendered in [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint). 
 --- [https://wiki.facepunch.com/gmod/GM:HUDPaintBackground]
 --- @return void
 function GM:HUDPaintBackground() end
@@ -534,14 +571,16 @@ function GM:InputMouseApply(cmd, x, y, ang) end
 --- @return boolean
 function GM:IsSpawnpointSuitable(ply, spawnpoint, makeSuitable) end
 
---- (client/server) Called whenever a player pressed a key included within the IN keys.For a more general purpose function that handles all kinds of input, see [GM:PlayerButtonDown](https://wiki.facepunch.com/gmod/GM:PlayerButtonDown). 
+--- (client/server) Called whenever a player pressed a key included within the IN keys.
+--- For a more general purpose function that handles all kinds of input, see [GM:PlayerButtonDown](https://wiki.facepunch.com/gmod/GM:PlayerButtonDown). 
 --- [https://wiki.facepunch.com/gmod/GM:KeyPress]
 --- @param ply Player @ The player pressing the key. If running client-side, this will always be [LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer).
 --- @param key number @ The key that the player pressed using [IN](https://wiki.facepunch.com/gmod/Enums/IN).
 --- @return void
 function GM:KeyPress(ply, key) end
 
---- (client/server) Runs when a IN key was released by a player.For a more general purpose function that handles all kinds of input, see [GM:PlayerButtonUp](https://wiki.facepunch.com/gmod/GM:PlayerButtonUp). 
+--- (client/server) Runs when a IN key was released by a player.
+--- For a more general purpose function that handles all kinds of input, see [GM:PlayerButtonUp](https://wiki.facepunch.com/gmod/GM:PlayerButtonUp). 
 --- [https://wiki.facepunch.com/gmod/GM:KeyRelease]
 --- @param ply Player @ The player releasing the key. If running client-side, this will always be [LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer).
 --- @param key number @ The key that the player released using [IN](https://wiki.facepunch.com/gmod/Enums/IN).
@@ -567,7 +606,11 @@ function GM:MenuStart() end
 --- @return void
 function GM:MouthMoveAnimation(ply) end
 
---- (client/server) The Move hook is called for you to manipulate the player's MoveData. You shouldn't adjust the player's position in any way in the move hook. This is because due to prediction errors, the netcode might run the move hook multiple times as packets arrive late. Therefore you should only adjust the movedata construct in this hook.Generally you shouldn't have to use this hook - if you want to make a custom move type you should look at the drive system.This hook is called after [GM:PlayerTick](https://wiki.facepunch.com/gmod/GM:PlayerTick).See [Game Movement](https://wiki.facepunch.com/gmod/Game%20Movement) for an explanation on the move system. 
+--- (client/server) The Move hook is called for you to manipulate the player's MoveData. 
+--- You shouldn't adjust the player's position in any way in the move hook. This is because due to prediction errors, the netcode might run the move hook multiple times as packets arrive late. Therefore you should only adjust the movedata construct in this hook.
+--- Generally you shouldn't have to use this hook - if you want to make a custom move type you should look at the drive system.
+--- This hook is called after [GM:PlayerTick](https://wiki.facepunch.com/gmod/GM:PlayerTick).
+--- See [Game Movement](https://wiki.facepunch.com/gmod/Game%20Movement) for an explanation on the move system. 
 --- [https://wiki.facepunch.com/gmod/GM:Move]
 --- @param ply Player @ Player
 --- @param mv CMoveData @ Movement information
@@ -585,7 +628,8 @@ function GM:NeedsDepthPass() end
 --- @return void
 function GM:NetworkEntityCreated(ent) end
 
---- (server) Called when a player's SteamID has been validated by Steam.See also [GM:PlayerAuthed](https://wiki.facepunch.com/gmod/GM:PlayerAuthed). 
+--- (server) Called when a player's SteamID has been validated by Steam.
+--- See also [GM:PlayerAuthed](https://wiki.facepunch.com/gmod/GM:PlayerAuthed). 
 --- [https://wiki.facepunch.com/gmod/GM:NetworkIDValidated]
 --- @param name string @ Player name
 --- @param steamID string @ Player SteamID
@@ -618,12 +662,15 @@ function GM:OnChatTab(text) end
 --- @return boolean
 function GM:OnCleanup(name) end
 
---- (client) Called when the context menu keybind (+menu_context) is released, which by default is C.This hook will not run if [input.IsKeyTrapping](https://wiki.facepunch.com/gmod/input.IsKeyTrapping) returns true.See also [GM:OnContextMenuOpen](https://wiki.facepunch.com/gmod/GM:OnContextMenuOpen). 
+--- (client) Called when the context menu keybind (+menu_context) is released, which by default is C.
+--- This hook will not run if [input.IsKeyTrapping](https://wiki.facepunch.com/gmod/input.IsKeyTrapping) returns true.
+--- See also [GM:OnContextMenuOpen](https://wiki.facepunch.com/gmod/GM:OnContextMenuOpen). 
 --- [https://wiki.facepunch.com/gmod/GM:OnContextMenuClose]
 --- @return void
 function GM:OnContextMenuClose() end
 
---- (client) Called when the context menu keybind (`+menu_context`) is pressed, which by default is .See also [GM:OnContextMenuClose](https://wiki.facepunch.com/gmod/GM:OnContextMenuClose). 
+--- (client) Called when the context menu keybind (`+menu_context`) is pressed, which by default is .
+--- See also [GM:OnContextMenuClose](https://wiki.facepunch.com/gmod/GM:OnContextMenuClose). 
 --- [https://wiki.facepunch.com/gmod/GM:OnContextMenuOpen]
 --- @return void
 function GM:OnContextMenuOpen() end
@@ -656,7 +703,8 @@ function GM:OnEntityCreated(entity) end
 --- @return void
 function GM:OnEntityWaterLevelChanged(entity, old, new) end
 
---- (client/server) Called when the gamemode is loaded.[LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer)() returns NULL at the time this is run. 
+--- (client/server) Called when the gamemode is loaded.
+--- [LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer)() returns NULL at the time this is run. 
 --- [https://wiki.facepunch.com/gmod/GM:OnGamemodeLoaded]
 --- @return void
 function GM:OnGamemodeLoaded() end
@@ -688,7 +736,11 @@ function GM:OnNPCKilled(npc, attacker, inflictor) end
 --- @return boolean
 function GM:OnPhysgunFreeze(weapon, physobj, ent, ply) end
 
---- (server) Called to when a player has successfully picked up an entity with their Physics Gun.Not to be confused with [GM:PhysgunPickup](https://wiki.facepunch.com/gmod/GM:PhysgunPickup) which is called multiple times to ask if the player should be able to pick up an entity.See [GM:GravGunOnPickedUp](https://wiki.facepunch.com/gmod/GM:GravGunOnPickedUp) for the Gravity Gun pickup variant.See [GM:OnPlayerPhysicsPickup](https://wiki.facepunch.com/gmod/GM:OnPlayerPhysicsPickup) for the player `+use` pickup variant. 
+--- (server) Called to when a player has successfully picked up an entity with their Physics Gun.
+--- Not to be confused with [GM:PhysgunPickup](https://wiki.facepunch.com/gmod/GM:PhysgunPickup) which is called multiple times to ask if the player should be able to pick up an entity.
+--- 
+--- See [GM:GravGunOnPickedUp](https://wiki.facepunch.com/gmod/GM:GravGunOnPickedUp) for the Gravity Gun pickup variant.
+--- See [GM:OnPlayerPhysicsPickup](https://wiki.facepunch.com/gmod/GM:OnPlayerPhysicsPickup) for the player `+use` pickup variant. 
 --- [https://wiki.facepunch.com/gmod/GM:OnPhysgunPickup]
 --- @param ply Player @ The player that has picked up something using the physics gun.
 --- @param ent Entity @ The entity that was picked up.
@@ -736,7 +788,9 @@ function GM:OnPlayerHitGround(player, inWater, onFloater, speed) end
 --- @return void
 function GM:OnPlayerPhysicsDrop(ply, ent, thrown) end
 
---- (server) Called when a player +use pickups up an entity. This will be called after the entity passes though [GM:AllowPlayerPickup](https://wiki.facepunch.com/gmod/GM:AllowPlayerPickup).See [GM:GravGunOnPickedUp](https://wiki.facepunch.com/gmod/GM:GravGunOnPickedUp) for the Gravity Gun pickup variant.See [GM:OnPhysgunPickup](https://wiki.facepunch.com/gmod/GM:OnPhysgunPickup) for the Physics Gun pickup variant. 
+--- (server) Called when a player +use pickups up an entity. This will be called after the entity passes though [GM:AllowPlayerPickup](https://wiki.facepunch.com/gmod/GM:AllowPlayerPickup).
+--- See [GM:GravGunOnPickedUp](https://wiki.facepunch.com/gmod/GM:GravGunOnPickedUp) for the Gravity Gun pickup variant.
+--- See [GM:OnPhysgunPickup](https://wiki.facepunch.com/gmod/GM:OnPhysgunPickup) for the Physics Gun pickup variant. 
 --- [https://wiki.facepunch.com/gmod/GM:OnPlayerPhysicsPickup]
 --- @param ply Player @ The player that picked up the object
 --- @param ent Entity @ The object that was picked up.
@@ -748,7 +802,8 @@ function GM:OnPlayerPhysicsPickup(ply, ent) end
 --- @return void
 function GM:OnReloaded() end
 
---- (client) Called when the player's screen resolution of the game changes.[ScrW](https://wiki.facepunch.com/gmod/Global.ScrW) and [ScrH](https://wiki.facepunch.com/gmod/Global.ScrH) will return the new values when this hook is called. 
+--- (client) Called when the player's screen resolution of the game changes.
+--- [ScrW](https://wiki.facepunch.com/gmod/Global.ScrW) and [ScrH](https://wiki.facepunch.com/gmod/Global.ScrH) will return the new values when this hook is called. 
 --- [https://wiki.facepunch.com/gmod/GM:OnScreenSizeChanged]
 --- @param oldWidth number @ The previous width of the game's window.
 --- @param oldHeight number @ The previous height of the game's window.
@@ -765,7 +820,8 @@ function GM:OnSpawnMenuClose() end
 --- @return void
 function GM:OnSpawnMenuOpen() end
 
---- (client) Called when a [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) gets focus.This hook is run from [DTextEntry:OnGetFocus](https://wiki.facepunch.com/gmod/DTextEntry:OnGetFocus) and [PANEL:OnMousePressed](https://wiki.facepunch.com/gmod/PANEL:OnMousePressed) of [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry). 
+--- (client) Called when a [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) gets focus.
+--- This hook is run from [DTextEntry:OnGetFocus](https://wiki.facepunch.com/gmod/DTextEntry:OnGetFocus) and [PANEL:OnMousePressed](https://wiki.facepunch.com/gmod/PANEL:OnMousePressed) of [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry). 
 --- [https://wiki.facepunch.com/gmod/GM:OnTextEntryGetFocus]
 --- @param panel Panel @ The panel that got focus
 --- @return void
@@ -792,14 +848,18 @@ function GM:OnUndo(name, customText) end
 --- @return void
 function GM:OnViewModelChanged(viewmodel, oldModel, newModel) end
 
---- (client/server) Called when a player drops an entity with the Physgun.See [GM:GravGunOnDropped](https://wiki.facepunch.com/gmod/GM:GravGunOnDropped) for the Gravity Gun drop variant. 
+--- (client/server) Called when a player drops an entity with the Physgun.
+--- See [GM:GravGunOnDropped](https://wiki.facepunch.com/gmod/GM:GravGunOnDropped) for the Gravity Gun drop variant. 
 --- [https://wiki.facepunch.com/gmod/GM:PhysgunDrop]
 --- @param ply Player @ The player who dropped an entitiy
 --- @param ent Entity @ The dropped entity
 --- @return void
 function GM:PhysgunDrop(ply, ent) end
 
---- (client/server) Called to determine if a player should be able to pick up an entity with the Physics Gun.See [GM:OnPhysgunPickup](https://wiki.facepunch.com/gmod/GM:OnPhysgunPickup) for a hook which is called when a player has successfully picked up an entity.See [GM:GravGunPickupAllowed](https://wiki.facepunch.com/gmod/GM:GravGunPickupAllowed) for the Gravity Gun pickup variant.See [GM:AllowPlayerPickup](https://wiki.facepunch.com/gmod/GM:AllowPlayerPickup) for the +USE pickup variant. 
+--- (client/server) Called to determine if a player should be able to pick up an entity with the Physics Gun.
+--- See [GM:OnPhysgunPickup](https://wiki.facepunch.com/gmod/GM:OnPhysgunPickup) for a hook which is called when a player has successfully picked up an entity.
+--- See [GM:GravGunPickupAllowed](https://wiki.facepunch.com/gmod/GM:GravGunPickupAllowed) for the Gravity Gun pickup variant.
+--- See [GM:AllowPlayerPickup](https://wiki.facepunch.com/gmod/GM:AllowPlayerPickup) for the +USE pickup variant. 
 --- [https://wiki.facepunch.com/gmod/GM:PhysgunPickup]
 --- @param player Player @ The player that is picking up using the Physics Gun.
 --- @param entity Entity @ The entity that is being picked up.
@@ -832,14 +892,16 @@ function GM:PlayerAuthed(ply, steamid, uniqueid) end
 --- @return boolean
 function GM:PlayerBindPress(ply, bind, pressed, code) end
 
---- (client/server) Called when a player presses a button.This will not be called if player has a panel opened with keyboard input enabled, use [PANEL:OnKeyCodePressed](https://wiki.facepunch.com/gmod/PANEL:OnKeyCodePressed) instead. 
+--- (client/server) Called when a player presses a button.
+--- This will not be called if player has a panel opened with keyboard input enabled, use [PANEL:OnKeyCodePressed](https://wiki.facepunch.com/gmod/PANEL:OnKeyCodePressed) instead. 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerButtonDown]
 --- @param ply Player @ Player who pressed the button
 --- @param button number @ The button, see [BUTTON_CODE](https://wiki.facepunch.com/gmod/Enums/BUTTON_CODE)
 --- @return void
 function GM:PlayerButtonDown(ply, button) end
 
---- (client/server) Called when a player releases a button.This will not be called if player has a panel opened with keyboard input enabled, use [PANEL:OnKeyCodeReleased](https://wiki.facepunch.com/gmod/PANEL:OnKeyCodeReleased) instead. 
+--- (client/server) Called when a player releases a button.
+--- This will not be called if player has a panel opened with keyboard input enabled, use [PANEL:OnKeyCodeReleased](https://wiki.facepunch.com/gmod/PANEL:OnKeyCodeReleased) instead. 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerButtonUp]
 --- @param ply Player @ Player who released the button
 --- @param button number @ The button, see [BUTTON_CODE](https://wiki.facepunch.com/gmod/Enums/BUTTON_CODE)
@@ -903,7 +965,7 @@ function GM:PlayerCheckLimit(ply, limitName, current, defaultMax) end
 --- (client) Called whenever a player's class is changed on the server-side with [player_manager.SetPlayerClass](https://wiki.facepunch.com/gmod/player_manager.SetPlayerClass). 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerClassChanged]
 --- @param ply Player @ The player whose class has been changed.
---- @param newID number @ The network ID of the player class's name string, or `0` if we are clearing a player class from the player.Pass this into [util.NetworkIDToString](https://wiki.facepunch.com/gmod/util.NetworkIDToString) to retrieve the proper name of the player class.
+--- @param newID number @ The network ID of the player class's name string, or `0` if we are clearing a player class from the player. Pass this into [util.NetworkIDToString](https://wiki.facepunch.com/gmod/util.NetworkIDToString) to retrieve the proper name of the player class.
 --- @return void
 function GM:PlayerClassChanged(ply, newID) end
 
@@ -914,7 +976,11 @@ function GM:PlayerClassChanged(ply, newID) end
 --- @return void
 function GM:PlayerConnect(name, ip) end
 
---- (server) Called when a player is killed by [Player:Kill](https://wiki.facepunch.com/gmod/Player:Kill) or any other normal means.This hook is **not** called if the player is killed by [Player:KillSilent](https://wiki.facepunch.com/gmod/Player:KillSilent). See [GM:PlayerSilentDeath](https://wiki.facepunch.com/gmod/GM:PlayerSilentDeath) for that.* [GM:DoPlayerDeath](https://wiki.facepunch.com/gmod/GM:DoPlayerDeath) is called **before** this hook.* [GM:PostPlayerDeath](https://wiki.facepunch.com/gmod/GM:PostPlayerDeath) is called **after** this hook.See [Player:LastHitGroup](https://wiki.facepunch.com/gmod/Player:LastHitGroup) if you need to get the last hit hitgroup of the player. 
+--- (server) Called when a player is killed by [Player:Kill](https://wiki.facepunch.com/gmod/Player:Kill) or any other normal means.
+--- This hook is **not** called if the player is killed by [Player:KillSilent](https://wiki.facepunch.com/gmod/Player:KillSilent). See [GM:PlayerSilentDeath](https://wiki.facepunch.com/gmod/GM:PlayerSilentDeath) for that.
+--- * [GM:DoPlayerDeath](https://wiki.facepunch.com/gmod/GM:DoPlayerDeath) is called **before** this hook.
+--- * [GM:PostPlayerDeath](https://wiki.facepunch.com/gmod/GM:PostPlayerDeath) is called **after** this hook.
+--- See [Player:LastHitGroup](https://wiki.facepunch.com/gmod/Player:LastHitGroup) if you need to get the last hit hitgroup of the player. 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerDeath]
 --- @param victim Player @ The player who died
 --- @param inflictor Entity @ Item used to kill the victim
@@ -928,7 +994,8 @@ function GM:PlayerDeath(victim, inflictor, attacker) end
 --- @return boolean
 function GM:PlayerDeathSound(ply) end
 
---- (server) Called every think while the player is dead. The return value will determine if the player respawns.Overwriting this function will prevent players from respawning by pressing space or clicking. 
+--- (server) Called every think while the player is dead. The return value will determine if the player respawns.
+--- Overwriting this function will prevent players from respawning by pressing space or clicking. 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerDeathThink]
 --- @param ply Player @ The player affected in the hook.
 --- @return boolean
@@ -946,7 +1013,12 @@ function GM:PlayerDisconnected(ply) end
 --- @return void
 function GM:PlayerDriveAnimate(ply) end
 
---- (server) Called when a weapon is dropped by a player via [Player:DropWeapon](https://wiki.facepunch.com/gmod/Player:DropWeapon).Also called when a weapon is removed from a player via [Player:StripWeapon](https://wiki.facepunch.com/gmod/Player:StripWeapon).See also [GM:WeaponEquip](https://wiki.facepunch.com/gmod/GM:WeaponEquip) for a hook when a player picks up a weapon.The weapon's [Entity:GetOwner](https://wiki.facepunch.com/gmod/Entity:GetOwner) will be NULL at the time this hook is called.[WEAPON:OnDrop](https://wiki.facepunch.com/gmod/WEAPON:OnDrop) will be called before this hook is. 
+--- (server) Called when a weapon is dropped by a player via [Player:DropWeapon](https://wiki.facepunch.com/gmod/Player:DropWeapon).
+--- Also called when a weapon is removed from a player via [Player:StripWeapon](https://wiki.facepunch.com/gmod/Player:StripWeapon).
+--- See also [GM:WeaponEquip](https://wiki.facepunch.com/gmod/GM:WeaponEquip) for a hook when a player picks up a weapon.
+--- The weapon's [Entity:GetOwner](https://wiki.facepunch.com/gmod/Entity:GetOwner) will be NULL at the time this hook is called.
+--- 
+--- [WEAPON:OnDrop](https://wiki.facepunch.com/gmod/WEAPON:OnDrop) will be called before this hook is. 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerDroppedWeapon]
 --- @param owner Player @ The player who owned this weapon before it was dropped
 --- @param wep Weapon @ The weapon that was dropped
@@ -959,7 +1031,9 @@ function GM:PlayerDroppedWeapon(owner, wep) end
 --- @return void
 function GM:PlayerEndVoice(ply) end
 
---- (server) Called when a player enters a vehicle.Called just after [GM:CanPlayerEnterVehicle](https://wiki.facepunch.com/gmod/GM:CanPlayerEnterVehicle).See also [GM:PlayerLeaveVehicle](https://wiki.facepunch.com/gmod/GM:PlayerLeaveVehicle). 
+--- (server) Called when a player enters a vehicle.
+--- Called just after [GM:CanPlayerEnterVehicle](https://wiki.facepunch.com/gmod/GM:CanPlayerEnterVehicle).
+--- See also [GM:PlayerLeaveVehicle](https://wiki.facepunch.com/gmod/GM:PlayerLeaveVehicle). 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerEnteredVehicle]
 --- @param ply Player @ Player who entered vehicle.
 --- @param veh Vehicle @ Vehicle the player entered.
@@ -967,7 +1041,8 @@ function GM:PlayerEndVoice(ply) end
 --- @return void
 function GM:PlayerEnteredVehicle(ply, veh, role) end
 
---- (client) Called before firing clientside animation events on a player model.See [GM:PlayerHandleAnimEvent](https://wiki.facepunch.com/gmod/GM:PlayerHandleAnimEvent) for the serverside version. 
+--- (client) Called before firing clientside animation events on a player model.
+--- See [GM:PlayerHandleAnimEvent](https://wiki.facepunch.com/gmod/GM:PlayerHandleAnimEvent) for the serverside version. 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerFireAnimationEvent]
 --- @param ply Player @ The player who has triggered the event.
 --- @param pos Vector @ Position of the effect
@@ -996,7 +1071,8 @@ function GM:PlayerFootstep(ply, pos, foot, sound, volume, filter) end
 --- @return void
 function GM:PlayerFrozeObject(ply, ent, physobj) end
 
---- (server) Called before firing serverside animation events on the player models.See [GM:PlayerFireAnimationEvent](https://wiki.facepunch.com/gmod/GM:PlayerFireAnimationEvent) for the clientside version. 
+--- (server) Called before firing serverside animation events on the player models.
+--- See [GM:PlayerFireAnimationEvent](https://wiki.facepunch.com/gmod/GM:PlayerFireAnimationEvent) for the clientside version. 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerHandleAnimEvent]
 --- @param ply Player @ The player who has triggered the event.
 --- @param event number @ The event ID of happened even. See [this page](http://developer.valvesoftware.com/wiki/Animation_Events).
@@ -1016,7 +1092,8 @@ function GM:PlayerHandleAnimEvent (ply, event, eventTime, cycle, type, options) 
 --- @return void
 function GM:PlayerHurt(victim, attacker, healthRemaining, damageTaken) end
 
---- (server) Called when the player spawns for the first time.See [GM:PlayerSpawn](https://wiki.facepunch.com/gmod/GM:PlayerSpawn) for a hook called every player spawn. 
+--- (server) Called when the player spawns for the first time.
+--- See [GM:PlayerSpawn](https://wiki.facepunch.com/gmod/GM:PlayerSpawn) for a hook called every player spawn. 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerInitialSpawn]
 --- @param player Player @ The player who spawned.
 --- @param transition boolean @ If `true`, the player just spawned from a map transition.
@@ -1056,7 +1133,9 @@ function GM:PlayerNoClip(ply, desiredState) end
 --- @return void
 function GM:PlayerPostThink(ply) end
 
---- (server) Request a player to join the team. This function will check if the team is available to join or not.This hook is called when the player runs "changeteam" in the console.To prevent the player from changing teams, see [GM:PlayerCanJoinTeam](https://wiki.facepunch.com/gmod/GM:PlayerCanJoinTeam) 
+--- (server) Request a player to join the team. This function will check if the team is available to join or not.
+--- This hook is called when the player runs "changeteam" in the console.
+--- To prevent the player from changing teams, see [GM:PlayerCanJoinTeam](https://wiki.facepunch.com/gmod/GM:PlayerCanJoinTeam) 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerRequestTeam]
 --- @param ply Player @ The player to try to put into a team
 --- @param team number @ Team to put the player into if the checks succeeded
@@ -1112,13 +1191,18 @@ function GM:PlayerShouldTakeDamage(ply, attacker) end
 --- @return boolean
 function GM:PlayerShouldTaunt(ply, act) end
 
---- (server) Called when the player is killed by [Player:KillSilent](https://wiki.facepunch.com/gmod/Player:KillSilent).The player is already considered dead when this hook is called.* See [GM:PlayerDeath](https://wiki.facepunch.com/gmod/GM:PlayerDeath) for a hook which handles all other death causes.* [GM:PostPlayerDeath](https://wiki.facepunch.com/gmod/GM:PostPlayerDeath) is called **after** this hook. 
+--- (server) Called when the player is killed by [Player:KillSilent](https://wiki.facepunch.com/gmod/Player:KillSilent).
+--- The player is already considered dead when this hook is called.
+--- * See [GM:PlayerDeath](https://wiki.facepunch.com/gmod/GM:PlayerDeath) for a hook which handles all other death causes.
+--- * [GM:PostPlayerDeath](https://wiki.facepunch.com/gmod/GM:PostPlayerDeath) is called **after** this hook. 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerSilentDeath]
 --- @param ply Player @ The player who was killed
 --- @return void
 function GM:PlayerSilentDeath(ply) end
 
---- (server) Called whenever a player spawns, including respawns.See [GM:PlayerInitialSpawn](https://wiki.facepunch.com/gmod/GM:PlayerInitialSpawn) for a hook called only the first time a player spawns.See the [player_spawn gameevent](https://wiki.facepunch.com/gmod/Game_Events) for a shared version of this hook. 
+--- (server) Called whenever a player spawns, including respawns.
+--- See [GM:PlayerInitialSpawn](https://wiki.facepunch.com/gmod/GM:PlayerInitialSpawn) for a hook called only the first time a player spawns.
+--- See the [player_spawn gameevent](https://wiki.facepunch.com/gmod/Game_Events) for a shared version of this hook. 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerSpawn]
 --- @param player Player @ The player who spawned.
 --- @param transition boolean @ If true, the player just spawned from a map transition. You probably want to not touch player's weapons if this is set to true from this hook.
@@ -1166,7 +1250,8 @@ function GM:PlayerStepSoundTime(ply, type, walking) end
 --- @return boolean
 function GM:PlayerSwitchFlashlight(ply, enabled) end
 
---- (client/server) Called when a player attempts to switch their weapon.Primary usage of this hook is to prevent/allow weapon switching, **not** to detect weapon switching. It will not be called for [Player:SetActiveWeapon](https://wiki.facepunch.com/gmod/Player:SetActiveWeapon). 
+--- (client/server) Called when a player attempts to switch their weapon.
+--- Primary usage of this hook is to prevent/allow weapon switching, **not** to detect weapon switching. It will not be called for [Player:SetActiveWeapon](https://wiki.facepunch.com/gmod/Player:SetActiveWeapon). 
 --- [https://wiki.facepunch.com/gmod/GM:PlayerSwitchWeapon]
 --- @param player Player @ The player switching weapons.
 --- @param oldWeapon Weapon @ The previous weapon. Will be `NULL` if the previous weapon was removed or the player is switching from nothing.
@@ -1211,7 +1296,8 @@ function GM:PlayerUse(ply, ent) end
 --- @return void
 function GM:PopulateMenuBar(menubar) end
 
---- (client/server) Called right after the map has cleaned up (usually because [game.CleanUpMap](https://wiki.facepunch.com/gmod/game.CleanUpMap) was called)See also [GM:PreCleanupMap](https://wiki.facepunch.com/gmod/GM:PreCleanupMap). 
+--- (client/server) Called right after the map has cleaned up (usually because [game.CleanUpMap](https://wiki.facepunch.com/gmod/game.CleanUpMap) was called)
+--- See also [GM:PreCleanupMap](https://wiki.facepunch.com/gmod/GM:PreCleanupMap). 
 --- [https://wiki.facepunch.com/gmod/GM:PostCleanupMap]
 --- @return void
 function GM:PostCleanupMap() end
@@ -1226,15 +1312,17 @@ function GM:PostDraw2DSkyBox() end
 --- @return void
 function GM:PostDrawEffects() end
 
---- (client) Called after [GM:PreDrawHUD](https://wiki.facepunch.com/gmod/GM:PreDrawHUD),  [GM:HUDPaintBackground](https://wiki.facepunch.com/gmod/GM:HUDPaintBackground) and [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint) but before  [GM:DrawOverlay](https://wiki.facepunch.com/gmod/GM:DrawOverlay).Unlike [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint)([Background](https://wiki.facepunch.com/gmod/GM:HUDPaintBackground)) hooks, this will still be called when the main menu is visible. And so will be [GM:PreDrawHUD](https://wiki.facepunch.com/gmod/GM:PreDrawHUD) 
+--- (client) Called after [GM:PreDrawHUD](https://wiki.facepunch.com/gmod/GM:PreDrawHUD),  [GM:HUDPaintBackground](https://wiki.facepunch.com/gmod/GM:HUDPaintBackground) and [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint) but before  [GM:DrawOverlay](https://wiki.facepunch.com/gmod/GM:DrawOverlay).
+--- Unlike [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint)([Background](https://wiki.facepunch.com/gmod/GM:HUDPaintBackground)) hooks, this will still be called when the main menu is visible. And so will be [GM:PreDrawHUD](https://wiki.facepunch.com/gmod/GM:PreDrawHUD) 
 --- [https://wiki.facepunch.com/gmod/GM:PostDrawHUD]
 --- @return void
 function GM:PostDrawHUD() end
 
---- (client) Called after drawing opaque entities.See also [GM:PostDrawTranslucentRenderables](https://wiki.facepunch.com/gmod/GM:PostDrawTranslucentRenderables) and [GM:PreDrawOpaqueRenderables](https://wiki.facepunch.com/gmod/GM:PreDrawOpaqueRenderables). 
+--- (client) Called after drawing opaque entities.
+--- See also [GM:PostDrawTranslucentRenderables](https://wiki.facepunch.com/gmod/GM:PostDrawTranslucentRenderables) and [GM:PreDrawOpaqueRenderables](https://wiki.facepunch.com/gmod/GM:PreDrawOpaqueRenderables). 
 --- [https://wiki.facepunch.com/gmod/GM:PostDrawOpaqueRenderables]
 --- @param bDrawingDepth boolean @ Whether the current draw is writing depth.
---- @param bDrawingSkybox boolean @ Whether the current draw is drawing the 3D or 2D skybox.In case of 2D skyboxes it is possible for this hook to always be called with this parameter set to `true`.
+--- @param bDrawingSkybox boolean @ Whether the current draw is drawing the 3D or 2D skybox. In case of 2D skyboxes it is possible for this hook to always be called with this parameter set to `true`.
 --- @param isDraw3DSkybox boolean @ Whether the current draw is drawing the 3D.
 --- @return void
 function GM:PostDrawOpaqueRenderables(bDrawingDepth, bDrawingSkybox, isDraw3DSkybox) end
@@ -1248,15 +1336,17 @@ function GM:PostDrawOpaqueRenderables(bDrawingDepth, bDrawingSkybox, isDraw3DSky
 --- @return void
 function GM:PostDrawPlayerHands(hands, vm, ply, weapon) end
 
---- (client) Called after drawing the 3D skybox. This will not be called if skybox rendering was prevented via the [GM:PreDrawSkyBox](https://wiki.facepunch.com/gmod/GM:PreDrawSkyBox) hook.See also [GM:PostDraw2DSkyBox](https://wiki.facepunch.com/gmod/GM:PostDraw2DSkyBox). 
+--- (client) Called after drawing the 3D skybox. This will not be called if skybox rendering was prevented via the [GM:PreDrawSkyBox](https://wiki.facepunch.com/gmod/GM:PreDrawSkyBox) hook.
+--- See also [GM:PostDraw2DSkyBox](https://wiki.facepunch.com/gmod/GM:PostDraw2DSkyBox). 
 --- [https://wiki.facepunch.com/gmod/GM:PostDrawSkyBox]
 --- @return void
 function GM:PostDrawSkyBox() end
 
---- (client) Called after all translucent entities are drawn.See also [GM:PostDrawOpaqueRenderables](https://wiki.facepunch.com/gmod/GM:PostDrawOpaqueRenderables) and  [GM:PreDrawTranslucentRenderables](https://wiki.facepunch.com/gmod/GM:PreDrawTranslucentRenderables). 
+--- (client) Called after all translucent entities are drawn.
+--- See also [GM:PostDrawOpaqueRenderables](https://wiki.facepunch.com/gmod/GM:PostDrawOpaqueRenderables) and  [GM:PreDrawTranslucentRenderables](https://wiki.facepunch.com/gmod/GM:PreDrawTranslucentRenderables). 
 --- [https://wiki.facepunch.com/gmod/GM:PostDrawTranslucentRenderables]
 --- @param bDrawingDepth boolean @ Whether the current call is writing depth.
---- @param bDrawingSkybox boolean @ Whether the current draw is drawing the 3D or 2D skybox.In case of 2D skyboxes it is possible for this hook to always be called with this parameter set to `true`.
+--- @param bDrawingSkybox boolean @ Whether the current draw is drawing the 3D or 2D skybox. In case of 2D skyboxes it is possible for this hook to always be called with this parameter set to `true`.
 --- @param isDraw3DSkybox boolean @ Whether the current draw is drawing the 3D.
 --- @return void
 function GM:PostDrawTranslucentRenderables(bDrawingDepth, bDrawingSkybox, isDraw3DSkybox) end
@@ -1282,7 +1372,8 @@ function GM:PostEntityTakeDamage(ent, dmg, took) end
 --- @return void
 function GM:PostGamemodeLoaded() end
 
---- (server) Called right after [GM:DoPlayerDeath](https://wiki.facepunch.com/gmod/GM:DoPlayerDeath), [GM:PlayerDeath](https://wiki.facepunch.com/gmod/GM:PlayerDeath) and [GM:PlayerSilentDeath](https://wiki.facepunch.com/gmod/GM:PlayerSilentDeath).This hook will be called for all deaths, including [Player:KillSilent](https://wiki.facepunch.com/gmod/Player:KillSilent) 
+--- (server) Called right after [GM:DoPlayerDeath](https://wiki.facepunch.com/gmod/GM:DoPlayerDeath), [GM:PlayerDeath](https://wiki.facepunch.com/gmod/GM:PlayerDeath) and [GM:PlayerSilentDeath](https://wiki.facepunch.com/gmod/GM:PlayerSilentDeath).
+--- This hook will be called for all deaths, including [Player:KillSilent](https://wiki.facepunch.com/gmod/Player:KillSilent) 
 --- [https://wiki.facepunch.com/gmod/GM:PostPlayerDeath]
 --- @param ply Player @ The player
 --- @return void
@@ -1318,7 +1409,8 @@ function GM:PostRenderVGUI() end
 --- @return void
 function GM:PostUndo(undo, count) end
 
---- (client/server) Called right before the map cleans up (usually because [game.CleanUpMap](https://wiki.facepunch.com/gmod/game.CleanUpMap) was called)See also [GM:PostCleanupMap](https://wiki.facepunch.com/gmod/GM:PostCleanupMap). 
+--- (client/server) Called right before the map cleans up (usually because [game.CleanUpMap](https://wiki.facepunch.com/gmod/game.CleanUpMap) was called)
+--- See also [GM:PostCleanupMap](https://wiki.facepunch.com/gmod/GM:PostCleanupMap). 
 --- [https://wiki.facepunch.com/gmod/GM:PreCleanupMap]
 --- @return void
 function GM:PreCleanupMap() end
@@ -1338,10 +1430,11 @@ function GM:PreDrawHalos() end
 --- @return void
 function GM:PreDrawHUD() end
 
---- (client) Called before all opaque entities are drawn.See also [GM:PreDrawTranslucentRenderables](https://wiki.facepunch.com/gmod/GM:PreDrawTranslucentRenderables) and  [GM:PostDrawOpaqueRenderables](https://wiki.facepunch.com/gmod/GM:PostDrawOpaqueRenderables). 
+--- (client) Called before all opaque entities are drawn.
+--- See also [GM:PreDrawTranslucentRenderables](https://wiki.facepunch.com/gmod/GM:PreDrawTranslucentRenderables) and  [GM:PostDrawOpaqueRenderables](https://wiki.facepunch.com/gmod/GM:PostDrawOpaqueRenderables). 
 --- [https://wiki.facepunch.com/gmod/GM:PreDrawOpaqueRenderables]
 --- @param isDrawingDepth boolean @ Whether the current draw is writing depth.
---- @param isDrawSkybox boolean @ Whether the current draw is drawing the 3D or 2D skybox.In case of 2D skyboxes it is possible for this hook to always be called with this parameter set to `true`.
+--- @param isDrawSkybox boolean @ Whether the current draw is drawing the 3D or 2D skybox. In case of 2D skyboxes it is possible for this hook to always be called with this parameter set to `true`.
 --- @param isDraw3DSkybox boolean @ Whether the current draw is drawing the 3D.
 --- @return boolean
 function GM:PreDrawOpaqueRenderables(isDrawingDepth, isDrawSkybox, isDraw3DSkybox) end
@@ -1355,20 +1448,23 @@ function GM:PreDrawOpaqueRenderables(isDrawingDepth, isDrawSkybox, isDraw3DSkybo
 --- @return boolean
 function GM:PreDrawPlayerHands(hands, vm, ply, weapon) end
 
---- (client) Called before the 3D sky box is drawn. This will not be called for maps with no 3D skybox, or when the 3d skybox is disabled. (`r_3dsky 0`)See also [GM:PostDrawSkyBox](https://wiki.facepunch.com/gmod/GM:PostDrawSkyBox) 
+--- (client) Called before the 3D sky box is drawn. This will not be called for maps with no 3D skybox, or when the 3d skybox is disabled. (`r_3dsky 0`)
+--- See also [GM:PostDrawSkyBox](https://wiki.facepunch.com/gmod/GM:PostDrawSkyBox) 
 --- [https://wiki.facepunch.com/gmod/GM:PreDrawSkyBox]
 --- @return boolean
 function GM:PreDrawSkyBox() end
 
---- (client) Called before all the translucent entities are drawn.See also [GM:PreDrawOpaqueRenderables](https://wiki.facepunch.com/gmod/GM:PreDrawOpaqueRenderables) and  [GM:PostDrawTranslucentRenderables](https://wiki.facepunch.com/gmod/GM:PostDrawTranslucentRenderables). 
+--- (client) Called before all the translucent entities are drawn.
+--- See also [GM:PreDrawOpaqueRenderables](https://wiki.facepunch.com/gmod/GM:PreDrawOpaqueRenderables) and  [GM:PostDrawTranslucentRenderables](https://wiki.facepunch.com/gmod/GM:PostDrawTranslucentRenderables). 
 --- [https://wiki.facepunch.com/gmod/GM:PreDrawTranslucentRenderables]
 --- @param isDrawingDepth boolean @ Whether the current draw is writing depth.
---- @param isDrawSkybox boolean @ Whether the current draw is drawing the 3D or 2D skybox.In case of 2D skyboxes it is possible for this hook to always be called with this parameter set to `true`.
+--- @param isDrawSkybox boolean @ Whether the current draw is drawing the 3D or 2D skybox. In case of 2D skyboxes it is possible for this hook to always be called with this parameter set to `true`.
 --- @param isDraw3DSkybox boolean @ Whether the current draw is drawing the 3D.
 --- @return boolean
 function GM:PreDrawTranslucentRenderables(isDrawingDepth, isDrawSkybox, isDraw3DSkybox) end
 
---- (client) Called before the view model has been drawn. This hook by default also calls this on weapons, so you can use [WEAPON:PreDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PreDrawViewModel).You can use [GM:PreDrawEffects](https://wiki.facepunch.com/gmod/GM:PreDrawEffects) as a "PostDrawViewModel" hook as it is called just after the view model(s) are drawn. 
+--- (client) Called before the view model has been drawn. This hook by default also calls this on weapons, so you can use [WEAPON:PreDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PreDrawViewModel).
+--- You can use [GM:PreDrawEffects](https://wiki.facepunch.com/gmod/GM:PreDrawEffects) as a "PostDrawViewModel" hook as it is called just after the view model(s) are drawn. 
 --- [https://wiki.facepunch.com/gmod/GM:PreDrawViewModel]
 --- @param vm Entity @ This is the view model entity before it is drawn. On server-side, this entity is the predicted view model.
 --- @param ply Player @ The owner of the view model.
@@ -1376,7 +1472,8 @@ function GM:PreDrawTranslucentRenderables(isDrawingDepth, isDrawSkybox, isDraw3D
 --- @return boolean
 function GM:PreDrawViewModel(vm, ply, weapon) end
 
---- (client) Called before view models and entities with `RENDERGROUP_VIEWMODEL` are drawn.You can use [GM:PreDrawEffects](https://wiki.facepunch.com/gmod/GM:PreDrawEffects) as a `PostDrawViewModel` hook as it is called just after the view model(s) are drawn. 
+--- (client) Called before view models and entities with `RENDERGROUP_VIEWMODEL` are drawn.
+--- You can use [GM:PreDrawEffects](https://wiki.facepunch.com/gmod/GM:PreDrawEffects) as a `PostDrawViewModel` hook as it is called just after the view model(s) are drawn. 
 --- [https://wiki.facepunch.com/gmod/GM:PreDrawViewModels]
 --- @return void
 function GM:PreDrawViewModels() end
@@ -1443,12 +1540,15 @@ function GM:RenderScene(origin, angles, fov) end
 --- @return void
 function GM:RenderScreenspaceEffects() end
 
---- (client/server) Called when the game is reloaded from a Source Engine save system ( not the Sandbox saves or dupes ).See [GM:Saved](https://wiki.facepunch.com/gmod/GM:Saved) for a hook that is called when such a save file is created. 
+--- (client/server) Called when the game is reloaded from a Source Engine save system ( not the Sandbox saves or dupes ).
+--- See [GM:Saved](https://wiki.facepunch.com/gmod/GM:Saved) for a hook that is called when such a save file is created. 
 --- [https://wiki.facepunch.com/gmod/GM:Restored]
 --- @return void
 function GM:Restored() end
 
---- (client/server) Called when the game is saved using the Source Engine save system (not the Sandbox saves or dupes).See [GM:Restored](https://wiki.facepunch.com/gmod/GM:Restored) for a hook that is called when such a save file is loaded.See also the [saverestore](https://wiki.facepunch.com/gmod/saverestore) for relevant functions. 
+--- (client/server) Called when the game is saved using the Source Engine save system (not the Sandbox saves or dupes).
+--- See [GM:Restored](https://wiki.facepunch.com/gmod/GM:Restored) for a hook that is called when such a save file is loaded.
+--- See also the [saverestore](https://wiki.facepunch.com/gmod/saverestore) for relevant functions. 
 --- [https://wiki.facepunch.com/gmod/GM:Saved]
 --- @return void
 function GM:Saved() end
@@ -1487,7 +1587,8 @@ function GM:ScoreboardShow() end
 --- @return void
 function GM:SetPlayerSpeed(ply, walkSpeed, runSpeed) end
 
---- (client/server) SetupMove is called before the engine process movements. This allows us to override the players movement.See [Game Movement](https://wiki.facepunch.com/gmod/Game%20Movement) for an explanation on the move system. 
+--- (client/server) SetupMove is called before the engine process movements. This allows us to override the players movement.
+--- See [Game Movement](https://wiki.facepunch.com/gmod/Game%20Movement) for an explanation on the move system. 
 --- [https://wiki.facepunch.com/gmod/GM:SetupMove]
 --- @param ply Player @ The player whose movement we are about to process
 --- @param mv CMoveData @ The move data to override/use
@@ -1502,7 +1603,8 @@ function GM:SetupMove(ply, mv, cmd) end
 --- @return void
 function GM:SetupPlayerVisibility(ply, viewEntity) end
 
---- (client) Allows you to use render.Fog* functions to manipulate skybox fog.		This will not be called for maps with no 3D skybox, or when the 3d skybox is disabled. (`r_3dsky 0`) 
+--- (client) Allows you to use render.Fog* functions to manipulate skybox fog.
+--- 		This will not be called for maps with no 3D skybox, or when the 3d skybox is disabled. (`r_3dsky 0`) 
 --- [https://wiki.facepunch.com/gmod/GM:SetupSkyboxFog]
 --- @param scale number @ The scale of 3D skybox
 --- @return boolean
@@ -1513,14 +1615,16 @@ function GM:SetupSkyboxFog(scale) end
 --- @return boolean
 function GM:SetupWorldFog() end
 
---- (client/server) Called to decide whether a pair of entities should collide with each other. This is only called if [Entity:SetCustomCollisionCheck](https://wiki.facepunch.com/gmod/Entity:SetCustomCollisionCheck) was used on one or both entities.Where applicable, consider using [constraint.NoCollide](https://wiki.facepunch.com/gmod/constraint.NoCollide) or a [logic_collision_pair](https://developer.valvesoftware.com/wiki/Logic_collision_pair) entity instead - they are considerably easier to use and may be more appropriate in some situations. 
+--- (client/server) Called to decide whether a pair of entities should collide with each other. This is only called if [Entity:SetCustomCollisionCheck](https://wiki.facepunch.com/gmod/Entity:SetCustomCollisionCheck) was used on one or both entities.
+--- Where applicable, consider using [constraint.NoCollide](https://wiki.facepunch.com/gmod/constraint.NoCollide) or a [logic_collision_pair](https://developer.valvesoftware.com/wiki/Logic_collision_pair) entity instead - they are considerably easier to use and may be more appropriate in some situations. 
 --- [https://wiki.facepunch.com/gmod/GM:ShouldCollide]
 --- @param ent1 Entity @ The first entity in the collision poll.
 --- @param ent2 Entity @ The second entity in the collision poll.
 --- @return boolean
 function GM:ShouldCollide(ent1, ent2) end
 
---- (client) Called to determine if the [LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer) should be drawn.If you're using this hook to draw a player for a [GM:CalcView](https://wiki.facepunch.com/gmod/GM:CalcView) hook, then you may want to consider using the `drawviewer` variable you can use in your [CamData](https://wiki.facepunch.com/gmod/Structures/CamData) table instead. 
+--- (client) Called to determine if the [LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer) should be drawn.
+--- If you're using this hook to draw a player for a [GM:CalcView](https://wiki.facepunch.com/gmod/GM:CalcView) hook, then you may want to consider using the `drawviewer` variable you can use in your [CamData](https://wiki.facepunch.com/gmod/Structures/CamData) table instead. 
 --- [https://wiki.facepunch.com/gmod/GM:ShouldDrawLocalPlayer]
 --- @param ply Player @ The player
 --- @return boolean
@@ -1569,7 +1673,10 @@ function GM:SpawniconGenerated(lastmodel, imagename, modelsleft) end
 --- @return boolean
 function GM:StartChat(isTeamChat) end
 
---- (client/server) Allows you to change the players inputs before they are processed by the server.This is basically a shared version of [GM:CreateMove](https://wiki.facepunch.com/gmod/GM:CreateMove). 
+--- (client/server) Allows you to change the players inputs before they are processed by the server.
+--- 
+--- 
+--- This is basically a shared version of [GM:CreateMove](https://wiki.facepunch.com/gmod/GM:CreateMove). 
 --- [https://wiki.facepunch.com/gmod/GM:StartCommand]
 --- @param ply Player @ The player
 --- @param ucmd CUserCmd @ The usercommand
@@ -1588,7 +1695,8 @@ function GM:StartEntityDriving(ent, ply) end
 --- @return void
 function GM:StartGame() end
 
---- (client/server) Called every frame on client and server. This will be the same as [GM:Tick](https://wiki.facepunch.com/gmod/GM:Tick) on the server when there is no lag, but will only be called once every processed server frame during lag.See [GM:Tick](https://wiki.facepunch.com/gmod/GM:Tick) for a hook that runs every tick on both the client and server. 
+--- (client/server) Called every frame on client and server. This will be the same as [GM:Tick](https://wiki.facepunch.com/gmod/GM:Tick) on the server when there is no lag, but will only be called once every processed server frame during lag.
+--- See [GM:Tick](https://wiki.facepunch.com/gmod/GM:Tick) for a hook that runs every tick on both the client and server. 
 --- [https://wiki.facepunch.com/gmod/GM:Think]
 --- @return void
 function GM:Think() end
@@ -1623,7 +1731,8 @@ function GM:UpdateAnimation(ply, velocity, maxSeqGroundSpeed) end
 --- @return void
 function GM:VariableEdited(ent, ply, key, val, editor) end
 
---- (client/server) Called when you are driving a vehicle. This hook works just like [GM:Move](https://wiki.facepunch.com/gmod/GM:Move).This hook is called before [GM:Move](https://wiki.facepunch.com/gmod/GM:Move) and will be called when [GM:PlayerTick](https://wiki.facepunch.com/gmod/GM:PlayerTick) is not. 
+--- (client/server) Called when you are driving a vehicle. This hook works just like [GM:Move](https://wiki.facepunch.com/gmod/GM:Move).
+--- This hook is called before [GM:Move](https://wiki.facepunch.com/gmod/GM:Move) and will be called when [GM:PlayerTick](https://wiki.facepunch.com/gmod/GM:PlayerTick) is not. 
 --- [https://wiki.facepunch.com/gmod/GM:VehicleMove]
 --- @param ply Player @ Player who is driving the vehicle
 --- @param veh Vehicle @ The vehicle being driven
@@ -1644,7 +1753,8 @@ function GM:VGUIMousePressAllowed(button) end
 --- @return void
 function GM:VGUIMousePressed(pnl, mouseCode) end
 
---- (server) Called as a weapon entity is picked up by a player.See also [GM:PlayerDroppedWeapon](https://wiki.facepunch.com/gmod/GM:PlayerDroppedWeapon). 
+--- (server) Called as a weapon entity is picked up by a player.
+--- See also [GM:PlayerDroppedWeapon](https://wiki.facepunch.com/gmod/GM:PlayerDroppedWeapon). 
 --- [https://wiki.facepunch.com/gmod/GM:WeaponEquip]
 --- @param weapon Weapon @ The equipped weapon.
 --- @param owner Player @ The player that is picking up the weapon.
@@ -1661,7 +1771,7 @@ function GM:WorkshopDownloadedFile(id, title) end
 --- (menu) Called when an addon from the Steam workshop begins downloading. Used by default to place details on the workshop downloading panel. 
 --- [https://wiki.facepunch.com/gmod/GM:WorkshopDownloadFile]
 --- @param id number @ Workshop ID of addon.
---- @param imageID number @ ID of addon's preview image.For example, for **Extended Spawnmenu** addon, the image URL is```http://cloud-4.steamusercontent.com/ugc/702859018846106764/9E7E1946296240314751192DA0AD15B6567FF92D/```So, the value of this argument would be **702859018846106764**.
+--- @param imageID number @ ID of addon's preview image.  For example, for Extended Spawnmenu addon, the image URL is ``` http://cloud-4.steamusercontent.com/ugc/702859018846106764/9E7E1946296240314751192DA0AD15B6567FF92D/ ``` So, the value of this argument would be 702859018846106764.
 --- @param title string @ Name of addon.
 --- @param size number @ File size of addon in bytes.
 --- @return void
@@ -1670,7 +1780,7 @@ function GM:WorkshopDownloadFile(id, imageID, title, size) end
 --- (menu) Called while an addon from the Steam workshop is downloading. Used by default to update details on the fancy workshop download panel. 
 --- [https://wiki.facepunch.com/gmod/GM:WorkshopDownloadProgress]
 --- @param id number @ Workshop ID of addon.
---- @param imageID number @ ID of addon's preview image.For example, for **Extended Spawnmenu** addon, the image URL is```http://cloud-4.steamusercontent.com/ugc/702859018846106764/9E7E1946296240314751192DA0AD15B6567FF92D/```So, the value of this argument would be **702859018846106764**.
+--- @param imageID number @ ID of addon's preview image.  For example, for Extended Spawnmenu addon, the image URL is ``` http://cloud-4.steamusercontent.com/ugc/702859018846106764/9E7E1946296240314751192DA0AD15B6567FF92D/ ``` So, the value of this argument would be 702859018846106764.
 --- @param title string @ Name of addon.
 --- @param downloaded number @ Current bytes of addon downloaded.
 --- @param expected number @ Expected file size of addon in bytes.
@@ -1692,13 +1802,21 @@ function GM:WorkshopEnd() end
 --- (menu) Called while an addon from the Steam workshop is extracting. Used by default to update details on the fancy workshop download panel. 
 --- [https://wiki.facepunch.com/gmod/GM:WorkshopExtractProgress]
 --- @param id number @ Workshop ID of addon.
---- @param ImageID number @ ID of addon's preview image.For example, for **Extended Spawnmenu** addon, the image URL is```http://cloud-4.steamusercontent.com/ugc/702859018846106764/9E7E1946296240314751192DA0AD15B6567FF92D/```So, the value of this argument would be **702859018846106764**.
+--- @param ImageID number @ ID of addon's preview image.  For example, for Extended Spawnmenu addon, the image URL is ``` http://cloud-4.steamusercontent.com/ugc/702859018846106764/9E7E1946296240314751192DA0AD15B6567FF92D/ ``` So, the value of this argument would be 702859018846106764.
 --- @param title string @ Name of addon.
 --- @param percent number @ Current bytes of addon extracted.
 --- @return void
 function GM:WorkshopExtractProgress(id, ImageID, title, percent) end
 
---- (menu) Called when downloading content from Steam workshop begins. Used by default to show fancy workshop downloading panel.The order of Workshop hooks is this:* WorkshopStart* WorkshopDownloadTotals* * These are called for each new item:* WorkshopDownloadFile* WorkshopDownloadProgress - This is called until the file is finished* WorkshopDownloadedFile* WorkshopEnd (this ones called once) 
+--- (menu) Called when downloading content from Steam workshop begins. Used by default to show fancy workshop downloading panel.
+--- The order of Workshop hooks is this:
+--- * WorkshopStart
+--- * WorkshopDownloadTotals
+--- * * These are called for each new item:
+--- * WorkshopDownloadFile
+--- * WorkshopDownloadProgress - This is called until the file is finished
+--- * WorkshopDownloadedFile
+--- * WorkshopEnd (this ones called once) 
 --- [https://wiki.facepunch.com/gmod/GM:WorkshopStart]
 --- @return void
 function GM:WorkshopStart() end

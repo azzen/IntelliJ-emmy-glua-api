@@ -9,7 +9,7 @@ function permissions.AskToConnect(address) end
 
 --- (client) Returns whether the player has granted the current server a specific permission. 
 --- [https://wiki.facepunch.com/gmod/permissions.IsGranted]
---- @param permission string @ The permission to poll. Currently only 1 permission is valid:* "connect"
+--- @param permission string @ The permission to poll. Currently only 1 permission is valid:  "connect"
 --- @return boolean
 function permissions.IsGranted(permission) end
 

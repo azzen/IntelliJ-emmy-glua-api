@@ -1,7 +1,9 @@
 --- @class gamemode
 gamemode = {}
 
---- (client/server) Called by the engine to call a hook within the loaded gamemode.The supplied event 'name' must be defined in the active gamemode. Otherwise, nothing will happen - not even hooks added with [hook.Add](https://wiki.facepunch.com/gmod/hook.Add) will be called.This is similar to [hook.Run](https://wiki.facepunch.com/gmod/hook.Run) and [hook.Call](https://wiki.facepunch.com/gmod/hook.Call), except the hook library will call hooks created with hook.Add even if there is no corresponding gamemode function. 
+--- (client/server) Called by the engine to call a hook within the loaded gamemode.
+--- The supplied event 'name' must be defined in the active gamemode. Otherwise, nothing will happen - not even hooks added with [hook.Add](https://wiki.facepunch.com/gmod/hook.Add) will be called.
+--- This is similar to [hook.Run](https://wiki.facepunch.com/gmod/hook.Run) and [hook.Call](https://wiki.facepunch.com/gmod/hook.Call), except the hook library will call hooks created with hook.Add even if there is no corresponding gamemode function. 
 --- [https://wiki.facepunch.com/gmod/gamemode.Call]
 --- @param name string @ The name of the hook to call.
 --- @param args vararg @ The arguments

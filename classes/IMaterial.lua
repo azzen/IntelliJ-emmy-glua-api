@@ -1,7 +1,8 @@
 --- @class IMaterial
 IMaterial = {}
 
---- (client/server) Returns the color of the specified pixel of the $basetexture, only works for materials created from PNG files.Basically identical to [ITexture:GetColor](https://wiki.facepunch.com/gmod/ITexture:GetColor) used on [IMaterial:GetTexture](https://wiki.facepunch.com/gmod/IMaterial:GetTexture)( "$basetexture" ). 
+--- (client/server) Returns the color of the specified pixel of the $basetexture, only works for materials created from PNG files.
+--- Basically identical to [ITexture:GetColor](https://wiki.facepunch.com/gmod/ITexture:GetColor) used on [IMaterial:GetTexture](https://wiki.facepunch.com/gmod/IMaterial:GetTexture)( "$basetexture" ). 
 --- [https://wiki.facepunch.com/gmod/IMaterial:GetColor]
 --- @param x number @ The X coordinate.
 --- @param y number @ The Y coordinate.
@@ -53,7 +54,8 @@ function IMaterial:GetString(materialString) end
 --- @return ITexture
 function IMaterial:GetTexture(param) end
 
---- (client/server) Returns the specified material vector, or nil if the value is not set.See also [IMaterial:GetVectorLinear](https://wiki.facepunch.com/gmod/IMaterial:GetVectorLinear) 
+--- (client/server) Returns the specified material vector, or nil if the value is not set.
+--- See also [IMaterial:GetVectorLinear](https://wiki.facepunch.com/gmod/IMaterial:GetVectorLinear) 
 --- [https://wiki.facepunch.com/gmod/IMaterial:GetVector]
 --- @param materialVector string @ The name of the material vector.
 --- @return Vector
@@ -65,7 +67,9 @@ function IMaterial:GetVector(materialVector) end
 --- @return number|number|number|number
 function IMaterial:GetVector4D(name) end
 
---- (client/server) Returns the specified material linear color vector, or nil if the value is not set.See https://en.wikipedia.org/wiki/Gamma_correctionSee also [IMaterial:GetVector](https://wiki.facepunch.com/gmod/IMaterial:GetVector) 
+--- (client/server) Returns the specified material linear color vector, or nil if the value is not set.
+--- See https://en.wikipedia.org/wiki/Gamma_correction
+--- See also [IMaterial:GetVector](https://wiki.facepunch.com/gmod/IMaterial:GetVector) 
 --- [https://wiki.facepunch.com/gmod/IMaterial:GetVectorLinear]
 --- @param materialVector string @ The name of the material vector.
 --- @return Vector
@@ -81,7 +85,8 @@ function IMaterial:Height() end
 --- @return boolean
 function IMaterial:IsError() end
 
---- (client/server) Recomputes the material's snapshot. This needs to be called if you have changed variables on your material and it isn't changing. Be careful though - this function is slow - so try to call it only when needed! 
+--- (client/server) Recomputes the material's snapshot. This needs to be called if you have changed variables on your material and it isn't changing. 
+--- Be careful though - this function is slow - so try to call it only when needed! 
 --- [https://wiki.facepunch.com/gmod/IMaterial:Recompute]
 --- @return void
 function IMaterial:Recompute() end

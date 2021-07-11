@@ -50,7 +50,8 @@ function scripted_ents.GetType(classname) end
 --- @return boolean
 function scripted_ents.IsBasedOn(name, base) end
 
---- (client/server) Called after all ENTS have been loaded and runs [baseclass.Set](https://wiki.facepunch.com/gmod/baseclass.Set) on each one.You can retrieve all the currently registered ENTS with [scripted_ents.GetList](https://wiki.facepunch.com/gmod/scripted_ents.GetList). 
+--- (client/server) Called after all ENTS have been loaded and runs [baseclass.Set](https://wiki.facepunch.com/gmod/baseclass.Set) on each one.
+--- You can retrieve all the currently registered ENTS with [scripted_ents.GetList](https://wiki.facepunch.com/gmod/scripted_ents.GetList). 
 --- [https://wiki.facepunch.com/gmod/scripted_ents.OnLoaded]
 --- @return void
 function scripted_ents.OnLoaded() end

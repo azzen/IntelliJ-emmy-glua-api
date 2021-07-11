@@ -1,7 +1,8 @@
 --- @class table
 table = {}
 
---- (client/menu/server) Adds the contents from one table into another. The target table will be modified.See also [table.insert](https://wiki.facepunch.com/gmod/table.insert), [table.Inherit](https://wiki.facepunch.com/gmod/table.Inherit) and [table.Merge](https://wiki.facepunch.com/gmod/table.Merge). 
+--- (client/menu/server) Adds the contents from one table into another. The target table will be modified.
+--- See also [table.insert](https://wiki.facepunch.com/gmod/table.insert), [table.Inherit](https://wiki.facepunch.com/gmod/table.Inherit) and [table.Merge](https://wiki.facepunch.com/gmod/table.Merge). 
 --- [https://wiki.facepunch.com/gmod/table.Add]
 --- @param target table @ The table to insert the new values into.
 --- @param source table @ The table to retrieve the values from.
@@ -43,7 +44,8 @@ function table.Copy(originalTable) end
 --- @return void
 function table.CopyFromTo(source, target) end
 
---- (client/menu/server) Counts the amount of keys in a table. This should only be used when a table is not numerically and sequentially indexed. For those tables, consider the length (**#**) operator.If you only want to test if the table is empty or not, use [table.IsEmpty](https://wiki.facepunch.com/gmod/table.IsEmpty) instead as it is a lot faster. 
+--- (client/menu/server) Counts the amount of keys in a table. This should only be used when a table is not numerically and sequentially indexed. For those tables, consider the length (**#**) operator.
+--- If you only want to test if the table is empty or not, use [table.IsEmpty](https://wiki.facepunch.com/gmod/table.IsEmpty) instead as it is a lot faster. 
 --- [https://wiki.facepunch.com/gmod/table.Count]
 --- @param tbl table @ The table to count the keys of.
 --- @return number
@@ -82,14 +84,16 @@ function table.FindPrev(tbl, value) end
 --- @return table
 function table.ForceInsert(tab, value) end
 
---- (client/menu/server) Iterates for each key-value pair in the table, calling the function with the key and value of the pair. If the function returns anything, the loop is broken.This is inherited from the original Lua implementation and is deprecated in Lua as of 5.1; see [here](http://lua-users.org/wiki/TableLibraryTutorial). You should use [pairs](https://wiki.facepunch.com/gmod/Global.pairs) instead. The GLua interpretation of this is [table.ForEach](https://wiki.facepunch.com/gmod/table.ForEach). 
+--- (client/menu/server) Iterates for each key-value pair in the table, calling the function with the key and value of the pair. If the function returns anything, the loop is broken.
+--- This is inherited from the original Lua implementation and is deprecated in Lua as of 5.1; see [here](http://lua-users.org/wiki/TableLibraryTutorial). You should use [pairs](https://wiki.facepunch.com/gmod/Global.pairs) instead. The GLua interpretation of this is [table.ForEach](https://wiki.facepunch.com/gmod/table.ForEach). 
 --- [https://wiki.facepunch.com/gmod/table.foreach]
 --- @param tbl table @ The table to iterate over.
 --- @param callback function @ The function to run for each key and value.
 --- @return void
 function table.foreach(tbl, callback) end
 
---- (client/menu/server) Iterates for each numeric index in the table in order.This is inherited from the original Lua implementation and is deprecated in Lua as of 5.1; see [here](http://lua-users.org/wiki/TableLibraryTutorial). You should use [ipairs](https://wiki.facepunch.com/gmod/Global.ipairs)() instead. 
+--- (client/menu/server) Iterates for each numeric index in the table in order.
+--- This is inherited from the original Lua implementation and is deprecated in Lua as of 5.1; see [here](http://lua-users.org/wiki/TableLibraryTutorial). You should use [ipairs](https://wiki.facepunch.com/gmod/Global.ipairs)() instead. 
 --- [https://wiki.facepunch.com/gmod/table.foreachi]
 --- @param table table @ The table to iterate over.
 --- @param func function @ The function to run for each index.
@@ -145,7 +149,10 @@ function table.GetWinningKey(inputTable) end
 --- @return boolean
 function table.HasValue(tbl, value) end
 
---- (client/menu/server) Copies any missing data from base to target, and sets the target's `BaseClass` member to the base table's pointer.See [table.Merge](https://wiki.facepunch.com/gmod/table.Merge), which overrides existing values and doesn't add a BaseClass member.See also [table.Add](https://wiki.facepunch.com/gmod/table.Add), which simply adds values of one table to another. 
+--- (client/menu/server) Copies any missing data from base to target, and sets the target's `BaseClass` member to the base table's pointer.
+--- See [table.Merge](https://wiki.facepunch.com/gmod/table.Merge), which overrides existing values and doesn't add a BaseClass member.
+--- 
+--- See also [table.Add](https://wiki.facepunch.com/gmod/table.Add), which simply adds values of one table to another. 
 --- [https://wiki.facepunch.com/gmod/table.Inherit]
 --- @param target table @ Table to copy data to
 --- @param base table @ Table to copy data from
@@ -160,7 +167,8 @@ function table.Inherit(target, base) end
 --- @return number
 function table.insert(tbl, position, value) end
 
---- (client/menu/server) Returns whether or not the given table is empty.This works on both sequential and non-sequential tables, and is a lot faster to use than `table.Count(tbl) == 0`. 
+--- (client/menu/server) Returns whether or not the given table is empty.
+--- This works on both sequential and non-sequential tables, and is a lot faster to use than `table.Count(tbl) == 0`. 
 --- [https://wiki.facepunch.com/gmod/table.IsEmpty]
 --- @param tab table @ Table to check.
 --- @return boolean
@@ -198,7 +206,10 @@ function table.LowerKeyNames(tbl) end
 --- @return number
 function table.maxn(tbl) end
 
---- (client/menu/server) Merges the contents of the second table with the content in the first one. The destination table will be modified.See [table.Inherit](https://wiki.facepunch.com/gmod/table.Inherit), which doesn't override existing values.See also [table.Add](https://wiki.facepunch.com/gmod/table.Add), which simply adds values of one table to another. 
+--- (client/menu/server) Merges the contents of the second table with the content in the first one. The destination table will be modified.
+--- See [table.Inherit](https://wiki.facepunch.com/gmod/table.Inherit), which doesn't override existing values.
+--- 
+--- See also [table.Add](https://wiki.facepunch.com/gmod/table.Add), which simply adds values of one table to another. 
 --- [https://wiki.facepunch.com/gmod/table.Merge]
 --- @param destination table @ The table you want the source table to merge with
 --- @param source table @ The table you want to merge with the destination table
@@ -240,11 +251,12 @@ function table.Sanitise(tab) end
 --- (client/menu/server) Sorts a sequential table either ascending or by the given sort function. 
 --- [https://wiki.facepunch.com/gmod/table.sort]
 --- @param tbl table @ The table to sort.
---- @param sorter function @ If specified, the function will be called with 2 parameters each.Return true in this function if you want the first parameter to come first in the sorted array.
+--- @param sorter function @ If specified, the function will be called with 2 parameters each. Return true in this function if you want the first parameter to come first in the sorted array.
 --- @return void
 function table.sort(tbl, sorter) end
 
---- (client/menu/server) Returns a list of keys sorted based on values of those keys.For normal sorting see [table.sort](https://wiki.facepunch.com/gmod/table.sort). 
+--- (client/menu/server) Returns a list of keys sorted based on values of those keys.
+--- For normal sorting see [table.sort](https://wiki.facepunch.com/gmod/table.sort). 
 --- [https://wiki.facepunch.com/gmod/table.SortByKey]
 --- @param tab table @ Table to sort. All values of this table must be of same type.
 --- @param descending boolean @ Should the order be descending?

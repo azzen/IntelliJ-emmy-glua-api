@@ -1,14 +1,16 @@
 --- @class Schedule
 Schedule = {}
 
---- (server) Adds a task to the schedule. See also [Schedule:AddTaskEx](https://wiki.facepunch.com/gmod/Schedule:AddTaskEx) if you wish to customize task start and run function names.See also [ENTITY:StartSchedule](https://wiki.facepunch.com/gmod/ENTITY:StartSchedule), [NPC:StartEngineTask](https://wiki.facepunch.com/gmod/NPC:StartEngineTask), and [NPC:RunEngineTask](https://wiki.facepunch.com/gmod/NPC:RunEngineTask). 
+--- (server) Adds a task to the schedule. See also [Schedule:AddTaskEx](https://wiki.facepunch.com/gmod/Schedule:AddTaskEx) if you wish to customize task start and run function names.
+--- See also [ENTITY:StartSchedule](https://wiki.facepunch.com/gmod/ENTITY:StartSchedule), [NPC:StartEngineTask](https://wiki.facepunch.com/gmod/NPC:StartEngineTask), and [NPC:RunEngineTask](https://wiki.facepunch.com/gmod/NPC:RunEngineTask). 
 --- [https://wiki.facepunch.com/gmod/Schedule:AddTask]
 --- @param taskname string @ Custom task name
 --- @param taskdata any @ Task data to be passed into the NPC's functions
 --- @return void
 function Schedule:AddTask(taskname, taskdata) end
 
---- (server) Adds a task to the schedule with completely custom function names.See also [Schedule:AddTask](https://wiki.facepunch.com/gmod/Schedule:AddTask). 
+--- (server) Adds a task to the schedule with completely custom function names.
+--- See also [Schedule:AddTask](https://wiki.facepunch.com/gmod/Schedule:AddTask). 
 --- [https://wiki.facepunch.com/gmod/Schedule:AddTaskEx]
 --- @param start string @ The full name of a function on the entity's table to be ran when the task is started.
 --- @param run string @ The full name of a function on the entity's table to be ran when the task is continuously running.

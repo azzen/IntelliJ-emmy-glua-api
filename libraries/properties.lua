@@ -8,7 +8,8 @@ properties = {}
 --- @return void
 function properties.Add(name, propertyData) end
 
---- (client/server) Returns true if given entity can be targeted by the player via the properties system.This should be used serverside in your properties to prevent abuse by clientside scripting. 
+--- (client/server) Returns true if given entity can be targeted by the player via the properties system.
+--- This should be used serverside in your properties to prevent abuse by clientside scripting. 
 --- [https://wiki.facepunch.com/gmod/properties.CanBeTargeted]
 --- @param ent Entity @ The entity to test
 --- @param ply Player @ If given, will also perform a distance check based on the entity's Orientated Bounding Box.

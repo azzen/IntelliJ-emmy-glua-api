@@ -1,7 +1,8 @@
 --- @class NEXTBOT
 NEXTBOT = {}
 
---- (server) Called to initialize the behaviour.		This is called automatically when the NextBot is created, you should not call it manually. 
+--- (server) Called to initialize the behaviour.
+--- 		This is called automatically when the NextBot is created, you should not call it manually. 
 --- [https://wiki.facepunch.com/gmod/NEXTBOT:BehaveStart]
 --- @return void
 function NEXTBOT:BehaveStart() end
@@ -83,7 +84,8 @@ function NEXTBOT:OnOtherKilled(victim, info) end
 --- @return void
 function NEXTBOT:OnStuck() end
 
---- (server) Called when a trace attack is done against the nextbot, allowing override of the damage being dealt by altering the [CTakeDamageInfo](https://wiki.facepunch.com/gmod/CTakeDamageInfo).This is called before [NEXTBOT:OnInjured](https://wiki.facepunch.com/gmod/NEXTBOT:OnInjured). 
+--- (server) Called when a trace attack is done against the nextbot, allowing override of the damage being dealt by altering the [CTakeDamageInfo](https://wiki.facepunch.com/gmod/CTakeDamageInfo).
+--- This is called before [NEXTBOT:OnInjured](https://wiki.facepunch.com/gmod/NEXTBOT:OnInjured). 
 --- [https://wiki.facepunch.com/gmod/NEXTBOT:OnTraceAttack]
 --- @param info CTakeDamageInfo @ The damage info
 --- @param dir Vector @ The direction the damage goes in
@@ -96,7 +98,8 @@ function NEXTBOT:OnTraceAttack(info, dir, trace) end
 --- @return void
 function NEXTBOT:OnUnStuck() end
 
---- (server) A hook called to process nextbot logic.This hook runs in a [coroutine](https://wiki.facepunch.com/gmod/coroutine) by default. It will only be called if [NEXTBOT:BehaveStart](https://wiki.facepunch.com/gmod/NEXTBOT:BehaveStart) is not overriden. 
+--- (server) A hook called to process nextbot logic.
+--- This hook runs in a [coroutine](https://wiki.facepunch.com/gmod/coroutine) by default. It will only be called if [NEXTBOT:BehaveStart](https://wiki.facepunch.com/gmod/NEXTBOT:BehaveStart) is not overriden. 
 --- [https://wiki.facepunch.com/gmod/NEXTBOT:RunBehaviour]
 --- @return void
 function NEXTBOT:RunBehaviour() end

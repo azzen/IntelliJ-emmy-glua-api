@@ -29,7 +29,8 @@ function input.GetKeyCode(button) end
 --- @return string
 function input.GetKeyName(button) end
 
---- (client/menu) Gets whether the specified button code is down.Unlike [input.IsKeyDown](https://wiki.facepunch.com/gmod/input.IsKeyDown) this can also detect joystick presses from [JOYSTICK](https://wiki.facepunch.com/gmod/Enums/JOYSTICK) 
+--- (client/menu) Gets whether the specified button code is down.
+--- Unlike [input.IsKeyDown](https://wiki.facepunch.com/gmod/input.IsKeyDown) this can also detect joystick presses from [JOYSTICK](https://wiki.facepunch.com/gmod/Enums/JOYSTICK) 
 --- [https://wiki.facepunch.com/gmod/input.IsButtonDown]
 --- @param button number @ The button, valid values are in the range of [BUTTON_CODE](https://wiki.facepunch.com/gmod/Enums/BUTTON_CODE).
 --- @return boolean
@@ -99,37 +100,45 @@ function input.StartKeyTrapping() end
 --- @return string
 function input.TranslateAlias(command) end
 
---- (client/menu) Returns whether a key was initially pressed in the same frame this function was called.This function only works in Move hooks, and will detect key presses even in main menu or when a typing in a text field. 
+--- (client/menu) Returns whether a key was initially pressed in the same frame this function was called.
+--- This function only works in Move hooks, and will detect key presses even in main menu or when a typing in a text field. 
 --- [https://wiki.facepunch.com/gmod/input.WasKeyPressed]
 --- @param key number @ The key, see [KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
 --- @return boolean
 function input.WasKeyPressed(key) end
 
---- (client/menu) Returns whether a key was released in the same frame this function was called.This function only works in Move hooks, and will detect key releases even in main menu or when a typing in a text field. 
+--- (client/menu) Returns whether a key was released in the same frame this function was called.
+--- This function only works in Move hooks, and will detect key releases even in main menu or when a typing in a text field. 
 --- [https://wiki.facepunch.com/gmod/input.WasKeyReleased]
 --- @param key number @ The key, see [KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
 --- @return boolean
 function input.WasKeyReleased(key) end
 
---- (client/menu) Returns whether the key is being held down or not.This function only works in Move hooks, and will detect key events even in main menu or when a typing in a text field. 
+--- (client/menu) Returns whether the key is being held down or not.
+--- This function only works in Move hooks, and will detect key events even in main menu or when a typing in a text field. 
 --- [https://wiki.facepunch.com/gmod/input.WasKeyTyped]
 --- @param key number @ The key to test, see [KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
 --- @return boolean
 function input.WasKeyTyped(key) end
 
---- (client/menu) Returns whether a mouse key was double pressed in the same frame this function was called.If this function returns true, [input.WasMousePressed](https://wiki.facepunch.com/gmod/input.WasMousePressed) will return false.This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field. 
+--- (client/menu) Returns whether a mouse key was double pressed in the same frame this function was called.
+--- If this function returns true, [input.WasMousePressed](https://wiki.facepunch.com/gmod/input.WasMousePressed) will return false.
+--- This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field. 
 --- [https://wiki.facepunch.com/gmod/input.WasMouseDoublePressed]
 --- @param button number @ The mouse button to test, see [MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE)
 --- @return boolean
 function input.WasMouseDoublePressed(button) end
 
---- (client/menu) Returns whether a mouse key was initially pressed in the same frame this function was called.If [input.WasMouseDoublePressed](https://wiki.facepunch.com/gmod/input.WasMouseDoublePressed) returns true, this function will return false.This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field. 
+--- (client/menu) Returns whether a mouse key was initially pressed in the same frame this function was called.
+--- If [input.WasMouseDoublePressed](https://wiki.facepunch.com/gmod/input.WasMouseDoublePressed) returns true, this function will return false.
+--- This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field. 
 --- [https://wiki.facepunch.com/gmod/input.WasMousePressed]
 --- @param key number @ The key, see [MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE)
 --- @return boolean
 function input.WasMousePressed(key) end
 
---- (client/menu) Returns whether a mouse key was released in the same frame this function was called.This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field. 
+--- (client/menu) Returns whether a mouse key was released in the same frame this function was called.
+--- This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field. 
 --- [https://wiki.facepunch.com/gmod/input.WasMouseReleased]
 --- @param key number @ The key to test, see [MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE)
 --- @return boolean

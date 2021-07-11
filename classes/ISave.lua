@@ -1,7 +1,8 @@
 --- @class ISave
 ISave = {}
 
---- (client/server) Ends current data block started with [ISave:StartBlock](https://wiki.facepunch.com/gmod/ISave:StartBlock) and returns to the parent block.To avoid all sorts of errors, you **must** end all blocks you start. 
+--- (client/server) Ends current data block started with [ISave:StartBlock](https://wiki.facepunch.com/gmod/ISave:StartBlock) and returns to the parent block.
+--- To avoid all sorts of errors, you **must** end all blocks you start. 
 --- [https://wiki.facepunch.com/gmod/ISave:EndBlock]
 --- @return void
 function ISave:EndBlock() end

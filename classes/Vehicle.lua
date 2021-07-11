@@ -171,7 +171,8 @@ function Vehicle:IsValidVehicle() end
 --- @return boolean
 function Vehicle:IsVehicleBodyInWater() end
 
---- (server) Releases the vehicle's handbrake (Jeep) so it can roll without any passengers.This will be overwritten if the vehicle has a driver. Same as [Vehicle:SetHandbrake](https://wiki.facepunch.com/gmod/Vehicle:SetHandbrake)( false ) 
+--- (server) Releases the vehicle's handbrake (Jeep) so it can roll without any passengers.
+--- This will be overwritten if the vehicle has a driver. Same as [Vehicle:SetHandbrake](https://wiki.facepunch.com/gmod/Vehicle:SetHandbrake)( false ) 
 --- [https://wiki.facepunch.com/gmod/Vehicle:ReleaseHandbrake]
 --- @return void
 function Vehicle:ReleaseHandbrake() end
@@ -188,7 +189,8 @@ function Vehicle:SetBoost(boost) end
 --- @return void
 function Vehicle:SetCameraDistance(distance) end
 
---- (server) Turns on or off the Jeep handbrake so it can roll without a driver inside.Does nothing while the vehicle has a driver in it. 
+--- (server) Turns on or off the Jeep handbrake so it can roll without a driver inside.
+--- Does nothing while the vehicle has a driver in it. 
 --- [https://wiki.facepunch.com/gmod/Vehicle:SetHandbrake]
 --- @param handbrake boolean @ true to turn on, false to turn off.
 --- @return void

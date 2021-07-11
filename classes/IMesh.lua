@@ -1,7 +1,8 @@
 --- @class IMesh
 IMesh = {}
 
---- (client) Builds the mesh from a table mesh vertexes.See [Mesh](https://wiki.facepunch.com/gmod/Global.Mesh) and [util.GetModelMeshes](https://wiki.facepunch.com/gmod/util.GetModelMeshes) for examples. 
+--- (client) Builds the mesh from a table mesh vertexes.
+--- See [Mesh](https://wiki.facepunch.com/gmod/Global.Mesh) and [util.GetModelMeshes](https://wiki.facepunch.com/gmod/util.GetModelMeshes) for examples. 
 --- [https://wiki.facepunch.com/gmod/IMesh:BuildFromTriangles]
 --- @param vertexes table @ A table consisting of [MeshVertex](https://wiki.facepunch.com/gmod/Structures/MeshVertex)s.
 --- @return void

@@ -7,7 +7,8 @@ ents = {}
 --- @return Entity
 function ents.Create(class) end
 
---- (client) Creates a clientside only prop. See also [ClientsideModel](https://wiki.facepunch.com/gmod/Global.ClientsideModel).For physics to work you **must** use the _model_ argument, a simple `SetModel` call will not be enough. 
+--- (client) Creates a clientside only prop. See also [ClientsideModel](https://wiki.facepunch.com/gmod/Global.ClientsideModel).
+--- For physics to work you **must** use the _model_ argument, a simple `SetModel` call will not be enough. 
 --- [https://wiki.facepunch.com/gmod/ents.CreateClientProp]
 --- @param model string @ The model for the entity to be created.
 --- @return Entity
@@ -47,7 +48,8 @@ function ents.FindByClassAndParent(class, parent) end
 --- @return table
 function ents.FindByModel(model) end
 
---- (client/server) Gets all entities with the given hammer targetname. This works internally by iterating over [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll).Doesn't do anything on client. 
+--- (client/server) Gets all entities with the given hammer targetname. This works internally by iterating over [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll).
+--- Doesn't do anything on client. 
 --- [https://wiki.facepunch.com/gmod/ents.FindByName]
 --- @param name string @ The targetname to look for
 --- @return table
@@ -60,12 +62,13 @@ function ents.FindByName(name) end
 --- @return table
 function ents.FindInBox(boxMins, boxMaxs) end
 
---- (client/server) Finds and returns all entities within the specified cone. Only entities whose [Entity:WorldSpaceCenter](https://wiki.facepunch.com/gmod/Entity:WorldSpaceCenter) is within the cone are considered to be in it.The "cone" is actually a conical "slice" of an axis-aligned box (see: [ents.FindInBox](https://wiki.facepunch.com/gmod/ents.FindInBox)). The image to the right shows approximately how this function would look in 2D. Due to this, the entity may be farther than the specified range! 
+--- (client/server) Finds and returns all entities within the specified cone. Only entities whose [Entity:WorldSpaceCenter](https://wiki.facepunch.com/gmod/Entity:WorldSpaceCenter) is within the cone are considered to be in it.
+--- The "cone" is actually a conical "slice" of an axis-aligned box (see: [ents.FindInBox](https://wiki.facepunch.com/gmod/ents.FindInBox)). The image to the right shows approximately how this function would look in 2D. Due to this, the entity may be farther than the specified range! 
 --- [https://wiki.facepunch.com/gmod/ents.FindInCone]
 --- @param origin Vector @ The tip of the cone.
 --- @param normal Vector @ Direction of the cone.
 --- @param range number @ The range of the cone/box around the origin.
---- @param angle_cos number @ The [cosine](https://wiki.facepunch.com/gmod/math.cos) of the angle between the center of the cone to its edges, which is half the overall angle of the cone.1 makes a 0° cone, 0.707 makes approximately 90°, 0 makes 180°, and so on.
+--- @param angle_cos number @ The [cosine](https://wiki.facepunch.com/gmod/math.cos) of the angle between the center of the cone to its edges, which is half the overall angle of the cone. 1 makes a 0° cone, 0.707 makes approximately 90°, 0 makes 180°, and so on.
 --- @return table
 function ents.FindInCone(origin, normal, range, angle_cos) end
 

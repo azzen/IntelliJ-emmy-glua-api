@@ -25,7 +25,8 @@ function SWEP:Ammo1() end
 --- @return number
 function SWEP:Ammo2() end
 
---- (client) Allows you to adjust player view while this weapon in use.This hook is called from the default implementation of [GM:CalcView](https://wiki.facepunch.com/gmod/GM:CalcView) which is [here](https://github.com/garrynewman/garrysmod/blob/master/garrysmod/gamemodes/base/gamemode/cl_init.lua#L376-L383). Therefore, it will not be called if any other hook added to CalcView returns any value, or if the current gamemode overrides the default hook and does not call the SWEP function. 
+--- (client) Allows you to adjust player view while this weapon in use.
+--- This hook is called from the default implementation of [GM:CalcView](https://wiki.facepunch.com/gmod/GM:CalcView) which is [here](https://github.com/garrynewman/garrysmod/blob/master/garrysmod/gamemodes/base/gamemode/cl_init.lua#L376-L383). Therefore, it will not be called if any other hook added to CalcView returns any value, or if the current gamemode overrides the default hook and does not call the SWEP function. 
 --- [https://wiki.facepunch.com/gmod/WEAPON:CalcView]
 --- @param ply Player @ The owner of weapon
 --- @param pos Vector @ Current position of players view
@@ -59,7 +60,8 @@ function SWEP:CanPrimaryAttack() end
 --- @return boolean
 function SWEP:CanSecondaryAttack() end
 
---- (client) Allows you to use any numbers you want for the ammo display on the HUD.Can be useful for weapons that don't use standard ammo. 
+--- (client) Allows you to use any numbers you want for the ammo display on the HUD.
+--- Can be useful for weapons that don't use standard ammo. 
 --- [https://wiki.facepunch.com/gmod/WEAPON:CustomAmmoDisplay]
 --- @return table
 function SWEP:CustomAmmoDisplay() end
@@ -83,7 +85,8 @@ function SWEP:DoDrawCrosshair(x, y) end
 --- @return boolean
 function SWEP:DoImpactEffect(tr, damageType) end
 
---- (client) This hook allows you to draw on screen while this weapon is in use.If you want to draw a custom crosshair, consider using [WEAPON:DoDrawCrosshair](https://wiki.facepunch.com/gmod/WEAPON:DoDrawCrosshair) instead. 
+--- (client) This hook allows you to draw on screen while this weapon is in use.
+--- If you want to draw a custom crosshair, consider using [WEAPON:DoDrawCrosshair](https://wiki.facepunch.com/gmod/WEAPON:DoDrawCrosshair) instead. 
 --- [https://wiki.facepunch.com/gmod/WEAPON:DrawHUD]
 --- @return void
 function SWEP:DrawHUD() end
@@ -121,13 +124,15 @@ function SWEP:DrawWorldModelTranslucent(flags) end
 --- @return void
 function SWEP:Equip(NewOwner) end
 
---- (server) The player has picked up the weapon and has taken the ammo from it.The weapon will be removed immidiately after this call. 
+--- (server) The player has picked up the weapon and has taken the ammo from it.
+--- The weapon will be removed immidiately after this call. 
 --- [https://wiki.facepunch.com/gmod/WEAPON:EquipAmmo]
 --- @param ply Player @ The player who picked up the weapon
 --- @return void
 function SWEP:EquipAmmo(ply) end
 
---- (client/server) Called before firing animation events, such as muzzle flashes or shell ejections.This will only be called serverside for 3000-range events, and clientside for 5000-range  and other events. 
+--- (client/server) Called before firing animation events, such as muzzle flashes or shell ejections.
+--- This will only be called serverside for 3000-range events, and clientside for 5000-range  and other events. 
 --- [https://wiki.facepunch.com/gmod/WEAPON:FireAnimationEvent]
 --- @param pos Vector @ Position of the effect.
 --- @param ang Angle @ Angle of the effect.
@@ -147,7 +152,8 @@ function SWEP:FreezeMovement() end
 --- @return number
 function SWEP:GetCapabilities() end
 
---- (server) Called when the weapon is used by NPCs to determine how accurate the bullets fired should be.The inaccuracy is simulated by changing the [NPC:GetAimVector](https://wiki.facepunch.com/gmod/NPC:GetAimVector) based on the value returned from this hook. 
+--- (server) Called when the weapon is used by NPCs to determine how accurate the bullets fired should be.
+--- The inaccuracy is simulated by changing the [NPC:GetAimVector](https://wiki.facepunch.com/gmod/NPC:GetAimVector) based on the value returned from this hook. 
 --- [https://wiki.facepunch.com/gmod/WEAPON:GetNPCBulletSpread]
 --- @param proficiency number @ How proficient the NPC is with this gun. See [WEAPON_PROFICIENCY](https://wiki.facepunch.com/gmod/Enums/WEAPON_PROFICIENCY)
 --- @return number
@@ -192,14 +198,17 @@ function SWEP:HUDShouldDraw(element) end
 --- @return void
 function SWEP:Initialize() end
 
---- (server) Called when the engine sets a value for this scripted weapon.See [GM:EntityKeyValue](https://wiki.facepunch.com/gmod/GM:EntityKeyValue) for a hook that works for all entities.See [ENTITY:KeyValue](https://wiki.facepunch.com/gmod/ENTITY:KeyValue) for an  hook that works for scripted entities. 
+--- (server) Called when the engine sets a value for this scripted weapon.
+--- See [GM:EntityKeyValue](https://wiki.facepunch.com/gmod/GM:EntityKeyValue) for a hook that works for all entities.
+--- See [ENTITY:KeyValue](https://wiki.facepunch.com/gmod/ENTITY:KeyValue) for an  hook that works for scripted entities. 
 --- [https://wiki.facepunch.com/gmod/WEAPON:KeyValue]
 --- @param key string @ The key that was affected.
 --- @param value string @ The new value.
 --- @return boolean
 function SWEP:KeyValue(key, value) end
 
---- (server) Called when weapon is dropped by [Player:DropWeapon](https://wiki.facepunch.com/gmod/Player:DropWeapon).See also [WEAPON:OwnerChanged](https://wiki.facepunch.com/gmod/WEAPON:OwnerChanged). 
+--- (server) Called when weapon is dropped by [Player:DropWeapon](https://wiki.facepunch.com/gmod/Player:DropWeapon).
+--- See also [WEAPON:OwnerChanged](https://wiki.facepunch.com/gmod/WEAPON:OwnerChanged). 
 --- [https://wiki.facepunch.com/gmod/WEAPON:OnDrop]
 --- @return void
 function SWEP:OnDrop() end
@@ -214,17 +223,21 @@ function SWEP:OnReloaded() end
 --- @return void
 function SWEP:OnRemove() end
 
---- (client/server) Called when the weapon entity is reloaded from a Source Engine save (not the Sandbox saves or dupes) or on a changelevel (for example Half-Life 2 campaign level transitions).For the [duplicator](https://wiki.facepunch.com/gmod/duplicator) callbacks, see [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated).See also [saverestore](https://wiki.facepunch.com/gmod/saverestore) for relevant functions. 
+--- (client/server) Called when the weapon entity is reloaded from a Source Engine save (not the Sandbox saves or dupes) or on a changelevel (for example Half-Life 2 campaign level transitions).
+--- For the [duplicator](https://wiki.facepunch.com/gmod/duplicator) callbacks, see [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated).
+--- See also [saverestore](https://wiki.facepunch.com/gmod/saverestore) for relevant functions. 
 --- [https://wiki.facepunch.com/gmod/WEAPON:OnRestore]
 --- @return void
 function SWEP:OnRestore() end
 
---- (client/server) Called when weapon is dropped or picked up by a new player.See also [WEAPON:OnDrop](https://wiki.facepunch.com/gmod/WEAPON:OnDrop). 
+--- (client/server) Called when weapon is dropped or picked up by a new player.
+--- See also [WEAPON:OnDrop](https://wiki.facepunch.com/gmod/WEAPON:OnDrop). 
 --- [https://wiki.facepunch.com/gmod/WEAPON:OwnerChanged]
 --- @return void
 function SWEP:OwnerChanged() end
 
---- (client) Called after the view model has been drawn while the weapon in use. This hook is called from the default implementation of [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel), and as such, will not occur if it has been overridden.[WEAPON:ViewModelDrawn](https://wiki.facepunch.com/gmod/WEAPON:ViewModelDrawn) is an alternative hook which is always called before [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel). 
+--- (client) Called after the view model has been drawn while the weapon in use. This hook is called from the default implementation of [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel), and as such, will not occur if it has been overridden.
+--- [WEAPON:ViewModelDrawn](https://wiki.facepunch.com/gmod/WEAPON:ViewModelDrawn) is an alternative hook which is always called before [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel). 
 --- [https://wiki.facepunch.com/gmod/WEAPON:PostDrawViewModel]
 --- @param vm Entity @ This is the view model entity after it is drawn
 --- @param weapon Weapon @ This is the weapon that is from the view model (same as self)
@@ -240,7 +253,14 @@ function SWEP:PostDrawViewModel(vm, weapon, ply) end
 --- @return void
 function SWEP:PreDrawViewModel(vm, weapon, ply) end
 
---- (client/server) Called when primary attack button ( +attack ) is pressed.When in singleplayer, this function is only called in the server realm. When in multiplayer, the hook will be called on both the server and the client in order to allow for [Prediction](https://wiki.facepunch.com/gmod/Prediction).You can force the hook to always be called on client like this:```if ( game.SinglePlayer() ) then self:CallOnClient( "PrimaryAttack" ) end```Note that due to prediction, in multiplayer SWEP:PrimaryAttack is called multiple times per one "shot" with the gun. To work around that, use [IsFirstTimePredicted](https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted). 
+--- (client/server) Called when primary attack button ( +attack ) is pressed.
+--- When in singleplayer, this function is only called in the server realm. When in multiplayer, the hook will be called on both the server and the client in order to allow for [Prediction](https://wiki.facepunch.com/gmod/Prediction).
+--- You can force the hook to always be called on client like this:
+--- ```
+--- if ( game.SinglePlayer() ) then self:CallOnClient( "PrimaryAttack" ) end
+--- ```
+--- 
+--- Note that due to prediction, in multiplayer SWEP:PrimaryAttack is called multiple times per one "shot" with the gun. To work around that, use [IsFirstTimePredicted](https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted). 
 --- [https://wiki.facepunch.com/gmod/WEAPON:PrimaryAttack]
 --- @return void
 function SWEP:PrimaryAttack() end
@@ -258,12 +278,14 @@ function SWEP:PrintWeaponInfo(x, y, alpha) end
 --- @return void
 function SWEP:Reload() end
 
---- (client) Called every frame just before [GM:RenderScene](https://wiki.facepunch.com/gmod/GM:RenderScene).Used by the Tool Gun to render view model screens ([TOOL:DrawToolScreen](https://wiki.facepunch.com/gmod/TOOL:DrawToolScreen)). 
+--- (client) Called every frame just before [GM:RenderScene](https://wiki.facepunch.com/gmod/GM:RenderScene).
+--- Used by the Tool Gun to render view model screens ([TOOL:DrawToolScreen](https://wiki.facepunch.com/gmod/TOOL:DrawToolScreen)). 
 --- [https://wiki.facepunch.com/gmod/WEAPON:RenderScreen]
 --- @return void
 function SWEP:RenderScreen() end
 
---- (client/server) Called when secondary attack button ( +attack2 ) is pressed.For issues with this hook being called rapidly on the client side, see the global function [IsFirstTimePredicted](https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted). 
+--- (client/server) Called when secondary attack button ( +attack2 ) is pressed.
+--- For issues with this hook being called rapidly on the client side, see the global function [IsFirstTimePredicted](https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted). 
 --- [https://wiki.facepunch.com/gmod/WEAPON:SecondaryAttack]
 --- @return void
 function SWEP:SecondaryAttack() end
@@ -279,7 +301,8 @@ function SWEP:SetDeploySpeed(speed) end
 --- @return void
 function SWEP:SetupDataTables() end
 
---- (client/server) Sets the hold type of the weapon. This must be called on **both** the server and the client to work properly.**NOTE:** You should avoid calling this function and call [Weapon:SetHoldType](https://wiki.facepunch.com/gmod/Weapon:SetHoldType) now. 
+--- (client/server) Sets the hold type of the weapon. This must be called on **both** the server and the client to work properly.
+--- **NOTE:** You should avoid calling this function and call [Weapon:SetHoldType](https://wiki.facepunch.com/gmod/Weapon:SetHoldType) now. 
 --- [https://wiki.facepunch.com/gmod/WEAPON:SetWeaponHoldType]
 --- @param name string @ Name of the hold type. You can find all default hold types [here](https://wiki.facepunch.com/gmod/Hold_Types)
 --- @return void
@@ -306,7 +329,8 @@ function SWEP:ShootEffects() end
 --- @return boolean
 function SWEP:ShouldDrawViewModel() end
 
---- (server) Should this weapon be dropped when its owner dies?This only works if the player has [Player:ShouldDropWeapon](https://wiki.facepunch.com/gmod/Player:ShouldDropWeapon) set to true. 
+--- (server) Should this weapon be dropped when its owner dies?
+--- This only works if the player has [Player:ShouldDropWeapon](https://wiki.facepunch.com/gmod/Player:ShouldDropWeapon) set to true. 
 --- [https://wiki.facepunch.com/gmod/WEAPON:ShouldDropOnDie]
 --- @return boolean
 function SWEP:ShouldDropOnDie() end
@@ -323,12 +347,14 @@ function SWEP:TakePrimaryAmmo(amount) end
 --- @return void
 function SWEP:TakeSecondaryAmmo(amount) end
 
---- (client/server) Called when the swep thinks.This hook won't be called during the deploy animation and when using [Weapon:DefaultReload](https://wiki.facepunch.com/gmod/Weapon:DefaultReload). 
+--- (client/server) Called when the swep thinks.
+--- This hook won't be called during the deploy animation and when using [Weapon:DefaultReload](https://wiki.facepunch.com/gmod/Weapon:DefaultReload). 
 --- [https://wiki.facepunch.com/gmod/WEAPON:Think]
 --- @return void
 function SWEP:Think() end
 
---- (client/server) Translate a player's Activity into a weapon's activity, depending on how you want the player to be holding the weapon.For example, ACT_MP_RUN becomes ACT_HL2MP_RUN_PISTOL. 
+--- (client/server) Translate a player's Activity into a weapon's activity, depending on how you want the player to be holding the weapon.
+--- For example, ACT_MP_RUN becomes ACT_HL2MP_RUN_PISTOL. 
 --- [https://wiki.facepunch.com/gmod/WEAPON:TranslateActivity]
 --- @param act number @ The activity to translate
 --- @return number

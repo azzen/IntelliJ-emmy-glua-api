@@ -97,8 +97,8 @@ function math.ceil(number) end
 --- (client/menu/server) Clamps a number between a minimum and maximum value. 
 --- [https://wiki.facepunch.com/gmod/math.Clamp]
 --- @param input number @ The number to clamp.
---- @param min number @ The minimum value, this function will **never** return a number less than this.
---- @param max number @ The maximum value, this function will **never** return a number greater than this.
+--- @param min number @ The minimum value, this function will never return a number less than this.
+--- @param max number @ The maximum value, this function will never return a number greater than this.
 --- @return number
 function math.Clamp(input, min, max) end
 
@@ -158,14 +158,17 @@ function math.exp(exponent) end
 --- @return number
 function math.floor(number) end
 
---- (client/menu/server) Returns the modulus of the specified values.While this is similar to the % operator, **it will return a negative value if the first argument is negative**, whereas the % operator will return a `positive` value **even if the first operand is negative**. 
+--- (client/menu/server) Returns the modulus of the specified values.
+--- While this is similar to the % operator, **it will return a negative value if the first argument is negative**, whereas the % operator will return a `positive` value **even if the first operand is negative**. 
 --- [https://wiki.facepunch.com/gmod/math.fmod]
 --- @param base number @ The base value.
 --- @param modulator number @ The modulator.
 --- @return number
 function math.fmod(base, modulator) end
 
---- (client/menu/server) **Lua reference description**: Returns `m` and `e` such that `x = m2e`, `e` is an integer and the absolute value of `m` is in the range ((0.5, 1) (or zero when x is zero).Used to split the number value into a normalized fraction and an exponent. Two values are returned: the first is a multiplier in the range `1/2` (**inclusive**) to `1` (**exclusive**) and the second is an integer exponent.The result is such that `x = m*2^e`. 
+--- (client/menu/server) **Lua reference description**: Returns `m` and `e` such that `x = m2e`, `e` is an integer and the absolute value of `m` is in the range ((0.5, 1) (or zero when x is zero).
+--- Used to split the number value into a normalized fraction and an exponent. Two values are returned: the first is a multiplier in the range `1/2` (**inclusive**) to `1` (**exclusive**) and the second is an integer exponent.
+--- The result is such that `x = m*2^e`. 
 --- [https://wiki.facepunch.com/gmod/math.frexp]
 --- @param x number @ The value to get the normalized fraction and the exponent from.
 --- @return number|number
@@ -184,7 +187,8 @@ function math.IntToBin(int) end
 --- @return number
 function math.ldexp(normalizedFraction, exponent) end
 
---- (client/menu/server) With one argument, return the natural logarithm of x (to base e).With two arguments, return the logarithm of x to the given base, calculated as log(x)/log(base). 
+--- (client/menu/server) With one argument, return the natural logarithm of x (to base e).
+--- With two arguments, return the logarithm of x to the given base, calculated as log(x)/log(base). 
 --- [https://wiki.facepunch.com/gmod/math.log]
 --- @param x number @ The value to get the base from exponent from.
 --- @param base number @ The logarithmic base.
@@ -228,7 +232,8 @@ function math.modf(base) end
 --- @return number
 function math.NormalizeAngle(angle) end
 
---- (client/menu/server) Returns x raised to the power y.In particular, math.pow(1.0, x) and math.pow(x, 0.0) always return 1.0, even when x is a zero or a [nan](https://wiki.facepunch.com/gmod/nan). If both x and y are finite, x is negative, and y is not an integer then math.pow(x, y) is undefined. 
+--- (client/menu/server) Returns x raised to the power y.
+--- In particular, math.pow(1.0, x) and math.pow(x, 0.0) always return 1.0, even when x is a zero or a [nan](https://wiki.facepunch.com/gmod/nan). If both x and y are finite, x is negative, and y is not an integer then math.pow(x, y) is undefined. 
 --- [https://wiki.facepunch.com/gmod/math.pow]
 --- @param x number @ Base.
 --- @param y number @ Exponent.
@@ -241,21 +246,26 @@ function math.pow(x, y) end
 --- @return number
 function math.rad(degrees) end
 
---- (client/menu/server) Returns a random float between min and max.See also [math.random](https://wiki.facepunch.com/gmod/math.random) 
+--- (client/menu/server) Returns a random float between min and max.
+--- See also [math.random](https://wiki.facepunch.com/gmod/math.random) 
 --- [https://wiki.facepunch.com/gmod/math.Rand]
 --- @param min number @ The minimum value.
 --- @param max number @ The maximum value.
 --- @return number
 function math.Rand(min, max) end
 
---- (client/menu/server) When called without arguments, returns a uniform pseudo-random real number in the range 0 to 1 which includes 0 but excludes 1.When called with an integer number m, returns a uniform pseudo-random integer in the range 1 to m inclusive.When called with two integer numbers m and n, returns a uniform pseudo-random integer in the range m to n inclusive.See also [math.Rand](https://wiki.facepunch.com/gmod/math.Rand) 
+--- (client/menu/server) When called without arguments, returns a uniform pseudo-random real number in the range 0 to 1 which includes 0 but excludes 1.
+--- When called with an integer number m, returns a uniform pseudo-random integer in the range 1 to m inclusive.
+--- When called with two integer numbers m and n, returns a uniform pseudo-random integer in the range m to n inclusive.
+--- See also [math.Rand](https://wiki.facepunch.com/gmod/math.Rand) 
 --- [https://wiki.facepunch.com/gmod/math.random]
---- @param m number @ If m is the only parameter: upper limit.If n is also provided: lower limit.If provided, this must be an integer.
---- @param n number @ Upper limit.If provided, this must be an integer.
+--- @param m number @ If m is the only parameter: upper limit. If n is also provided: lower limit. If provided, this must be an integer.
+--- @param n number @ Upper limit. If provided, this must be an integer.
 --- @return number
 function math.random(m, n) end
 
---- (client/menu/server) Seeds the random number generator. The same seed will guarantee the same sequence of numbers each time with [math.random](https://wiki.facepunch.com/gmod/math.random).For shared random values across predicted realms, use [util.SharedRandom](https://wiki.facepunch.com/gmod/util.SharedRandom). 
+--- (client/menu/server) Seeds the random number generator. The same seed will guarantee the same sequence of numbers each time with [math.random](https://wiki.facepunch.com/gmod/math.random).
+--- For shared random values across predicted realms, use [util.SharedRandom](https://wiki.facepunch.com/gmod/util.SharedRandom). 
 --- [https://wiki.facepunch.com/gmod/math.randomseed]
 --- @param seed number @ The new seed
 --- @return void

@@ -25,12 +25,14 @@ function weapons.GetStored(weapon_class) end
 --- @return boolean
 function weapons.IsBasedOn(name, base) end
 
---- (client/server) Called after all SWEPS have been loaded and runs [baseclass.Set](https://wiki.facepunch.com/gmod/baseclass.Set) on each one.You can retrieve all the currently registered SWEPS with [weapons.GetList](https://wiki.facepunch.com/gmod/weapons.GetList). 
+--- (client/server) Called after all SWEPS have been loaded and runs [baseclass.Set](https://wiki.facepunch.com/gmod/baseclass.Set) on each one.
+--- You can retrieve all the currently registered SWEPS with [weapons.GetList](https://wiki.facepunch.com/gmod/weapons.GetList). 
 --- [https://wiki.facepunch.com/gmod/weapons.OnLoaded]
 --- @return void
 function weapons.OnLoaded() end
 
---- (client/server) Registers a Scripted Weapon (SWEP) class manually. When the engine spawns an entity, weapons registered with this function will be created if the class names match.See also [scripted_ents.Register](https://wiki.facepunch.com/gmod/scripted_ents.Register) for Scripted Entities (SENTs) 
+--- (client/server) Registers a Scripted Weapon (SWEP) class manually. When the engine spawns an entity, weapons registered with this function will be created if the class names match.
+--- See also [scripted_ents.Register](https://wiki.facepunch.com/gmod/scripted_ents.Register) for Scripted Entities (SENTs) 
 --- [https://wiki.facepunch.com/gmod/weapons.Register]
 --- @param swep_table table @ The SWEP table
 --- @param classname string @ Classname to assign to that swep

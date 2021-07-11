@@ -31,7 +31,7 @@ function duplicator.ClearEntityModifier(ent, key) end
 --- (server) Copies the entity, and all of its constraints and entities, then returns them in a table. 
 --- [https://wiki.facepunch.com/gmod/duplicator.Copy]
 --- @param ent Entity @ The entity to duplicate. The function will automatically copy all constrained entities.
---- @param tableToAdd table @ A preexisting table to add entities and constraints in from.Uses the same table format as the table returned from this function.
+--- @param tableToAdd table @ A preexisting table to add entities and constraints in from. Uses the same table format as the table returned from this function.
 --- @return table
 function duplicator.Copy(ent, tableToAdd) end
 
@@ -54,14 +54,22 @@ function duplicator.CopyEntTable(ent) end
 --- @return Entity
 function duplicator.CreateConstraintFromTable(constraint, entityList) end
 
---- (server) "Create an entity from a table." This creates an entity using the data in EntTable.If an entity factory has been registered for the entity's Class, it will be called. Otherwise, [duplicator.GenericDuplicatorFunction](https://wiki.facepunch.com/gmod/duplicator.GenericDuplicatorFunction) will be called instead. 
+--- (server) "Create an entity from a table." 
+--- 
+--- This creates an entity using the data in EntTable.
+--- 
+--- If an entity factory has been registered for the entity's Class, it will be called. 
+--- 
+--- Otherwise, [duplicator.GenericDuplicatorFunction](https://wiki.facepunch.com/gmod/duplicator.GenericDuplicatorFunction) will be called instead. 
 --- [https://wiki.facepunch.com/gmod/duplicator.CreateEntityFromTable]
 --- @param ply Player @ The player who wants to create something
 --- @param entTable table @ The duplication data to build the entity with. See [EntityCopyData](https://wiki.facepunch.com/gmod/Structures/EntityCopyData)
 --- @return Entity
 function duplicator.CreateEntityFromTable(ply, entTable) end
 
---- (server) "Restores the bone's data."Loops through Bones and calls [Entity:ManipulateBoneScale](https://wiki.facepunch.com/gmod/Entity:ManipulateBoneScale), [Entity:ManipulateBoneAngles](https://wiki.facepunch.com/gmod/Entity:ManipulateBoneAngles) and [Entity:ManipulateBonePosition](https://wiki.facepunch.com/gmod/Entity:ManipulateBonePosition) on ent with the table keys and the subtable values s, a and p respectively. 
+--- (server) "Restores the bone's data."
+--- 
+--- Loops through Bones and calls [Entity:ManipulateBoneScale](https://wiki.facepunch.com/gmod/Entity:ManipulateBoneScale), [Entity:ManipulateBoneAngles](https://wiki.facepunch.com/gmod/Entity:ManipulateBoneAngles) and [Entity:ManipulateBonePosition](https://wiki.facepunch.com/gmod/Entity:ManipulateBonePosition) on ent with the table keys and the subtable values s, a and p respectively. 
 --- [https://wiki.facepunch.com/gmod/duplicator.DoBoneManipulator]
 --- @param ent Entity @ The entity to be bone manipulated
 --- @param bones table @ Table with a [BoneManipulationData](https://wiki.facepunch.com/gmod/Structures/BoneManipulationData) for every bone (that has manipulations applied) using the bone ID as the table index.
@@ -76,14 +84,20 @@ function duplicator.DoBoneManipulator(ent, bones) end
 --- @return void
 function duplicator.DoFlex(ent, flex, scale) end
 
---- (server) "Applies generic every-day entity stuff for ent from table data."Depending on the values of Model, Angle, Pos, Skin, Flex, Bonemanip, ModelScale, ColGroup, Name, and BodyG ([table](https://wiki.facepunch.com/gmod/table) of multiple values) in the data table, this calls [Entity:SetModel](https://wiki.facepunch.com/gmod/Entity:SetModel), [Entity:SetAngles](https://wiki.facepunch.com/gmod/Entity:SetAngles), [Entity:SetPos](https://wiki.facepunch.com/gmod/Entity:SetPos), [Entity:SetSkin](https://wiki.facepunch.com/gmod/Entity:SetSkin), [duplicator.DoFlex](https://wiki.facepunch.com/gmod/duplicator.DoFlex), [duplicator.DoBoneManipulator](https://wiki.facepunch.com/gmod/duplicator.DoBoneManipulator), [Entity:SetModelScale](https://wiki.facepunch.com/gmod/Entity:SetModelScale), [Entity:SetCollisionGroup](https://wiki.facepunch.com/gmod/Entity:SetCollisionGroup), [Entity:SetName](https://wiki.facepunch.com/gmod/Entity:SetName), [Entity:SetBodygroup](https://wiki.facepunch.com/gmod/Entity:SetBodygroup) on ent.If ent has a RestoreNetworkVars function, it is called with data.DT. 
+--- (server) "Applies generic every-day entity stuff for ent from table data."
+--- 
+--- Depending on the values of Model, Angle, Pos, Skin, Flex, Bonemanip, ModelScale, ColGroup, Name, and BodyG ([table](https://wiki.facepunch.com/gmod/table) of multiple values) in the data table, this calls [Entity:SetModel](https://wiki.facepunch.com/gmod/Entity:SetModel), [Entity:SetAngles](https://wiki.facepunch.com/gmod/Entity:SetAngles), [Entity:SetPos](https://wiki.facepunch.com/gmod/Entity:SetPos), [Entity:SetSkin](https://wiki.facepunch.com/gmod/Entity:SetSkin), [duplicator.DoFlex](https://wiki.facepunch.com/gmod/duplicator.DoFlex), [duplicator.DoBoneManipulator](https://wiki.facepunch.com/gmod/duplicator.DoBoneManipulator), [Entity:SetModelScale](https://wiki.facepunch.com/gmod/Entity:SetModelScale), [Entity:SetCollisionGroup](https://wiki.facepunch.com/gmod/Entity:SetCollisionGroup), [Entity:SetName](https://wiki.facepunch.com/gmod/Entity:SetName), [Entity:SetBodygroup](https://wiki.facepunch.com/gmod/Entity:SetBodygroup) on ent.
+--- 
+--- If ent has a RestoreNetworkVars function, it is called with data.DT. 
 --- [https://wiki.facepunch.com/gmod/duplicator.DoGeneric]
 --- @param ent Entity @ The entity to be applied upon
 --- @param data table @ The data to be applied onto the entity
 --- @return void
 function duplicator.DoGeneric(ent, data) end
 
---- (server) "Applies bone data, generically."If data contains a PhysicsObjects table, it moves, re-angles and if relevent freezes all specified bones, first converting from local coordinates to world coordinates. 
+--- (server) "Applies bone data, generically."
+--- 
+--- If data contains a PhysicsObjects table, it moves, re-angles and if relevent freezes all specified bones, first converting from local coordinates to world coordinates. 
 --- [https://wiki.facepunch.com/gmod/duplicator.DoGenericPhysics]
 --- @param ent Entity @ The entity to be applied upon
 --- @param ply Player @ The player who owns the entity. Unused in function as of early 2013
@@ -97,7 +111,9 @@ function duplicator.DoGenericPhysics(ent, ply, data) end
 --- @return table
 function duplicator.FindEntityClass(name) end
 
---- (server) "Generic function for duplicating stuff" This is called when [duplicator.CreateEntityFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateEntityFromTable) can't find an entity factory to build with. It calls [duplicator.DoGeneric](https://wiki.facepunch.com/gmod/duplicator.DoGeneric) and [duplicator.DoGenericPhysics](https://wiki.facepunch.com/gmod/duplicator.DoGenericPhysics) to apply standard duplicator stored things such as the model and position. 
+--- (server) "Generic function for duplicating stuff" 
+--- 
+--- This is called when [duplicator.CreateEntityFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateEntityFromTable) can't find an entity factory to build with. It calls [duplicator.DoGeneric](https://wiki.facepunch.com/gmod/duplicator.DoGeneric) and [duplicator.DoGenericPhysics](https://wiki.facepunch.com/gmod/duplicator.DoGenericPhysics) to apply standard duplicator stored things such as the model and position. 
 --- [https://wiki.facepunch.com/gmod/duplicator.GenericDuplicatorFunction]
 --- @param ply Player @ The player who wants to create something
 --- @param data table @ The duplication data to build the entity with
@@ -118,7 +134,9 @@ function duplicator.GetAllConstrainedEntitiesAndConstraints(ent, entStorageTable
 --- @return boolean
 function duplicator.IsAllowed(classname) end
 
---- (server) "Given entity list and constraint list, create all entities and return their tables"Calls [duplicator.CreateEntityFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateEntityFromTable) on each sub-table of EntityList. If an entity is actually created, it calls [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated) with the entity's duplicator data, then [duplicator.ApplyEntityModifiers](https://wiki.facepunch.com/gmod/duplicator.ApplyEntityModifiers), [duplicator.ApplyBoneModifiers](https://wiki.facepunch.com/gmod/duplicator.ApplyBoneModifiers) and finally  [ENTITY:PostEntityPaste](https://wiki.facepunch.com/gmod/ENTITY:PostEntityPaste) is called.The constraints are then created with [duplicator.CreateConstraintFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateConstraintFromTable). 
+--- (server) "Given entity list and constraint list, create all entities and return their tables"
+--- Calls [duplicator.CreateEntityFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateEntityFromTable) on each sub-table of EntityList. If an entity is actually created, it calls [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated) with the entity's duplicator data, then [duplicator.ApplyEntityModifiers](https://wiki.facepunch.com/gmod/duplicator.ApplyEntityModifiers), [duplicator.ApplyBoneModifiers](https://wiki.facepunch.com/gmod/duplicator.ApplyBoneModifiers) and finally  [ENTITY:PostEntityPaste](https://wiki.facepunch.com/gmod/ENTITY:PostEntityPaste) is called.
+--- The constraints are then created with [duplicator.CreateConstraintFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateConstraintFromTable). 
 --- [https://wiki.facepunch.com/gmod/duplicator.Paste]
 --- @param Player Player @ The player who wants to create something
 --- @param EntityList table @ A table of duplicator data to create the entities from
@@ -129,7 +147,7 @@ function duplicator.Paste(Player, EntityList, ConstraintList) end
 --- (client/server) Registers a function to be called on each of an entity's bones when [duplicator.ApplyBoneModifiers](https://wiki.facepunch.com/gmod/duplicator.ApplyBoneModifiers) is called. 
 --- [https://wiki.facepunch.com/gmod/duplicator.RegisterBoneModifier]
 --- @param key any @ The type of the key doesn't appear to matter, but it is preferable to use a string.
---- @param boneModifier function @ Function called on each bone that an ent has. Called during [duplicator.ApplyBoneModifiers](https://wiki.facepunch.com/gmod/duplicator.ApplyBoneModifiers).Function parameters are:* [Player](https://wiki.facepunch.com/gmod/Player) ply* [Entity](https://wiki.facepunch.com/gmod/Entity) ent* [number](https://wiki.facepunch.com/gmod/number) boneID* [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) bone* [table](https://wiki.facepunch.com/gmod/table) dataThe data table that is passed to boneModifier is set with [duplicator.StoreBoneModifier](https://wiki.facepunch.com/gmod/duplicator.StoreBoneModifier)
+--- @param boneModifier function @ Function called on each bone that an ent has. Called during [duplicator.ApplyBoneModifiers](https://wiki.facepunch.com/gmod/duplicator.ApplyBoneModifiers). Function parameters are:  [Player](https://wiki.facepunch.com/gmod/Player) ply  [Entity](https://wiki.facepunch.com/gmod/Entity) ent  [number](https://wiki.facepunch.com/gmod/number) boneID  [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) bone  [table](https://wiki.facepunch.com/gmod/table) data  The data table that is passed to boneModifier is set with [duplicator.StoreBoneModifier](https://wiki.facepunch.com/gmod/duplicator.StoreBoneModifier)
 --- @return void
 function duplicator.RegisterBoneModifier(key, boneModifier) end
 
@@ -149,25 +167,31 @@ function duplicator.RegisterConstraint(name, callback, ...) end
 --- @return void
 function duplicator.RegisterEntityClass(name, function, args) end
 
---- (client/server) This allows you to register tweaks to entities. For instance, if you were making an "unbreakable" addon, you would use this to enable saving the "unbreakable" state of entities between duplications.This function registers a piece of generic code that is run on all entities with this modifier. In order to have it actually run, use [duplicator.StoreEntityModifier](https://wiki.facepunch.com/gmod/duplicator.StoreEntityModifier).This function does nothing when run clientside. 
+--- (client/server) This allows you to register tweaks to entities. For instance, if you were making an "unbreakable" addon, you would use this to enable saving the "unbreakable" state of entities between duplications.
+--- This function registers a piece of generic code that is run on all entities with this modifier. In order to have it actually run, use [duplicator.StoreEntityModifier](https://wiki.facepunch.com/gmod/duplicator.StoreEntityModifier).
+--- This function does nothing when run clientside. 
 --- [https://wiki.facepunch.com/gmod/duplicator.RegisterEntityModifier]
 --- @param name string @ An identifier for your modification. This is not limited, so be verbose. `Person's 'Unbreakable' mod` is far less likely to cause conflicts than `unbreakable`
 --- @param func function @ The function to be called for your modification. It should have the arguments (`Player`, `Entity`, `Data`), where data is what you pass to [duplicator.StoreEntityModifier](https://wiki.facepunch.com/gmod/duplicator.StoreEntityModifier).
 --- @return void
 function duplicator.RegisterEntityModifier(name, func) end
 
---- (server) Help to remove certain map created entities before creating the saved entitiesThis is obviously so we don't get duplicate props everywhere.It should be called before calling Paste. 
+--- (server) Help to remove certain map created entities before creating the saved entities
+--- This is obviously so we don't get duplicate props everywhere.
+--- It should be called before calling Paste. 
 --- [https://wiki.facepunch.com/gmod/duplicator.RemoveMapCreatedEntities]
 --- @return void
 function duplicator.RemoveMapCreatedEntities() end
 
---- (client/server) "When a copy is copied it will be translated according to these.If you set them - make sure to set them back to 0 0 0!" 
+--- (client/server) "When a copy is copied it will be translated according to these.
+--- If you set them - make sure to set them back to 0 0 0!" 
 --- [https://wiki.facepunch.com/gmod/duplicator.SetLocalAng]
 --- @param v Angle @ The angle to offset all pastes from
 --- @return void
 function duplicator.SetLocalAng(v) end
 
---- (client/server) "When a copy is copied it will be translated according to these.If you set them - make sure to set them back to 0 0 0!" 
+--- (client/server) "When a copy is copied it will be translated according to these.
+--- If you set them - make sure to set them back to 0 0 0!" 
 --- [https://wiki.facepunch.com/gmod/duplicator.SetLocalPos]
 --- @param v Vector @ The position to offset all pastes from
 --- @return void
@@ -176,7 +200,7 @@ function duplicator.SetLocalPos(v) end
 --- (server) Stores bone mod data for a registered bone modification function 
 --- [https://wiki.facepunch.com/gmod/duplicator.StoreBoneModifier]
 --- @param ent Entity @ The entity to add bone mod data to
---- @param boneID number @ The bone ID.See [Entity:GetPhysicsObjectNum](https://wiki.facepunch.com/gmod/Entity:GetPhysicsObjectNum)
+--- @param boneID number @ The bone ID. See [Entity:GetPhysicsObjectNum](https://wiki.facepunch.com/gmod/Entity:GetPhysicsObjectNum)
 --- @param key any @ The key for the bone modification
 --- @param data table @ The bone modification data that is passed to the bone modification function
 --- @return void

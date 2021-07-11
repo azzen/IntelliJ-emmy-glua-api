@@ -61,17 +61,20 @@ function ProjectedTexture:GetPos() end
 --- @return number
 function ProjectedTexture:GetQuadraticAttenuation() end
 
---- (client) Returns the shadow depth bias of the projected texture.Set by [ProjectedTexture:SetShadowDepthBias](https://wiki.facepunch.com/gmod/ProjectedTexture:SetShadowDepthBias). 
+--- (client) Returns the shadow depth bias of the projected texture.
+--- Set by [ProjectedTexture:SetShadowDepthBias](https://wiki.facepunch.com/gmod/ProjectedTexture:SetShadowDepthBias). 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:GetShadowDepthBias]
 --- @return number
 function ProjectedTexture:GetShadowDepthBias() end
 
---- (client) Returns the shadow "filter size" of the projected texture. `0` is fully pixelated, higher values will blur the shadow more.Set by [ProjectedTexture:SetShadowFilter](https://wiki.facepunch.com/gmod/ProjectedTexture:SetShadowFilter). 
+--- (client) Returns the shadow "filter size" of the projected texture. `0` is fully pixelated, higher values will blur the shadow more.
+--- Set by [ProjectedTexture:SetShadowFilter](https://wiki.facepunch.com/gmod/ProjectedTexture:SetShadowFilter). 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:GetShadowFilter]
 --- @return number
 function ProjectedTexture:GetShadowFilter() end
 
---- (client) Returns the shadow depth slope scale bias of the projected texture.Set by [ProjectedTexture:SetShadowSlopeScaleDepthBias](https://wiki.facepunch.com/gmod/ProjectedTexture:SetShadowSlopeScaleDepthBias). 
+--- (client) Returns the shadow depth slope scale bias of the projected texture.
+--- Set by [ProjectedTexture:SetShadowSlopeScaleDepthBias](https://wiki.facepunch.com/gmod/ProjectedTexture:SetShadowSlopeScaleDepthBias). 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:GetShadowSlopeScaleDepthBias]
 --- @return number
 function ProjectedTexture:GetShadowSlopeScaleDepthBias() end
@@ -96,7 +99,12 @@ function ProjectedTexture:GetTextureFrame() end
 --- @return number
 function ProjectedTexture:GetVerticalFOV() end
 
---- (client) Returns true if the projected texture is valid (i.e. has not been removed), false otherwise.Instead of calling this directly it's a good idea to call [IsValid](https://wiki.facepunch.com/gmod/Global.IsValid) in case the variable is nil.```IsValid( ptexture )```This not only checks whether the projected texture is valid - but also checks whether it's nil. 
+--- (client) Returns true if the projected texture is valid (i.e. has not been removed), false otherwise.
+--- Instead of calling this directly it's a good idea to call [IsValid](https://wiki.facepunch.com/gmod/Global.IsValid) in case the variable is nil.
+--- ```
+--- IsValid( ptexture )
+--- ```
+--- This not only checks whether the projected texture is valid - but also checks whether it's nil. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:IsValid]
 --- @return boolean
 function ProjectedTexture:IsValid() end
@@ -106,67 +114,82 @@ function ProjectedTexture:IsValid() end
 --- @return void
 function ProjectedTexture:Remove() end
 
---- (client) Sets the angles (direction) of the projected texture.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the angles (direction) of the projected texture.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetAngles]
 --- @param angle Angle @ No description provided
 --- @return void
 function ProjectedTexture:SetAngles(angle) end
 
---- (client) Sets the brightness of the projected texture.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the brightness of the projected texture.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetBrightness]
 --- @param brightness number @ The brightness to give the projected texture.
 --- @return void
 function ProjectedTexture:SetBrightness(brightness) end
 
---- (client) Sets the color of the projected texture.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the color of the projected texture.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetColor]
---- @param color table @ Must be a [Color](https://wiki.facepunch.com/gmod/Color).Unlike other projected textures, this color can only go up to 255.
+--- @param color table @ Must be a [Color](https://wiki.facepunch.com/gmod/Color). Unlike other projected textures, this color can only go up to 255.
 --- @return void
 function ProjectedTexture:SetColor(color) end
 
---- (client) Sets the constant attenuation of the projected texture.See also [ProjectedTexture:SetLinearAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetLinearAttenuation) and [ProjectedTexture:SetQuadraticAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetQuadraticAttenuation).You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the constant attenuation of the projected texture.
+--- See also [ProjectedTexture:SetLinearAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetLinearAttenuation) and [ProjectedTexture:SetQuadraticAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetQuadraticAttenuation).
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetConstantAttenuation]
 --- @param constAtten number @ No description provided
 --- @return void
 function ProjectedTexture:SetConstantAttenuation(constAtten) end
 
---- (client) Enable or disable shadows cast from the projected texture.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Enable or disable shadows cast from the projected texture.
+--- 
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetEnableShadows]
 --- @param newState boolean @ No description provided
 --- @return void
 function ProjectedTexture:SetEnableShadows(newState) end
 
---- (client) Sets the distance at which the projected texture ends.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the distance at which the projected texture ends.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetFarZ]
 --- @param farZ number @ No description provided
 --- @return void
 function ProjectedTexture:SetFarZ(farZ) end
 
---- (client) Sets the angle of projection.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the angle of projection.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetFOV]
 --- @param fov number @ Must be higher than 0 and lower than 180
 --- @return void
 function ProjectedTexture:SetFOV(fov) end
 
---- (client) Sets the horizontal angle of projection without affecting the vertical angle.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the horizontal angle of projection without affecting the vertical angle.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetHorizontalFOV]
 --- @param hFOV number @ The new horizontal Field Of View for the projected texture. Must be in range between 0 and 180.
 --- @return void
 function ProjectedTexture:SetHorizontalFOV(hFOV) end
 
---- (client) Sets the linear attenuation of the projected texture.See also [ProjectedTexture:SetConstantAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetConstantAttenuation) and [ProjectedTexture:SetQuadraticAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetQuadraticAttenuation).The default value of linear attenuation when the projected texture is created is 100. (others are 0, as you are not supposed to mix them)You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the linear attenuation of the projected texture.
+--- See also [ProjectedTexture:SetConstantAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetConstantAttenuation) and [ProjectedTexture:SetQuadraticAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetQuadraticAttenuation).
+--- The default value of linear attenuation when the projected texture is created is 100. (others are 0, as you are not supposed to mix them)
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetLinearAttenuation]
 --- @param linearAtten number @ No description provided
 --- @return void
 function ProjectedTexture:SetLinearAttenuation(linearAtten) end
 
---- (client) Sets the distance at which the projected texture begins its projection.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the distance at which the projected texture begins its projection.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetNearZ]
 --- @param nearZ number @ No description provided
 --- @return void
 function ProjectedTexture:SetNearZ(nearZ) end
 
---- (client) Changes the current projected texture between orthographic and perspective projection.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Changes the current projected texture between orthographic and perspective projection.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetOrthographic]
 --- @param orthographic boolean @ When false, all other arguments are ignored and the texture is reset to perspective projection.
 --- @param left number @ The amount of units left from the projected texture's origin to project.
@@ -176,19 +199,23 @@ function ProjectedTexture:SetNearZ(nearZ) end
 --- @return void
 function ProjectedTexture:SetOrthographic(orthographic, left, top, right, bottom) end
 
---- (client) Move the Projected Texture to the specified position.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Move the Projected Texture to the specified position.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetPos]
 --- @param position Vector @ No description provided
 --- @return void
 function ProjectedTexture:SetPos(position) end
 
---- (client) Sets the quadratic attenuation of the projected texture.See also [ProjectedTexture:SetLinearAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetLinearAttenuation) and [ProjectedTexture:SetConstantAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetConstantAttenuation).You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the quadratic attenuation of the projected texture.
+--- See also [ProjectedTexture:SetLinearAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetLinearAttenuation) and [ProjectedTexture:SetConstantAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetConstantAttenuation).
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetQuadraticAttenuation]
 --- @param quadAtten number @ No description provided
 --- @return void
 function ProjectedTexture:SetQuadraticAttenuation(quadAtten) end
 
---- (client) Sets the shadow depth bias of the projected texture.The initial value is `0.0001`. Normal projected textures obey the value of the `mat_depthbias_shadowmap` [ConVar](https://wiki.facepunch.com/gmod/ConVar). 
+--- (client) Sets the shadow depth bias of the projected texture.
+--- The initial value is `0.0001`. Normal projected textures obey the value of the `mat_depthbias_shadowmap` [ConVar](https://wiki.facepunch.com/gmod/ConVar). 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetShadowDepthBias]
 --- @param bias number @ The shadow depth bias to set.
 --- @return void
@@ -200,7 +227,8 @@ function ProjectedTexture:SetShadowDepthBias(bias) end
 --- @return void
 function ProjectedTexture:SetShadowFilter(filter) end
 
---- (client) Sets the shadow depth slope scale bias of the projected texture.The initial value is `2`. Normal projected textures obey the value of the `mat_slopescaledepthbias_shadowmap` [ConVar](https://wiki.facepunch.com/gmod/ConVar). 
+--- (client) Sets the shadow depth slope scale bias of the projected texture.
+--- The initial value is `2`. Normal projected textures obey the value of the `mat_slopescaledepthbias_shadowmap` [ConVar](https://wiki.facepunch.com/gmod/ConVar). 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetShadowSlopeScaleDepthBias]
 --- @param bias number @ The shadow depth slope scale bias to set.
 --- @return void
@@ -212,19 +240,22 @@ function ProjectedTexture:SetShadowSlopeScaleDepthBias(bias) end
 --- @return void
 function ProjectedTexture:SetTargetEntity(target) end
 
---- (client) Sets the texture to be projected.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the texture to be projected.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetTexture]
 --- @param texture string @ The name of the texture. Can also be an [ITexture](https://wiki.facepunch.com/gmod/ITexture).
 --- @return void
 function ProjectedTexture:SetTexture(texture) end
 
---- (client) For animated textures, this will choose which frame in the animation will be projected.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) For animated textures, this will choose which frame in the animation will be projected.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetTextureFrame]
 --- @param frame number @ The frame index to use.
 --- @return void
 function ProjectedTexture:SetTextureFrame(frame) end
 
---- (client) Sets the vertical angle of projection without affecting the horizontal angle.You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
+--- (client) Sets the vertical angle of projection without affecting the horizontal angle.
+--- You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect. 
 --- [https://wiki.facepunch.com/gmod/ProjectedTexture:SetVerticalFOV]
 --- @param vFOV number @ The new vertical Field Of View for the projected texture. Must be in range between 0 and 180.
 --- @return void

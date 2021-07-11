@@ -35,7 +35,8 @@ function string.dump(func, stripDebugInfo) end
 --- @return boolean
 function string.EndsWith(str, end) end
 
---- (client/menu/server) Splits a string up wherever it finds the given separator.This is the reverse of [string.Implode](https://wiki.facepunch.com/gmod/string.Implode). 
+--- (client/menu/server) Splits a string up wherever it finds the given separator.
+--- This is the reverse of [string.Implode](https://wiki.facepunch.com/gmod/string.Implode). 
 --- [https://wiki.facepunch.com/gmod/string.Explode]
 --- @param separator string @ The string will be separated wherever this sequence is found.
 --- @param str string @ The string to split up.
@@ -54,7 +55,7 @@ function string.find(haystack, needle, startPos, noPatterns) end
 
 --- (client/menu/server) Formats the specified values into the string given. 
 --- [https://wiki.facepunch.com/gmod/string.format]
---- @param format string @ The string to be formatted.Follows this format: http://www.cplusplus.com/reference/cstdio/printf/LuaJIT supports all specifiers and doesn't support `*` width and `.*` presision.LuaJIT exclusives:| Format | Description | Example of the output ||:------:|:-----------:|:---------------------:|| %p | Returns pointer to supplied structure (table/function) | `0xf20a8968` || %q | Formats a string between double quotes, using escape sequences when necessary to ensure that it can safely be read back by the Lua interpreter | `"test\1\2test"` |
+--- @param format string @ The string to be formatted. Follows this format: http://www.cplusplus.com/reference/cstdio/printf/ LuaJIT supports all specifiers and doesn't support `` width and `.` presision. LuaJIT exclusives: | Format | Description | Example of the output | |:------:|:-----------:|:---------------------:| | %p | Returns pointer to supplied structure (table/function) | `0xf20a8968` | | %q | Formats a string between double quotes, using escape sequences when necessary to ensure that it can safely be read back by the Lua interpreter | `"test\1\2test"` |
 --- @param formatParameters vararg @ Values to be formatted into the string.
 --- @return string
 function string.format(format, formatParameters) end
@@ -115,12 +116,13 @@ function string.gmatch(data, pattern) end
 --- [https://wiki.facepunch.com/gmod/string.gsub]
 --- @param string string @ String which should be modified.
 --- @param pattern string @ The pattern that defines what should be matched and eventually be replaced.
---- @param replacement string @ In case of a string the matched sequence will be replaced with it.In case of a table, the matched sequence will be used as key and the table will tested for the key, if a value exists it will be used as replacement.In case of a function all matches will be passed as parameters to the function, the return value(s) of the function will then be used as replacement.
+--- @param replacement string @ In case of a string the matched sequence will be replaced with it. In case of a table, the matched sequence will be used as key and the table will tested for the key, if a value exists it will be used as replacement. In case of a function all matches will be passed as parameters to the function, the return value(s) of the function will then be used as replacement.
 --- @param maxReplaces number @ Maximum number of replacements to be made.
 --- @return string|number
 function string.gsub(string, pattern, replacement, maxReplaces) end
 
---- (client/menu/server) Joins the values of a table together to form a string.This is the reverse of [string.Explode](https://wiki.facepunch.com/gmod/string.Explode) and is functionally identical to [table.concat](https://wiki.facepunch.com/gmod/table.concat), but with less features. 
+--- (client/menu/server) Joins the values of a table together to form a string.
+--- This is the reverse of [string.Explode](https://wiki.facepunch.com/gmod/string.Explode) and is functionally identical to [table.concat](https://wiki.facepunch.com/gmod/table.concat), but with less features. 
 --- [https://wiki.facepunch.com/gmod/string.Implode]
 --- @param separator string @ The separator to insert between each piece.
 --- @param pieces table @ The table of pieces to concatenate. The keys for these must be numeric and sequential.
@@ -215,7 +217,8 @@ function string.Right(str, num) end
 --- @return string
 function string.SetChar(InputString, Index, ReplacementChar) end
 
---- (client/menu/server) Splits the string into a table of strings, separated by the second argument.This is an alias of [string.Explode](https://wiki.facepunch.com/gmod/string.Explode). 
+--- (client/menu/server) Splits the string into a table of strings, separated by the second argument.
+--- This is an alias of [string.Explode](https://wiki.facepunch.com/gmod/string.Explode). 
 --- [https://wiki.facepunch.com/gmod/string.Split]
 --- @param Inputstring string @ String to split
 --- @param Separator string @ Character(s) to split with.

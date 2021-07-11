@@ -21,7 +21,8 @@ function utf8.codepoint(string, startPos, endPos) end
 --- @return function
 function utf8.codes(string) end
 
---- (client/server) Forces a string to contain only valid UTF-8 data. Invalid sequences are replaced with U+FFFD (the Unicode replacement character).This is a lazy way for users to ensure a string contains only valid UTF-8 data. 
+--- (client/server) Forces a string to contain only valid UTF-8 data. Invalid sequences are replaced with U+FFFD (the Unicode replacement character).
+--- This is a lazy way for users to ensure a string contains only valid UTF-8 data. 
 --- [https://wiki.facepunch.com/gmod/utf8.force]
 --- @param string string @ The string that will become a valid UTF-8 string.
 --- @return string
@@ -58,7 +59,12 @@ function utf8.offset(string, n, startPos) end
 --- @return string
 function utf8.sub(string, StartPos, EndPos) end
 
---- () # Not a functionThis is NOT a function, it's the [pattern](https://wiki.facepunch.com/gmod/Patterns) (a string, not a function) ```"[%z\x01-\x7F\xC2-\xF4][\x80-\xBF]*"```which matches exactly one UTF-8 byte sequence, assuming that the subject is a valid UTF-8 string. 
+--- () # Not a function
+--- This is NOT a function, it's the [pattern](https://wiki.facepunch.com/gmod/Patterns) (a string, not a function) 
+--- ```
+--- "[%z\x01-\x7F\xC2-\xF4][\x80-\xBF]*"
+--- ```
+--- which matches exactly one UTF-8 byte sequence, assuming that the subject is a valid UTF-8 string. 
 --- [https://wiki.facepunch.com/gmod/utf8.charpattern]
 --- @return void
 function utf8.charpattern() end

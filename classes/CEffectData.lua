@@ -93,7 +93,8 @@ function CEffectData:SetAngles(ang) end
 --- @return void
 function CEffectData:SetAttachment(attachment) end
 
---- (client/server) Sets the "color" of the effect.All this does is provide an addition 8 bits of data for the effect to use. What this will actually do will vary from effect to effect, depending on how a specific effect uses this given data, if at all. 
+--- (client/server) Sets the "color" of the effect.
+--- All this does is provide an addition 8 bits of data for the effect to use. What this will actually do will vary from effect to effect, depending on how a specific effect uses this given data, if at all. 
 --- [https://wiki.facepunch.com/gmod/CEffectData:SetColor]
 --- @param color number @ Color represented by a byte.
 --- @return void

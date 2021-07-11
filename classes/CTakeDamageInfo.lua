@@ -37,22 +37,28 @@ function CTakeDamageInfo:GetDamageBonus() end
 --- @return number
 function CTakeDamageInfo:GetDamageCustom() end
 
---- (client/server) Returns a vector representing the damage force.Can be set with [CTakeDamageInfo:SetDamageForce](https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetDamageForce). 
+--- (client/server) Returns a vector representing the damage force.
+--- Can be set with [CTakeDamageInfo:SetDamageForce](https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetDamageForce). 
 --- [https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetDamageForce]
 --- @return Vector
 function CTakeDamageInfo:GetDamageForce() end
 
---- (client/server) Returns the position where the damage was or is going to be applied to.Can be set using [CTakeDamageInfo:SetDamagePosition](https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetDamagePosition). 
+--- (client/server) Returns the position where the damage was or is going to be applied to.
+--- Can be set using [CTakeDamageInfo:SetDamagePosition](https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetDamagePosition). 
 --- [https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetDamagePosition]
 --- @return Vector
 function CTakeDamageInfo:GetDamagePosition() end
 
---- (client/server) Returns a bitflag which indicates the damage type(s) of the damage.Consider using [CTakeDamageInfo:IsDamageType](https://wiki.facepunch.com/gmod/CTakeDamageInfo:IsDamageType) instead. Value returned by this function can contain multiple damage types. 
+--- (client/server) Returns a bitflag which indicates the damage type(s) of the damage.
+--- Consider using [CTakeDamageInfo:IsDamageType](https://wiki.facepunch.com/gmod/CTakeDamageInfo:IsDamageType) instead. Value returned by this function can contain multiple damage types. 
 --- [https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetDamageType]
 --- @return number
 function CTakeDamageInfo:GetDamageType() end
 
---- (client/server) Returns the inflictor of the damage. This is not necessarily a weapon.For hitscan weapons this is the weapon.For projectile weapons this is the projectile.For a more reliable method of getting the weapon that damaged an entity, use [GetAttacker](https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetAttacker) with [GetActiveWeapon](https://wiki.facepunch.com/gmod/Player:GetActiveWeapon). 
+--- (client/server) Returns the inflictor of the damage. This is not necessarily a weapon.
+--- For hitscan weapons this is the weapon.
+--- For projectile weapons this is the projectile.
+--- For a more reliable method of getting the weapon that damaged an entity, use [GetAttacker](https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetAttacker) with [GetActiveWeapon](https://wiki.facepunch.com/gmod/Player:GetActiveWeapon). 
 --- [https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetInflictor]
 --- @return Entity
 function CTakeDamageInfo:GetInflictor() end
@@ -148,7 +154,9 @@ function CTakeDamageInfo:SetDamagePosition(pos) end
 --- @return void
 function CTakeDamageInfo:SetDamageType(type) end
 
---- (client/server) Sets the inflictor of the damage for example a weapon.For hitscan/bullet weapons this should the weapon.For projectile ( rockets, etc ) weapons this should be the projectile. 
+--- (client/server) Sets the inflictor of the damage for example a weapon.
+--- For hitscan/bullet weapons this should the weapon.
+--- For projectile ( rockets, etc ) weapons this should be the projectile. 
 --- [https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetInflictor]
 --- @param inflictor Entity @ The new inflictor.
 --- @return void

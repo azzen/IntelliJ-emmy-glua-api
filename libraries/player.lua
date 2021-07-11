@@ -1,9 +1,10 @@
 --- @class player
 player = {}
 
---- (server) Similar to the serverside command "bot", this function creates a new Player bot with the given name. This bot will not obey to the usual "bot_*" commands, and it's the same bot base used in TF2 and CS:S.The best way to control the behaviour of a Player bot right now is to use the [GM:StartCommand](https://wiki.facepunch.com/gmod/GM:StartCommand) hook and modify its input serverside. 
+--- (server) Similar to the serverside command "bot", this function creates a new Player bot with the given name. This bot will not obey to the usual "bot_*" commands, and it's the same bot base used in TF2 and CS:S.
+--- The best way to control the behaviour of a Player bot right now is to use the [GM:StartCommand](https://wiki.facepunch.com/gmod/GM:StartCommand) hook and modify its input serverside. 
 --- [https://wiki.facepunch.com/gmod/player.CreateNextBot]
---- @param botName string @ The name of the bot, using an already existing name will append brackets at the end of it with a number pertaining it.Example: "Bot name test", "Bot name test(1)".
+--- @param botName string @ The name of the bot, using an already existing name will append brackets at the end of it with a number pertaining it. Example: "Bot name test", "Bot name test(1)".
 --- @return Player
 function player.CreateNextBot(botName) end
 
@@ -23,7 +24,10 @@ function player.GetBots() end
 --- @return Player
 function player.GetByAccountID(accountID) end
 
---- (client/server) Gets the player with the specified connection ID.Connection ID can be retrieved via [gameevent.Listen](https://wiki.facepunch.com/gmod/gameevent.Listen) events.For a function that returns a player based on their [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex), see [Entity](https://wiki.facepunch.com/gmod/Global.Entity).For a function that returns a player based on their [Player:UserID](https://wiki.facepunch.com/gmod/Player:UserID), see [Player](https://wiki.facepunch.com/gmod/Global.Player). 
+--- (client/server) Gets the player with the specified connection ID.
+--- Connection ID can be retrieved via [gameevent.Listen](https://wiki.facepunch.com/gmod/gameevent.Listen) events.
+--- For a function that returns a player based on their [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex), see [Entity](https://wiki.facepunch.com/gmod/Global.Entity).
+--- For a function that returns a player based on their [Player:UserID](https://wiki.facepunch.com/gmod/Player:UserID), see [Player](https://wiki.facepunch.com/gmod/Global.Player). 
 --- [https://wiki.facepunch.com/gmod/player.GetByID]
 --- @param connectionID number @ The connection ID to find the player by.
 --- @return Player
@@ -52,7 +56,8 @@ function player.GetByUniqueID(uniqueID) end
 --- @return number
 function player.GetCount() end
 
---- (client/server) Returns a table of all human ( non bot/AI ) players.Unlike [player.GetAll](https://wiki.facepunch.com/gmod/player.GetAll), this does not include bots. 
+--- (client/server) Returns a table of all human ( non bot/AI ) players.
+--- Unlike [player.GetAll](https://wiki.facepunch.com/gmod/player.GetAll), this does not include bots. 
 --- [https://wiki.facepunch.com/gmod/player.GetHumans]
 --- @return table
 function player.GetHumans() end

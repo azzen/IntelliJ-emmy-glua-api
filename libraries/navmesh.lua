@@ -60,7 +60,8 @@ function navmesh.GetMarkedArea() end
 --- @return CNavLadder
 function navmesh.GetMarkedLadder() end
 
---- (server) Returns the Nav Area contained in this position that also satisfies the elevation limit.This function will properly see blocked [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)s. See [navmesh.GetNearestNavArea](https://wiki.facepunch.com/gmod/navmesh.GetNearestNavArea). 
+--- (server) Returns the Nav Area contained in this position that also satisfies the elevation limit.
+--- This function will properly see blocked [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)s. See [navmesh.GetNearestNavArea](https://wiki.facepunch.com/gmod/navmesh.GetNearestNavArea). 
 --- [https://wiki.facepunch.com/gmod/navmesh.GetNavArea]
 --- @param pos Vector @ The position to search for.
 --- @param beneathLimit number @ The elevation limit at which the Nav Area will be searched.
@@ -84,12 +85,13 @@ function navmesh.GetNavAreaCount() end
 --- @return CNavLadder
 function navmesh.GetNavLadderByID(id) end
 
---- (server) Returns the closest [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) to given position at the same height, or beneath it.This function will ignore blocked [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)s. See [navmesh.GetNavArea](https://wiki.facepunch.com/gmod/navmesh.GetNavArea) for a function that does see blocked areas. 
+--- (server) Returns the closest [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) to given position at the same height, or beneath it.
+--- This function will ignore blocked [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)s. See [navmesh.GetNavArea](https://wiki.facepunch.com/gmod/navmesh.GetNavArea) for a function that does see blocked areas. 
 --- [https://wiki.facepunch.com/gmod/navmesh.GetNearestNavArea]
 --- @param pos Vector @ The position to look from
 --- @param anyZ boolean @ This argument is ignored and has no effect
 --- @param maxDist number @ This is the maximum distance from the given position that the function will look for a [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)
---- @param checkLOS boolean @ If this is set to true then the function will internally do a [util.TraceLine](https://wiki.facepunch.com/gmod/util.TraceLine) from the starting position to each potential [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) with a [MASK_NPCSOLID_BRUSHONLY](https://wiki.facepunch.com/gmod/Enums/MASK). If the trace fails then the [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) is ignored.If this is set to false then the function will find the closest [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) through anything, including the world.
+--- @param checkLOS boolean @ If this is set to true then the function will internally do a [util.TraceLine](https://wiki.facepunch.com/gmod/util.TraceLine) from the starting position to each potential [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) with a [MASK_NPCSOLID_BRUSHONLY](https://wiki.facepunch.com/gmod/Enums/MASK). If the trace fails then the [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) is ignored. If this is set to false then the function will find the closest [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) through anything, including the world.
 --- @param checkGround boolean @ If checkGround is true then this function will internally call [navmesh.GetNavArea](https://wiki.facepunch.com/gmod/navmesh.GetNavArea) to check if there is a [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) directly below the position, and return it if so, before checking anywhere else.
 --- @param team number @ This will internally call [CNavArea:IsBlocked](https://wiki.facepunch.com/gmod/CNavArea:IsBlocked) to check if the target [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) is not to be navigated by the given team. Currently this appears to do nothing.
 --- @return CNavArea

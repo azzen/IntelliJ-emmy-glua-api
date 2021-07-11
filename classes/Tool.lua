@@ -1,7 +1,8 @@
 --- @class Tool
 Tool = {}
 
---- (client/server) Returns whether the tool is allowed to be used or not. This function ignores the [SANDBOX:CanTool](https://wiki.facepunch.com/gmod/SANDBOX:CanTool) hook.By default this will always return true clientside and uses `TOOL.AllowedCVar`which is a [ConVar](https://wiki.facepunch.com/gmod/ConVar) object pointing to  `toolmode_allow_*toolname*` convar on the server. 
+--- (client/server) Returns whether the tool is allowed to be used or not. This function ignores the [SANDBOX:CanTool](https://wiki.facepunch.com/gmod/SANDBOX:CanTool) hook.
+--- By default this will always return true clientside and uses `TOOL.AllowedCVar`which is a [ConVar](https://wiki.facepunch.com/gmod/ConVar) object pointing to  `toolmode_allow_*toolname*` convar on the server. 
 --- [https://wiki.facepunch.com/gmod/Tool:Allowed]
 --- @return boolean
 function Tool:Allowed() end
@@ -61,7 +62,8 @@ function Tool:GetEnt(id) end
 --- @return string
 function Tool:GetHelpText() end
 
---- (client/server) Retrieves an local vector previously stored using [Tool:SetObject](https://wiki.facepunch.com/gmod/Tool:SetObject).See also [Tool:GetPos](https://wiki.facepunch.com/gmod/Tool:GetPos). 
+--- (client/server) Retrieves an local vector previously stored using [Tool:SetObject](https://wiki.facepunch.com/gmod/Tool:SetObject).
+--- See also [Tool:GetPos](https://wiki.facepunch.com/gmod/Tool:GetPos). 
 --- [https://wiki.facepunch.com/gmod/Tool:GetLocalPos]
 --- @param id number @ The id of the object which was set in [Tool:SetObject](https://wiki.facepunch.com/gmod/Tool:SetObject).
 --- @return Vector
@@ -88,7 +90,8 @@ function Tool:GetOperation() end
 --- @return Entity
 function Tool:GetOwner() end
 
---- (client/server) Retrieves an [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) previously stored using [Tool:SetObject](https://wiki.facepunch.com/gmod/Tool:SetObject).See also [Tool:GetEnt](https://wiki.facepunch.com/gmod/Tool:GetEnt). 
+--- (client/server) Retrieves an [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) previously stored using [Tool:SetObject](https://wiki.facepunch.com/gmod/Tool:SetObject).
+--- See also [Tool:GetEnt](https://wiki.facepunch.com/gmod/Tool:GetEnt). 
 --- [https://wiki.facepunch.com/gmod/Tool:GetPhys]
 --- @param id number @ The id of the object which was set in [Tool:SetObject](https://wiki.facepunch.com/gmod/Tool:SetObject).
 --- @return PhysObj
@@ -100,7 +103,8 @@ function Tool:GetPhys(id) end
 --- @return Vector
 function Tool:GetPos(id) end
 
---- (client/server) Attempts to grab a serverside tool [ConVar](https://wiki.facepunch.com/gmod/ConVar).This will not do anything on client, despite the function being defined shared. 
+--- (client/server) Attempts to grab a serverside tool [ConVar](https://wiki.facepunch.com/gmod/ConVar).
+--- This will not do anything on client, despite the function being defined shared. 
 --- [https://wiki.facepunch.com/gmod/Tool:GetServerInfo]
 --- @param name string @ Name of the convar to retrieve. The function will automatically add the "mytoolfilename_" part to it.
 --- @return string
@@ -111,7 +115,8 @@ function Tool:GetServerInfo(name) end
 --- @return number
 function Tool:GetStage() end
 
---- (client/server) Initializes the ghost entity with the given model. Removes any old ghost entity if called multiple times.The ghost is a regular prop_physics entity in singleplayer games, and a clientside prop in multiplayer games. 
+--- (client/server) Initializes the ghost entity with the given model. Removes any old ghost entity if called multiple times.
+--- The ghost is a regular prop_physics entity in singleplayer games, and a clientside prop in multiplayer games. 
 --- [https://wiki.facepunch.com/gmod/Tool:MakeGhostEntity]
 --- @param model string @ The model of the new ghost entity
 --- @param pos Vector @ Position to initialize the ghost entity at, usually not needed since this is updated in [Tool:UpdateGhostEntity](https://wiki.facepunch.com/gmod/Tool:UpdateGhostEntity).
@@ -129,7 +134,8 @@ function Tool:NumObjects() end
 --- @return void
 function Tool:ReleaseGhostEntity() end
 
---- (client/server) Stores an [Entity](https://wiki.facepunch.com/gmod/Entity) for later use in the tool.The stored values can be retrieved by [Tool:GetEnt](https://wiki.facepunch.com/gmod/Tool:GetEnt), [Tool:GetPos](https://wiki.facepunch.com/gmod/Tool:GetPos), [Tool:GetLocalPos](https://wiki.facepunch.com/gmod/Tool:GetLocalPos), [Tool:GetPhys](https://wiki.facepunch.com/gmod/Tool:GetPhys), [Tool:GetBone](https://wiki.facepunch.com/gmod/Tool:GetBone) and [Tool:GetNormal](https://wiki.facepunch.com/gmod/Tool:GetNormal) 
+--- (client/server) Stores an [Entity](https://wiki.facepunch.com/gmod/Entity) for later use in the tool.
+--- The stored values can be retrieved by [Tool:GetEnt](https://wiki.facepunch.com/gmod/Tool:GetEnt), [Tool:GetPos](https://wiki.facepunch.com/gmod/Tool:GetPos), [Tool:GetLocalPos](https://wiki.facepunch.com/gmod/Tool:GetLocalPos), [Tool:GetPhys](https://wiki.facepunch.com/gmod/Tool:GetPhys), [Tool:GetBone](https://wiki.facepunch.com/gmod/Tool:GetBone) and [Tool:GetNormal](https://wiki.facepunch.com/gmod/Tool:GetNormal) 
 --- [https://wiki.facepunch.com/gmod/Tool:SetObject]
 --- @param id number @ The id of the object to store.
 --- @param ent Entity @ The entity to store.
@@ -140,13 +146,23 @@ function Tool:ReleaseGhostEntity() end
 --- @return void
 function Tool:SetObject(id, ent, pos, phys, bone, normal) end
 
---- (client/server) Sets the current operation of the tool. Does nothing clientside. See also [Tool:SetStage](https://wiki.facepunch.com/gmod/Tool:SetStage).Operations and stages work as follows:* Operation 1* * Stage 1* * Stage 2* * Stage 3* Operation 2* * Stage 1* * Stage 2* * Stage ... 
+--- (client/server) Sets the current operation of the tool. Does nothing clientside. See also [Tool:SetStage](https://wiki.facepunch.com/gmod/Tool:SetStage).
+--- Operations and stages work as follows:
+--- * Operation 1
+--- * * Stage 1
+--- * * Stage 2
+--- * * Stage 3
+--- * Operation 2
+--- * * Stage 1
+--- * * Stage 2
+--- * * Stage ... 
 --- [https://wiki.facepunch.com/gmod/Tool:SetOperation]
 --- @param operation number @ The new operation ID to set.
 --- @return void
 function Tool:SetOperation(operation) end
 
---- (client/server) Sets the current stage of the tool. Does nothing clientside.See also [Tool:SetOperation](https://wiki.facepunch.com/gmod/Tool:SetOperation). 
+--- (client/server) Sets the current stage of the tool. Does nothing clientside.
+--- See also [Tool:SetOperation](https://wiki.facepunch.com/gmod/Tool:SetOperation). 
 --- [https://wiki.facepunch.com/gmod/Tool:SetStage]
 --- @param stage number @ The new stage to set.
 --- @return void
@@ -163,7 +179,9 @@ function Tool:StartGhostEntity(ent) end
 --- @return void
 function Tool:UpdateData() end
 
---- (client/server) Updates the position and orientation of the ghost entity based on where the toolgun owner is looking along with data from object with id 1 set by [Tool:SetObject](https://wiki.facepunch.com/gmod/Tool:SetObject).This should be called in the tool's [TOOL:Think](https://wiki.facepunch.com/gmod/TOOL:Think) hook.This command is only used for tools that move props, such as easy weld, axis and motor. If you want to update a ghost like the thruster tool does it for example, check its [source code](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/sandbox/entities/weapons/gmod_tool/stools/thruster.lua#L179). 
+--- (client/server) Updates the position and orientation of the ghost entity based on where the toolgun owner is looking along with data from object with id 1 set by [Tool:SetObject](https://wiki.facepunch.com/gmod/Tool:SetObject).
+--- This should be called in the tool's [TOOL:Think](https://wiki.facepunch.com/gmod/TOOL:Think) hook.
+--- This command is only used for tools that move props, such as easy weld, axis and motor. If you want to update a ghost like the thruster tool does it for example, check its [source code](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/sandbox/entities/weapons/gmod_tool/stools/thruster.lua#L179). 
 --- [https://wiki.facepunch.com/gmod/Tool:UpdateGhostEntity]
 --- @return void
 function Tool:UpdateGhostEntity() end

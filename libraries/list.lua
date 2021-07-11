@@ -8,7 +8,8 @@ list = {}
 --- @return number
 function list.Add(identifier, item) end
 
---- (client/menu/server) Returns true if the list contains the value. (as a value - not a key)For a function that looks for a key and not a value see [list.HasEntry](https://wiki.facepunch.com/gmod/list.HasEntry). 
+--- (client/menu/server) Returns true if the list contains the value. (as a value - not a key)
+--- For a function that looks for a key and not a value see [list.HasEntry](https://wiki.facepunch.com/gmod/list.HasEntry). 
 --- [https://wiki.facepunch.com/gmod/list.Contains]
 --- @param list string @ List to search through
 --- @param value any @ The value to test
@@ -32,7 +33,8 @@ function list.GetForEdit(identifier) end
 --- @return table
 function list.GetTable() end
 
---- (client/menu/server) Returns true if the list contains the given key.For a function that looks for values and not keys see [list.Contains](https://wiki.facepunch.com/gmod/list.Contains). 
+--- (client/menu/server) Returns true if the list contains the given key.
+--- For a function that looks for values and not keys see [list.Contains](https://wiki.facepunch.com/gmod/list.Contains). 
 --- [https://wiki.facepunch.com/gmod/list.HasEntry]
 --- @param list string @ List to search through
 --- @param key any @ The key to test

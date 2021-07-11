@@ -13,22 +13,28 @@ function VMatrix:GetAngles() end
 --- @return number
 function VMatrix:GetField(row, column) end
 
---- (client/server) Gets the forward direction of the matrix.ie. The first column of the matrix, excluding the w coordinate. 
+--- (client/server) Gets the forward direction of the matrix.
+--- ie. The first column of the matrix, excluding the w coordinate. 
 --- [https://wiki.facepunch.com/gmod/VMatrix:GetForward]
 --- @return Vector
 function VMatrix:GetForward() end
 
---- (client/server) Returns an inverted matrix without modifying the original matrix.Inverting the matrix will fail if its [determinant](https://en.wikipedia.org/wiki/Determinant) is 0 or close to 0. (ie. its "scale" in any direction is 0.)See also [VMatrix:GetInverseTR](https://wiki.facepunch.com/gmod/VMatrix:GetInverseTR). 
+--- (client/server) Returns an inverted matrix without modifying the original matrix.
+--- Inverting the matrix will fail if its [determinant](https://en.wikipedia.org/wiki/Determinant) is 0 or close to 0. (ie. its "scale" in any direction is 0.)
+--- See also [VMatrix:GetInverseTR](https://wiki.facepunch.com/gmod/VMatrix:GetInverseTR). 
 --- [https://wiki.facepunch.com/gmod/VMatrix:GetInverse]
 --- @return VMatrix
 function VMatrix:GetInverse() end
 
---- (client/server) Returns an inverted matrix without modifying the original matrix. This function will not fail, but only works correctly on matrices that contain only translation and/or rotation.Using this function on a matrix with modified scale may return an incorrect inverted matrix.To get the inverse of a matrix that contains other modifications, see [VMatrix:GetInverse](https://wiki.facepunch.com/gmod/VMatrix:GetInverse). 
+--- (client/server) Returns an inverted matrix without modifying the original matrix. This function will not fail, but only works correctly on matrices that contain only translation and/or rotation.
+--- Using this function on a matrix with modified scale may return an incorrect inverted matrix.
+--- To get the inverse of a matrix that contains other modifications, see [VMatrix:GetInverse](https://wiki.facepunch.com/gmod/VMatrix:GetInverse). 
 --- [https://wiki.facepunch.com/gmod/VMatrix:GetInverseTR]
 --- @return VMatrix
 function VMatrix:GetInverseTR() end
 
---- (client/server) Gets the right direction of the matrix.ie. The second column of the matrix, negated, excluding the w coordinate. 
+--- (client/server) Gets the right direction of the matrix.
+--- ie. The second column of the matrix, negated, excluding the w coordinate. 
 --- [https://wiki.facepunch.com/gmod/VMatrix:GetRight]
 --- @return Vector
 function VMatrix:GetRight() end
@@ -43,7 +49,8 @@ function VMatrix:GetScale() end
 --- @return Vector
 function VMatrix:GetTranslation() end
 
---- (client/server) Gets the up direction of the matrix.ie. The third column of the matrix, excluding the w coordinate. 
+--- (client/server) Gets the up direction of the matrix.
+--- ie. The third column of the matrix, excluding the w coordinate. 
 --- [https://wiki.facepunch.com/gmod/VMatrix:GetUp]
 --- @return Vector
 function VMatrix:GetUp() end
@@ -53,12 +60,17 @@ function VMatrix:GetUp() end
 --- @return void
 function VMatrix:Identity() end
 
---- (client/server) Inverts the matrix.Inverting the matrix will fail if its [determinant](https://en.wikipedia.org/wiki/Determinant) is 0 or close to 0. (ie. its "scale" in any direction is 0.)If the matrix cannot be inverted, it does not get modified.See also [VMatrix:InvertTR](https://wiki.facepunch.com/gmod/VMatrix:InvertTR). 
+--- (client/server) Inverts the matrix.
+--- Inverting the matrix will fail if its [determinant](https://en.wikipedia.org/wiki/Determinant) is 0 or close to 0. (ie. its "scale" in any direction is 0.)
+--- If the matrix cannot be inverted, it does not get modified.
+--- See also [VMatrix:InvertTR](https://wiki.facepunch.com/gmod/VMatrix:InvertTR). 
 --- [https://wiki.facepunch.com/gmod/VMatrix:Invert]
 --- @return boolean
 function VMatrix:Invert() end
 
---- (client/server) Inverts the matrix. This function will not fail, but only works correctly on matrices that contain only translation and/or rotation.Using this function on a matrix with modified scale may return an incorrect inverted matrix.To invert a matrix that contains other modifications, see [VMatrix:Invert](https://wiki.facepunch.com/gmod/VMatrix:Invert). 
+--- (client/server) Inverts the matrix. This function will not fail, but only works correctly on matrices that contain only translation and/or rotation.
+--- Using this function on a matrix with modified scale may return an incorrect inverted matrix.
+--- To invert a matrix that contains other modifications, see [VMatrix:Invert](https://wiki.facepunch.com/gmod/VMatrix:Invert). 
 --- [https://wiki.facepunch.com/gmod/VMatrix:InvertTR]
 --- @return void
 function VMatrix:InvertTR() end
@@ -68,7 +80,8 @@ function VMatrix:InvertTR() end
 --- @return boolean
 function VMatrix:IsIdentity() end
 
---- (client/server) Returns whether the matrix is a rotation matrix or not.Technically it checks if the forward, right and up vectors are orthogonal and normalized. 
+--- (client/server) Returns whether the matrix is a rotation matrix or not.
+--- Technically it checks if the forward, right and up vectors are orthogonal and normalized. 
 --- [https://wiki.facepunch.com/gmod/VMatrix:IsRotationMatrix]
 --- @return boolean
 function VMatrix:IsRotationMatrix() end
@@ -78,13 +91,15 @@ function VMatrix:IsRotationMatrix() end
 --- @return boolean
 function VMatrix:IsZero() end
 
---- (client/server) Rotates the matrix by the given angle.Postmultiplies the matrix by a rotation matrix (A = AR). 
+--- (client/server) Rotates the matrix by the given angle.
+--- Postmultiplies the matrix by a rotation matrix (A = AR). 
 --- [https://wiki.facepunch.com/gmod/VMatrix:Rotate]
 --- @param rotation Angle @ Rotation.
 --- @return void
 function VMatrix:Rotate(rotation) end
 
---- (client/server) Scales the matrix by the given vector.Postmultiplies the matrix by a scaling matrix (A = AS). 
+--- (client/server) Scales the matrix by the given vector.
+--- Postmultiplies the matrix by a scaling matrix (A = AS). 
 --- [https://wiki.facepunch.com/gmod/VMatrix:Scale]
 --- @param scale Vector @ Vector to scale with matrix with.
 --- @return void
@@ -116,13 +131,15 @@ function VMatrix:SetAngles(angle) end
 --- @return void
 function VMatrix:SetField(row, column, value) end
 
---- (client/server) Sets the forward direction of the matrix.ie. The first column of the matrix, excluding the w coordinate. 
+--- (client/server) Sets the forward direction of the matrix.
+--- ie. The first column of the matrix, excluding the w coordinate. 
 --- [https://wiki.facepunch.com/gmod/VMatrix:SetForward]
 --- @param forward Vector @ The forward direction of the matrix.
 --- @return void
 function VMatrix:SetForward(forward) end
 
---- (client/server) Sets the right direction of the matrix.ie. The second column of the matrix, negated, excluding the w coordinate. 
+--- (client/server) Sets the right direction of the matrix.
+--- ie. The second column of the matrix, negated, excluding the w coordinate. 
 --- [https://wiki.facepunch.com/gmod/VMatrix:SetRight]
 --- @param forward Vector @ The right direction of the matrix.
 --- @return void
@@ -161,7 +178,8 @@ function VMatrix:SetTranslation(translation) end
 --- @return void
 function VMatrix:SetUnpacked(e11, e12, e13, e14, e21, e22, e23, e24, e31, e32, e33, e34, e41, e42, e43, e44) end
 
---- (client/server) Sets the up direction of the matrix.ie. The third column of the matrix, excluding the w coordinate. 
+--- (client/server) Sets the up direction of the matrix.
+--- ie. The third column of the matrix, excluding the w coordinate. 
 --- [https://wiki.facepunch.com/gmod/VMatrix:SetUp]
 --- @param forward Vector @ The up direction of the matrix.
 --- @return void
@@ -172,7 +190,8 @@ function VMatrix:SetUp(forward) end
 --- @return table
 function VMatrix:ToTable() end
 
---- (client/server) Translates the matrix by the given vector aka. adds the vector to the translation.Postmultiplies the matrix by a translation matrix (A = AT). 
+--- (client/server) Translates the matrix by the given vector aka. adds the vector to the translation.
+--- Postmultiplies the matrix by a translation matrix (A = AT). 
 --- [https://wiki.facepunch.com/gmod/VMatrix:Translate]
 --- @param translation Vector @ Vector to translate the matrix by.
 --- @return void
@@ -183,7 +202,8 @@ function VMatrix:Translate(translation) end
 --- @return number|number|number|number|number|number|number|number|number|number|number|number|number|number|number|number
 function VMatrix:Unpack() end
 
---- (client/server) Sets all components of the matrix to 0, also known as a [null matrix](https://en.wikipedia.org/wiki/Zero_matrix).This function is more efficient than setting each element manually. 
+--- (client/server) Sets all components of the matrix to 0, also known as a [null matrix](https://en.wikipedia.org/wiki/Zero_matrix).
+--- This function is more efficient than setting each element manually. 
 --- [https://wiki.facepunch.com/gmod/VMatrix:Zero]
 --- @return void
 function VMatrix:Zero() end

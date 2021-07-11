@@ -1,7 +1,8 @@
 --- @class system
 system = {}
 
---- (client/menu/server) Returns the total uptime of the current application as reported by Steam.This will return a similar value to [SysTime](https://wiki.facepunch.com/gmod/Global.SysTime). 
+--- (client/menu/server) Returns the total uptime of the current application as reported by Steam.
+--- This will return a similar value to [SysTime](https://wiki.facepunch.com/gmod/Global.SysTime). 
 --- [https://wiki.facepunch.com/gmod/system.AppTime]
 --- @return number
 function system.AppTime() end
@@ -51,7 +52,8 @@ function system.IsWindows() end
 --- @return number
 function system.SteamTime() end
 
---- (client/menu/server) Returns the amount of seconds since the Steam user last moved their mouse.This is a direct binding to ISteamUtils->GetSecondsSinceComputerActive, and is most likely related to Steam's automatic "Away" online status. 
+--- (client/menu/server) Returns the amount of seconds since the Steam user last moved their mouse.
+--- This is a direct binding to ISteamUtils->GetSecondsSinceComputerActive, and is most likely related to Steam's automatic "Away" online status. 
 --- [https://wiki.facepunch.com/gmod/system.UpTime]
 --- @return number
 function system.UpTime() end

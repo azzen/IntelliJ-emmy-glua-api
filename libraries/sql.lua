@@ -1,12 +1,18 @@
 --- @class sql
 sql = {}
 
---- (client/menu/server) Tells the engine a set of queries is coming. Will wait until [sql.Commit](https://wiki.facepunch.com/gmod/sql.Commit) is called to run them.This is most useful when you run more than 100+ queries.This is equivalent to :```sql.Query( "BEGIN;" )``` 
+--- (client/menu/server) Tells the engine a set of queries is coming. Will wait until [sql.Commit](https://wiki.facepunch.com/gmod/sql.Commit) is called to run them.
+--- This is most useful when you run more than 100+ queries.
+--- This is equivalent to :
+--- ```
+--- sql.Query( "BEGIN;" )
+--- ``` 
 --- [https://wiki.facepunch.com/gmod/sql.Begin]
 --- @return void
 function sql.Begin() end
 
---- (client/menu/server) Tells the engine to execute a series of queries queued for execution, must be preceded by [sql.Begin](https://wiki.facepunch.com/gmod/sql.Begin).This is equivalent to `sql.Query( "COMMIT;" )`. 
+--- (client/menu/server) Tells the engine to execute a series of queries queued for execution, must be preceded by [sql.Begin](https://wiki.facepunch.com/gmod/sql.Begin).
+--- This is equivalent to `sql.Query( "COMMIT;" )`. 
 --- [https://wiki.facepunch.com/gmod/sql.Commit]
 --- @return void
 function sql.Commit() end
@@ -28,7 +34,11 @@ function sql.LastError() end
 --- @return table
 function sql.Query(query) end
 
---- (client/menu/server) Performs the query like [sql.Query](https://wiki.facepunch.com/gmod/sql.Query), but returns the first row found.Basically equivalent to :```sql.Query( "*query* LIMIT 1;" )``` 
+--- (client/menu/server) Performs the query like [sql.Query](https://wiki.facepunch.com/gmod/sql.Query), but returns the first row found.
+--- Basically equivalent to :
+--- ```
+--- sql.Query( "*query* LIMIT 1;" )
+--- ``` 
 --- [https://wiki.facepunch.com/gmod/sql.QueryRow]
 --- @param query string @ The input query.
 --- @param row number @ The row number. Say we receive back 5 rows, putting 3 as this argument will give us row #3.

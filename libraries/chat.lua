@@ -3,7 +3,7 @@ chat = {}
 
 --- (client) Adds text to the local player's chat box (which only they can read). 
 --- [https://wiki.facepunch.com/gmod/chat.AddText]
---- @param arguments vararg @ The arguments. Arguments can be:* [table](https://wiki.facepunch.com/gmod/table) - [Color](https://wiki.facepunch.com/gmod/Color). Will set the color for all following strings until the next Color argument.* [string](https://wiki.facepunch.com/gmod/string) - Text to be added to the chat box.* [Player](https://wiki.facepunch.com/gmod/Player) - Adds the name of the player in the player's team color to the chat box.* [any](https://wiki.facepunch.com/gmod/any) - Any other type, such as [Entity](https://wiki.facepunch.com/gmod/Entity) will be converted to string and added as text.
+--- @param arguments vararg @ The arguments. Arguments can be:  [table](https://wiki.facepunch.com/gmod/table) - [Color](https://wiki.facepunch.com/gmod/Color). Will set the color for all following strings until the next Color argument.  [string](https://wiki.facepunch.com/gmod/string) - Text to be added to the chat box.  [Player](https://wiki.facepunch.com/gmod/Player) - Adds the name of the player in the player's team color to the chat box.  [any](https://wiki.facepunch.com/gmod/any) - Any other type, such as [Entity](https://wiki.facepunch.com/gmod/Entity) will be converted to string and added as text.
 --- @return void
 function chat.AddText(arguments) end
 

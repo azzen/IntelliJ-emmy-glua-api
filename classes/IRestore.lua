@@ -1,7 +1,8 @@
 --- @class IRestore
 IRestore = {}
 
---- (client/server) Ends current data block started with [IRestore:StartBlock](https://wiki.facepunch.com/gmod/IRestore:StartBlock) and returns to the parent block.To avoid all sorts of errors, you **must** end all blocks you start. 
+--- (client/server) Ends current data block started with [IRestore:StartBlock](https://wiki.facepunch.com/gmod/IRestore:StartBlock) and returns to the parent block.
+--- To avoid all sorts of errors, you **must** end all blocks you start. 
 --- [https://wiki.facepunch.com/gmod/IRestore:EndBlock]
 --- @return void
 function IRestore:EndBlock() end

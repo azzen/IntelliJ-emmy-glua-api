@@ -46,7 +46,9 @@ function CNewParticleEffect:IsValid() end
 --- @return boolean
 function CNewParticleEffect:IsViewModelEffect() end
 
---- (client) Forces the particle system to render using current rendering context.Can be used to render the particle system in vgui panels, etc.Used in conjunction with [CNewParticleEffect:SetShouldDraw](https://wiki.facepunch.com/gmod/CNewParticleEffect:SetShouldDraw). 
+--- (client) Forces the particle system to render using current rendering context.
+--- Can be used to render the particle system in vgui panels, etc.
+--- Used in conjunction with [CNewParticleEffect:SetShouldDraw](https://wiki.facepunch.com/gmod/CNewParticleEffect:SetShouldDraw). 
 --- [https://wiki.facepunch.com/gmod/CNewParticleEffect:Render]
 --- @return void
 function CNewParticleEffect:Render() end
@@ -113,7 +115,8 @@ function CNewParticleEffect:SetControlPointUpVector(cpID, upward) end
 --- @return void
 function CNewParticleEffect:SetIsViewModelEffect(isViewModel) end
 
---- (client) Forces the particle system to stop automatically rendering.Used in conjunction with [CNewParticleEffect:Render](https://wiki.facepunch.com/gmod/CNewParticleEffect:Render). 
+--- (client) Forces the particle system to stop automatically rendering.
+--- Used in conjunction with [CNewParticleEffect:Render](https://wiki.facepunch.com/gmod/CNewParticleEffect:Render). 
 --- [https://wiki.facepunch.com/gmod/CNewParticleEffect:SetShouldDraw]
 --- @param should boolean @ Whether to automatically draw the particle effect or not.
 --- @return void
@@ -139,7 +142,8 @@ function CNewParticleEffect:StartEmission(infiniteOnly) end
 --- @return void
 function CNewParticleEffect:StopEmission(infiniteOnly, removeAllParticles, wakeOnStop) end
 
---- (client) Stops particle emission and destroys all particles instantly. Also detaches the particle effect from the entity it was attached to.Consider using [CNewParticleEffect:StopEmission](https://wiki.facepunch.com/gmod/CNewParticleEffect:StopEmission)( false, true ) instead, which has same effect, but doesn't require owner entity, and does't detach the particle system from its entity. 
+--- (client) Stops particle emission and destroys all particles instantly. Also detaches the particle effect from the entity it was attached to.
+--- Consider using [CNewParticleEffect:StopEmission](https://wiki.facepunch.com/gmod/CNewParticleEffect:StopEmission)( false, true ) instead, which has same effect, but doesn't require owner entity, and does't detach the particle system from its entity. 
 --- [https://wiki.facepunch.com/gmod/CNewParticleEffect:StopEmissionAndDestroyImmediately]
 --- @return void
 function CNewParticleEffect:StopEmissionAndDestroyImmediately() end

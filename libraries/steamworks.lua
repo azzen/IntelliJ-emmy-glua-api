@@ -6,17 +6,19 @@ steamworks = {}
 --- @return void
 function steamworks.ApplyAddons() end
 
---- (client/menu) Downloads a file from the supplied addon and saves it as a .cache file in garrysmod/cache folder.This is mostly used to download the preview image of the addon, but the game seems to also use it to download replays and saves.In case the retrieved file is an image and you need the [IMaterial](https://wiki.facepunch.com/gmod/IMaterial), use [AddonMaterial](https://wiki.facepunch.com/gmod/Global.AddonMaterial) with the path supplied from the callback. 
+--- (client/menu) Downloads a file from the supplied addon and saves it as a .cache file in garrysmod/cache folder.
+--- This is mostly used to download the preview image of the addon, but the game seems to also use it to download replays and saves.
+--- In case the retrieved file is an image and you need the [IMaterial](https://wiki.facepunch.com/gmod/IMaterial), use [AddonMaterial](https://wiki.facepunch.com/gmod/Global.AddonMaterial) with the path supplied from the callback. 
 --- [https://wiki.facepunch.com/gmod/steamworks.Download]
 --- @param workshopPreviewID string @ The Preview ID of workshop item.
---- @param uncompress boolean @ Whether to uncompress the file or not, assuming it was compressed with LZMA.You will usually want to set this to true.
+--- @param uncompress boolean @ Whether to uncompress the file or not, assuming it was compressed with LZMA. You will usually want to set this to true.
 --- @param resultCallback function @ The function to process retrieved data. The first and only argument is a string, containing path to the saved file.
 --- @return void
 function steamworks.Download(workshopPreviewID, uncompress, resultCallback) end
 
 --- (client/menu) Downloads a Steam Workshop file by its ID and returns a path to it. 
 --- [https://wiki.facepunch.com/gmod/steamworks.DownloadUGC]
---- @param workshopID string @ The ID of workshop item to download. **NOT** a file ID.
+--- @param workshopID string @ The ID of workshop item to download. NOT a file ID.
 --- @param resultCallback function @ The function to process retrieved data. The first argument is a string, containing path to the saved file, or nil if the download failed to any reason. The second argument is a [File](https://wiki.facepunch.com/gmod/File) object pointing to the downloaded .gma file. The file handle will be closed after the function exits.
 --- @return void
 function steamworks.DownloadUGC(workshopID, resultCallback) end
@@ -24,13 +26,13 @@ function steamworks.DownloadUGC(workshopID, resultCallback) end
 --- (client/menu) Retrieves info about supplied Steam Workshop addon. 
 --- [https://wiki.facepunch.com/gmod/steamworks.FileInfo]
 --- @param workshopItemID string @ The ID of Steam Workshop item.
---- @param resultCallback function @ The function to process retrieved data, with the following arguments:* [table](https://wiki.facepunch.com/gmod/table) data - The data about the item, if the request succeeded, nil otherwise. See [UGCFileInfo](https://wiki.facepunch.com/gmod/Structures/UGCFileInfo).
+--- @param resultCallback function @ The function to process retrieved data, with the following arguments:  [table](https://wiki.facepunch.com/gmod/table) data - The data about the item, if the request succeeded, nil otherwise. See [UGCFileInfo](https://wiki.facepunch.com/gmod/Structures/UGCFileInfo).
 --- @return void
 function steamworks.FileInfo(workshopItemID, resultCallback) end
 
 --- (client/menu) Retrieves a customized list of Steam Workshop addons. 
 --- [https://wiki.facepunch.com/gmod/steamworks.GetList]
---- @param type string @ The type of items to retrieve. Possible values include:* popular (All invalid options will equal to this)* trending* latest* friends* followed - Items of people the player is following on Steam* friend_favs - Favorites of player's friends* favorite - Player's favorites
+--- @param type string @ The type of items to retrieve. Possible values include:  popular (All invalid options will equal to this)  trending  latest  friends  followed - Items of people the player is following on Steam  friend_favs - Favorites of player's friends  favorite - Player's favorites
 --- @param tags table @ A table of tags to match.
 --- @param offset number @ How much of results to skip from first one. Mainly used for pages.
 --- @param numRetrieve number @ How much items to retrieve, up to 50 at a time.
@@ -40,7 +42,8 @@ function steamworks.FileInfo(workshopItemID, resultCallback) end
 --- @return void
 function steamworks.GetList(type, tags, offset, numRetrieve, days, userID, resultCallback) end
 
---- (client/menu) Retrieves players name by his 64bit SteamID.You must call [steamworks.RequestPlayerInfo](https://wiki.facepunch.com/gmod/steamworks.RequestPlayerInfo) a decent amount of time before calling this function. 
+--- (client/menu) Retrieves players name by his 64bit SteamID.
+--- You must call [steamworks.RequestPlayerInfo](https://wiki.facepunch.com/gmod/steamworks.RequestPlayerInfo) a decent amount of time before calling this function. 
 --- [https://wiki.facepunch.com/gmod/steamworks.GetPlayerName]
 --- @param steamID64 string @ The 64bit Steam ID ( aka Community ID ) of the player
 --- @return string
@@ -105,7 +108,8 @@ function steamworks.ShouldMountAddon(workshopItemID) end
 --- @return void
 function steamworks.Subscribe(workshopItemID) end
 
---- (menu) Unsubscribes to the specified workshop addon. Call [steamworks.ApplyAddons](https://wiki.facepunch.com/gmod/steamworks.ApplyAddons) afterwards to update.This function should `never` be called without a user's consent and should not be called if the addon is currently in use (aka: the user is not in the main menu) as it may result in unexpected behaviour. 
+--- (menu) Unsubscribes to the specified workshop addon. Call [steamworks.ApplyAddons](https://wiki.facepunch.com/gmod/steamworks.ApplyAddons) afterwards to update.
+--- This function should `never` be called without a user's consent and should not be called if the addon is currently in use (aka: the user is not in the main menu) as it may result in unexpected behaviour. 
 --- [https://wiki.facepunch.com/gmod/steamworks.Unsubscribe]
 --- @param workshopItemID string @ The ID of the Steam Workshop item we should unsubscribe from.
 --- @return void

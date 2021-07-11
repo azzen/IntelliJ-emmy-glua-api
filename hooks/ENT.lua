@@ -10,21 +10,24 @@ ENT = {}
 --- @return boolean
 function ENT:AcceptInput(inputName, activator, caller, data) end
 
---- (client/server) Called whenever the entity's position changes. A callback for when an entity's angle changes is available via [Entity:AddCallback](https://wiki.facepunch.com/gmod/Entity:AddCallback).Like [ENTITY:RenderOverride](https://wiki.facepunch.com/gmod/ENTITY:RenderOverride), this hook works on any entity (scripted or not) it is applied on. 
+--- (client/server) Called whenever the entity's position changes. A callback for when an entity's angle changes is available via [Entity:AddCallback](https://wiki.facepunch.com/gmod/Entity:AddCallback).
+--- Like [ENTITY:RenderOverride](https://wiki.facepunch.com/gmod/ENTITY:RenderOverride), this hook works on any entity (scripted or not) it is applied on. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:CalcAbsolutePosition]
 --- @param pos Vector @ The entity's actual position. May differ from [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos)
 --- @param ang Angle @ The entity's actual angles. May differ from [Entity:GetAngles](https://wiki.facepunch.com/gmod/Entity:GetAngles)
 --- @return Vector|Angle
 function ENT:CalcAbsolutePosition(pos, ang) end
 
---- (client/server) Controls if a property can be used on this entity or not.This hook will only work in Sandbox derived gamemodes that do not have [SANDBOX:CanProperty](https://wiki.facepunch.com/gmod/SANDBOX:CanProperty) overridden. 
+--- (client/server) Controls if a property can be used on this entity or not.
+--- This hook will only work in Sandbox derived gamemodes that do not have [SANDBOX:CanProperty](https://wiki.facepunch.com/gmod/SANDBOX:CanProperty) overridden. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:CanProperty]
 --- @param ply Player @ Player, that tried to use the property
 --- @param property string @ Class of the property that is tried to use, for example - bonemanipulate
 --- @return boolean
 function ENT:CanProperty(ply, property) end
 
---- (client/server) Controls if a tool can be used on this entity or not.This hook will only work in Sandbox derived gamemodes that do not have [SANDBOX:CanTool](https://wiki.facepunch.com/gmod/SANDBOX:CanTool) overridden. 
+--- (client/server) Controls if a tool can be used on this entity or not.
+--- This hook will only work in Sandbox derived gamemodes that do not have [SANDBOX:CanTool](https://wiki.facepunch.com/gmod/SANDBOX:CanTool) overridden. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:CanTool]
 --- @param ply Player @ Player, that tried to use the tool
 --- @param tr table @ The trace of the tool. See [TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult).
@@ -57,7 +60,9 @@ function ENT:DoingEngineSchedule() end
 --- @return void
 function ENT:DoSchedule(sched) end
 
---- (client) Called if and when the entity should be drawn opaquely, based on the [Entity:GetRenderGroup](https://wiki.facepunch.com/gmod/Entity:GetRenderGroup) of the entity.See [ENT](https://wiki.facepunch.com/gmod/Structures/ENT) and [RENDERGROUP](https://wiki.facepunch.com/gmod/Enums/RENDERGROUP) for more information.See also [ENTITY:DrawTranslucent](https://wiki.facepunch.com/gmod/ENTITY:DrawTranslucent). 
+--- (client) Called if and when the entity should be drawn opaquely, based on the [Entity:GetRenderGroup](https://wiki.facepunch.com/gmod/Entity:GetRenderGroup) of the entity.
+--- See [ENT](https://wiki.facepunch.com/gmod/Structures/ENT) and [RENDERGROUP](https://wiki.facepunch.com/gmod/Enums/RENDERGROUP) for more information.
+--- See also [ENTITY:DrawTranslucent](https://wiki.facepunch.com/gmod/ENTITY:DrawTranslucent). 
 --- [https://wiki.facepunch.com/gmod/ENTITY:Draw]
 --- @param flags number @ The bit flags from [STUDIO](https://wiki.facepunch.com/gmod/Enums/STUDIO)
 --- @return void
@@ -86,7 +91,8 @@ function ENT:EngineScheduleFinish() end
 --- @return void
 function ENT:ExpressionFinished(strExp) end
 
---- (client) Called before firing clientside animation events, such as muzzle flashes or shell ejections.See [ENTITY:HandleAnimEvent](https://wiki.facepunch.com/gmod/ENTITY:HandleAnimEvent) for the serverside version. 
+--- (client) Called before firing clientside animation events, such as muzzle flashes or shell ejections.
+--- See [ENTITY:HandleAnimEvent](https://wiki.facepunch.com/gmod/ENTITY:HandleAnimEvent) for the serverside version. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:FireAnimationEvent]
 --- @param pos Vector @ Position of the effect
 --- @param ang Angle @ Angle of the effect
@@ -115,7 +121,7 @@ function ENT:GetRenderMesh() end
 
 --- (client) Called when the shadow needs to be recomputed. Allows shadow angles to be customized. This only works for `anim` type entities. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:GetShadowCastDirection]
---- @param type number @ Type of the shadow this entity uses. Possible values:* 0 - No shadow* 1 - Simple 'blob' shadow* 2 - Render To Texture shadow (updates only when necessary)* 3 - Dynamic RTT - updates always* 4 - Render to Depth Texture
+--- @param type number @ Type of the shadow this entity uses. Possible values:  0 - No shadow  1 - Simple 'blob' shadow  2 - Render To Texture shadow (updates only when necessary)  3 - Dynamic RTT - updates always  4 - Render to Depth Texture
 --- @return Vector
 function ENT:GetShadowCastDirection(type) end
 
@@ -130,13 +136,15 @@ function ENT:GetSoundInterests() end
 --- @return boolean
 function ENT:GravGunPickupAllowed(ply) end
 
---- (client/server) Called when this entity is about to be punted with the gravity gun (primary fire).Only works in Sandbox derived gamemodes and only if [GM:GravGunPunt](https://wiki.facepunch.com/gmod/GM:GravGunPunt) is not overridden. 
+--- (client/server) Called when this entity is about to be punted with the gravity gun (primary fire).
+--- Only works in Sandbox derived gamemodes and only if [GM:GravGunPunt](https://wiki.facepunch.com/gmod/GM:GravGunPunt) is not overridden. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:GravGunPunt]
 --- @param ply Player @ The player pressing left-click with the gravity gun at an entity
 --- @return boolean
 function ENT:GravGunPunt(ply) end
 
---- (server) Called before firing serverside animation events, such as weapon reload, drawing and holstering for NPCs, scripted sequences, etc.See [ENTITY:FireAnimationEvent](https://wiki.facepunch.com/gmod/ENTITY:FireAnimationEvent) for the clientside version. 
+--- (server) Called before firing serverside animation events, such as weapon reload, drawing and holstering for NPCs, scripted sequences, etc.
+--- See [ENTITY:FireAnimationEvent](https://wiki.facepunch.com/gmod/ENTITY:FireAnimationEvent) for the clientside version. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:HandleAnimEvent]
 --- @param event number @ The event ID of happened even. See [this page](http://developer.valvesoftware.com/wiki/Animation_Events).
 --- @param eventTime number @ The absolute time this event occurred using [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime).
@@ -150,11 +158,12 @@ function ENT:HandleAnimEvent(event, eventTime, cycle, type, options) end
 --- [https://wiki.facepunch.com/gmod/ENTITY:ImpactTrace]
 --- @param traceResult table @ The trace that hit this entity as a [TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult).
 --- @param damageType number @ The damage bits associated with the trace, see [DMG](https://wiki.facepunch.com/gmod/Enums/DMG)
---- @param customImpactName string @ The effect name to override the impact effect with.Possible arguments are ImpactJeep, AirboatGunImpact, HelicopterImpact, ImpactGunship.
+--- @param customImpactName string @ The effect name to override the impact effect with. Possible arguments are ImpactJeep, AirboatGunImpact, HelicopterImpact, ImpactGunship.
 --- @return boolean
 function ENT:ImpactTrace(traceResult, damageType, customImpactName) end
 
---- (client/server) Called when the entity is created. This is called when you [Entity:Spawn](https://wiki.facepunch.com/gmod/Entity:Spawn) the custom entity.This is called **after** [ENTITY:SetupDataTables](https://wiki.facepunch.com/gmod/ENTITY:SetupDataTables) and [GM:OnEntityCreated](https://wiki.facepunch.com/gmod/GM:OnEntityCreated). 
+--- (client/server) Called when the entity is created. This is called when you [Entity:Spawn](https://wiki.facepunch.com/gmod/Entity:Spawn) the custom entity.
+--- This is called **after** [ENTITY:SetupDataTables](https://wiki.facepunch.com/gmod/ENTITY:SetupDataTables) and [GM:OnEntityCreated](https://wiki.facepunch.com/gmod/GM:OnEntityCreated). 
 --- [https://wiki.facepunch.com/gmod/ENTITY:Initialize]
 --- @return void
 function ENT:Initialize() end
@@ -167,7 +176,11 @@ function ENT:Initialize() end
 --- @return boolean
 function ENT:IsJumpLegal(startPos, apex, endPos) end
 
---- (server) Called when the engine sets a value for this scripted entity.This hook is called **before** [ENTITY:Initialize](https://wiki.facepunch.com/gmod/ENTITY:Initialize) when the key-values are set by the map.Otherwise this hook will be called whenever [Entity:SetKeyValue](https://wiki.facepunch.com/gmod/Entity:SetKeyValue) is called on the entity.See [GM:EntityKeyValue](https://wiki.facepunch.com/gmod/GM:EntityKeyValue) for a hook that works for all entities.See [WEAPON:KeyValue](https://wiki.facepunch.com/gmod/WEAPON:KeyValue) for a hook that works for scripted weapons. 
+--- (server) Called when the engine sets a value for this scripted entity.
+--- This hook is called **before** [ENTITY:Initialize](https://wiki.facepunch.com/gmod/ENTITY:Initialize) when the key-values are set by the map.
+--- Otherwise this hook will be called whenever [Entity:SetKeyValue](https://wiki.facepunch.com/gmod/Entity:SetKeyValue) is called on the entity.
+--- See [GM:EntityKeyValue](https://wiki.facepunch.com/gmod/GM:EntityKeyValue) for a hook that works for all entities.
+--- See [WEAPON:KeyValue](https://wiki.facepunch.com/gmod/WEAPON:KeyValue) for a hook that works for scripted weapons. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:KeyValue]
 --- @param key string @ The key that was affected.
 --- @param value string @ The new value.
@@ -199,13 +212,15 @@ function ENT:OnChangeActivity(act) end
 --- @return void
 function ENT:OnCondition(conditionID) end
 
---- (server) Called on any entity after it has been created by the [duplicator](https://wiki.facepunch.com/gmod/duplicator) and before any bone/entity modifiers have been applied.This hook is called after [ENTITY:Initialize](https://wiki.facepunch.com/gmod/ENTITY:Initialize) and before [ENTITY:PostEntityPaste](https://wiki.facepunch.com/gmod/ENTITY:PostEntityPaste). 
+--- (server) Called on any entity after it has been created by the [duplicator](https://wiki.facepunch.com/gmod/duplicator) and before any bone/entity modifiers have been applied.
+--- This hook is called after [ENTITY:Initialize](https://wiki.facepunch.com/gmod/ENTITY:Initialize) and before [ENTITY:PostEntityPaste](https://wiki.facepunch.com/gmod/ENTITY:PostEntityPaste). 
 --- [https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated]
 --- @param entTable table @ [EntityCopyData](https://wiki.facepunch.com/gmod/Structures/EntityCopyData) of the source entity.
 --- @return void
 function ENT:OnDuplicated(entTable) end
 
---- (server) Called after duplicator finishes saving the entity, allowing you to modify the save data.This is called after [ENTITY:PostEntityCopy](https://wiki.facepunch.com/gmod/ENTITY:PostEntityCopy). 
+--- (server) Called after duplicator finishes saving the entity, allowing you to modify the save data.
+--- This is called after [ENTITY:PostEntityCopy](https://wiki.facepunch.com/gmod/ENTITY:PostEntityCopy). 
 --- [https://wiki.facepunch.com/gmod/ENTITY:OnEntityCopyTableFinish]
 --- @param data table @ The save [EntityCopyData](https://wiki.facepunch.com/gmod/Structures/EntityCopyData) that you can modify.
 --- @return void
@@ -226,12 +241,14 @@ function ENT:OnMovementFailed() end
 --- @return void
 function ENT:OnReloaded() end
 
---- (client/server) Called when the entity is about to be removed.See also [Entity:CallOnRemove](https://wiki.facepunch.com/gmod/Entity:CallOnRemove), which can even be used on engine (non-Lua) entities. 
+--- (client/server) Called when the entity is about to be removed.
+--- See also [Entity:CallOnRemove](https://wiki.facepunch.com/gmod/Entity:CallOnRemove), which can even be used on engine (non-Lua) entities. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:OnRemove]
 --- @return void
 function ENT:OnRemove() end
 
---- (client/server) Called when the entity is reloaded from a Source Engine save (not the Sandbox saves or dupes) or on a changelevel (for example Half-Life 2 campaign level transitions).For the [duplicator](https://wiki.facepunch.com/gmod/duplicator) callbacks, see [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated). 
+--- (client/server) Called when the entity is reloaded from a Source Engine save (not the Sandbox saves or dupes) or on a changelevel (for example Half-Life 2 campaign level transitions).
+--- For the [duplicator](https://wiki.facepunch.com/gmod/duplicator) callbacks, see [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated). 
 --- [https://wiki.facepunch.com/gmod/ENTITY:OnRestore]
 --- @return void
 function ENT:OnRestore() end
@@ -242,7 +259,8 @@ function ENT:OnRestore() end
 --- @return number
 function ENT:OnTakeDamage(damage) end
 
---- (server) Called from the engine when TaskComplete is called.This allows us to move onto the next task - even when TaskComplete was called from an engine side task. 
+--- (server) Called from the engine when TaskComplete is called.
+--- This allows us to move onto the next task - even when TaskComplete was called from an engine side task. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:OnTaskComplete]
 --- @return void
 function ENT:OnTaskComplete() end
@@ -260,7 +278,8 @@ function ENT:PassesTriggerFilters(ent) end
 --- @return void
 function ENT:PhysicsCollide(colData, collider) end
 
---- (client/server) Called from the Entity's motion controller to simulate physics.This will only be called after using [Entity:StartMotionController](https://wiki.facepunch.com/gmod/Entity:StartMotionController) on a [scripted entity](https://wiki.facepunch.com/gmod/Scripted_Entities) of `anim` type. 
+--- (client/server) Called from the Entity's motion controller to simulate physics.
+--- This will only be called after using [Entity:StartMotionController](https://wiki.facepunch.com/gmod/Entity:StartMotionController) on a [scripted entity](https://wiki.facepunch.com/gmod/Scripted_Entities) of `anim` type. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:PhysicsSimulate]
 --- @param phys PhysObj @ The physics object of the entity.
 --- @param deltaTime number @ Time since the last call.
@@ -273,12 +292,14 @@ function ENT:PhysicsSimulate(phys, deltaTime) end
 --- @return void
 function ENT:PhysicsUpdate(phys) end
 
---- (server) Called after the duplicator finished copying the entity.See also [ENTITY:PreEntityCopy](https://wiki.facepunch.com/gmod/ENTITY:PreEntityCopy) and [ENTITY:PostEntityPaste](https://wiki.facepunch.com/gmod/ENTITY:PostEntityPaste). 
+--- (server) Called after the duplicator finished copying the entity.
+--- See also [ENTITY:PreEntityCopy](https://wiki.facepunch.com/gmod/ENTITY:PreEntityCopy) and [ENTITY:PostEntityPaste](https://wiki.facepunch.com/gmod/ENTITY:PostEntityPaste). 
 --- [https://wiki.facepunch.com/gmod/ENTITY:PostEntityCopy]
 --- @return void
 function ENT:PostEntityCopy() end
 
---- (server) Called after the [duplicator](https://wiki.facepunch.com/gmod/duplicator) pastes the entity, after the bone/entity modifiers have been applied to the entity.This hook is called after [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated). 
+--- (server) Called after the [duplicator](https://wiki.facepunch.com/gmod/duplicator) pastes the entity, after the bone/entity modifiers have been applied to the entity.
+--- This hook is called after [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated). 
 --- [https://wiki.facepunch.com/gmod/ENTITY:PostEntityPaste]
 --- @param ply Player @ The player who pasted the entity.
 --- @param ent Entity @ The entity itself. Same as 'self'.
@@ -286,12 +307,14 @@ function ENT:PostEntityCopy() end
 --- @return void
 function ENT:PostEntityPaste(ply, ent, createdEntities) end
 
---- (server) Called before the duplicator copies the entity.If you are looking for a way to make the duplicator spawn another entity when duplicated. ( For example, you duplicate a "prop_physics", but you want the duplicator to spawn "prop_physics_my" ), you should add prop_physics.ClassOverride = "prop_physics_my". The duplication table should be also stored on that prop_physics, not on prop_physics_my. 
+--- (server) Called before the duplicator copies the entity.
+--- If you are looking for a way to make the duplicator spawn another entity when duplicated. ( For example, you duplicate a "prop_physics", but you want the duplicator to spawn "prop_physics_my" ), you should add prop_physics.ClassOverride = "prop_physics_my". The duplication table should be also stored on that prop_physics, not on prop_physics_my. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:PreEntityCopy]
 --- @return void
 function ENT:PreEntityCopy() end
 
---- (client) Called instead of the engine drawing function of the entity. This hook works on any entity (scripted or not) it is applied on.This does not work on "physgun_beam", use [GM:DrawPhysgunBeam](https://wiki.facepunch.com/gmod/GM:DrawPhysgunBeam) instead. 
+--- (client) Called instead of the engine drawing function of the entity. This hook works on any entity (scripted or not) it is applied on.
+--- This does not work on "physgun_beam", use [GM:DrawPhysgunBeam](https://wiki.facepunch.com/gmod/GM:DrawPhysgunBeam) instead. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:RenderOverride]
 --- @param flags number @ The [STUDIO_](https://wiki.facepunch.com/gmod/Enums/STUDIO) flags for this render operation.
 --- @return void
@@ -309,7 +332,8 @@ function ENT:RunAI() end
 --- @return boolean
 function ENT:RunEngineTask(taskID, taskData) end
 
---- (server) Called every think on running task.The actual task function should tell us when the task is finished. 
+--- (server) Called every think on running task.
+--- The actual task function should tell us when the task is finished. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:RunTask]
 --- @param task table @ The task to run
 --- @return void
@@ -326,7 +350,8 @@ function ENT:ScheduleFinished() end
 --- @return void
 function ENT:SelectSchedule(iNPCState) end
 
---- (client/server) Toggles automatic frame advancing for animated sequences on an entity.This has the same effect as setting the ``ENT.AutomaticFrameAdvance`` property. (See [ENT](https://wiki.facepunch.com/gmod/Structures/ENT)) 
+--- (client/server) Toggles automatic frame advancing for animated sequences on an entity.
+--- This has the same effect as setting the ``ENT.AutomaticFrameAdvance`` property. (See [ENT](https://wiki.facepunch.com/gmod/Structures/ENT)) 
 --- [https://wiki.facepunch.com/gmod/ENTITY:SetAutomaticFrameAdvance]
 --- @param enable boolean @ Whether or not to set automatic frame advancing.
 --- @return void
@@ -338,12 +363,15 @@ function ENT:SetAutomaticFrameAdvance(enable) end
 --- @return void
 function ENT:SetTask(task) end
 
---- (client/server) Called when the entity should set up its [Data Tables](https://wiki.facepunch.com/gmod/Networking_Entities).This is a much better option than using Set/Get Networked Values.This hook is called after [GM:OnEntityCreated](https://wiki.facepunch.com/gmod/GM:OnEntityCreated) and [GM:NetworkEntityCreated](https://wiki.facepunch.com/gmod/GM:NetworkEntityCreated). 
+--- (client/server) Called when the entity should set up its [Data Tables](https://wiki.facepunch.com/gmod/Networking_Entities).
+--- This is a much better option than using Set/Get Networked Values.
+--- This hook is called after [GM:OnEntityCreated](https://wiki.facepunch.com/gmod/GM:OnEntityCreated) and [GM:NetworkEntityCreated](https://wiki.facepunch.com/gmod/GM:NetworkEntityCreated). 
 --- [https://wiki.facepunch.com/gmod/ENTITY:SetupDataTables]
 --- @return void
 function ENT:SetupDataTables() end
 
---- (server) This is the spawn function. It's called when a player spawns the entity from the spawnmenu.If you want to make your SENT spawnable you need this function to properly create the entity. 
+--- (server) This is the spawn function. It's called when a player spawns the entity from the spawnmenu.
+--- If you want to make your SENT spawnable you need this function to properly create the entity. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:SpawnFunction]
 --- @param ply Player @ The player that is spawning this SENT
 --- @param tr table @ A [TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) from player eyes to their aim position
@@ -364,7 +392,8 @@ function ENT:StartEngineSchedule(scheduleID) end
 --- @return boolean
 function ENT:StartEngineTask(taskID, TaskData) end
 
---- (server) Starts a schedule previously created by [ai_schedule.New](https://wiki.facepunch.com/gmod/ai_schedule.New).Not to be confused with [ENTITY:StartEngineSchedule](https://wiki.facepunch.com/gmod/ENTITY:StartEngineSchedule) or [NPC:SetSchedule](https://wiki.facepunch.com/gmod/NPC:SetSchedule) which start an Engine-based schedule. 
+--- (server) Starts a schedule previously created by [ai_schedule.New](https://wiki.facepunch.com/gmod/ai_schedule.New).
+--- Not to be confused with [ENTITY:StartEngineSchedule](https://wiki.facepunch.com/gmod/ENTITY:StartEngineSchedule) or [NPC:SetSchedule](https://wiki.facepunch.com/gmod/NPC:SetSchedule) which start an Engine-based schedule. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:StartSchedule]
 --- @param sched Schedule @ Schedule to start.
 --- @return void
@@ -382,7 +411,9 @@ function ENT:StartTask(task) end
 --- @return void
 function ENT:StartTouch(entity) end
 
---- (server) Used to store an output so it can be triggered with [ENTITY:TriggerOutput](https://wiki.facepunch.com/gmod/ENTITY:TriggerOutput).Outputs compiled into a map are passed to entities as key/value pairs through [ENTITY:KeyValue](https://wiki.facepunch.com/gmod/ENTITY:KeyValue).TriggerOutput will do nothing if this function has not been called first. 
+--- (server) Used to store an output so it can be triggered with [ENTITY:TriggerOutput](https://wiki.facepunch.com/gmod/ENTITY:TriggerOutput).
+--- Outputs compiled into a map are passed to entities as key/value pairs through [ENTITY:KeyValue](https://wiki.facepunch.com/gmod/ENTITY:KeyValue).
+--- TriggerOutput will do nothing if this function has not been called first. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:StoreOutput]
 --- @param name string @ Name of output to store
 --- @param info string @ Output info
@@ -409,12 +440,14 @@ function ENT:TaskTime() end
 --- @return table
 function ENT:TestCollision(startpos, delta, isbox, extents, mask) end
 
---- (client/server) Called every frame on the client.Called every tick on the server. 
+--- (client/server) Called every frame on the client.
+--- Called every tick on the server. 
 --- [https://wiki.facepunch.com/gmod/ENTITY:Think]
 --- @return boolean
 function ENT:Think() end
 
---- (server) Called every tick for every entity being "touched".See also [ENTITY:StartTouch](https://wiki.facepunch.com/gmod/ENTITY:StartTouch) and [ENTITY:EndTouch](https://wiki.facepunch.com/gmod/ENTITY:EndTouch). 
+--- (server) Called every tick for every entity being "touched".
+--- See also [ENTITY:StartTouch](https://wiki.facepunch.com/gmod/ENTITY:StartTouch) and [ENTITY:EndTouch](https://wiki.facepunch.com/gmod/ENTITY:EndTouch). 
 --- [https://wiki.facepunch.com/gmod/ENTITY:Touch]
 --- @param entity Entity @ The entity that touched it.
 --- @return void
@@ -433,7 +466,8 @@ function ENT:TriggerOutput(output, activator, data) end
 --- @return number
 function ENT:UpdateTransmitState() end
 
---- (server) Called when an entity "uses" this entity, for example a player pressing their `+use` key (default ) on this entity.To change how often the hook is called, see [Entity:SetUseType](https://wiki.facepunch.com/gmod/Entity:SetUseType). 
+--- (server) Called when an entity "uses" this entity, for example a player pressing their `+use` key (default ) on this entity.
+--- To change how often the hook is called, see [Entity:SetUseType](https://wiki.facepunch.com/gmod/Entity:SetUseType). 
 --- [https://wiki.facepunch.com/gmod/ENTITY:Use]
 --- @param activator Entity @ The entity that caused this input. This will usually be the player who pressed their use key
 --- @param caller Entity @ The entity responsible for the input. This will typically be the same as `activator` unless some other entity is acting as a proxy

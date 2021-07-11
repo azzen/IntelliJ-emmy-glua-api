@@ -9,7 +9,7 @@ function undo.AddEntity(ent) end
 
 --- (server) Adds a function to call when the current undo block is undone. Note that if an undo has a function, the player will always be notified when this undo is performed, even if the entity it is meant to undo no longer exists. 
 --- [https://wiki.facepunch.com/gmod/undo.AddFunction]
---- @param func function @ The function to call. First argument will be the [Undo Structure](https://wiki.facepunch.com/gmod/Structures/Undo), all subsequent arguments will be what was passed after this function in the argument below.Returning `false` will mark execution of this function as "failed", meaning that the undo might be skipped if no other entities are removed by it. This is useful when for example an entity you want to access is removed therefore there's nothing to do.
+--- @param func function @ The function to call. First argument will be the [Undo Structure](https://wiki.facepunch.com/gmod/Structures/Undo), all subsequent arguments will be what was passed after this function in the argument below. Returning `false` will mark execution of this function as "failed", meaning that the undo might be skipped if no other entities are removed by it. This is useful when for example an entity you want to access is removed therefore there's nothing to do.
 --- @param arguments vararg @ Arguments to pass to the function (after the undo info table)
 --- @return void
 function undo.AddFunction(func, arguments) end
@@ -20,7 +20,8 @@ function undo.AddFunction(func, arguments) end
 --- @return void
 function undo.Create(name) end
 
---- (server) Processes an undo block (in table form). This is used internally by the undo manager when a player presses Z.You should use `gm_undo` or `gm_undonum *num*` console commands instead of calling this function directly. 
+--- (server) Processes an undo block (in table form). This is used internally by the undo manager when a player presses Z.
+--- You should use `gm_undo` or `gm_undonum *num*` console commands instead of calling this function directly. 
 --- [https://wiki.facepunch.com/gmod/undo.Do_Undo]
 --- @param tab table @ The undo block to process as an [Undo](https://wiki.facepunch.com/gmod/Structures/Undo)
 --- @return number

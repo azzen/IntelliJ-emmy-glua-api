@@ -25,7 +25,12 @@ function Color:ToHSV() end
 --- @return table
 function Color:ToTable() end
 
---- (client/server) Translates the [Color](https://wiki.facepunch.com/gmod/Color) into a [Vector](https://wiki.facepunch.com/gmod/Vector), losing the alpha channel.This will also range the values from 0 - 255 to 0 - 1r / 255 -> xg / 255 -> yb / 255 -> zThis is the opposite of [Vector:ToColor](https://wiki.facepunch.com/gmod/Vector:ToColor) 
+--- (client/server) Translates the [Color](https://wiki.facepunch.com/gmod/Color) into a [Vector](https://wiki.facepunch.com/gmod/Vector), losing the alpha channel.
+--- This will also range the values from 0 - 255 to 0 - 1
+--- r / 255 -> x
+--- g / 255 -> y
+--- b / 255 -> z
+--- This is the opposite of [Vector:ToColor](https://wiki.facepunch.com/gmod/Vector:ToColor) 
 --- [https://wiki.facepunch.com/gmod/Color:ToVector]
 --- @return Vector
 function Color:ToVector() end

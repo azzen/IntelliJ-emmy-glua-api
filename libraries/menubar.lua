@@ -1,7 +1,8 @@
 --- @class menubar
 menubar = {}
 
---- (client) Creates the menu bar ( The bar at the top of the screen when holding C or Q in sandbox ) and docks it to the top of the screen. It will not appear.Calling this multiple times will **NOT** remove previous panel. 
+--- (client) Creates the menu bar ( The bar at the top of the screen when holding C or Q in sandbox ) and docks it to the top of the screen. It will not appear.
+--- Calling this multiple times will **NOT** remove previous panel. 
 --- [https://wiki.facepunch.com/gmod/menubar.Init]
 --- @return void
 function menubar.Init() end

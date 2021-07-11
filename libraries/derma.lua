@@ -9,7 +9,12 @@ derma = {}
 --- @return void
 function derma.Color(name, pnl, default) end
 
---- (client/menu) Defines a new Derma control with an optional base.This calls [vgui.Register](https://wiki.facepunch.com/gmod/vgui.Register) internally, but also does the following:* Adds the control to [derma.GetControlList](https://wiki.facepunch.com/gmod/derma.GetControlList)* Adds a key "Derma" - This is returned by [derma.GetControlList](https://wiki.facepunch.com/gmod/derma.GetControlList)* Makes a global table with the name of the control (This is technically deprecated and should not be relied upon)* If reloading (i.e. called this function with name of an existing panel), updates all existing instances of panels with this name. (Updates functions, calls [PANEL:PreAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PreAutoRefresh) and [PANEL:PostAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PostAutoRefresh), etc.) 
+--- (client/menu) Defines a new Derma control with an optional base.
+--- This calls [vgui.Register](https://wiki.facepunch.com/gmod/vgui.Register) internally, but also does the following:
+--- * Adds the control to [derma.GetControlList](https://wiki.facepunch.com/gmod/derma.GetControlList)
+--- * Adds a key "Derma" - This is returned by [derma.GetControlList](https://wiki.facepunch.com/gmod/derma.GetControlList)
+--- * Makes a global table with the name of the control (This is technically deprecated and should not be relied upon)
+--- * If reloading (i.e. called this function with name of an existing panel), updates all existing instances of panels with this name. (Updates functions, calls [PANEL:PreAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PreAutoRefresh) and [PANEL:PostAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PostAutoRefresh), etc.) 
 --- [https://wiki.facepunch.com/gmod/derma.DefineControl]
 --- @param name string @ Name of the newly created control
 --- @param description string @ Description of the control
@@ -75,7 +80,12 @@ function derma.SkinHook(type, name, panel, w, h) end
 --- @return function
 function derma.SkinTexture(name, pnl, fallback) end
 
---- () [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl).Use [derma.GetControlList](https://wiki.facepunch.com/gmod/derma.GetControlList) to retrieve this list.It's a list of tables, each having 3 keys, all from [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) arguments:* [string](https://wiki.facepunch.com/gmod/string) ClassName - The class name of the panel* [string](https://wiki.facepunch.com/gmod/string) Description - The description of the panel* [string](https://wiki.facepunch.com/gmod/string) BaseClass - The base class of the panel 
+--- () [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl).
+--- Use [derma.GetControlList](https://wiki.facepunch.com/gmod/derma.GetControlList) to retrieve this list.
+--- It's a list of tables, each having 3 keys, all from [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) arguments:
+--- * [string](https://wiki.facepunch.com/gmod/string) ClassName - The class name of the panel
+--- * [string](https://wiki.facepunch.com/gmod/string) Description - The description of the panel
+--- * [string](https://wiki.facepunch.com/gmod/string) BaseClass - The base class of the panel 
 --- [https://wiki.facepunch.com/gmod/derma.Controls]
 --- @return void
 function derma.Controls() end

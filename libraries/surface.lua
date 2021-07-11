@@ -1,14 +1,18 @@
 --- @class surface
 surface = {}
 
---- (client/menu) Creates a new font.To prevent the font from displaying incorrectly when using the `outline` setting, set `antialias` to false. This will ensure the text properly fills out the entire outline.Be sure to check the [List of Default Fonts](https://wiki.facepunch.com/gmod/Default_Fonts) first! Those fonts can be used without using this function.See Also: [Finding the Font Name](https://wiki.facepunch.com/gmod/Finding%20the%20Font%20Name). 
+--- (client/menu) Creates a new font.
+--- To prevent the font from displaying incorrectly when using the `outline` setting, set `antialias` to false. This will ensure the text properly fills out the entire outline.
+--- Be sure to check the [List of Default Fonts](https://wiki.facepunch.com/gmod/Default_Fonts) first! Those fonts can be used without using this function.
+--- See Also: [Finding the Font Name](https://wiki.facepunch.com/gmod/Finding%20the%20Font%20Name). 
 --- [https://wiki.facepunch.com/gmod/surface.CreateFont]
 --- @param fontName string @ The new font name.
 --- @param fontData table @ The font properties. See the [FontData](https://wiki.facepunch.com/gmod/Structures/FontData).
 --- @return void
 function surface.CreateFont(fontName, fontData) end
 
---- (client/menu) Enables or disables the clipping used by the VGUI that limits the drawing operations to a panels bounds.Identical to [DisableClipping](https://wiki.facepunch.com/gmod/Global.DisableClipping). See also [Panel:NoClipping](https://wiki.facepunch.com/gmod/Panel:NoClipping). 
+--- (client/menu) Enables or disables the clipping used by the VGUI that limits the drawing operations to a panels bounds.
+--- Identical to [DisableClipping](https://wiki.facepunch.com/gmod/Global.DisableClipping). See also [Panel:NoClipping](https://wiki.facepunch.com/gmod/Panel:NoClipping). 
 --- [https://wiki.facepunch.com/gmod/surface.DisableClipping]
 --- @param disable boolean @ True to disable, false to enable the clipping
 --- @return void
@@ -45,9 +49,11 @@ function surface.DrawLine(startX, startY, endX, endY) end
 --- @return void
 function surface.DrawOutlinedRect(x, y, w, h, thickness) end
 
---- (client/menu) Draws a textured polygon (secretly a triangle fan) with a maximum of 4096 vertices.Only works properly with convex polygons. You may try to render concave polygons, but there is no guarantee that things wont get messed up.Unlike most surface library functions, non-integer coordinates are not rounded. 
+--- (client/menu) Draws a textured polygon (secretly a triangle fan) with a maximum of 4096 vertices.
+--- Only works properly with convex polygons. You may try to render concave polygons, but there is no guarantee that things wont get messed up.
+--- Unlike most surface library functions, non-integer coordinates are not rounded. 
 --- [https://wiki.facepunch.com/gmod/surface.DrawPoly]
---- @param vertices table @ A table containing integer vertices. See the [PolygonVertex](https://wiki.facepunch.com/gmod/Structures/PolygonVertex).**The vertices must be in clockwise order.**
+--- @param vertices table @ A table containing integer vertices. See the [PolygonVertex](https://wiki.facepunch.com/gmod/Structures/PolygonVertex). The vertices must be in clockwise order.
 --- @return void
 function surface.DrawPoly(vertices) end
 
@@ -67,7 +73,9 @@ function surface.DrawRect(x, y, width, height) end
 --- @return void
 function surface.DrawText(text, forceAdditive) end
 
---- (client/menu) Draw a textured rectangle with the given position and dimensions on the screen, using the current active texture set with [surface.SetMaterial](https://wiki.facepunch.com/gmod/surface.SetMaterial). It is also affected by [surface.SetDrawColor](https://wiki.facepunch.com/gmod/surface.SetDrawColor).See also [render.SetMaterial](https://wiki.facepunch.com/gmod/render.SetMaterial) and [render.DrawScreenQuadEx](https://wiki.facepunch.com/gmod/render.DrawScreenQuadEx).See also [surface.DrawTexturedRectUV](https://wiki.facepunch.com/gmod/surface.DrawTexturedRectUV). 
+--- (client/menu) Draw a textured rectangle with the given position and dimensions on the screen, using the current active texture set with [surface.SetMaterial](https://wiki.facepunch.com/gmod/surface.SetMaterial). It is also affected by [surface.SetDrawColor](https://wiki.facepunch.com/gmod/surface.SetDrawColor).
+--- See also [render.SetMaterial](https://wiki.facepunch.com/gmod/render.SetMaterial) and [render.DrawScreenQuadEx](https://wiki.facepunch.com/gmod/render.DrawScreenQuadEx).
+--- See also [surface.DrawTexturedRectUV](https://wiki.facepunch.com/gmod/surface.DrawTexturedRectUV). 
 --- [https://wiki.facepunch.com/gmod/surface.DrawTexturedRect]
 --- @param x number @ The X integer co-ordinate.
 --- @param y number @ The Y integer co-ordinate.
@@ -86,7 +94,14 @@ function surface.DrawTexturedRect(x, y, width, height) end
 --- @return void
 function surface.DrawTexturedRectRotated(x, y, width, height, rotation) end
 
---- (client/menu) Draws a textured rectangle with a repeated or partial texture.u and v refer to texture coordinates.* (u, v) = (0, 0) is the top left* (u, v) = (1, 0) is the top right* (u, v) = (1, 1) is the bottom right* (u, v) = (0, 1) is the bottom leftUsing a start point of (1, 0) and an end point to (0, 1), you can draw an image flipped horizontally, same goes with other directions. Going above 1 will tile the texture. Negative values are allowed as well.Here's a helper image: 
+--- (client/menu) Draws a textured rectangle with a repeated or partial texture.
+--- u and v refer to texture coordinates.
+--- * (u, v) = (0, 0) is the top left
+--- * (u, v) = (1, 0) is the top right
+--- * (u, v) = (1, 1) is the bottom right
+--- * (u, v) = (0, 1) is the bottom left
+--- Using a start point of (1, 0) and an end point to (0, 1), you can draw an image flipped horizontally, same goes with other directions. Going above 1 will tile the texture. Negative values are allowed as well.
+--- Here's a helper image: 
 --- [https://wiki.facepunch.com/gmod/surface.DrawTexturedRectUV]
 --- @param x number @ The X integer coordinate.
 --- @param y number @ The Y integer coordinate.
@@ -132,7 +147,8 @@ function surface.GetTextSize(text) end
 --- @return number
 function surface.GetTextureID(name/path) end
 
---- (client/menu) Returns the size of the texture with the associated texture ID.For `.png/.jpg` textures loaded with [Material](https://wiki.facepunch.com/gmod/Global.Material) you can use the `$realheight` and `$realwidth` material parameters ([IMaterial:GetInt](https://wiki.facepunch.com/gmod/IMaterial:GetInt)) to get the size of the image. 
+--- (client/menu) Returns the size of the texture with the associated texture ID.
+--- For `.png/.jpg` textures loaded with [Material](https://wiki.facepunch.com/gmod/Global.Material) you can use the `$realheight` and `$realwidth` material parameters ([IMaterial:GetInt](https://wiki.facepunch.com/gmod/IMaterial:GetInt)) to get the size of the image. 
 --- [https://wiki.facepunch.com/gmod/surface.GetTextureSize]
 --- @param textureID number @ The texture ID, returned by [surface.GetTextureID](https://wiki.facepunch.com/gmod/surface.GetTextureID).
 --- @return number|number
@@ -154,7 +170,8 @@ function surface.ScreenHeight() end
 --- @return number
 function surface.ScreenWidth() end
 
---- (client/menu) Sets the alpha multiplier that will influence all upcoming drawing operations.See also [render.SetBlend](https://wiki.facepunch.com/gmod/render.SetBlend). 
+--- (client/menu) Sets the alpha multiplier that will influence all upcoming drawing operations.
+--- See also [render.SetBlend](https://wiki.facepunch.com/gmod/render.SetBlend). 
 --- [https://wiki.facepunch.com/gmod/surface.SetAlphaMultiplier]
 --- @param multiplier number @ The multiplier ranging from 0 to 1.
 --- @return void
@@ -169,19 +186,24 @@ function surface.SetAlphaMultiplier(multiplier) end
 --- @return void
 function surface.SetDrawColor(r, g, b, a) end
 
---- (client/menu) Set the current font to be used for text operations later.The fonts must first be created with [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) or be one of the [Default Fonts](https://wiki.facepunch.com/gmod/Default%20Fonts). 
+--- (client/menu) Set the current font to be used for text operations later.
+--- The fonts must first be created with [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) or be one of the [Default Fonts](https://wiki.facepunch.com/gmod/Default%20Fonts). 
 --- [https://wiki.facepunch.com/gmod/surface.SetFont]
 --- @param fontName string @ The name of the font to use.
 --- @return void
 function surface.SetFont(fontName) end
 
---- (client/menu) Sets the material to be used in all upcoming draw operations using the surface library.Not to be confused with [render.SetMaterial](https://wiki.facepunch.com/gmod/render.SetMaterial).See also [surface.SetTexture](https://wiki.facepunch.com/gmod/surface.SetTexture).If you need to unset the texture, use the [draw.NoTexture](https://wiki.facepunch.com/gmod/draw.NoTexture) convenience function. 
+--- (client/menu) Sets the material to be used in all upcoming draw operations using the surface library.
+--- Not to be confused with [render.SetMaterial](https://wiki.facepunch.com/gmod/render.SetMaterial).
+--- See also [surface.SetTexture](https://wiki.facepunch.com/gmod/surface.SetTexture).
+--- If you need to unset the texture, use the [draw.NoTexture](https://wiki.facepunch.com/gmod/draw.NoTexture) convenience function. 
 --- [https://wiki.facepunch.com/gmod/surface.SetMaterial]
 --- @param material IMaterial @ The material to be used.
 --- @return void
 function surface.SetMaterial(material) end
 
---- (client/menu) Set the color of any future text to be drawn, can be set by either using R, G, B, A as separate numbers or by a [Color](https://wiki.facepunch.com/gmod/Color).Using a color structure is not recommended to be created procedurally. 
+--- (client/menu) Set the color of any future text to be drawn, can be set by either using R, G, B, A as separate numbers or by a [Color](https://wiki.facepunch.com/gmod/Color).
+--- Using a color structure is not recommended to be created procedurally. 
 --- [https://wiki.facepunch.com/gmod/surface.SetTextColor]
 --- @param r number @ The red value of color, or a [Color](https://wiki.facepunch.com/gmod/Color).
 --- @param g number @ The green value of color
@@ -197,7 +219,8 @@ function surface.SetTextColor(r, g, b, a) end
 --- @return void
 function surface.SetTextPos(x, y) end
 
---- (client/menu) Sets the texture to be used in all upcoming draw operations using the surface library.See also [surface.SetMaterial](https://wiki.facepunch.com/gmod/surface.SetMaterial) for an [IMaterial](https://wiki.facepunch.com/gmod/IMaterial) alternative. 
+--- (client/menu) Sets the texture to be used in all upcoming draw operations using the surface library.
+--- See also [surface.SetMaterial](https://wiki.facepunch.com/gmod/surface.SetMaterial) for an [IMaterial](https://wiki.facepunch.com/gmod/IMaterial) alternative. 
 --- [https://wiki.facepunch.com/gmod/surface.SetTexture]
 --- @param textureID number @ The ID of the texture to draw with returned by [surface.GetTextureID](https://wiki.facepunch.com/gmod/surface.GetTextureID).
 --- @return void
