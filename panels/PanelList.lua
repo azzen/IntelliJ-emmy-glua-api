@@ -1,0 +1,3 @@
+--- @class PanelList : PANEL
+PanelList = {}
+

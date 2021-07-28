@@ -1,0 +1,3 @@
+--- @class PropSelect : ContextBase
+PropSelect = {}
+

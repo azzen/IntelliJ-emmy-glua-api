@@ -1,0 +1,3 @@
+--- @class Slider : PANEL
+Slider = {}
+

@@ -1,0 +1,3 @@
+--- @class FingerVar : PANEL
+FingerVar = {}
+

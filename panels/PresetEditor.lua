@@ -1,0 +1,3 @@
+--- @class PresetEditor : DFrame
+PresetEditor = {}
+

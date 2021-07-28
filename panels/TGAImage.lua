@@ -1,0 +1,3 @@
+--- @class TGAImage : PANEL
+TGAImage = {}
+

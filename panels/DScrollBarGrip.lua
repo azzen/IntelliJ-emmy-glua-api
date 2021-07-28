@@ -1,0 +1,3 @@
+--- @class DScrollBarGrip : DPanel
+DScrollBarGrip = {}
+

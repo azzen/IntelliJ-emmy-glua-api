@@ -1,0 +1,3 @@
+--- @class RichText : PANEL
+RichText = {}
+

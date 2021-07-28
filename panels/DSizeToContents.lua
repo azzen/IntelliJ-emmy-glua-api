@@ -1,0 +1,3 @@
+--- @class DSizeToContents : PANEL
+DSizeToContents = {}
+

@@ -1,0 +1,3 @@
+--- @class AchievementIcon : PANEL
+AchievementIcon = {}
+

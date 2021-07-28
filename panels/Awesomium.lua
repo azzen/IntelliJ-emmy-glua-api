@@ -1,0 +1,3 @@
+--- @class Awesomium : PANEL
+Awesomium = {}
+

@@ -1,0 +1,3 @@
+--- @class HTML : PANEL
+HTML = {}
+

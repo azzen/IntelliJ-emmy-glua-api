@@ -1,0 +1,3 @@
+--- @class DNumPad : DPanel
+DNumPad = {}
+

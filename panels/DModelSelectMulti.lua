@@ -1,0 +1,3 @@
+--- @class DModelSelectMulti : DPropertySheet
+DModelSelectMulti = {}
+

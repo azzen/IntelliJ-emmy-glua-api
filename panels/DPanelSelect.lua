@@ -1,0 +1,3 @@
+--- @class DPanelSelect : DPanelList
+DPanelSelect = {}
+

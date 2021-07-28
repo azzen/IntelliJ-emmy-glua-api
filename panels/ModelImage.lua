@@ -1,0 +1,3 @@
+--- @class ModelImage
+ModelImage = {}
+

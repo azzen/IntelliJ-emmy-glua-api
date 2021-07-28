@@ -1,0 +1,3 @@
+--- @class DListViewHeaderLabel : DLabel
+DListViewHeaderLabel = {}
+

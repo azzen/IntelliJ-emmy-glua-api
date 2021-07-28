@@ -1,0 +1,3 @@
+--- @class DListBox : DPanelList
+DListBox = {}
+

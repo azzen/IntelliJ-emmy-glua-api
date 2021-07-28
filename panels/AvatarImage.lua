@@ -1,0 +1,3 @@
+--- @class AvatarImage : PANEL
+AvatarImage = {}
+

@@ -1,0 +1,3 @@
+--- @class DCategoryHeader : DButton
+DCategoryHeader = {}
+

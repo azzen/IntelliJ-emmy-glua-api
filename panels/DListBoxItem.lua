@@ -1,0 +1,3 @@
+--- @class DListBoxItem : DLabel
+DListBoxItem = {}
+
