@@ -2,7 +2,7 @@
 
 Documentation representation of the Garry's Mod Lua API to be used with the [EmmyLua Plugin](https://github.com/EmmyLua/IntelliJ-EmmyLua) for IntelliJ IDEA.
 
-There are still some errors and due to how EmmyLua and the GMod API work, autocompletion, type hinting might not work. For functions such as `FindMetaTable` or `vgui.Create` you need to tell EmmyLua what type is your variable using the `@type` annotation:
+There are still some errors and due to how EmmyLua and the GMod API work, autocompletion, type hinting might not work. For functions such as `FindMetaTable` or `vgui.Create` you need to tell to EmmyLua what type is your variable using the `@type` annotation:
 ```lua
 --- @type DLabel
 local my_label = vgui.Create('DLabel')
