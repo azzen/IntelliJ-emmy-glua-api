@@ -128,9 +128,9 @@ function Entity:BoundingRadius() end
 --- [https://wiki.facepunch.com/gmod/Entity:CallOnRemove]
 --- @param identifier string @ Identifier of the function within CallOnRemove
 --- @param removeFunc function @ Function to be called on remove
---- @param argn... vararg @ Optional arguments to pass to removeFunc. Do note that the first argument passed to the function will always be the entity being removed, and the arguments passed on here start after that.
+--- @param argn vararg @ Optional arguments to pass to removeFunc. Do note that the first argument passed to the function will always be the entity being removed, and the arguments passed on here start after that.
 --- @return void
-function Entity:CallOnRemove(identifier, removeFunc, argn...) end
+function Entity:CallOnRemove(identifier, removeFunc, argn) end
 
 --- (client/server) Resets all pose parameters such as aim_yaw, aim_pitch and rotation. 
 --- [https://wiki.facepunch.com/gmod/Entity:ClearPoseParameters]

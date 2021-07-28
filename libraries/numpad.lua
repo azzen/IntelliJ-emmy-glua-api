@@ -29,9 +29,9 @@ function numpad.FromButton() end
 --- @param ply Player @ The player whose numpad should be watched
 --- @param key number @ The key, corresponding to [KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
 --- @param name string @ The name of the function to run, corresponding with the one used in [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register)
---- @param ... vararg @ Arguments to pass to the function passed to [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register).
+--- @param  vararg @ Arguments to pass to the function passed to [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register).
 --- @return number
-function numpad.OnDown(ply, key, name, ...) end
+function numpad.OnDown(ply, key, name, ) end
 
 --- (server) Calls a function registered with [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register) when a player releases specified key.
 --- See for key pressed action: [numpad.OnDown](https://wiki.facepunch.com/gmod/numpad.OnDown) 
@@ -39,9 +39,9 @@ function numpad.OnDown(ply, key, name, ...) end
 --- @param ply Player @ The player whose numpad should be watched
 --- @param key number @ The key, corresponding to [KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
 --- @param name string @ The name of the function to run, corresponding with the one used in [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register)
---- @param ... vararg @ Arguments to pass to the function passed to [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register).
+--- @param  vararg @ Arguments to pass to the function passed to [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register).
 --- @return number
-function numpad.OnUp(ply, key, name, ...) end
+function numpad.OnUp(ply, key, name, ) end
 
 --- (server) Registers a numpad library action for use with [numpad.OnDown](https://wiki.facepunch.com/gmod/numpad.OnDown) and [numpad.OnUp](https://wiki.facepunch.com/gmod/numpad.OnUp) 
 --- [https://wiki.facepunch.com/gmod/numpad.Register]

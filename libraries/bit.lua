@@ -24,9 +24,9 @@ function bit.bnot(value) end
 --- (client/menu/server) Returns the bitwise OR of all values specified. 
 --- [https://wiki.facepunch.com/gmod/bit.bor]
 --- @param value1 number @ The first value.
---- @param ... vararg @ Extra values to be evaluated. (must all be numbers)
+--- @param  vararg @ Extra values to be evaluated. (must all be numbers)
 --- @return number
-function bit.bor(value1, ...) end
+function bit.bor(value1, ) end
 
 --- (client/menu/server) Swaps the byte order. 
 --- [https://wiki.facepunch.com/gmod/bit.bswap]

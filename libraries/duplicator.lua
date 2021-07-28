@@ -155,9 +155,9 @@ function duplicator.RegisterBoneModifier(key, boneModifier) end
 --- [https://wiki.facepunch.com/gmod/duplicator.RegisterConstraint]
 --- @param name string @ The unique name of new constraint
 --- @param callback function @ Function to be called when this constraint is created
---- @param ... any @ Arguments passed to the callback function
+--- @param  any @ Arguments passed to the callback function
 --- @return void
-function duplicator.RegisterConstraint(name, callback, ...) end
+function duplicator.RegisterConstraint(name, callback, ) end
 
 --- (client/server) This allows you to specify a specific function to be run when your SENT is pasted with the duplicator, instead of relying on the generic automatic functions. 
 --- [https://wiki.facepunch.com/gmod/duplicator.RegisterEntityClass]
